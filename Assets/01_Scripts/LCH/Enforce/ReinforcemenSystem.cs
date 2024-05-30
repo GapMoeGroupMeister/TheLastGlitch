@@ -5,32 +5,32 @@ using UnityEngine.Events;
 
 public class ReinforcemenSystem : MonoBehaviour
 {
-    [SerializeField] GameObject Reinforcementexplanation;
-    [SerializeField] GameObject[] ReinforceButton;
-    [SerializeField] GameObject[] TreeIine;
-    [SerializeField] private int Count = 0;
+    [SerializeField] GameObject _reinforcementexplanation;
+    [SerializeField] GameObject[] _reinforceButton;
+    [SerializeField] GameObject[] _treeIine;
+    [SerializeField] private int _count = 0;
     private void Start()
     {
-        Reinforcementexplanation.SetActive(false);
-        for(int i=1; i<ReinforceButton.Length; i++)
+        _reinforcementexplanation.SetActive(false);
+        for(int i=1; i<_reinforceButton.Length; i++)
         {
-            ReinforceButton[i].SetActive(false);
+            _reinforceButton[i].SetActive(false);
         }
-        for(int i= 0; i<TreeIine.Length; i++)
+        for(int i= 0; i<_treeIine.Length; i++)
         {
-            TreeIine[i].SetActive(false);
+            _treeIine[i].SetActive(false);
         }
     }
     public void LevelButtonClik()
     {
-        Reinforcementexplanation.SetActive(true);
+        _reinforcementexplanation.SetActive(true);
     }
 
     public void LevelUpClik()
     {
-        Reinforcementexplanation.SetActive(false);
-        TreeIine[Count].SetActive(true);
-        Count += 1;
-        ReinforceButton[Count].SetActive(true);
+        _reinforcementexplanation.SetActive(false);
+        _treeIine[_count].SetActive(true);
+        _count += 1;
+        _reinforceButton[_count].SetActive(true);
     }
 }
