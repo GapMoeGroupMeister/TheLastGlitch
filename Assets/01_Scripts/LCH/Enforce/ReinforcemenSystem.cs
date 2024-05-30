@@ -7,7 +7,13 @@ public class ReinforcemenSystem : MonoBehaviour
 {
     [SerializeField] GameObject Reinforcementexplanation;
     [SerializeField] GameObject[] ReinforceButton;
-    public UnityEvent LevelButton;
+    [SerializeField] GameObject[] TreeIine;
+    [SerializeField] private int Count = 0;
+    private SpriteRenderer sprite;
+    private void Awake()
+    {
+        sprite = GetComponent<SpriteRenderer>();
+    }
     private void Start()
     {
         Reinforcementexplanation.SetActive(false);
@@ -15,14 +21,21 @@ public class ReinforcemenSystem : MonoBehaviour
         {
             ReinforceButton[i].SetActive(false);
         }
+        for(int i= 0; i<TreeIine.Length; i++)
+        {
+            TreeIine[i].SetActive(false);
+        }
     }
-    private void Update()
-    {
-        
-    }
-
-    private void LevelButtonClik()
+    public void LevelButtonClik()
     {
         Reinforcementexplanation.SetActive(true);
+    }
+
+    public void LevelUpClik()
+    {
+        Reinforcementexplanation.SetActive(false);
+        TreeIine[Count].SetActive(true);
+        Count += 1;
+        ReinforceButton[Count].SetActive(true);
     }
 }
