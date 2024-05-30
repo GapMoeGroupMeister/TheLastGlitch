@@ -1,18 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using System;
 
 public class PlayerInput : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Action OnFireButton;
+    public Action OnRunPressed;
+
+    public Vector2 moveDir { get; private set; }
+
+    private void Update()
     {
-        
+        MoveInput();
+        RunSpeed();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MoveInput()
     {
-        
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+
+        moveDir = new Vector2(x, y);
+    }
+
+    public void FireInput()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            OnFireButton.Invoke();
+        }
+    }
+
+    public void RunSpeed()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            OnRunPressed.Invoke();
+        }
     }
 }
