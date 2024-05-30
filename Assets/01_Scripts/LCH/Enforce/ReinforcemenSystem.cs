@@ -5,14 +5,14 @@ using UnityEngine.Events;
 
 public class ReinforcemenSystem : MonoBehaviour
 {
-    [SerializeField] GameObject _reinforcementexplanation;
-    [SerializeField] GameObject[] _reinforceButton;
-    [SerializeField] GameObject[] _treeIine;
+    [SerializeField] private GameObject _reinforcementexplanation;
+    [SerializeField] private GameObject[] _reinforceButton;
+    [SerializeField] private GameObject[] _treeIine;
     [SerializeField] private int _count = 0;
     private void Start()
     {
         _reinforcementexplanation.SetActive(false);
-        for(int i=1; i<_reinforceButton.Length; i++)
+        for(int i= 1; i<_reinforceButton.Length; i++)
         {
             _reinforceButton[i].SetActive(false);
         }
