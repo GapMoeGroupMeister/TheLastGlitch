@@ -9,11 +9,6 @@ public class ReinforcemenSystem : MonoBehaviour
     [SerializeField] GameObject[] ReinforceButton;
     [SerializeField] GameObject[] TreeIine;
     [SerializeField] private int Count = 0;
-    private SpriteRenderer sprite;
-    private void Awake()
-    {
-        sprite = GetComponent<SpriteRenderer>();
-    }
     private void Start()
     {
         Reinforcementexplanation.SetActive(false);
