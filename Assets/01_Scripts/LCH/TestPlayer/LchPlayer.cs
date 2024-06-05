@@ -11,6 +11,8 @@ public class LchPlayer : MonoBehaviour
     [SerializeField] private LayerMask _thisIsUpGradeShop;
     [SerializeField] private LayerMask _thisIsShop;
     private Vector2 _boxCastSize = new Vector2(1f,1f);
+    private float _boxCastDirection = 0.6f;
+    [SerializeField] GameObject _UpGraddeScene;
 
     private void Awake()
     {
@@ -27,12 +29,13 @@ public class LchPlayer : MonoBehaviour
         if(_waitIsUpGradeShop)
         {
             Debug.Log("°¨ÁöµÊ");
+            _UpGraddeScene.SetActive(true);
         }
     }
 
     private void UpgradeShop()
     {
-        _waitIsUpGradeShop = Physics2D.BoxCast(transform.position,_boxCastSize,0f,transform.position,_thisIsUpGradeShop);
+        _waitIsUpGradeShop = Physics2D.BoxCast(transform.position,_boxCastSize,0f,transform.position,_boxCastDirection,_thisIsUpGradeShop);
     }
 
     private void GizmosDrawBox()
