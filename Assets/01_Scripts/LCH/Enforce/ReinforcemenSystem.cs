@@ -20,6 +20,7 @@ public class ReinforcemenSystem : MonoBehaviour
         {
             _treeIine[i].SetActive(false);
         }
+        gameObject.SetActive(false);
     }
     public void LevelButtonClik()
     {
