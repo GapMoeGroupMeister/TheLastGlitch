@@ -10,7 +10,6 @@ public class WeaponDataSO : ScriptableObject
 
     [Header("Tooltip")]
     public string _toolTip;
-
     [Header("State")]
     public string _name;
     public float _damage;
