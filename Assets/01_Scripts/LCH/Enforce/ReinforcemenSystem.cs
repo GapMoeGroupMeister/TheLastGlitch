@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class ReinforcemenSystem : MonoBehaviour
 {
-    [SerializeField] private GameObject _reinforcementexplanation;
+    [SerializeField] private GameObject _Description;
     [SerializeField] private GameObject[] _reinforceButton;
     [SerializeField] private GameObject[] _treeIine;
     [SerializeField] private ParticleSystem _effect;
@@ -14,7 +14,7 @@ public class ReinforcemenSystem : MonoBehaviour
     [SerializeField] private int _count = 0;
     private void Start()
     {
-        _reinforcementexplanation.SetActive(false);
+        _Description.SetActive(false);
         for(int i= 1; i<_reinforceButton.Length; i++)
         {
             _reinforceButton[i].SetActive(false);
@@ -27,7 +27,7 @@ public class ReinforcemenSystem : MonoBehaviour
     }
     public void LevelButtonClik()
     {
-        _reinforcementexplanation.SetActive(true);
+        _Description.SetActive(true);
     }
 
     public void LevelUpClik()
