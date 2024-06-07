@@ -10,7 +10,7 @@ public class ReinforcemenSystem : MonoBehaviour
     [SerializeField] private GameObject[] _treeIine;
     [SerializeField] private ParticleSystem _effect;
     [SerializeField] private GameObject _effectPrefab;
-    [SerializeField] private Transform _effectPos;
+    [SerializeField] private Transform[] _effectPos;
     [SerializeField] private int _count = 0;
     private void Start()
     {
@@ -32,10 +32,8 @@ public class ReinforcemenSystem : MonoBehaviour
 
     public void LevelUpClik()
     {
-        GameObject effectObj = Instantiate(_effectPrefab, _effectPos);
+        GameObject effectObj = Instantiate(_effectPrefab, _effectPos[_count]);
         _effect.Play();    
-
-        _reinforcementexplanation.SetActive(false);
         _treeIine[_count].SetActive(true);
         _count += 1;
         _reinforceButton[_count].SetActive(true);
