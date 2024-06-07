@@ -1773,6 +1773,7 @@ GameObject:
   - component: {fileID: 1974772007}
   - component: {fileID: 1974772006}
   - component: {fileID: 1974772010}
+  - component: {fileID: 1974772011}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1890,6 +1891,19 @@ MonoBehaviour:
   - {fileID: 1936012420}
   - {fileID: 703943574}
   _count: 0
+--- !u!114 &1974772011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974772005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93c423eb22e9154d9c6a7f0c4f69e9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weapon: {fileID: 0}
 --- !u!1 &2022478283
 GameObject:
   m_ObjectHideFlags: 0
@@ -1976,6 +1990,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1974772010}
         m_TargetAssemblyTypeName: ReinforcemenSystem, Assembly-CSharp
         m_MethodName: LevelUpClik
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1974772011}
+        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
+        m_MethodName: WeaponUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
