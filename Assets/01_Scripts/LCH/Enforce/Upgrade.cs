@@ -6,12 +6,16 @@ using UnityEngine;
 public class Upgrade : MonoBehaviour
 {
     [SerializeField] protected WeaponDataSO _weapon;
-    
+    private UpgradeToolTip _tooltip;
 
+    private void Awake()
+    {
+        _tooltip = GetComponent<UpgradeToolTip>();
+    }
     private void Start()
     {
-        
         _weapon = FindAnyObjectByType<WeaponManager>()._weaponQueue.Last();
+        _tooltip.Damage = _weapon._damage;
     }
     public void WeaponUpgrade()
     {
@@ -35,9 +39,6 @@ public class Upgrade : MonoBehaviour
         }
         _weapon._count++;
         Debug.Log("¶ì");
-
-
-
-
+        _tooltip.Damage += _weapon._damage;
     }
 }
