@@ -15,7 +15,7 @@ public class Upgrade : MonoBehaviour
     private void Start()
     {
         _weapon = FindAnyObjectByType<WeaponManager>()._weaponQueue.Last();
-        _tooltip.Damage = _weapon._damage;
+        _tooltip.damage = _weapon._damage;
     }
     public void WeaponUpgrade()
     {
@@ -39,6 +39,6 @@ public class Upgrade : MonoBehaviour
         }
         _weapon._count++;
         Debug.Log("¶ì");
-        _tooltip.Damage += _weapon._damage;
+        _tooltip.damage += _weapon._damage;
     }
 }

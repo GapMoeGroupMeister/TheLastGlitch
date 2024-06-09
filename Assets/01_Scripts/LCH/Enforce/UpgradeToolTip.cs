@@ -12,9 +12,9 @@ public class UpgradeToolTip : MonoBehaviour
     [Header("UseSmithy")]
     [SerializeField] private TextMeshProUGUI _useSmithy;
     [Header("Stage")]
-    public int Stage;
+    public int stage;
 
-    public float Damage;
+    public float damage;
 
     private ReinforcemenSystem _upgradeCount;
     protected Upgrade _weaponDamage;
@@ -33,13 +33,13 @@ public class UpgradeToolTip : MonoBehaviour
         switch(_upgradeCount.UpgradeCount)
         {
             case 0:
-                _tooltip.text = "공격력 강화:" + Damage/8 +"증가";
+                _tooltip.text = "공격력 강화:" + damage/8 +"증가";
                 break;
             case 1:
-                _tooltip.text = "공격력 강화:" + Damage / 6 + "증가";
+                _tooltip.text = "공격력 강화:" + damage / 6 + "증가";
                 break;
             case 2:
-                _tooltip.text = "공격력 강화:" + Damage * 2 + "증가";
+                _tooltip.text = "공격력 강화:" + damage * 2 + "증가";
                 break;
             default:
                 return;
