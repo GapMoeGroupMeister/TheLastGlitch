@@ -24,7 +24,7 @@ public class LchPlayer : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
         Vector2 move = new Vector2(x, y);
-        _rigid.velocity = move.normalized * _speed;
+        _rigid.velocity = move.normalized*_speed;
         UpgradeShop();
         if(_waitIsUpGradeShop)
         {
