@@ -15,11 +15,11 @@ MonoBehaviour:
   _image: {fileID: 0}
   _toolTip: "\uB300\uCDA9 \uBB34\uAE30 \uC124\uBA85"
   _name: "\uD50C\uB77C\uC988\uB9C8 \uC18C\uB4DC"
-  _damage: 9.1875
+  _damage: 7
   _attackSpeed: 1.5
   _attackRange: {x: 3, y: 2}
   _stunTime: 0
   _upGrandePrice: 0
   _needIngredients: 0
-  _count: 2
+  _count: 3
   _price: 0
