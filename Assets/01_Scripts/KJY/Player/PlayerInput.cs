@@ -22,6 +22,7 @@ public class PlayerInput : MonoBehaviour
     private void Update()
     {
         GetMouseInput();
+        FireInput();
         MoveInput();
         FrenzySkill();
         DashSkill();
@@ -45,7 +46,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            OnFireButton.Invoke();
+            OnFireButton?.Invoke();
         }
     }
 
