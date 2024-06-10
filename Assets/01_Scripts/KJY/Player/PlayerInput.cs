@@ -6,15 +6,31 @@ using System;
 
 public class PlayerInput : MonoBehaviour
 {
+    public UnityEvent<Vector2> OnPoiterChange;
     public Action OnFireButton;
-    public Action OnRunPressed;
+    public Action OnFrenzyPressed;
+    public Action OnDashPressed;
 
+    private Camera mainCam;
     public Vector2 moveDir { get; private set; }
+
+    private void Start()
+    {
+        mainCam = Camera.main;
+    }
 
     private void Update()
     {
+        GetMouseInput();
         MoveInput();
-        RunSpeed();
+        FrenzySkill();
+        DashSkill();
+    }
+
+    public void GetMouseInput()
+    {
+        Vector3 mouse = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        OnPoiterChange?.Invoke(mouse);
     }
 
     public void MoveInput()
@@ -33,11 +49,19 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    public void RunSpeed()
+    public void FrenzySkill()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            OnFrenzyPressed?.Invoke();
+        }
+    }
+
+    public void DashSkill()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            OnRunPressed.Invoke();
+            OnDashPressed?.Invoke();
         }
     }
 }

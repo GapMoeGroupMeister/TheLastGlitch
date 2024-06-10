@@ -1,32 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     private PlayerInput _playerInput;
     private Rigidbody2D _rigid;
+    private SpriteRenderer _spriteRenderer;
+    private PlayerSkill _playerSkill;
 
-    [SerializeField] private float _currentSpeed = 6f;
-    [SerializeField] private float _normalSpeed = 6f;
-    [SerializeField] private float _runSpeed = 10f;
-
-    private bool _frenzyCoolTime = false;
-
-    private void Awake()
-    {
-        _playerInput = GetComponent<PlayerInput>();
-        _rigid = GetComponent<Rigidbody2D>();
-    }
+    private float _speed;
+    
+    public static PlayerMovement instance;
 
     private void OnEnable()
     {
-        _playerInput.OnRunPressed += RunSpeed;
+        _playerSkill.OnChangeSpeed += ChangeSpeed;
     }
 
     private void OnDisable()
     {
-        _playerInput.OnRunPressed -= RunSpeed;
+        _playerSkill.OnChangeSpeed -= ChangeSpeed;
+    }
+
+    private void Awake()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _playerInput = GetComponent<PlayerInput>();
+        _rigid = GetComponent<Rigidbody2D>();
+        _playerSkill = GetComponent<PlayerSkill>();
+    }
+
+    private void Start()
+    {
+        _speed = _playerSkill._currentSpeed;
     }
 
     private void FixedUpdate()
@@ -34,26 +42,18 @@ public class PlayerMovement : MonoBehaviour
         PlayerMove();
     }
 
+    private void ChangeSpeed()
+    {
+        _speed = _playerSkill._currentSpeed;
+    }
+
     private void PlayerMove()
     {
-        _rigid.velocity = _playerInput.moveDir.normalized * _currentSpeed;
+        _rigid.velocity = _playerInput.moveDir.normalized * _speed;
     }
 
-    private void RunSpeed()
+    public void FaceDirection(Vector2 mousePos)
     {
-        if (!_frenzyCoolTime)
-        {
-            StartCoroutine(FrenzySkill());
-        }
-    }
-
-    private IEnumerator FrenzySkill()
-    {
-        _currentSpeed = _runSpeed;
-        yield return new WaitForSeconds(2f);
-        _currentSpeed = _normalSpeed;
-        _frenzyCoolTime = true;
-        yield return new WaitForSeconds(4f);
-        _frenzyCoolTime = false;
+        _spriteRenderer.flipX = transform.position.x > mousePos.x;
     }
 }
