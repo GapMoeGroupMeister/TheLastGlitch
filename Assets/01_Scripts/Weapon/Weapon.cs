@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
-    [SerializeField] protected WeaponDataSO _weaponData;
+    public WeaponDataSO _weaponData;
     
 
 
