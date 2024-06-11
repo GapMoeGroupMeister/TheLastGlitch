@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AgentMoveMent : MonoBehaviour
+public class AgentMovement : MonoBehaviour
 {
     [Header("Setting")]
     public float moveSpeed = 5f;
