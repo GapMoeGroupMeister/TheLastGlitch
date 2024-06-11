@@ -11,6 +11,8 @@ public class WeaponManager : MonoBehaviour
 
     private void Awake()
     {
+        _defaltWeapon = GetComponentInChildren<Weapon>()._weaponData;
+
         _weaponQueue = new Queue<WeaponDataSO>();
         _weaponQueue.Enqueue(_defaltWeapon);
         
