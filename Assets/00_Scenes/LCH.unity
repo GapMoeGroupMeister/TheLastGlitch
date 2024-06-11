@@ -1740,6 +1740,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaltWeapon: {fileID: 11400000, guid: 8b3c1f873ad02674db1b1ed574ae446f, type: 2}
+  _tempWeapon: {fileID: 11400000, guid: 75b347e1055cc694db1352a5751c619d, type: 2}
+  _selectedWeapon: {fileID: 0}
 --- !u!4 &1538755121
 Transform:
   m_ObjectHideFlags: 0
