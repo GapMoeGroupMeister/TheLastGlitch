@@ -5,7 +5,7 @@ using UnityEngine;
 public class Agent : MonoBehaviour
 {
     #region
-    public AgentMoveMent MovementCompo { get; private set; }
+    public AgentMovement MovementCompo { get; private set; }
     public Health HealthCompo { get; private set; }
     #endregion
 
@@ -13,7 +13,7 @@ public class Agent : MonoBehaviour
     
     protected virtual void Awake()
     {
-        MovementCompo = GetComponent<AgentMoveMent>();
+        MovementCompo = GetComponent<AgentMovement>();
         MovementCompo.Initialize(this);
         HealthCompo = GetComponent<Health>();
         HealthCompo.Initialize(this);
