@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: SuicideBomerSO
   m_EditorClassIdentifier: 
   attackRadius: 0
-  chaseSpeed: 0
-  patrolDistance: 0
-  attackPower: 0
-  attackSpeed: 0
-  health: 0
+  chaseSpeed: 7
+  attackPower: 10
+  attackSpeed: 999
+  health: 7
