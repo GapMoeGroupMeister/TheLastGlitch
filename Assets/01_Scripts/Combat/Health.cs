@@ -9,9 +9,9 @@ public class Health : MonoBehaviour
     public UnityEvent OnHitEvent;
     public UnityEvent OnDeadEvent;
 
-    [SerializeField] private int _maxHealth = 100;
+    [SerializeField] private float _maxHealth = 100;
 
-    private int _currentHealth;
+    private float _currentHealth;
     Agent _onwer;
 
     public void Initialize(Agent agent)
@@ -19,13 +19,12 @@ public class Health : MonoBehaviour
         _onwer = agent;
         ResetHealth();
     }
-
     private void ResetHealth()
     {
         _currentHealth = _maxHealth;
     }
 
-    public void TakeDamage(int amuont, Vector2 normal, Vector2 point, float knockbackPowr)
+    public void TakeDamage(float amuont)
     {
         _currentHealth -= amuont;
         OnHitEvent?.Invoke();
