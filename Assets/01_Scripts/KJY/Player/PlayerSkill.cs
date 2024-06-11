@@ -75,13 +75,10 @@ public class PlayerSkill : MonoBehaviour
     private IEnumerator Dash()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        print("Pos");
         _dashDirection = (mousePos - (Vector2)transform.position).normalized;
-        print("Dir");
         IsDashing = true;
         _player.RbCompo.velocity = Vector2.zero;
         _player.RbCompo.AddForce(_dashDirection * _dashPower, ForceMode2D.Impulse);
-        print("Add");
         _dashCoolTime = true;
         yield return new WaitForSeconds(1f);
         _player.RbCompo.velocity = Vector2.zero;
