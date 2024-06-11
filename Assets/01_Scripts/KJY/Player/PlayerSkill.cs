@@ -9,8 +9,8 @@ public class PlayerSkill : MonoBehaviour
 {
     public Action OnChangeSpeed;
 
+    private Player _player;
     private PlayerInput _playerInput;
-    private Rigidbody2D _rigid;
     private float _dashDistance;
 
     private bool _frenzyCoolTime = false;
@@ -22,15 +22,16 @@ public class PlayerSkill : MonoBehaviour
     [SerializeField] private float _normalSpeed = 6f;
     public float _currentSpeed = 6f;
 
+    public bool IsDashing { get; private set; }
+
     private void Update()
     {
-        
     }
 
     private void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
-        _rigid = GetComponent<Rigidbody2D>();
+        _player = GetComponent<Player>();
         _playerInput.OnFrenzyPressed += FrenzySkill;
         _playerInput.OnDashPressed += DashSkill;
     }
@@ -77,11 +78,14 @@ public class PlayerSkill : MonoBehaviour
         print("Pos");
         _dashDirection = (mousePos - (Vector2)transform.position).normalized;
         print("Dir");
-        _rigid.AddForce(Vector2.down * _dashPower, ForceMode2D.Impulse);
+        IsDashing = true;
+        _player.RbCompo.velocity = Vector2.zero;
+        _player.RbCompo.AddForce(_dashDirection * _dashPower, ForceMode2D.Impulse);
         print("Add");
         _dashCoolTime = true;
-        yield return new WaitForSeconds(2f);
-        _rigid.velocity = Vector2.zero;
+        yield return new WaitForSeconds(1f);
+        _player.RbCompo.velocity = Vector2.zero;
+        IsDashing = false;
         _dashCoolTime = false;
     }
 }

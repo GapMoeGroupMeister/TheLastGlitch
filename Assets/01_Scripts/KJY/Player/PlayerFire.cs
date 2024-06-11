@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerFire : MonoBehaviour
 {
+    private float _maxDesiredAngle = 90f;
     private float _desiredAngle;
     private bool _isAttack = false;
-    private float _attackCoolTime = 0f;
-
     private PlayerInput _playerInput;
 
     private void Awake()
     {
-        _playerInput = GetComponentInParent<PlayerInput>();   
+        _playerInput = GetComponentInParent<PlayerInput>();
     }
 
     private void OnEnable()
@@ -28,8 +28,7 @@ public class PlayerFire : MonoBehaviour
     public void AimWeapon(Vector2 pointerPos)
     {
         Vector3 aimDir = (Vector3)pointerPos - transform.position;
-        _desiredAngle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg + 30f;
-        //AdjustWeaponRendering();
+        _desiredAngle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg + 50f;
         transform.rotation = Quaternion.AngleAxis(_desiredAngle, Vector3.forward);
     }
 
@@ -39,22 +38,18 @@ public class PlayerFire : MonoBehaviour
         {
             print("dd");
             StartCoroutine(RotationWeapon());
-            _isAttack = false;
-            _attackCoolTime = 0f;
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(transform.DORotate(new Vector3(0f, 0f, _desiredAngle - _maxDesiredAngle), 0.2f));
+            sequence.Append(transform.DORotate(new Vector3(0f, 0f, _desiredAngle), 0.1f));
+            sequence.Play();
         }
     }
 
     private IEnumerator RotationWeapon()
     {
         _isAttack = true;
-        Vector3 rotate1 = new Vector3(0f, 0f, _desiredAngle - 30f);
-        Vector3 rotate2 = new Vector3(0f, 0f, _desiredAngle - 50f);
-        Quaternion rotation1 = Quaternion.Euler(rotate1);
-        Quaternion rotation2 = Quaternion.Euler(rotate2);
-        transform.rotation = Quaternion.Lerp(rotation1, rotation2, 4f / _attackCoolTime);
-        _attackCoolTime += 60 * Time.deltaTime;
-        yield return new WaitForSeconds(Time.deltaTime);
-
+        yield return new WaitForSeconds(0.3f);
+        _isAttack = false;
     }
 
     

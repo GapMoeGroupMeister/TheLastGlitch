@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private Player _player;
     private PlayerInput _playerInput;
-    private Rigidbody2D _rigid;
     private SpriteRenderer _spriteRenderer;
     private PlayerSkill _playerSkill;
 
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _playerInput = GetComponent<PlayerInput>();
-        _rigid = GetComponent<Rigidbody2D>();
+        _player = GetComponent<Player>();
         _playerSkill = GetComponent<PlayerSkill>();
     }
 
@@ -49,7 +49,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlayerMove()
     {
-        _rigid.velocity = _playerInput.moveDir.normalized * _speed;
+        if (_playerSkill.IsDashing) return;
+        _player.RbCompo.velocity = _playerInput.moveDir.normalized * _speed;
     }
 
     public void FaceDirection(Vector2 mousePos)
