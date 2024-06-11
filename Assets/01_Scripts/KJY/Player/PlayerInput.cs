@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
-using System;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -22,6 +20,7 @@ public class PlayerInput : MonoBehaviour
     private void Update()
     {
         GetMouseInput();
+        FireInput();
         MoveInput();
         FrenzySkill();
         DashSkill();
@@ -45,7 +44,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            OnFireButton.Invoke();
+            OnFireButton?.Invoke();
         }
     }
 
