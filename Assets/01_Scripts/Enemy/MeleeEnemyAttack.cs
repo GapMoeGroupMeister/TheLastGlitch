@@ -5,36 +5,59 @@ using UnityEngine;
 public class MeleeEnemyAttack : MonoBehaviour
 {
     [SerializeField] private LayerMask whatIsPlayer;
+    [SerializeField] private Health _playerHealth;
+    [SerializeField] private GameObject _player;
     public EnemyDataSO status;
-    void Update()
+
+    private void Start()
     {
-        DetectAndAttack();
+        StartCoroutine(AttackRoutine());
     }
 
-    void DetectAndAttack()
+    private void Awake()
     {
-        // 원형 범위 내의 모든 콜라이더 감지
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, status.attackRadius, whatIsPlayer);
+        _playerHealth = _player.GetComponent<Health>();
+    }
 
-        // 감지된 콜라이더 중 Player 태그를 가진 오브젝트 찾기
+    private void DetectAndAttack()
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, status.attackRadius, whatIsPlayer);
+
+        Debug.Log(hitColliders.Length);
+
         foreach (var hitCollider in hitColliders)
         {
             if (hitCollider.CompareTag("Player"))
             {
-                // Player 오브젝트를 공격하는 로직
-                Attack(hitCollider.gameObject);
+                Debug.Log("TatsuKete");
+                Attack();
             }
         }
     }
 
-    void Attack(GameObject player)
+    private void OnDrawGizmos()
     {
-        StartCoroutine(AttackCoolTime());
+        Gizmos.DrawWireSphere(transform.position, status.attackRadius);
     }
 
-    private IEnumerator AttackCoolTime()
+    public void Attack()
     {
-        yield return new WaitForSeconds(status.attackSpeed);
+        
+        if (_playerHealth != null)
+        {
+            _playerHealth.TakeDamage(status.attackPower);
+        }
+        
+    }
+
+    private IEnumerator AttackRoutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(status.attackSpeed);
+            
+            DetectAndAttack();
+        }
     }
 
 }
