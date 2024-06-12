@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeEnemyAttack : EnemyAttack
+public class SuicideBomberAttack : EnemyAttack
 {
-    private void Start()
-    {
-        StartCoroutine(AttackRoutine());
-    }
-
     private void Awake()
     {
         _playerHealth = _player.GetComponent<Health>();
     }
 
+    private void Start()
+    {
+        StartCoroutine(AttackRoutine());
+    }
     private void DetectAndAttack()
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, status.attackRadius, whatIsPlayer);
@@ -24,8 +23,9 @@ public class MeleeEnemyAttack : EnemyAttack
         {
             if (hitCollider.CompareTag("Player"))
             {
-                Debug.Log("TatsuKete");
+                Debug.Log("Pung");
                 Attack();
+                gameObject.SetActive(false);
             }
         }
     }
@@ -54,5 +54,4 @@ public class MeleeEnemyAttack : EnemyAttack
             DetectAndAttack();
         }
     }
-
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeEnemyMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     public EnemyDataSO stats;
     [SerializeField] private Transform _target;

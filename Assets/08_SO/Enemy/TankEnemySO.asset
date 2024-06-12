@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e600a60046f40b4fa84d9979048754c, type: 3}
-  m_Name: SuicideBomerSO
+  m_Name: TankEnemySO
   m_EditorClassIdentifier: 
-  attackRadius: 0.5
-  chaseSpeed: 7
-  attackPower: 10
-  attackSpeed: 0.5
-  health: 7
+  attackRadius: 1.5
+  chaseSpeed: 4
+  attackPower: 2
+  attackSpeed: 3
+  health: 20
