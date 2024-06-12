@@ -14,13 +14,12 @@ public class UpgradeToolTip : MonoBehaviour
     [Header("Stage")]
     public int stage;
 
-    public float damage;
-
     private ReinforcemenSystem _upgradeCount;
-    protected Upgrade _weaponDamage;
+    private WeaponManager _weaponManager;
     private void Awake()
     {
         _upgradeCount = GetComponent<ReinforcemenSystem>();
+        _weaponManager = GameObject.Find("WeaponManager").GetComponent<WeaponManager>();
     }
 
     private void Start()
@@ -33,13 +32,13 @@ public class UpgradeToolTip : MonoBehaviour
         switch(_upgradeCount.UpgradeCount)
         {
             case 0:
-                _tooltip.text = "공격력 강화:" + damage/8 +"증가";
+                _tooltip.text = "공격력 강화 : 공격력 " + Mathf.FloorToInt(_weaponManager._weaponQueue.Last()._damage/ 8) +" 증가";
                 break;
             case 1:
-                _tooltip.text = "공격력 강화:" + damage / 6 + "증가";
+                _tooltip.text = "공격력 강화 :  공격력 " +  Mathf.FloorToInt(_weaponManager._weaponQueue.Last()._damage / 6) + " 증가";
                 break;
             case 2:
-                _tooltip.text = "공격력 강화:" + damage * 2 + "증가";
+                _tooltip.text = "공격력 강화 :  공격력 " + Mathf.FloorToInt(_weaponManager._weaponQueue.Last()._damage * 2) + " 증가";
                 break;
             default:
                 return;

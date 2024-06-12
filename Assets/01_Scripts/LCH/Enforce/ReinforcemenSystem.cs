@@ -14,12 +14,25 @@ public class ReinforcemenSystem : MonoBehaviour
     public int UpgradeCount = 0;
     private void Start()
     {
+        UpGradeButtonFalse();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void UpGradeButtonFalse()
+    {
         _Description.SetActive(false);
-        for(int i= 1; i<_reinforceButton.Length; i++)
+        for (int i = 1; i < _reinforceButton.Length; i++)
         {
             _reinforceButton[i].SetActive(false);
         }
-        for(int i= 0; i<_treeIine.Length; i++)
+        for (int i = 0; i < _treeIine.Length; i++)
         {
             _treeIine[i].SetActive(false);
         }
