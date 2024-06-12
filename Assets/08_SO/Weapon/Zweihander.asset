@@ -15,7 +15,11 @@ MonoBehaviour:
   _image: {fileID: 0}
   _toolTip: "\uB300\uCDA9 \uBB34\uAE30 \uC124\uBA85"
   _name: "\uCE20\uBC14\uC774\uD578\uB354"
-  _damage: 20
+  _damage: 59.0625
   _attackSpeed: 1.5
   _attackRange: {x: 6, y: 4}
   _stunTime: 1.5
+  _upGrandePrice: 0
+  _needIngredients: 0
+  _count: 3
+  _price: 0
