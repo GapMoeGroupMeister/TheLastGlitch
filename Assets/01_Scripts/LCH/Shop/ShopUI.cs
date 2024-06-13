@@ -8,4 +8,9 @@ public class ShopUI : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    public void OnButtonClik()
+    {
+        Debug.Log("¾Æ¾Ó");
+    }
 }
