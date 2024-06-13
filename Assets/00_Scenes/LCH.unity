@@ -5454,6 +5454,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8092e91bb0ea9fa4c9e3b7196eceea5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnWeaponChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2106179893}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: WeaponChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _weaponData: {fileID: 11400000, guid: 8b3c1f873ad02674db1b1ed574ae446f, type: 2}
 --- !u!61 &2106179894
 BoxCollider2D:
