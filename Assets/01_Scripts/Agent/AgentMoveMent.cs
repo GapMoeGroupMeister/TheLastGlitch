@@ -1,43 +1,135 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AgentMovement : MonoBehaviour
 {
-    [Header("Setting")]
+
+    [Header("Reference")]
+    [SerializeField] private Transform _groundCheckerTrm;
+    [Header("Settings")]
     public float moveSpeed = 5f;
-    public float dashPower = 10f;
-
-    public Rigidbody2D _rigid { get; private set; }
-
-    protected float _XMove;
-    private float _YMove;
-
-    private Agent _onwer;
-
+    public float jumpPower = 7f;
+    public float extraGravity = 30f;
+    public float gravityDelay = 0.15f;
+    [SerializeField] private LayerMask _whatIsGround;
+    [SerializeField] private Vector2 _groundCheckerSize;
+    public Rigidbody2D rbCompo { get; private set; }
+    public NotifyValue<bool> isGround = new NotifyValue<bool>();
+    protected float _xMove;
+    private float _timeInAir;
+    private Agent _owner;
+    public float knockbackTime = 0.2f;
+    protected bool _canMove = true;
+    protected Coroutine _kbCoroutine;
     public void Initialize(Agent agent)
     {
-        _onwer = agent;
-        _rigid = GetComponent<Rigidbody2D>();
+        _owner = agent;
+        rbCompo = GetComponent<Rigidbody2D>();
     }
-
-    public void GetMoveMent(float _xMove, float _yMove)
+    public void JumpTo(Vector2 force)
     {
-        _XMove = _xMove;
-        _YMove = _yMove;
+        SetMovement(force.x);
+        rbCompo.AddForce(force, ForceMode2D.Impulse);
     }
-
-    public void MoveStop(bool isStop = false)
+    public void SetMovement(float xMove)
     {
-        _XMove = 0;
-        if(isStop)
+        _xMove = xMove;
+    }
+    public void StopImmediately(bool isYStop = false)
+    {
+        _xMove = 0;
+        if (isYStop)
         {
-            _rigid.velocity = Vector2.zero;
+            rbCompo.velocity = Vector2.zero;
         }
         else
         {
-            _rigid.velocity = new Vector2(_XMove, _YMove);
+            rbCompo.velocity = new Vector2(_xMove, rbCompo.velocity.y);
         }
     }
+    public void Jump(float multiplier = 1f)
+    {
+        _timeInAir = 0;
+        rbCompo.velocity = Vector2.zero;
+        rbCompo.AddForce(Vector2.up * jumpPower * multiplier, ForceMode2D.Impulse);
+    }
+    private void Update()
+    {
+        if (!isGround.Value)
+        {
+            _timeInAir += Time.deltaTime;
+        }
+        else
+        {
+            _timeInAir = 0;
+        }
 
+    }
+    private void FixedUpdate()
+    {
+        CheckGrounded();
+        ApplyExtraGravity();
+
+        ApplyXMovement();
+    }
+
+    private void ApplyXMovement()
+    {
+        if (_canMove == false) return;
+
+        rbCompo.velocity = new Vector2(_xMove * moveSpeed, rbCompo.velocity.y);
+    }
+
+    public bool CheckGrounded()
+    {
+        Collider2D collider = Physics2D.OverlapBox(_groundCheckerTrm.position, _groundCheckerSize, 0, _whatIsGround);
+        isGround.Value = collider != null;
+        return collider;
+    }
+    private void ApplyExtraGravity()
+    {
+        if (_timeInAir > gravityDelay)
+            rbCompo.AddForce(new Vector2(0, -extraGravity));
+    }
+
+    #region Knockback Region
+    public void GetKnockback(Vector3 direction, float power)
+    {
+        Vector3 difference = direction * power * rbCompo.mass;
+        rbCompo.AddForce(difference, ForceMode2D.Impulse);
+
+        if (_kbCoroutine != null)
+            StopCoroutine(_kbCoroutine);
+
+        _kbCoroutine = StartCoroutine(KnockbackCoroutine());
+    }
+
+    private IEnumerator KnockbackCoroutine()
+    {
+        _canMove = false;
+        yield return new WaitForSeconds(knockbackTime);
+        rbCompo.velocity = Vector2.zero;
+        _canMove = true;
+    }
+
+    public void ClearKnockback()
+    {
+        rbCompo.velocity = Vector2.zero;
+        _canMove = true;
+    }
+    #endregion
+
+#if UNITY_EDITOR    
+    private void OnDrawGizmosSelected()
+    {
+        if (_groundCheckerTrm == null) return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(_groundCheckerTrm.position, _groundCheckerSize);
+        Gizmos.color = Color.white;
+    }
+#endif
 }
