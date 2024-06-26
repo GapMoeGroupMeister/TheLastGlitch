@@ -32,7 +32,7 @@ public class LchPlayer : MonoBehaviour
             Debug.Log("°¨ÁöµÊ");
             _UpGraddeUI.SetActive(true);
         }
-        if(_waitIsShop)
+        if(_waitIsShop && Input.GetKeyDown(KeyCode.F))
         {
             _ShopUI.SetActive(true);
         }
