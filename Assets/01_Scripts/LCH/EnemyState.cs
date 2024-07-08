@@ -1,20 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public abstract class EnemyState<T> where T : class
+
+public class EnemyState<T> : State<T> where T : Enum
 {
-    public virtual void UpdateState(T state)
+    public EnemyState(Agent enemyBase, StateMachine<T> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
-
     }
 
-    public virtual void Enter(T state)
+    public override void Enter()
     {
-
+        base.Enter();
     }
-    public virtual void Exit(T state)
-    {
 
+    public override void Exit()
+    {
+        base.Exit();
+    }
+
+    public override void UpdateState()
+    {
+        base.UpdateState();
     }
 }
