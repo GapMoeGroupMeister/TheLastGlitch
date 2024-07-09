@@ -29,6 +29,7 @@ public class State<T> where T : Enum
     }
     public virtual void Exit()
     {
+        _agent.AnimatorComponent.SetBool(_animBoolHash, false);
         _endTriggerCalled = true;
     }
 }
