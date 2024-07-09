@@ -7,7 +7,7 @@ public class StateMachine<T> where T : Enum
     public State<T> CurrentState { get; private set; }
     private Agent _agent;
 
-    public void Init(T state, Agent agent)
+    public void InitInitialize(T state, Agent agent)
     {
         _agent = agent;
         CurrentState = stateDict[state];
