@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Drone : MonoBehaviour
 {
-    protected int detectRadius;
+    protected float detectRadius;
     protected float speed;
     protected Rigidbody2D _rdCompo;
     [SerializeField] private LayerMask enemyLayer;
@@ -27,7 +27,7 @@ public abstract class Drone : MonoBehaviour
     protected abstract void Attack();
     private void Detect()
     {
-        Collider2D target = Physics2D.OverlapCircle(transform.position, detectRadius, enemyLayer);
+        Collider2D target = Physics2D.OverlapCircle(transform.position + new Vector3(2.5f, -2.5f, 0), detectRadius, enemyLayer);
         if (target != null)
         {
             Attack();
@@ -36,6 +36,6 @@ public abstract class Drone : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectRadius);
+        Gizmos.DrawWireSphere(transform.position + new Vector3(2, -2.5f, 0), detectRadius);
     }
 }
