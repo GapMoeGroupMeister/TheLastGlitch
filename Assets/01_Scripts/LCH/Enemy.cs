@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public enum EnemyStateEnum
 {
     Idle,
@@ -27,5 +29,10 @@ public class Enemy : AttackRange
     public override void SetDeadState()
     {
         
+    }
+
+    public override void AnimationEndTrigger()
+    {
+       
     }
 }

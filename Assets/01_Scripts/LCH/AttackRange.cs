@@ -12,6 +12,14 @@ public abstract class AttackRange : Agent
     public LayerMask whatisPlayer;
     public ContactFilter2D contactFilter;
 
+    protected virtual void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, detectRadius);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRadius);
+        Gizmos.color = Color.white;
+    }
 
-
+    public abstract void AnimationEndTrigger();
 }
