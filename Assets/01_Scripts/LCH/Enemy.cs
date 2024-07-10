@@ -5,7 +5,16 @@ public enum EnemyStateEnum
     Idle,
     Attack,
     Chase,
-    Dead,
+    Dead
+}
+
+public enum BossStateEnum
+{
+    Idle,
+    Closed,
+    Opened,
+    AngryOpened,
+    AngryClosed
 }
 public class Enemy : EnemySetting
 {

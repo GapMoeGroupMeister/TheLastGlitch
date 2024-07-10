@@ -18,7 +18,7 @@ public class State<T> where T : Enum
 
     public virtual void UpdateState()
     {
-
+        
     }
 
     public virtual void Enter()
