@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public enum EnemyStateEnum
 {
     Idle,
@@ -5,9 +7,14 @@ public enum EnemyStateEnum
     Chase,
     Dead,
 }
-public class Enemy : AttackRange
+public class Enemy : EnemySetting
 {
     public StateMachine<EnemyStateEnum> stateMachine { get; private set; }
+
+    public override void SetDeadState()
+    {
+        stateMachine.ChangeState(EnemyStateEnum.Dead);
+    }
 
     protected override void Awake()
     {
@@ -24,8 +31,5 @@ public class Enemy : AttackRange
     {
         stateMachine.CurrentState.UpdateState();
     }
-    public override void SetDeadState()
-    {
-        
-    }
+   
 }
