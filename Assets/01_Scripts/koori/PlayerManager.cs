@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    private LchTestPlayer _player;
+    private TestPlayer _player;
     public static PlayerManager instance;
 
     private void Awake()
@@ -16,13 +16,13 @@ public class PlayerManager : MonoBehaviour
         else
             Destroy(this);
     }
-    public LchTestPlayer Player
+    public TestPlayer Player
     {
         get
         {
             if(_player == null)
             {
-                _player = FindAnyObjectByType<LchTestPlayer>();
+                _player = FindAnyObjectByType<TestPlayer>();
             }
             return _player;
         }
