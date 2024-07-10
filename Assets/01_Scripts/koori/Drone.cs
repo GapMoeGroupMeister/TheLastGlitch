@@ -8,7 +8,7 @@ public abstract class Drone : MonoBehaviour
     protected float speed;
     protected Rigidbody2D _rdCompo;
     [SerializeField] private LayerMask enemyLayer;
-    private TestPlayer _player;
+    private LchTestPlayer _player;
     private void Awake()
     {
         _rdCompo = GetComponent<Rigidbody2D>();
