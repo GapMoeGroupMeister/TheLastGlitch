@@ -6,13 +6,15 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    public UnityEvent OnHitEvent;
-    public UnityEvent OnDeadEvent;
-
     [SerializeField] private float _maxHealth = 100;
 
     private float _currentHealth;
     Agent _onwer;
+
+    private void Update()
+    {
+        Debug.Log(_currentHealth);
+    }
 
     public void Initialize(Agent agent)
     {
@@ -27,11 +29,9 @@ public class Health : MonoBehaviour
     public void TakeDamage(float amuont)
     {
         _currentHealth -= amuont;
-        OnHitEvent?.Invoke();
         if(_currentHealth <=0)
         {
-            _currentHealth = _maxHealth;
-            OnDeadEvent?.Invoke();
+            gameObject.SetActive(false);
         }
     }
 }
