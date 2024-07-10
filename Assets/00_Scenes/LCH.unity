@@ -354,8 +354,10 @@ GameObject:
   m_Component:
   - component: {fileID: 690212583}
   - component: {fileID: 690212582}
+  - component: {fileID: 690212585}
+  - component: {fileID: 690212584}
   m_Layer: 3
-  m_Name: Square (4)
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,6 +430,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &690212584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690212581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52a0a993d92a0e848ab03d1510175044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _input: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
+  _isAttack: 0
+  _isDoubleAttack: 0
+  _isActiveSkill: 0
+  _isInteraction: 0
+  _isSwaping: 0
+  _isUseGadget: 0
+  _isCanAttack: 1
+  _xMove: 0
+--- !u!114 &690212585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690212581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e097a34ae3b304db70a4ab9e04b385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groundCheckerTrm: {fileID: 0}
+  moveSpeed: 5
+  jumpPower: 7
+  extraGravity: 30
+  gravityDelay: 0.15
+  _whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  _groundCheckerSize: {x: 0, y: 0}
+  isGround:
+    _value: 0
+  knockbackTime: 0.2
 --- !u!1 &728115563
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,8 +972,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6fc7f14758bf8043a8373a0022a0573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectRadius: 0
-  attackRadius: 0
+  detectRadius: 15
+  attackRadius: 8
   knockbackPower: 0
   attackCooldown: 0
   damage: 0
