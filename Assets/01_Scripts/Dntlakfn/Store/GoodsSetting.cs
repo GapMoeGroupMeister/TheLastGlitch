@@ -36,20 +36,23 @@ public class GoodsSetting : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        // 아이탬리스트에 있는것 중에 하나 뽑음
-        item = items.list[Random.Range(0, items.list.Count)];
-
-        //같은 아이탬 등록안되게 중복 채크
-        while (TestInventory.HaveItems.Contains(item) || TestInventory.ItemCount == TestInventory.HaveItems.Count)
+        for (int i = 0; i < 5; i++)
         {
+            // 아이탬리스트에 있는것 중에 하나 뽑음
             item = items.list[Random.Range(0, items.list.Count)];
-        }
 
-        // 아이탬 셋팅
-        _icon.sprite = item._icon;
-        _name.text = item._name;
-        _toolTip.text = item._toolTip;
-        _price.text = item._price + "";
+            //같은 아이탬 등록안되게 중복 채크
+            while (TestInventory.HaveItems.Contains(item) || TestInventory.ItemCount == TestInventory.HaveItems.Count)
+            {
+                item = items.list[Random.Range(0, items.list.Count)];
+            }
+
+            // 아이탬 셋팅
+            _icon.sprite = item._icon;
+            _name.text = item._name;
+            _toolTip.text = item._toolTip;
+            _price.text = item._price + "";
+        }
     }
 
     public void BuyItem()
