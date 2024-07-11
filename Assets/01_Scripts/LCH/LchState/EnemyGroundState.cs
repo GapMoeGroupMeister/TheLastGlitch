@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyGroundState : EnemyState<EnemyStateEnum>
 {
-    public EnemyGroundState(Agent enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
+    public EnemyGroundState(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
     }
 
