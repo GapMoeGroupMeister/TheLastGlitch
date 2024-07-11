@@ -12,6 +12,8 @@ public abstract class EnemySetting : Agent
     public LayerMask _whatIsPlayer;
     public ContactFilter2D contactFilter;
 
+    public DamageCaster DamageCasterComp { get; protected set; }
+
     [HideInInspector] public Transform targetTrm = null;
     [HideInInspector] public float lastAttackTime;
 
@@ -31,7 +33,7 @@ public abstract class EnemySetting : Agent
 
     public Collider2D GetPlayerRange()
     {
-        int count = Physics2D.OverlapCircleNonAlloc(transform.position, detectRadius,_colliders,_whatIsPlayer);
+        int count = Physics2D.OverlapCircle(transform.position, detectRadius,contactFilter,_colliders);
         return count > 0 ? _colliders[0] : null;
     }
 

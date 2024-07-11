@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3817697dc25bc46b3d60ba3a5c6340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 3
+  velocity: 8
   jumpPower: 6
 --- !u!50 &747941126
 Rigidbody2D:
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 904650005}
   - component: {fileID: 904650004}
   - component: {fileID: 904650003}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundCheckerTrm: {fileID: 904650009}
-  moveSpeed: 5
+  moveSpeed: 3
   jumpPower: 7
   extraGravity: 30
   gravityDelay: 0.15
@@ -788,10 +788,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectRadius: 10
-  attackRadius: 8
+  attackRadius: 5
   knockbackPower: 0
-  attackCooldown: 0
-  damage: 0
+  attackCooldown: 4
+  damage: 3
   _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
@@ -1105,7 +1105,7 @@ GameObject:
   - component: {fileID: 1181431572}
   - component: {fileID: 1181431573}
   - component: {fileID: 1181431574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1193,10 +1193,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectRadius: 10
-  attackRadius: 8
+  attackRadius: 5
   knockbackPower: 0
-  attackCooldown: 0
-  damage: 0
+  attackCooldown: 4
+  damage: 3
   _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
@@ -1229,7 +1229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundCheckerTrm: {fileID: 1181431569}
-  moveSpeed: 5
+  moveSpeed: 3
   jumpPower: 7
   extraGravity: 30
   gravityDelay: 0.15
@@ -1709,7 +1709,7 @@ GameObject:
   - component: {fileID: 2058162352}
   - component: {fileID: 2058162351}
   - component: {fileID: 2058162350}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1814,7 +1814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundCheckerTrm: {fileID: 2058162356}
-  moveSpeed: 5
+  moveSpeed: 3
   jumpPower: 7
   extraGravity: 30
   gravityDelay: 0.15
@@ -1837,11 +1837,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6fc7f14758bf8043a8373a0022a0573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectRadius: 13
-  attackRadius: 8
+  detectRadius: 10
+  attackRadius: 5
   knockbackPower: 0
-  attackCooldown: 0
-  damage: 0
+  attackCooldown: 4
+  damage: 3
   _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
