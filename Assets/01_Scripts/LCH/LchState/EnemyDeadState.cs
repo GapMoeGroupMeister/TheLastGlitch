@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDeadState : State<EnemyStateEnum>
+public class EnemyDeadState : EnemyState<EnemyStateEnum>
 {
-    public EnemyDeadState(Agent _onwer, StateMachine<EnemyStateEnum> state, string animHashName) : base(_onwer, state, animHashName)
+
+    private Enemy _enemy;
+    public EnemyDeadState(Enemy enemyBase, StateMachine<EnemyStateEnum> state, string animHashName) : base(enemyBase, state, animHashName)
     {
+        _enemy = enemyBase;
     }
 
     public override void Enter()
@@ -21,5 +24,10 @@ public class EnemyDeadState : State<EnemyStateEnum>
     public override void UpdateState()
     {
         base.UpdateState();
+        Collider2D player = _enemy.GetPlayerRange();
+        if(player != null)
+        { 
+
+        }
     }
 }

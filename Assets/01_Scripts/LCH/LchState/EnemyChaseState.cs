@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyChaseState : State<EnemyStateEnum>
+public class EnemyChaseState : EnemyState<EnemyStateEnum>
 {
-    public EnemyChaseState(Agent _onwer, StateMachine<EnemyStateEnum> state, string animHashName) : base(_onwer, state, animHashName)
+    private Enemy _enemy;
+    public EnemyChaseState(Enemy enemyBase, StateMachine<EnemyStateEnum> state, string animHashName) : base(enemyBase, state, animHashName)
     {
+        _enemy = enemyBase;
     }
 
     public override void Enter()
