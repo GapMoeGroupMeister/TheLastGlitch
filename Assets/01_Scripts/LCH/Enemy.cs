@@ -29,6 +29,11 @@ public class Enemy : EnemySetting
     {
         base.Awake();
         stateMachine = new StateMachine<EnemyStateEnum>();
+
+        stateMachine.AddState(EnemyStateEnum.Idle, new EnemyIdleState(this, stateMachine, "Idle"));
+        stateMachine.AddState(EnemyStateEnum.Chase,new EnemyChaseState(this,stateMachine,"Chase"));
+        stateMachine.AddState(EnemyStateEnum.Dead, new EnemyDeadState(this, stateMachine, "Dead"));
+        stateMachine.AddState(EnemyStateEnum.Attack, new EnemyAttackState(this, stateMachine, "Attack"));
     }
 
     private void Start()
@@ -40,5 +45,5 @@ public class Enemy : EnemySetting
     {
         stateMachine.CurrentState.UpdateState();
     }
-   
+
 }
