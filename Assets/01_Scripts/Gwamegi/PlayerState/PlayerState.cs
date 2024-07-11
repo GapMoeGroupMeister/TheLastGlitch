@@ -1,13 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttackState : EnemyState<EnemyStateEnum>
+public class PlayerState<T> : State<T> where T : Enum
 {
-    private Enemy _enemy;
-    public EnemyAttackState(Enemy enemyBase, StateMachine<EnemyStateEnum> state, string animHashName) : base(enemyBase, state, animHashName)
+
+    protected Player _player;
+
+    public PlayerState(Player _onwer, StateMachine<T> state, string animHashName) : base(_onwer, state, animHashName)
     {
-        _enemy = enemyBase;
+        _player = _onwer;
     }
 
     public override void Enter()
