@@ -26,7 +26,7 @@ public class PlayerIdleState : PlayerState<PlayerStateEnum>
 
         if (_player._xMove != 0)
         {
-            stateMachine.ChangeState(PlayerStateEnum.Run);
+            _stateMachine.ChangeState(PlayerStateEnum.Run);
         }
     }
 }
