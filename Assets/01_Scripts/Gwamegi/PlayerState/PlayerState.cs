@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class PlayerState<T> : State<T> where T : Enum
 {
-    public PlayerState(Agent _onwer, StateMachine<T> state, string animHashName) : base(_onwer, state, animHashName)
+
+    protected Player _player;
+
+    public PlayerState(Player _onwer, StateMachine<T> state, string animHashName) : base(_onwer, state, animHashName)
     {
+        _player = _onwer;
     }
 
     public override void Enter()
