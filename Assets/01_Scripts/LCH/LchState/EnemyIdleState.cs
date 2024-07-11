@@ -13,6 +13,7 @@ public class EnemyIdleState : EnemyState<EnemyStateEnum>
     public override void Enter()
     {
         base.Enter();
+        _enemy.MovementComponent.StopImmediately(false);
     }
 
     public override void Exit()
@@ -27,6 +28,7 @@ public class EnemyIdleState : EnemyState<EnemyStateEnum>
         if(player != null)
         {
             _enemy.targetTrm = player.transform;
+            _stateMachine.ChangeState(EnemyStateEnum.Chase);
         }
     }
 }

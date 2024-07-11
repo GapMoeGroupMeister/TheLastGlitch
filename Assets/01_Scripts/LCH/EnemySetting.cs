@@ -13,6 +13,7 @@ public abstract class EnemySetting : Agent
     public ContactFilter2D contactFilter;
 
     [HideInInspector] public Transform targetTrm = null;
+    [HideInInspector] public float lastAttackTime;
 
     public bool CanStateChangeble { get; protected set; } = true;
 

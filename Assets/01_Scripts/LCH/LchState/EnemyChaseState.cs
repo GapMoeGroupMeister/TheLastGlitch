@@ -10,18 +10,24 @@ public class EnemyChaseState : EnemyState<EnemyStateEnum>
         _enemy = enemyBase;
     }
 
-    public override void Enter()
-    {
-        base.Enter();
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
     public override void UpdateState()
     {
         base.UpdateState();
+        Vector2 dir = _enemy.targetTrm.position - _enemy.transform.position;
+        float distance = dir.magnitude;
+
+        if(distance > _enemy.detectRadius + 3f)
+        {
+            _stateMachine.ChangeState(EnemyStateEnum.Idle);
+            return;
+        }
+
+        _enemy.MovementComponent.SetMovement(Mathf.Sign(dir.x));
+
+        if(distance < _enemy.attackRadius && _enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
+        {
+            _stateMachine.ChangeState(EnemyStateEnum.Attack);
+            return;
+        }
     }
 }
