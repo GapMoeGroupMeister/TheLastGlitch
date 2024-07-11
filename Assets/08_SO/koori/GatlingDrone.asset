@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec581ca6360aea04d8afd6168e2be7f6, type: 3}
-  m_Name: PoolList
+  m_Script: {fileID: 11500000, guid: cfe366c365232a04c8dd66f4d2896519, type: 3}
+  m_Name: GatlingDrone
   m_EditorClassIdentifier: 
-  list:
-  - {fileID: 11400000, guid: 65b225569e2d1c942a170498a51189af, type: 2}
+  poolName: GatlingDrone
+  prefab: {fileID: 4829551692014108205, guid: 38f6936b481d4864097b2ec311f3a625, type: 3}
+  count: 5

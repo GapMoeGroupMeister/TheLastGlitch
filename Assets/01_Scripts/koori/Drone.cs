@@ -16,10 +16,16 @@ public abstract class Drone : MonoBehaviour
     
     private void FixedUpdate()
     {
+        DroneMove();
+    }
+
+    private void DroneMove()
+    {
         Vector2 pos = (Vector2)PlayerManager.instance.Player.transform.position + new Vector2(-1.5f, 1.8f);
-        Vector2 dis = pos -(Vector2)transform.position;
+        Vector2 dis = pos - (Vector2)transform.position;
         _rdCompo.velocity = dis.normalized * speed;
     }
+
     private void Update()
     {
         Detect();

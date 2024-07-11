@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,7 +31,16 @@ public class TestPlayer : MonoBehaviour
         if(_xMove != 0)
         {
             transform.localScale = new Vector3(_xMove, 1, 1);
+        }
+        UseGadget();
+    }
 
+    private void UseGadget()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            print(1);
+            PoolManager.Instance.Pop("GatlingDrone");
         }
     }
 }
