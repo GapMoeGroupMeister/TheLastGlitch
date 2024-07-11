@@ -9,17 +9,26 @@ public abstract class EnemySetting : Agent
     public int detectRadius;
     public int attackRadius,knockbackPower,attackCooldown;
     public int damage;
-    public LayerMask whatisPlayer;
+    public LayerMask _whatIsPlayer;
     public ContactFilter2D contactFilter;
 
     public bool CanStateChangeble { get; protected set; } = true;
 
     private Collider2D[] _colliders;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        _colliders = new Collider2D[20];
+    }
+    private void Update()
+    {
+        Debug.Log(GetPlayerRange());
+    }
+
     public Collider2D GetPlayerRange()
     {
-        int count = Physics2D.OverlapCircle(transform.position, detectRadius, contactFilter, _colliders);
-        Debug.Log("°¨ÁöµÊ");
+        int count = Physics2D.OverlapCircle(transform.position, detectRadius, contactFilter,_colliders);
         return count > 0 ? _colliders[0] : null;
     }
 
