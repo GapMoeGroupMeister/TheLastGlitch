@@ -27,9 +27,10 @@ public class TestPlayer : MonoBehaviour
         {
             _rigid.velocity = new Vector2(_rigid.velocity.x, jumpPower);
         }
-        if (_xMove > 0)
+        if(_xMove != 0)
         {
             transform.localScale = new Vector3(_xMove, 1, 1);
+
         }
     }
 }
