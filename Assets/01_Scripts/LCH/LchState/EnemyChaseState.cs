@@ -16,7 +16,7 @@ public class EnemyChaseState : EnemyState<EnemyStateEnum>
         Vector2 dir = _enemy.targetTrm.position - _enemy.transform.position;
         float distance = dir.magnitude;
 
-        if(distance > _enemy.detectRadius + 1f)
+        if(distance > _enemy.detectRadius + 3f)
         {
             _stateMachine.ChangeState(EnemyStateEnum.Idle);
             return;

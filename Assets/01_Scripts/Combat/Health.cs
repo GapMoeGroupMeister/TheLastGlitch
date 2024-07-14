@@ -11,6 +11,8 @@ public class Health : MonoBehaviour
     private float _currentHealth;
     Agent _onwer;
 
+    public UnityEvent OnGetHit { get ; set; }
+
     private void Update()
     {
         Debug.Log(_currentHealth);
@@ -26,12 +28,15 @@ public class Health : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
-    public void TakeDamage(float amuont)
+    public void TakeDamage(float amount, Vector2 normal, Vector2 point, float knockbackPower)
     {
-        _currentHealth -= amuont;
+        _currentHealth -= amount;
         if(_currentHealth <=0)
         {
             gameObject.SetActive(false);
         }
+
+        if (knockbackPower > 0)
+            _onwer.MovementComponent.GetKnockback(normal * -1, knockbackPower);
     }
 }
