@@ -23,7 +23,9 @@ public class DamageCaster : MonoBehaviour
         {
             if(_colliders[i].TryGetComponent(out Health health))
             {
-
+                Vector2 direction = _colliders[i].transform.position - transform.position;
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, direction.magnitude, filter.layerMask);
+                health.TakeDamage(damage, hit.normal, hit.point, knockbackPower);
             }
         }
     }
