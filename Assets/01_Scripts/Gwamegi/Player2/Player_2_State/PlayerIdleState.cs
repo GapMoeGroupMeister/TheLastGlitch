@@ -6,6 +6,7 @@ public class PlayerIdleState : PlayerState<PlayerStateEnum>
 {
     public PlayerIdleState(Player _onwer, StateMachine<PlayerStateEnum> state, string animHashName) : base(_onwer, state, animHashName)
     {
+
     }
 
     public override void Enter()
