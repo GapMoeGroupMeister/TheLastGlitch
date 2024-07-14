@@ -43,6 +43,10 @@ public class Enemy : EnemySetting
     private void Update()
     {
         StateMachine.CurrentState.UpdateState();
+        if(targetTrm != null && IsDie == false)
+        {
+            HandleSpriteFlip(targetTrm.position);
+        }
     }
 
 }
