@@ -32,4 +32,11 @@ public class MGSY : EnemySetting
     {
 
     }
+
+    public Collider2D GetPlayerInRange()
+    {
+        int count = Physics2D.OverlapCircle(transform.position, detectRadius, contactFilter, _colliders);
+        Debug.Log(count);
+        return count > 0 ? _colliders[0] : null;
+    }
 }
