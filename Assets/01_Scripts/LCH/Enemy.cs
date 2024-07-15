@@ -19,6 +19,7 @@ public class Enemy : EnemySetting
 {
     public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
 
+
     public override void SetDeadState()
     {
         StateMachine.ChangeState(EnemyStateEnum.Dead);
@@ -47,6 +48,10 @@ public class Enemy : EnemySetting
         {
             HandleSpriteFlip(targetTrm.position);
         }
+    }
+    public override void AnimationEndTrigger()
+    {
+        StateMachine.CurrentState.AnimationEndTrigger();
     }
 
 }

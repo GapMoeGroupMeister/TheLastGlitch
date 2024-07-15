@@ -18,6 +18,7 @@ public abstract class EnemySetting : Agent
     [HideInInspector] public float lastAttackTime;
 
     public bool CanStateChangeble { get; protected set; } = true;
+    public DamageCaster DamageCasterCompo { get; protected set; }
 
     private Collider2D[] _colliders;
 
@@ -39,7 +40,7 @@ public abstract class EnemySetting : Agent
 
     public virtual void Attack()
     {
-
+        DamageCasterCompo.CastDamge(damage, knockbackPower);                                                                                                                                                                                                                          
     }
 
     protected virtual void OnDrawGizmos()
@@ -51,10 +52,7 @@ public abstract class EnemySetting : Agent
         Gizmos.color = Color.white;
     }
 
-    public void AnimationEndTrigger()
-    {
-
-    }
+    public abstract void AnimationEndTrigger();
 
     public void SetDead(bool value)
     {
