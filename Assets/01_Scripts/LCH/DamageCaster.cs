@@ -15,7 +15,7 @@ public class DamageCaster : MonoBehaviour
         _colliders = new Collider2D[detecutCont];
     }
 
-    public void CastDamge(int damage, float knockbackPower)
+    public bool CastDamge(int damage, float knockbackPower)
     {
         int cut = Physics2D.OverlapCircle(transform.position, damageRaduis,filter,_colliders);
 
@@ -28,5 +28,13 @@ public class DamageCaster : MonoBehaviour
                 health.TakeDamage(damage, hit.normal, hit.point, knockbackPower);
             }
         }
+        return cut > 0;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, damageRaduis);
+        Gizmos.color = Color.white;
     }
 }
