@@ -1,57 +1,31 @@
-using UnityEngine;
-
 public enum EnemyStateEnum
 {
     Idle,
     Attack,
     Chase,
-    Dead
+    Dead,
 }
-
-public enum BossStateEnum
+public class Enemy : AttackRange
 {
-    Idle,
-    Closed,
-    Opened,
-    AngryOpened
-}
-public class Enemy : EnemySetting
-{
-    public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
-
-
-    public override void SetDeadState()
-    {
-        StateMachine.ChangeState(EnemyStateEnum.Dead);
-    }
+    public StateMachine<EnemyStateEnum> stateMachine { get; private set; }
 
     protected override void Awake()
     {
         base.Awake();
-        StateMachine = new StateMachine<EnemyStateEnum>();
-
-        StateMachine.AddState(EnemyStateEnum.Idle, new EnemyIdleState(this, StateMachine, "Idle"));
-        StateMachine.AddState(EnemyStateEnum.Chase,new EnemyChaseState(this,StateMachine,"Chase"));
-        StateMachine.AddState(EnemyStateEnum.Dead, new EnemyDeadState(this, StateMachine, "Dead"));
-        StateMachine.AddState(EnemyStateEnum.Attack, new EnemyAttackState(this, StateMachine, "Attack"));
+        stateMachine = new StateMachine<EnemyStateEnum>();
     }
 
     private void Start()
     {
-        StateMachine.InitInitialize(EnemyStateEnum.Idle, this);
+        stateMachine.InitInitialize(EnemyStateEnum.Idle, this);
     }
 
     private void Update()
     {
-        StateMachine.CurrentState.UpdateState();
-        if(targetTrm != null && IsDie == false)
-        {
-            HandleSpriteFlip(targetTrm.position);
-        }
+        stateMachine.CurrentState.UpdateState();
     }
-    public override void AnimationEndTrigger()
+    public override void SetDeadState()
     {
-        StateMachine.CurrentState.AnimationEndTrigger();
+        
     }
-
 }
