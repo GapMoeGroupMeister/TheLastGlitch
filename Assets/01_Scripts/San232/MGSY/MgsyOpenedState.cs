@@ -8,4 +8,10 @@ public class MgsyOpenedState : MGSYState<BossStateEnum>
     {
 
     }
+
+    public override void Enter()
+    {
+        base.Enter();
+
+    }
 }
