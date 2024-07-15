@@ -25,6 +25,7 @@ public abstract class EnemySetting : Agent
     protected override void Awake()
     {
         base.Awake();
+        DamageCasterCompo = transform.Find("DamgeCaster").GetComponent<DamageCaster>();
         _colliders = new Collider2D[20];
     }
     private void Update()

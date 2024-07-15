@@ -19,17 +19,19 @@ public class EnemyAttackState : EnemyState<EnemyStateEnum>
     }
     public override void UpdateState()
     {
-        _enemy.lastAttackTime += Time.time;
+
+        if (_endTriggerCalled)
+        {
+            _stateMachine.ChangeState(EnemyStateEnum.Chase);
+        }
+
         base.UpdateState();
     }
 
     public override void Exit()
     {
+        _enemy.lastAttackTime += Time.time;
         base.Exit();
-        if(_endTriggerCalled)
-        {
-            _stateMachine.ChangeState(EnemyStateEnum.Chase);
-        }
     }
 
 }
