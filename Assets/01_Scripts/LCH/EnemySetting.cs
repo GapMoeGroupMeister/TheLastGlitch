@@ -20,7 +20,7 @@ public abstract class EnemySetting : Agent
     public bool CanStateChangeble { get; protected set; } = true;
     public DamageCaster DamageCasterCompo { get; protected set; }
 
-    private Collider2D[] _colliders;
+    protected Collider2D[] _colliders;
 
     protected override void Awake()
     {
