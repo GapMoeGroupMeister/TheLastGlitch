@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_currentHealth);
+        //Debug.Log(_currentHealth);
     }
 
     public void Initialize(Agent agent)
