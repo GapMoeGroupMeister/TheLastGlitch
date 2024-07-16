@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.FullSerializer;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerRunState : PlayerState<PlayerStateEnum>
+public class PlayerJumpState : PlayerState<PlayerStateEnum>
 {
-    public PlayerRunState(Player _onwer, StateMachine<PlayerStateEnum> state, string animHashName) : base(_onwer, state, animHashName)
+    public PlayerJumpState(Player _onwer, StateMachine<PlayerStateEnum> state, string animHashName) : base(_onwer, state, animHashName)
     {
     }
 
@@ -22,12 +22,12 @@ public class PlayerRunState : PlayerState<PlayerStateEnum>
     public override void UpdateState()
     {
         base.UpdateState();
-        Debug.Log("นึ Run");
-        _player.MovementComponent.SetMovement(_player._xMove);
 
-        if (_player._xMove == 0)
+        if (_player.MovementComponent.isGround.Value)
         {
             _stateMachine.ChangeState(PlayerStateEnum.Idle);
+            
         }
     }
 }
+    
