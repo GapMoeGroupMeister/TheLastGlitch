@@ -17,32 +17,41 @@ public enum BossStateEnum
 }
 public class Enemy : EnemySetting
 {
-    public StateMachine<EnemyStateEnum> stateMachine { get; private set; }
+    public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
+
 
     public override void SetDeadState()
     {
-        stateMachine.ChangeState(EnemyStateEnum.Dead);
+        StateMachine.ChangeState(EnemyStateEnum.Dead);
     }
 
     protected override void Awake()
     {
         base.Awake();
-        stateMachine = new StateMachine<EnemyStateEnum>();
+        StateMachine = new StateMachine<EnemyStateEnum>();
 
-        stateMachine.AddState(EnemyStateEnum.Idle, new EnemyIdleState(this, stateMachine, "Idle"));
-        stateMachine.AddState(EnemyStateEnum.Chase,new EnemyChaseState(this,stateMachine,"Chase"));
-        stateMachine.AddState(EnemyStateEnum.Dead, new EnemyDeadState(this, stateMachine, "Dead"));
-        stateMachine.AddState(EnemyStateEnum.Attack, new EnemyAttackState(this, stateMachine, "Attack"));
+        StateMachine.AddState(EnemyStateEnum.Idle, new EnemyIdleState(this, StateMachine, "Idle"));
+        StateMachine.AddState(EnemyStateEnum.Chase,new EnemyChaseState(this,StateMachine,"Chase"));
+        StateMachine.AddState(EnemyStateEnum.Dead, new EnemyDeadState(this, StateMachine, "Dead"));
+        StateMachine.AddState(EnemyStateEnum.Attack, new EnemyAttackState(this, StateMachine, "Attack"));
     }
 
     private void Start()
     {
-        stateMachine.InitInitialize(EnemyStateEnum.Idle, this);
+        StateMachine.InitInitialize(EnemyStateEnum.Idle, this);
     }
 
     private void Update()
     {
-        stateMachine.CurrentState.UpdateState();
+        StateMachine.CurrentState.UpdateState();
+        if(targetTrm != null && IsDie == false)
+        {
+            HandleSpriteFlip(targetTrm.position);
+        }
+    }
+    public override void AnimationEndTrigger()
+    {
+        StateMachine.CurrentState.AnimationEndTrigger();
     }
 
 }

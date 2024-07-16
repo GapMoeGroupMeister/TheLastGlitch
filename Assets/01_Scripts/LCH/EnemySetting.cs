@@ -12,13 +12,20 @@ public abstract class EnemySetting : Agent
     public LayerMask _whatIsPlayer;
     public ContactFilter2D contactFilter;
 
-    public bool CanStateChangeble { get; protected set; } = true;
+    public DamageCaster DamageCasterComp { get; protected set; }
 
-    private Collider2D[] _colliders;
+    [HideInInspector] public Transform targetTrm = null;
+    [HideInInspector] public float lastAttackTime;
+
+    public bool CanStateChangeble { get; protected set; } = true;
+    public DamageCaster DamageCasterCompo { get; protected set; }
+
+    protected Collider2D[] _colliders;
 
     protected override void Awake()
     {
         base.Awake();
+        DamageCasterCompo = transform.Find("DamgeCaster").GetComponent<DamageCaster>();
         _colliders = new Collider2D[20];
     }
     private void Update()
@@ -28,13 +35,13 @@ public abstract class EnemySetting : Agent
 
     public Collider2D GetPlayerRange()
     {
-        int count = Physics2D.OverlapCircle(transform.position, detectRadius, contactFilter,_colliders);
+        int count = Physics2D.OverlapCircle(transform.position, detectRadius,contactFilter,_colliders);
         return count > 0 ? _colliders[0] : null;
     }
 
     public virtual void Attack()
     {
-
+        DamageCasterCompo.CastDamge(damage, knockbackPower);                                                                                                                                                                                                                          
     }
 
     protected virtual void OnDrawGizmos()
@@ -46,10 +53,7 @@ public abstract class EnemySetting : Agent
         Gizmos.color = Color.white;
     }
 
-    public void AnimationEndTrigger()
-    {
-
-    }
+    public abstract void AnimationEndTrigger();
 
     public void SetDead(bool value)
     {

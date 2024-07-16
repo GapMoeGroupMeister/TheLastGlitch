@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class MGSY : EnemySetting
 {
+    [SerializeField] protected Health health;
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
 
     protected override void Awake()
     {
         base.Awake();
+
+        health = GetComponent<Health>();
+
         StateMachine = new StateMachine<BossStateEnum>();
 
         StateMachine.AddState(BossStateEnum.Idle, new MgsyIdleState(this, StateMachine, "Idle"));
@@ -31,5 +35,17 @@ public class MGSY : EnemySetting
     public override void SetDeadState()
     {
 
+    }
+
+    public Collider2D GetPlayerInRange()
+    {
+        int count = Physics2D.OverlapCircle(transform.position, detectRadius, contactFilter, _colliders);
+        Debug.Log(count);
+        return count > 0 ? _colliders[0] : null;
+    }
+
+    public override void AnimationEndTrigger()
+    {
+        StateMachine.CurrentState.AnimationEndTrigger();
     }
 }

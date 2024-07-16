@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3817697dc25bc46b3d60ba3a5c6340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 3
+  velocity: 8
   jumpPower: 6
 --- !u!50 &747941126
 Rigidbody2D:
@@ -462,7 +462,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 083d144b26e98034881555ecc126b1ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.66, y: 2.56}
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 904650005}
   - component: {fileID: 904650004}
   - component: {fileID: 904650003}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundCheckerTrm: {fileID: 904650009}
-  moveSpeed: 5
+  moveSpeed: 3
   jumpPower: 7
   extraGravity: 30
   gravityDelay: 0.15
@@ -788,10 +788,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectRadius: 10
-  attackRadius: 8
+  attackRadius: 5
   knockbackPower: 0
-  attackCooldown: 0
-  damage: 0
+  attackCooldown: 4
+  damage: 3
   _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
@@ -809,6 +809,8 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  targetTrm: {fileID: 0}
+  lastAttackTime: 0
 --- !u!212 &904650008
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1103,7 +1105,7 @@ GameObject:
   - component: {fileID: 1181431572}
   - component: {fileID: 1181431573}
   - component: {fileID: 1181431574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1191,10 +1193,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectRadius: 10
-  attackRadius: 8
+  attackRadius: 5
   knockbackPower: 0
-  attackCooldown: 0
-  damage: 0
+  attackCooldown: 4
+  damage: 3
   _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
@@ -1212,6 +1214,8 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  targetTrm: {fileID: 0}
+  lastAttackTime: 0
 --- !u!114 &1181431571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1225,7 +1229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundCheckerTrm: {fileID: 1181431569}
-  moveSpeed: 5
+  moveSpeed: 3
   jumpPower: 7
   extraGravity: 30
   gravityDelay: 0.15
@@ -1532,6 +1536,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1001 &1667114397
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2058162356}
+    m_Modifications:
+    - target: {fileID: 4598191442199148070, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: m_Name
+      value: DamgeCaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750664912752450493, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: damageRaduis
+      value: 1.8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
 --- !u!1 &2019262925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,6 +1755,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!4 &2056241462 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+  m_PrefabInstance: {fileID: 1667114397}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2058162349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,7 +1775,7 @@ GameObject:
   - component: {fileID: 2058162352}
   - component: {fileID: 2058162351}
   - component: {fileID: 2058162350}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1810,7 +1880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundCheckerTrm: {fileID: 2058162356}
-  moveSpeed: 5
+  moveSpeed: 3
   jumpPower: 7
   extraGravity: 30
   gravityDelay: 0.15
@@ -1833,11 +1903,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6fc7f14758bf8043a8373a0022a0573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectRadius: 13
-  attackRadius: 8
-  knockbackPower: 0
-  attackCooldown: 0
-  damage: 0
+  detectRadius: 7
+  attackRadius: 3
+  knockbackPower: 2
+  attackCooldown: 4
+  damage: 3
   _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
@@ -1855,6 +1925,8 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  targetTrm: {fileID: 0}
+  lastAttackTime: 0
 --- !u!212 &2058162355
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1921,6 +1993,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 59866035}
+  - {fileID: 2056241462}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807

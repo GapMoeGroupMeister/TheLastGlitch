@@ -10,4 +10,9 @@ public class EnemyAnimEndTrigger : MonoBehaviour
     {
         _enemy.AnimationEndTrigger();
     }
+    
+    private void AnimationAttackTrigger()
+    {
+        _enemy.Attack();
+    }
 }

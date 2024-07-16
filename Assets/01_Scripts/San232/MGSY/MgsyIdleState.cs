@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MgsyIdleState : EnemyState<BossStateEnum>
+public class MgsyIdleState : MGSYState<BossStateEnum>
 {
-    public MgsyIdleState(Agent enemyBase, StateMachine<BossStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
+    public MgsyIdleState(MGSY enemyBase, StateMachine<BossStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
 
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+        
     }
 }
