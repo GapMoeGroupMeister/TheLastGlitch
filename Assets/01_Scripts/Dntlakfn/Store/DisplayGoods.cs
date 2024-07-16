@@ -40,6 +40,7 @@ public class DisplayGoods : MonoBehaviour
         {
             Goods[i].item = item;
             Goods[i].UpdateItem();
+            
 
         }
     }
