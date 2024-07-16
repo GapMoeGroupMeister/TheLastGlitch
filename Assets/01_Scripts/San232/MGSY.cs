@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MGSY : EnemySetting
 {
+    [SerializeField] public GameObject testEnemyPrefab;
     [SerializeField] protected Health health;
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
 
@@ -47,5 +48,10 @@ public class MGSY : EnemySetting
     public override void AnimationEndTrigger()
     {
         StateMachine.CurrentState.AnimationEndTrigger();
+    }
+
+    public void SpawnEntity(GameObject entities)
+    {
+        Instantiate(entities);
     }
 }
