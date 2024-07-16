@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 747941128}
   - component: {fileID: 747941127}
   - component: {fileID: 747941126}
-  - component: {fileID: 747941125}
+  - component: {fileID: 747941130}
   m_Layer: 3
   m_Name: TestPlayer
   m_TagString: Player
@@ -400,20 +400,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &747941125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 747941124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a3817697dc25bc46b3d60ba3a5c6340, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocity: 8
-  jumpPower: 6
 --- !u!50 &747941126
 Rigidbody2D:
   serializedVersion: 4
@@ -553,6 +539,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &747941130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747941124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526ddbf786e2a9443a47d75625108769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
 --- !u!1 &875712867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1082,14 @@ PrefabInstance:
       propertyPath: damageRaduis
       value: 1.8
       objectReference: {fileID: 0}
+    - target: {fileID: 7750664912752450493, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: filter.useDepth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750664912752450493, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: filter.layerMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1395,7 +1402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectRadius: 7
   attackRadius: 3
-  knockbackPower: 2
+  knockbackPower: 5
   attackCooldown: 4
   damage: 3
   _whatIsPlayer:
