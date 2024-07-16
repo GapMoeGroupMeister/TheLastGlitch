@@ -11,6 +11,7 @@ public class TestPlayer : MonoBehaviour
     public float velocity;
     public float jumpPower;
     private float _xMove;
+    [SerializeField] GameObject _drone;
 
     private void Awake()
     {
@@ -40,7 +41,7 @@ public class TestPlayer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             print(1);
-            PoolManager.Instance.Pop("GatlingDrone");
+            GameObject drone = Instantiate(_drone);
         }
     }
 }

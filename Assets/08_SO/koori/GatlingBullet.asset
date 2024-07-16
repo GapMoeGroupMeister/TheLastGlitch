@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfe366c365232a04c8dd66f4d2896519, type: 3}
-  m_Name: GatlingDrone
+  m_Name: GatlingBullet
   m_EditorClassIdentifier: 
-  poolName: GatlingDrone
-  prefab: {fileID: 4829551692014108205, guid: 38f6936b481d4864097b2ec311f3a625, type: 3}
-  count: 5
+  poolName: GatlingBullet
+  prefab: {fileID: 9047360429980542978, guid: 5fef3bacbb921e44c8673163837493df, type: 3}
+  count: 10

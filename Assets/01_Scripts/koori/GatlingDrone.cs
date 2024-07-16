@@ -3,13 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GatlingDrone : Drone, Ipoolable
+public class GatlingDrone : Drone
 {
     [SerializeField] private float radius;
-
-    public string ItemName => "GatlingDrone";
-
-    public GameObject ObjectPrefab => gameObject;
+    private bool _cool = false;
+    private float _coolTime = 1;
 
     private void Start()
     {
@@ -18,19 +16,24 @@ public class GatlingDrone : Drone, Ipoolable
     }
     protected override void Attack()
     {
-    }
-
-    public void Update() 
-    {
-        PushGameObject();
-    }
-
-    private void PushGameObject()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
+            Debug.Log(".");
+        if (!_cool)
         {
-            PoolManager.Instance.Push(this);
+            StartCoroutine(shot());
         }
+    }
+
+    public override void Update() 
+    {
+        base.Update();
+    }
+
+    private IEnumerator shot()
+    {
+        _cool = true;
+        PoolManager.Instance.Pop("GatlingBullet");
+        yield return new WaitForSeconds(_coolTime);
+         _cool = false;
     }
 
     public void ResetItem()

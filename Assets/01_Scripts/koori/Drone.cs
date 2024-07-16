@@ -7,6 +7,7 @@ public abstract class Drone : MonoBehaviour
     protected float detectRadius;
     protected float speed;
     protected Rigidbody2D _rdCompo;
+    public Collider2D target;
     [SerializeField] private LayerMask enemyLayer;
     private LchTestPlayer _player;
     private void Awake()
@@ -26,14 +27,14 @@ public abstract class Drone : MonoBehaviour
         _rdCompo.velocity = dis.normalized * speed;
     }
 
-    private void Update()
+    public virtual void Update()
     {
         Detect();
     }
     protected abstract void Attack();
     private void Detect()
     {
-        Collider2D target = Physics2D.OverlapCircle(transform.position + new Vector3(2.5f, -2.5f, 0), detectRadius, enemyLayer);
+        target = Physics2D.OverlapCircle(transform.position + new Vector3(2.5f, -2.5f, 0), detectRadius, enemyLayer);
         if (target != null)
         {
             Attack();
