@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerIdleState : PlayerState<PlayerStateEnum>
@@ -27,7 +28,12 @@ public class PlayerIdleState : PlayerState<PlayerStateEnum>
 
         if (_player._xMove != 0)
         {
-            _stateMachine.ChangeState(PlayerStateEnum.Run);
+            _stateMachine.ChangeState(PlayerStateEnum.Walk);
+        }
+
+        if (!_player.MovementComponent.isGround.Value)
+        {
+            _stateMachine.ChangeState(PlayerStateEnum.Jump);
         }
     }
 }

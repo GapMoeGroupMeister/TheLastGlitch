@@ -22,16 +22,11 @@ public class EnemyAttackState : EnemyState<EnemyStateEnum>
 
         if (_endTriggerCalled)
         {
+            _enemy.lastAttackTime = Time.time;
             _stateMachine.ChangeState(EnemyStateEnum.Chase);
         }
 
         base.UpdateState();
-    }
-
-    public override void Exit()
-    {
-        _enemy.lastAttackTime += Time.time;
-        base.Exit();
     }
 
 }

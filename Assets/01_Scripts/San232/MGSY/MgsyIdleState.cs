@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MgsyIdleState : MGSYState<BossStateEnum>
 {
+    
+
     public MgsyIdleState(MGSY enemyBase, StateMachine<BossStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
 
@@ -12,6 +14,6 @@ public class MgsyIdleState : MGSYState<BossStateEnum>
     public override void Enter()
     {
         base.Enter();
-        
+        health.IsHittable = true;
     }
 }
