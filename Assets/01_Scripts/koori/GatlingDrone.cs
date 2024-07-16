@@ -7,11 +7,11 @@ public class GatlingDrone : Drone
 {
     [SerializeField] private float radius;
     private bool _cool = false;
-    private float _coolTime = 1;
+    [SerializeField]private float _coolTime = 1;
 
     private void Start()
     {
-        speed = 2.85f;
+        speed = 2.9f;
         detectRadius = radius;
     }
     protected override void Attack()
@@ -32,6 +32,7 @@ public class GatlingDrone : Drone
     {
         _cool = true;
         PoolManager.Instance.Pop("GatlingBullet");
+
         yield return new WaitForSeconds(_coolTime);
          _cool = false;
     }
