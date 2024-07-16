@@ -21,7 +21,7 @@ public class EnterStore : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            storeUI.SetActive(true);
+            storeUI.SetActive(a);
             OnEnter?.Invoke();
         }
     }

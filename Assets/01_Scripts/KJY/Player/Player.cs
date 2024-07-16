@@ -11,6 +11,7 @@ public enum PlayerStateEnum
     Walk,
     Run,
     Jump,
+    Fall,
     Hit,
     Dead,
 
