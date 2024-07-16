@@ -31,6 +31,7 @@ public class EnemyAttackState : EnemyState<EnemyStateEnum>
     public override void Exit()
     {
         _enemy.lastAttackTime += Time.time;
+        Debug.Log(_enemy.lastAttackTime);
         base.Exit();
     }
 
