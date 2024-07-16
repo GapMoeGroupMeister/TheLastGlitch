@@ -100,6 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: {x: 0, y: 0}
   _speed: 20
+  _damage: 15
+  _knockBack: 3
 --- !u!50 &-1272273033708217355
 Rigidbody2D:
   serializedVersion: 4

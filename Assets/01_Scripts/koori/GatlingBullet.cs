@@ -11,6 +11,8 @@ public class GatlingBullet : MonoBehaviour, Ipoolable
     private GameObject drone;
     private GatlingDrone droneCompo;
     [SerializeField] float _speed;
+    [SerializeField] int _damage;
+    [SerializeField] float _knockBack;
 
     public GameObject ObjectPrefab => gameObject;
 
@@ -33,8 +35,8 @@ public class GatlingBullet : MonoBehaviour, Ipoolable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.TryGetComponent<IHittable>(out IHittable hittable))
-        //    hittable.GetHit(dmg, collision.gameObject);
+        if (collision.gameObject.TryGetComponent<Health>(out Health health))
+            health.TakeDamage(_damage, collision.transform.position.normalized, collision.transform.position, _knockBack);
         PoolManager.Instance.Push(this);
     }
 
