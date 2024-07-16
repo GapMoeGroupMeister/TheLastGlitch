@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class MGSY : EnemySetting
 {
-    [SerializeField] public GameObject testEnemyPrefab;
+    [SerializeField] private GameObject testEnemyPrefab;
     [SerializeField] protected Health health;
+    public string state;
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
+    [field : SerializeField] public GameObject Shell1 { get; set; }
+    [field : SerializeField] public GameObject Sheel2 { get; set; }
+    public GameObject test => testEnemyPrefab;
 
     protected override void Awake()
     {
@@ -20,10 +24,7 @@ public class MGSY : EnemySetting
         StateMachine.AddState(BossStateEnum.Closed, new MgsyClosedState(this, StateMachine, "Closed"));
         StateMachine.AddState(BossStateEnum.Opened, new MgsyOpenedState(this, StateMachine, "Opened"));
         StateMachine.AddState(BossStateEnum.AngryOpened, new MgsyAngryOpenedState(this, StateMachine, "AngryOpened"));
-    }
 
-    private void Start()
-    {
         StateMachine.InitInitialize(BossStateEnum.Idle, this);
     }
     
@@ -35,7 +36,7 @@ public class MGSY : EnemySetting
 
     public override void SetDeadState()
     {
-
+        
     }
 
     public Collider2D GetPlayerInRange()
