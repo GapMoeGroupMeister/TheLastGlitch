@@ -151,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 59866034}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.92, z: 0}
+  m_LocalPosition: {x: 0.036, y: 0.894, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -167,7 +167,7 @@ Animator:
   m_GameObject: {fileID: 59866034}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c0bcfe0b528bf5443ba22dc0b0fe8028, type: 2}
+  m_Controller: {fileID: 9100000, guid: dbc6edd445fbbed4ebc23d75c0b93842, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -410,8 +410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6508d37976def24a8335447774b5ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _blikeSprite: {fileID: 707311276, guid: 33eae1f0f4c5d5d48929fe8dd98f0092, type: 3}
-  _basicSprite: {fileID: -1720603506, guid: 33eae1f0f4c5d5d48929fe8dd98f0092, type: 3}
+  _blikeSprite: {fileID: -2143550423, guid: 4e711af8f99125a47b005345a765481c, type: 3}
+  _basicSprite: {fileID: 263038991, guid: 4e711af8f99125a47b005345a765481c, type: 3}
   _flashTime: 0.1
   _targetRender: {fileID: 59866037}
 --- !u!114 &615821988
@@ -1491,19 +1491,7 @@ MonoBehaviour:
   _maxHealth: 100
   OnGetHit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 615821987}
-        m_TargetAssemblyTypeName: BlikeFeedback, Assembly-CSharp
-        m_MethodName: PlayFeedback
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!61 &2058162351
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1619,7 +1607,7 @@ MonoBehaviour:
   damage: 3
   _whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   contactFilter:
     useTriggers: 0
     useLayerMask: 1
