@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
     public bool IsHittable { get; set; } = true;
 
 
-    public UnityEvent OnGetHit { get ; set; }
+    public UnityEvent OnGetHit;
 
     private void Update()
     {
@@ -35,14 +35,14 @@ public class Health : MonoBehaviour
     {
         if(IsHittable)
         {
+            if (knockbackPower > 0)
+                _onwer.MovementComponent.GetKnockback(normal * -1, knockbackPower);
             _currentHealth -= amount;
             if (_currentHealth <= 0)
             {
                 gameObject.SetActive(false);
             }
 
-            if (knockbackPower > 0)
-                _onwer.MovementComponent.GetKnockback(normal * -1, knockbackPower);
         }
     }
 }
