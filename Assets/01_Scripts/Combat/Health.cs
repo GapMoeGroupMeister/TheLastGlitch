@@ -33,10 +33,8 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float amount, Vector2 dir, float knockbackPower)
     {
-        Debug.Log(dir);
         if(IsHittable)
         {
-            Debug.Log("Hit");
             if (knockbackPower > 0)
                 _onwer.MovementComponent.GetKnockback(dir, knockbackPower);
             _currentHealth -= amount;
