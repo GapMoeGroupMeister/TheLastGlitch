@@ -34,8 +34,6 @@ public class Enemy : EnemySetting
         StateMachine.AddState(EnemyStateEnum.Chase,new EnemyChaseState(this,StateMachine,"Chase"));
         StateMachine.AddState(EnemyStateEnum.Dead, new EnemyDeadState(this, StateMachine, "Dead"));
         StateMachine.AddState(EnemyStateEnum.Attack, new EnemyAttackState(this, StateMachine, "Attack"));
-
-        StateMachine.InitInitialize(EnemyStateEnum.Idle, this);
     }
 
     private void Start()
