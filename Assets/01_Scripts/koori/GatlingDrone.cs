@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class GatlingDrone : Drone
 {
-    [SerializeField] private float radius;
+    [SerializeField] private float _radius;
     private bool _cool = false;
     [SerializeField]private float _coolTime = 1;
 
     private void Start()
     {
         speed = 2.9f;
-        detectRadius = radius;
+        detectRadius = _radius;
     }
     protected override void Attack()
     {
