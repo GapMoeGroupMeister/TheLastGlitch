@@ -31,12 +31,12 @@ public class Health : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
-    public void TakeDamage(float amount, Vector2 normal, Vector2 point, float knockbackPower)
+    public void TakeDamage(float amount, Vector2 dir, float knockbackPower)
     {
         if(IsHittable)
         {
             if (knockbackPower > 0)
-                _onwer.MovementComponent.GetKnockback(normal * -1, knockbackPower);
+                _onwer.MovementComponent.GetKnockback(dir, knockbackPower);
             _currentHealth -= amount;
             if (_currentHealth <= 0)
             {
