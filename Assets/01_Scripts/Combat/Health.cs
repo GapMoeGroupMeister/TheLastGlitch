@@ -14,11 +14,11 @@ public class Health : MonoBehaviour
     public bool IsHittable { get; set; } = true;
 
 
-    public UnityEvent OnGetHit { get ; set; }
+    public UnityEvent OnGetHit;
 
     private void Update()
     {
-        Debug.Log(_currentHealth);
+        //Debug.Log(_currentHealth);
     }
 
     public void Initialize(Agent agent)
@@ -31,18 +31,18 @@ public class Health : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
-    public void TakeDamage(float amount, Vector2 normal, Vector2 point, float knockbackPower)
+    public void TakeDamage(float amount, Vector2 dir, float knockbackPower)
     {
         if(IsHittable)
         {
+            if (knockbackPower > 0)
+                _onwer.MovementComponent.GetKnockback(dir, knockbackPower);
             _currentHealth -= amount;
             if (_currentHealth <= 0)
             {
                 gameObject.SetActive(false);
             }
 
-            if (knockbackPower > 0)
-                _onwer.MovementComponent.GetKnockback(normal * -1, knockbackPower);
         }
     }
 }
