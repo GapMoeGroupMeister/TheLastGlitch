@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class EnemySetting : Agent
 {
+    public UnityEvent FinalDeadEvent;
+
     [Header("Attack setting")]
     [SerializeField]
     public int detectRadius;
