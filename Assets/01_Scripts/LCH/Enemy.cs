@@ -43,6 +43,7 @@ public class Enemy : EnemySetting
 
     private void Update()
     {
+        Debug.Log(StateMachine.CurrentState);
         StateMachine.CurrentState.UpdateState();
         if(targetTrm != null && IsDie == false)
         {

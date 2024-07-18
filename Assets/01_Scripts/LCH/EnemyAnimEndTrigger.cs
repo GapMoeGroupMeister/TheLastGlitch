@@ -6,13 +6,14 @@ public class EnemyAnimEndTrigger : MonoBehaviour
 {
     [SerializeField] private Enemy _enemy;
 
-    private void AnimationEnd()
+    public void AnimationEnd()
     {
         _enemy.AnimationEndTrigger();
     }
     
-    private void AnimationAttackTrigger()
+    public void AnimationAttackTrigger()
     {
         _enemy.Attack();
+        Debug.Log("attack");
     }
 }

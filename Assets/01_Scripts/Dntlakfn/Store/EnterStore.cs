@@ -7,21 +7,21 @@ public class EnterStore : MonoBehaviour
 {
     public UnityEvent OnEnter;
     [SerializeField] protected GameObject storeUI;
-    [SerializeField] protected bool a;
+    [SerializeField] protected bool isEnter;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       a = true;
+       isEnter = true;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        a = false;
+        isEnter = false;
     }
     
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            storeUI.SetActive(true);
+            storeUI.SetActive(isEnter);
             OnEnter?.Invoke();
         }
     }

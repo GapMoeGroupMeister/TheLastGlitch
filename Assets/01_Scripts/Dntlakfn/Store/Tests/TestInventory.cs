@@ -10,32 +10,35 @@ public class TestInventory : MonoBehaviour
 {
     
     public static List<TestItemSO> HaveItems;
-    public static int ItemCount = 0;
+    
+    [SerializeField] protected GameObject empty;
+    
     [SerializeField] protected bool trigger = false;
     public bool Trigger
     {
         get
         {
+            
             trigger = !trigger;
             return !trigger;
         }
     }
     
-    [SerializeField] protected GameObject haveItem;
+    
 
-    private void Awake()
+    private void Start()
     {
         HaveItems = new List<TestItemSO>();
         gameObject.SetActive(Trigger);
-        
     }
 
-    
+
     public void SetInventory()
     {
-        Image a = Instantiate(haveItem, transform).GetComponent<Image>();
-        a.sprite = HaveItems.Last()._icon;
-
+        Image icon = Instantiate(empty, transform).GetComponent<Image>();
+        icon.sprite = HaveItems.Last()._icon;
+        
+ 
     }
 
    
