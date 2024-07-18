@@ -15,6 +15,8 @@ public class Health : MonoBehaviour
 
 
     public UnityEvent OnGetHit;
+    public UnityEvent OnDeadEvent;
+
 
     private void Update()
     {
@@ -35,12 +37,14 @@ public class Health : MonoBehaviour
     {
         if(IsHittable)
         {
+            OnGetHit?.Invoke();
             if (knockbackPower > 0)
                 _onwer.MovementComponent.GetKnockback(dir, knockbackPower);
             _currentHealth -= amount;
             if (_currentHealth <= 0)
             {
-                gameObject.SetActive(false);
+                _currentHealth = _maxHealth;
+                OnDeadEvent?.Invoke();
             }
 
         }
