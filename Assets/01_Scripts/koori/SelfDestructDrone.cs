@@ -14,15 +14,21 @@ public class SelfDestructDrone : Drone
     {
         _rb = GetComponent<Rigidbody2D>();
     }
+
+    private void Start()
+    {
+        speed = 3;
+    }
     protected override void Attack()
     {
         if (target != null)
         {
-            automove = false;
+            autoMove = false;
             _rb.velocity = (target.transform.position - transform.position).normalized * _speed;
+            Debug.LogError("¹Î");
         }
         else
-            automove = true;
+            autoMove = true;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
