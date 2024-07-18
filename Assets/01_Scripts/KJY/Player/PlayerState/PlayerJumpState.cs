@@ -12,6 +12,7 @@ public class PlayerJumpState : PlayerState<PlayerStateEnum>
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Jump State");
     }
 
     public override void Exit()
@@ -23,10 +24,9 @@ public class PlayerJumpState : PlayerState<PlayerStateEnum>
     {
         base.UpdateState();
 
-        if (_player.MovementComponent.isGround.Value)
+        if (_player.MovementComponent.rbCompo.velocity.y < 0 && !_player.MovementComponent.isGround.Value)
         {
-            _stateMachine.ChangeState(PlayerStateEnum.Idle);
-            
+            _stateMachine.ChangeState(PlayerStateEnum.Fall);
         }
     }
 }

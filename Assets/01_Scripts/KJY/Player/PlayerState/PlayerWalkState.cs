@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
-public class PlayerWalkState : PlayerState<PlayerStateEnum>
+public class PlayerWalkState : PlayerCanAttackState
 {
     public PlayerWalkState(Player _onwer, StateMachine<PlayerStateEnum> state, string animHashName) : base(_onwer, state, animHashName)
     {
@@ -22,9 +22,9 @@ public class PlayerWalkState : PlayerState<PlayerStateEnum>
     public override void UpdateState()
     {
         base.UpdateState();
-        Debug.Log("นึ Run");
-        _player.MovementComponent.SetMovement(_player._xMove);
 
+        _player.MovementComponent.SetMovement(_player._xMove);
+        //Debug.Log("Walk State");
         if (_player._xMove == 0)
         {
             _stateMachine.ChangeState(PlayerStateEnum.Idle);

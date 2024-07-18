@@ -11,6 +11,8 @@ public class TestInventory : MonoBehaviour
     
     public static List<TestItemSO> HaveItems;
     
+    [SerializeField] protected GameObject empty;
+    
     [SerializeField] protected bool trigger = false;
     public bool Trigger
     {
@@ -22,7 +24,7 @@ public class TestInventory : MonoBehaviour
         }
     }
     
-    [SerializeField] protected GameObject haveItem;
+    
 
     private void Start()
     {
@@ -31,15 +33,10 @@ public class TestInventory : MonoBehaviour
     }
 
 
-    public void UpdateInventory()
+    public void SetInventory()
     {
-
-        if(HaveItems.Count == 0)
-        {
-            return;
-        }
-        Image a = Instantiate(haveItem, transform).GetComponent<Image>();
-        a.sprite = HaveItems.Last()._icon;
+        Image icon = Instantiate(empty, transform).GetComponent<Image>();
+        icon.sprite = HaveItems.Last()._icon;
         
  
     }

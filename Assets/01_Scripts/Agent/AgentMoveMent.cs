@@ -109,10 +109,10 @@ public class AgentMovement : MonoBehaviour
 
     private IEnumerator KnockbackCoroutine()
     {
+        Debug.Log(_kbCoroutine);
         _canMove = false;
         yield return new WaitForSeconds(knockbackTime);
-        rbCompo.velocity = Vector2.zero;
-        _canMove = true;
+        ClearKnockback();
     }
 
     public void ClearKnockback()

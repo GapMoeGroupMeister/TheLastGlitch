@@ -10,12 +10,15 @@ public enum PlayerStateEnum
     Idle,
     Walk,
     Run,
+    Dash,
     Jump,
     Fall,
     Hit,
     Dead,
 
     ActiveSkill,
+
+    CanAttack,
 
     Weapon1Attack1,
     Weapon1Attack2,
@@ -41,6 +44,7 @@ public abstract class Player : Agent
     public bool _isInteraction;
     public bool _isSwaping;
     public bool _isUseGadget;
+    public bool _isHit;
 
     public bool _isCanAttack = true;
 
@@ -56,6 +60,12 @@ public abstract class Player : Agent
         _input.OnInteractionEvent += OnInteraction;
         _input.OnSwapingEvent += OnSwaping;
         _input.OnUseGadgetEvent += OnUseGadget;
+    }
+
+    protected virtual void Update()
+    {
+        OnMovement();
+        PlayerFlip(_xMove);
     }
 
     private void OnUseGadget()
@@ -87,11 +97,6 @@ public abstract class Player : Agent
         }
     }
 
-    protected virtual void Update()
-    {
-        OnMovement();
-    }
-
     private void OnMovement()
     {
         _xMove = _input.Movement.x;
@@ -101,15 +106,27 @@ public abstract class Player : Agent
     {
         if (!_isAttack)
         {
+            _isDoubleAttack = false;
             _isAttack = true;
             print("1");
         }
-        else
+        else if (_isAttack)
         {
             _isDoubleAttack = true;
             _isAttack = false;
             print("2");
         }
+    }
+
+    public void Attack1Disable()
+    {
+        StartCoroutine(Atttack1DisableCO());
+    }
+
+    private IEnumerator Atttack1DisableCO()
+    {
+        yield return new WaitForSeconds(1f);
+        _isAttack = false;
     }
 
     public override void SetDeadState()

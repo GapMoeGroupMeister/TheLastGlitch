@@ -17,7 +17,6 @@ public class StateMachine<T> where T : Enum
 
     public void ChangeState(T changeState)
     {
-        Debug.Log(changeState);
         CurrentState.Exit();
         CurrentState = stateDict[changeState];
         CurrentState.Enter();
