@@ -19,11 +19,10 @@ public class MgsyClosedState : MGSYState<BossStateEnum>
         health.IsHittable = false;
     }
 
-    
-
     public override void UpdateState()
     {
         base.UpdateState();
         
+
     }
 }

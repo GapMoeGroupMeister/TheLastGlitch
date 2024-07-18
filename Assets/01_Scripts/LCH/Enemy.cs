@@ -14,7 +14,7 @@ public enum BossStateEnum
     Closed,
     Opened,
     AngryOpened
-}
+} 
 public class Enemy : EnemySetting
 {
     public StateMachine<EnemyStateEnum> StateMachine { get; private set; }

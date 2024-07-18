@@ -16,4 +16,16 @@ public class MgsyIdleState : MGSYState<BossStateEnum>
         base.Enter();
         health.IsHittable = true;
     }
+
+    public override void UpdateState()
+    {
+        base.UpdateState();
+
+        Collider2D player = mgsy.GetPlayerInRange();
+        if(player != null)
+        {
+            mgsy.targetTrm = player.transform;
+            _stateMachine.ChangeState(BossStateEnum.Closed);
+        }
+    }
 }
