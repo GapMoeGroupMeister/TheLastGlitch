@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCanAttack : PlayerState<PlayerStateEnum>
+public class PlayerDeadState : PlayerState<PlayerStateEnum>
 {
-    public PlayerCanAttack(Player _onwer, StateMachine<PlayerStateEnum> state, string animHashName) : base(_onwer, state, animHashName)
+    public PlayerDeadState(Player _onwer, StateMachine<PlayerStateEnum> state, string animHashName) : base(_onwer, state, animHashName)
     {
     }
 
@@ -21,9 +21,10 @@ public class PlayerCanAttack : PlayerState<PlayerStateEnum>
     public override void UpdateState()
     {
         base.UpdateState();
-        if (_player._isCanAttack)
+
+        if (!_player.IsDie)
         {
-            _stateMachine.ChangeState(PlayerStateEnum.Weapon2Attack1);
+            _stateMachine.ChangeState(PlayerStateEnum.Idle);
         }
     }
 }
