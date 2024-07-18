@@ -57,7 +57,7 @@ public class GatlingBullet : MonoBehaviour, Ipoolable
         if (collision.gameObject.TryGetComponent<Health>(out Health health))
         {
             Debug.Log("Take Damage");
-            health.TakeDamage(_damage, -collision.transform.position.normalized, _knockBack);
+            health.TakeDamage(_damage, collision.transform.position.normalized, _knockBack);
             PoolManager.Instance.Push(this);
 
         }
