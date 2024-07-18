@@ -34,7 +34,7 @@ public class SelfDestructDrone : Drone
     {
         if (collision.gameObject.TryGetComponent<Health>(out Health health))
         {
-            health.TakeDamage(_damage, -collision.transform.position.normalized, _knockBack);
+            health.TakeDamage(_damage, collision.transform.position.normalized, _knockBack);
             gameObject.SetActive(false);
         }
     }
