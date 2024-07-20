@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private LineRenderer laser;
+    public void LaslerAttack(Vector3 target)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        laser.SetPosition(0, transform.position);
+        laser.SetPosition(1, target);
     }
 }
