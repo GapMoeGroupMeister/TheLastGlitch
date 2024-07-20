@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe366c365232a04c8dd66f4d2896519, type: 3}
   m_Name: TankerEnemy
   m_EditorClassIdentifier: 
-  poolName: 
-  prefab: {fileID: 0}
-  count: 0
+  poolName: TankerEnemy
+  prefab: {fileID: 3824209589037874041, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
+  count: 1
