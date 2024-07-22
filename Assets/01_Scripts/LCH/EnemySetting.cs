@@ -17,7 +17,7 @@ public abstract class EnemySetting : Agent
 
     public DamageCaster DamageCasterComp { get; protected set; }
 
-    [HideInInspector] public Transform targetTrm = null;
+    public Transform targetTrm = null;
     [HideInInspector] public float lastAttackTime;
 
     public bool CanStateChangeble { get; protected set; } = true;
@@ -26,7 +26,7 @@ public abstract class EnemySetting : Agent
 
     public DamageCaster DamageCasterCompo { get; protected set; }
 
-    protected Collider2D[] _colliders;
+    [field: SerializeField]protected Collider2D[] _colliders;
 
     protected override void Awake()
     {
