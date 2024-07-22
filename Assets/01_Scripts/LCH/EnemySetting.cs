@@ -21,6 +21,9 @@ public abstract class EnemySetting : Agent
     [HideInInspector] public float lastAttackTime;
 
     public bool CanStateChangeble { get; protected set; } = true;
+
+    protected int _enemyLayers;
+
     public DamageCaster DamageCasterCompo { get; protected set; }
 
     protected Collider2D[] _colliders;
@@ -29,6 +32,7 @@ public abstract class EnemySetting : Agent
     {
         base.Awake();
         DamageCasterCompo = transform.Find("DamgeCaster").GetComponent<DamageCaster>();
+        _enemyLayers = LayerMask.NameToLayer("Enemy");
         _colliders = new Collider2D[20];
     }
     private void Update()
