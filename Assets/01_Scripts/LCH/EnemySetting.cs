@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class EnemySetting : Agent
 {
+    public UnityEvent FinalDeadEvent;
+
     [Header("Attack setting")]
     [SerializeField]
     public int detectRadius;
@@ -14,18 +17,22 @@ public abstract class EnemySetting : Agent
 
     public DamageCaster DamageCasterComp { get; protected set; }
 
-    [HideInInspector] public Transform targetTrm = null;
+    public Transform targetTrm = null;
     [HideInInspector] public float lastAttackTime;
 
     public bool CanStateChangeble { get; protected set; } = true;
+
+    protected int _enemyLayers;
+
     public DamageCaster DamageCasterCompo { get; protected set; }
 
-    protected Collider2D[] _colliders;
+    [field: SerializeField]protected Collider2D[] _colliders;
 
     protected override void Awake()
     {
         base.Awake();
         DamageCasterCompo = transform.Find("DamgeCaster").GetComponent<DamageCaster>();
+        _enemyLayers = LayerMask.NameToLayer("Enemy");
         _colliders = new Collider2D[20];
     }
     private void Update()
@@ -35,7 +42,7 @@ public abstract class EnemySetting : Agent
 
     public Collider2D GetPlayerRange()
     {
-        int count = Physics2D.OverlapCircle(transform.position, detectRadius,contactFilter,_colliders);
+        int count = Physics2D.OverlapCircleNonAlloc(transform.position, detectRadius,_colliders,_whatIsPlayer);
         return count > 0 ? _colliders[0] : null;
     }
 

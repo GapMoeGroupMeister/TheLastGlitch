@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec581ca6360aea04d8afd6168e2be7f6, type: 3}
-  m_Name: PoolList
+  m_Script: {fileID: 11500000, guid: 628fffe4b4a04c244832167421704994, type: 3}
+  m_Name: TestListQuest
   m_EditorClassIdentifier: 
   list:
-  - {fileID: 11400000, guid: 3b017527c1f7d334fa553e58ab8108b6, type: 2}
-  - {fileID: 11400000, guid: 885604f3a82e4914096a88d0bc29169e, type: 2}
+  - {fileID: 11400000, guid: 95f6fc48061ac6b44aeef3d755f8956b, type: 2}
+  - {fileID: 11400000, guid: 63a518c9377d0864dbc0a4133bb0eba3, type: 2}

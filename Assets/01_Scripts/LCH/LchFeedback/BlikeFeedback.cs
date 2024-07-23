@@ -6,7 +6,7 @@ public class BlikeFeedback : Feedback
 {
     [SerializeField] private Sprite _blikeSprite;
     [SerializeField] private Sprite _basicSprite;
-    [SerializeField] private float _flashTime = 0.1f;
+    [SerializeField] private float _flashTime = 0.2f;
     [SerializeField] private SpriteRenderer _targetRender;
 
   

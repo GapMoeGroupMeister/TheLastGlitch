@@ -9,14 +9,9 @@ public class SelfDestructDrone : Drone
     [SerializeField] private float _speed;
     [SerializeField] int _damage;
     [SerializeField] float _knockBack;
-
-    private void Awake()
-    {
-        _rb = GetComponent<Rigidbody2D>();
-    }
-
     private void Start()
     {
+        _rb = GetComponent<Rigidbody2D>();
         speed = 3;
     }
     protected override void Attack()
