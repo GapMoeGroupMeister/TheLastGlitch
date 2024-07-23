@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum QuestType
 {
-    Clear, Hunt, All
+    Clear, Hunt
 }
 
 
@@ -12,8 +12,9 @@ public enum QuestType
 public class TestQuestSO : ScriptableObject
 {
     public string questName;
-    public string questContents;
+    public string questDetail;
     public QuestType questType;
+    public int questLevel;
 
     [Header("Clear")]
     public string targetPlace;
@@ -22,5 +23,8 @@ public class TestQuestSO : ScriptableObject
     [Header("Hunt")]
     public string target;
     public int targetNumber;
+    public int currentTargetNumber;
 
+
+    public int award;
 }
