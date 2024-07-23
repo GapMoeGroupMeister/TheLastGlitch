@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4020223228009269660, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.28
+      value: 1.74
       objectReference: {fileID: 0}
     - target: {fileID: 4020223228009269660, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
       propertyPath: m_LocalPosition.z
@@ -174,6 +174,10 @@ PrefabInstance:
     - target: {fileID: 4020223228009269660, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521964218491795868, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
+      propertyPath: _whatIsPlayer.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -485,7 +489,7 @@ Transform:
   m_GameObject: {fileID: 305593336}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -38.99, y: 1.78, z: 0.04213287}
+  m_LocalPosition: {x: -40, y: 1.85, z: 0.04213287}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1228,9 +1232,9 @@ MonoBehaviour:
   FinalDeadEvent:
     m_PersistentCalls:
       m_Calls: []
-  detectRadius: 11
+  detectRadius: 10
   attackRadius: 10
-  knockbackPower: 0
+  knockbackPower: 3
   attackCooldown: 1
   damage: 5
   _whatIsPlayer:
