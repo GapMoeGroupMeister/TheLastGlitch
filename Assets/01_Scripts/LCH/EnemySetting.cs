@@ -15,6 +15,8 @@ public abstract class EnemySetting : Agent
     public LayerMask _whatIsPlayer;
     public ContactFilter2D contactFilter;
 
+    public float minX, maxX;
+
     public DamageCaster DamageCasterComp { get; protected set; }
 
     public Transform targetTrm = null;
@@ -44,6 +46,13 @@ public abstract class EnemySetting : Agent
     {
         int count = Physics2D.OverlapCircleNonAlloc(transform.position, detectRadius,_colliders,_whatIsPlayer);
         return count > 0 ? _colliders[0] : null;
+    }
+
+    public Vector3 GetRandomVector()
+    {
+        float x = Random.Range(minX,maxX);
+        Vector3 vec = new Vector3(x, transform.position.y);
+        return vec;
     }
 
     public virtual void Attack()
