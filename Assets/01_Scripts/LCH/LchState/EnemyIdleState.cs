@@ -24,11 +24,8 @@ public class EnemyIdleState : EnemyState<EnemyStateEnum>
     public override void UpdateState()
     {
         base.UpdateState();
-        Collider2D player = _enemy.GetPlayerRange();
-        if(player != null)
-        {
-            _enemy.targetTrm = player.transform;
-            _stateMachine.ChangeState(EnemyStateEnum.Chase);
-        }
+         new WaitForSeconds(0.5f);
+        _stateMachine.ChangeState(EnemyStateEnum.Walk);
+
     }
 }

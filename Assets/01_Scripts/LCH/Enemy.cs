@@ -5,6 +5,7 @@ public enum EnemyStateEnum
     Idle,
     Attack,
     Chase,
+    Walk,
     Dead
 }
 
@@ -34,6 +35,7 @@ public class Enemy : EnemySetting
         StateMachine.AddState(EnemyStateEnum.Chase,new EnemyChaseState(this,StateMachine,"Chase"));
         StateMachine.AddState(EnemyStateEnum.Dead, new EnemyDeadState(this, StateMachine, "Dead"));
         StateMachine.AddState(EnemyStateEnum.Attack, new EnemyAttackState(this, StateMachine, "Attack"));
+        StateMachine.AddState(EnemyStateEnum.Walk, new EnemyWalkState(this, StateMachine, "Walk"));
     }
 
     private void Start()

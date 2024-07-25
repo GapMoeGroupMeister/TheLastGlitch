@@ -176,6 +176,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7521964218491795868, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
+      propertyPath: maxX
+      value: 17.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521964218491795868, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
+      propertyPath: minX
+      value: -61.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521964218491795868, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
       propertyPath: _whatIsPlayer.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -1254,6 +1262,8 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  minX: 0
+  maxX: 0
   targetTrm: {fileID: 0}
   lastAttackTime: 0
   _colliders: []
