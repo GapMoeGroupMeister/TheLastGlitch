@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8a2778169affbaf46a27c4750651cfd1
+guid: e3fee12ed32cdcd4db93d669d8a0d390
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,85 +136,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Katana-Sheet_0
+      name: Playerjump-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b51bc4591e1f4b45b430c3af26dd831
-      internalID: 75248975
+      spriteID: 2bfb7925642dfac4fad5956e859a1a39
+      internalID: 1558640655
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Katana-Sheet_1
+      name: Playerjump-Sheet_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 0
-        width: 48
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 802c46d5e5b0aeb4a92001dde23e4e57
-      internalID: -654205190
+      spriteID: 20861366c2fc396409e37ba0e2308bcb
+      internalID: 1000189816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Katana-Sheet_2
+      name: Playerjump-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1331e8934f76ec342aa39fe83e026f4e
+      internalID: -1381996024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Playerjump-Sheet_3
       rect:
         serializedVersion: 2
         x: 96
-        y: 0
-        width: 48
+        y: 4
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aab6c3e998ff23d4d9e4cfa853718859
-      internalID: -636623425
+      spriteID: b112f6a1e923f054ba4eae00278ab8e0
+      internalID: -432070052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Katana-Sheet_3
+      name: Playerjump-Sheet_4
       rect:
         serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
+        x: 128
+        y: 9
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb92e7c9a33b5b747ae30b4b10c85185
-      internalID: -1382280124
+      spriteID: 9f8e74adfed684640b0df16694f51de1
+      internalID: 1404818435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Playerjump-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 10
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eec03f963b634d49a899c3c164ae8a2
+      internalID: -581106070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Playerjump-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 7
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74a51f36b4b2b8940a301407fae25e88
+      internalID: 856569439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Playerjump-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 3
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 750b10337cc76ee49a3bc895aeab8c18
+      internalID: 1412293371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Playerjump-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e52576bc057c6404a931b0147679f657
+      internalID: 1608848979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Playerjump-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c44506ba963a6cc44a1dfa44aaac8961
+      internalID: -1772825285
       vertices: []
       indices: 
       edges: []
@@ -230,10 +356,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Katana-Sheet_0: 75248975
-      Player_Katana-Sheet_1: -654205190
-      Player_Katana-Sheet_2: -636623425
-      Player_Katana-Sheet_3: -1382280124
+      Playerjump-Sheet_0: 1558640655
+      Playerjump-Sheet_1: 1000189816
+      Playerjump-Sheet_2: -1381996024
+      Playerjump-Sheet_3: -432070052
+      Playerjump-Sheet_4: 1404818435
+      Playerjump-Sheet_5: -581106070
+      Playerjump-Sheet_6: 856569439
+      Playerjump-Sheet_7: 1412293371
+      Playerjump-Sheet_8: 1608848979
+      Playerjump-Sheet_9: -1772825285
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
