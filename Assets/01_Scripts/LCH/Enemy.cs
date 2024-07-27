@@ -51,6 +51,16 @@ public class Enemy : EnemySetting
         {
             HandleSpriteFlip(targetTrm.position);
         }
+
+        if(MovementComponent._xMove < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        Debug.Log(MovementComponent._xMove);
     }
     public override void AnimationEndTrigger()
     {
