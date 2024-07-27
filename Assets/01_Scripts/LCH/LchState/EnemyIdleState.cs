@@ -13,7 +13,7 @@ public class EnemyIdleState : EnemyState<EnemyStateEnum>
     public override void Enter()
     {
         base.Enter();
-        _enemy.MovementComponent.StopImmediately(false);
+        _enemy.MovementComponent.StopImmediately(true);
     }
 
     public override void Exit()
@@ -24,7 +24,7 @@ public class EnemyIdleState : EnemyState<EnemyStateEnum>
     public override void UpdateState()
     {
         base.UpdateState();
-         new WaitForSeconds(0.5f);
+         new WaitForSeconds(2f);
         _stateMachine.ChangeState(EnemyStateEnum.Walk);
 
     }
