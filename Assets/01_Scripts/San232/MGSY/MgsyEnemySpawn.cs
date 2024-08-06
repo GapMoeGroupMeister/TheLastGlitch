@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MgsyEnemySpawn : MonoBehaviour
@@ -25,27 +24,23 @@ public class MgsyEnemySpawn : MonoBehaviour
 
     private void StartSpawnEnemy()
     {
-        if(IsSpawning)
+        if (IsSpawning)
         {
-            while (_mobCount == _currentMobCount)
-            {
-                //Spawn
-                _currentMobCount++;
-                _spawnCooltime = Random.Range(8, 21);
-                StartCoroutine(SpawnCoolRoutine());
-            }
-
-            if (_mobCount == _currentMobCount)
-            {
-                _currentMobCount = 0;
-                DecideCount();
-            }
+            StartCoroutine(SpawnEnemies());
         }
     }
 
-    private IEnumerator SpawnCoolRoutine()
+    private IEnumerator SpawnEnemies()
     {
-        yield return new WaitForSeconds(_spawnCooltime);
-    }
+        while (_currentMobCount < _mobCount)
+        {
+            //Spawn
+            _currentMobCount++;
+            _spawnCooltime = Random.Range(8, 21);
+            yield return new WaitForSeconds(_spawnCooltime);
+        }
 
+        _currentMobCount = 0;
+        DecideCount();
+    }
 }
