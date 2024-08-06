@@ -18,7 +18,7 @@ public class AgentMovement : MonoBehaviour
     [SerializeField] private Vector2 _groundCheckerSize;
     public Rigidbody2D rbCompo { get; private set; }
     public NotifyValue<bool> isGround = new NotifyValue<bool>();
-    protected float _xMove;
+    public float _xMove;
     private float _timeInAir;
     private Agent _owner;
     public float knockbackTime = 0.2f;
