@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6216991248455183608}
   - component: {fileID: 4532799829539885479}
   - component: {fileID: 6630592752407962388}
-  - component: {fileID: -5485327274640952668}
+  - component: {fileID: 1204645445034955478}
   m_Layer: 0
   m_Name: RedPotal 1
   m_TagString: Untagged
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-5485327274640952668
+--- !u!114 &1204645445034955478
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,6 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7013533066592887316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ff010e80275584384bb22a1caa0cdf, type: 3}
+  m_Script: {fileID: 11500000, guid: f6c2e830841d13741a079b6d09fd69be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _teleportingPortal: {fileID: 304412122126491777, guid: 78c4ed8ed68c2224cbe8e207b85ff896, type: 3}

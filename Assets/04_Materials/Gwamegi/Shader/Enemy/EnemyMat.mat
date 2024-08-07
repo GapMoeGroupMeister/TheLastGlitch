@@ -44,13 +44,13 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Range: 0.1
-    - _SubRange: 0.1
+    - _SubRange: 0.91
     - _UseSubMask: 1
     m_Colors:
-    - _EmissionColor: {r: 32.439228, g: 0, b: 0.084889635, a: 0}
+    - _EmissionColor: {r: 16.219614, g: 0, b: 0.042444818, a: 0}
     - _MaskColor: {r: 0.7725491, g: 0, b: 0, a: 0}
-    - _SubEmissionColor: {r: 1.3350784, g: 0, b: 0.055209797, a: 0}
-    - _SubMaskColor: {r: 0.44705886, g: 0.039215688, b: 0.078431375, a: 0}
+    - _SubEmissionColor: {r: 4.759379, g: 0, b: 0, a: 0}
+    - _SubMaskColor: {r: 0.9960785, g: 0.039215688, b: 0.2627451, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &396233330903534032
 MonoBehaviour:

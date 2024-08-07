@@ -13,7 +13,7 @@ public class BluePotalBullet : PotalGunBullet
             GameObject potal = Instantiate(_bluePotalPrefab);
             potal.transform.position = transform.position;
             PotalManager.Instance._bluePotalTranform = potal.transform.position;
-            PotalManager.Instance.bluePotal = potal.GetComponent<BluePotal>();
+            PotalManager.Instance.bluePotal = potal.GetComponent<Portal>();
 
             Destroy(gameObject);
         }
