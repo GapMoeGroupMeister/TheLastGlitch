@@ -24,7 +24,7 @@ public class EnemyAttackState : EnemyState<EnemyStateEnum>
         {
             _enemy.lastAttackTime = Time.time;
             _stateMachine.ChangeState(EnemyStateEnum.Chase);
-        }
+        }                                                                                                                                                                                                                                                                                                                                                                                                               
 
         base.UpdateState();
     }

@@ -39,7 +39,6 @@ public abstract class EnemySetting : Agent
     }
     private void Update()
     {
-        Debug.Log(GetPlayerRange());
     }
 
     public Collider2D GetPlayerRange()

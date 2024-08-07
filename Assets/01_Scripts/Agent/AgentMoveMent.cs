@@ -40,14 +40,13 @@ public class AgentMovement : MonoBehaviour
     }
     public void StopImmediately(bool isYStop = false)
     {
-        _xMove = 0;
         if (isYStop)
         {
             rbCompo.velocity = Vector2.zero;
         }
         else
         {
-            rbCompo.velocity = new Vector2(_xMove, rbCompo.velocity.y);
+            rbCompo.velocity = new Vector2(0, rbCompo.velocity.y);
         }
     }
     public void Jump(float multiplier = 1f)
