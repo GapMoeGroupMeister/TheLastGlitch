@@ -2,17 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DronIdleState : MonoBehaviour
+public class DronIdleState : EnemyState<EnemyStateEnum>
 {
-    // Start is called before the first frame update
-    void Start()
+    private Enemy _enemy;
+    public DronIdleState(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
-        
+         _enemy = enemyBase;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Enter()
     {
-        
+        base.Enter();
+        _enemy.MovementComponent.StopImmediately(true);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+
+    public override void UpdateState()
+    {
+        base.UpdateState();
+        new WaitForSeconds(2f);
+        _stateMachine.ChangeState(EnemyStateEnum.Walk);
+
     }
 }
