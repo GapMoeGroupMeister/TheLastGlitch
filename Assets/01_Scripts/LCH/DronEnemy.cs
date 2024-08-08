@@ -16,7 +16,6 @@ public class DronEnemy : Enemy
     {
         base.Awake();
         StateMachine.AddState(EnemyStateEnum.Idle, new DronIdleState(this, StateMachine, "Idle"));
-        StateMachine.AddState(EnemyStateEnum.Chase, new DronChaseState(this, StateMachine, "Chase"));
         StateMachine.AddState(EnemyStateEnum.Dead, new EnemyDeadState(this, StateMachine, "Dead"));
         StateMachine.AddState(EnemyStateEnum.Attack, new DronAttackState(this, StateMachine, "Attack"));
         StateMachine.AddState(EnemyStateEnum.Walk, new DronWalkState(this, StateMachine, "Walk"));

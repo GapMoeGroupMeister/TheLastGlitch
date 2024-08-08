@@ -10,6 +10,7 @@ public class DronWalkState : EnemyState<EnemyStateEnum>
     public DronWalkState(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
         _enemy = enemyBase;
+        _dron = _enemy as DronEnemy;
     }
 
     public override void Enter()
@@ -36,7 +37,7 @@ public class DronWalkState : EnemyState<EnemyStateEnum>
         if (player != null)
         {
             _enemy.targetTrm = player.transform;
-            _stateMachine.ChangeState(EnemyStateEnum.Chase);
+            _stateMachine.ChangeState(EnemyStateEnum.Attack);
         }
     }
 

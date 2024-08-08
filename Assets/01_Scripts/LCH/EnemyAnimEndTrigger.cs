@@ -16,4 +16,14 @@ public class EnemyAnimEndTrigger : MonoBehaviour
         _enemy.Attack();
         Debug.Log("attack");
     }
+
+    public void AnimationLaserAttackTrigger()
+    {
+
+    }
+
+    private void LaserAttack()
+    {
+
+    }
 }
