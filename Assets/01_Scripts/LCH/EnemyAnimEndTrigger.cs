@@ -21,9 +21,4 @@ public class EnemyAnimEndTrigger : MonoBehaviour
     {
 
     }
-
-    private void LaserAttack()
-    {
-
-    }
 }

@@ -59,6 +59,11 @@ public abstract class EnemySetting : Agent
         DamageCasterCompo.CastDamge(damage, knockbackPower);                                                                                                                                                                                                                          
     }
 
+    public virtual void LaserAttack()
+    {
+
+    }
+
     protected virtual void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

@@ -37,7 +37,15 @@ public class EnemyWalkState : EnemyState<EnemyStateEnum>
         if (player != null)
         {
             _enemy.targetTrm = player.transform;
-            _stateMachine.ChangeState(EnemyStateEnum.Chase);
+
+            if (_enemy.isMelee)
+            {
+                if(_enemy.isCloser)
+                {
+                    _stateMachine.ChangeState(EnemyStateEnum.Chase);
+                    return;
+                }
+            }
         }
     }
 

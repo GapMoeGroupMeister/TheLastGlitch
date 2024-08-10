@@ -18,6 +18,8 @@ public enum BossStateEnum
 } 
 public class Enemy : EnemySetting
 {
+    public bool isMelee = true;
+    public bool isCloser;
     public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
 
 
@@ -46,11 +48,11 @@ public class Enemy : EnemySetting
             HandleSpriteFlip(targetTrm.position);
         }
 
-        if(MovementComponent._xMove < 0)
+        if(MovementComponent._xMove < 0 && MovementComponent._xMove != 0)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-        else 
+        else if(MovementComponent._xMove > 0 && MovementComponent._xMove !=0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }

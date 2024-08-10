@@ -15,7 +15,7 @@ public class EnemyAttackState : EnemyState<EnemyStateEnum>
     public override void Enter()
     {
         base.Enter();
-        _enemy.MovementComponent.StopImmediately(false);
+        _enemy.MovementComponent._canMove = false;
     }
     public override void UpdateState()
     {
@@ -24,6 +24,7 @@ public class EnemyAttackState : EnemyState<EnemyStateEnum>
         {
             _enemy.lastAttackTime = Time.time;
             _stateMachine.ChangeState(EnemyStateEnum.Chase);
+            _enemy.MovementComponent._canMove = true;
         }                                                                                                                                                                                                                                                                                                                                                                                                               
 
         base.UpdateState();

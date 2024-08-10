@@ -6,7 +6,6 @@ public class DronWalkState : EnemyState<EnemyStateEnum>
 {
     private Enemy _enemy;
     public DronEnemy _dron;
-    Vector2 dir;
     public DronWalkState(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
         _enemy = enemyBase;
@@ -21,7 +20,7 @@ public class DronWalkState : EnemyState<EnemyStateEnum>
 
     private IEnumerator Delaytime()
     {
-        dir = _enemy.GetRandomVector() - _enemy.transform.position;
+        _dron.dir = _enemy.GetRandomVector() - _enemy.transform.position;
         yield return new WaitForSeconds(2f);
         _stateMachine.ChangeState(EnemyStateEnum.Idle);
     }
@@ -30,14 +29,20 @@ public class DronWalkState : EnemyState<EnemyStateEnum>
     {
         base.UpdateState();
 
-        _enemy.MovementComponent.SetMovement(dir.normalized.x);
+        _enemy.MovementComponent.SetMovement(_dron.dir.normalized.x);
 
         Collider2D player = _dron.GetPlayer();
 
         if (player != null)
         {
             _enemy.targetTrm = player.transform;
-            _stateMachine.ChangeState(EnemyStateEnum.Attack);
+            if (_enemy.isMelee)
+            {
+                if (!_enemy.isCloser)
+                {
+                    _stateMachine.ChangeState(EnemyStateEnum.Attack);
+                }
+            }
         }
     }
 

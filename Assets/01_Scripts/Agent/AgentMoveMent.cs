@@ -22,7 +22,7 @@ public class AgentMovement : MonoBehaviour
     private float _timeInAir;
     private Agent _owner;
     public float knockbackTime = 0.2f;
-    protected bool _canMove = true;
+    public bool _canMove = true;
     protected Coroutine _kbCoroutine;
     public void Initialize(Agent agent)
     {
