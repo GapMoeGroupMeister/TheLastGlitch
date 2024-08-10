@@ -45,6 +45,7 @@ public class Health : MonoBehaviour
             {
                 _currentHealth = _maxHealth;
                 OnDeadEvent?.Invoke();
+                Destroy(gameObject);
             }
 
         }
