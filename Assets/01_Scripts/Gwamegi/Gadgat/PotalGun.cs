@@ -13,7 +13,8 @@ public class PotalGun : MonoBehaviour
 
     private Vector2 _mousePos;
 
-    private bool _isBluePotalFire = true;
+    public bool _isBluePotalFire = true;
+    public bool isBluePortalCreate;
 
     private void Update()
     {
@@ -31,7 +32,6 @@ public class PotalGun : MonoBehaviour
             Debug.Log("블루 포탈 발사");
 
             StartCoroutine(BluePotalShat());
-            _isBluePotalFire = false;
 
         }
 
@@ -42,12 +42,13 @@ public class PotalGun : MonoBehaviour
         GameObject bullet = Instantiate(_bluePrefab);
         bullet.transform.position = transform.position;
 
+        _isBluePotalFire = false;
 
 
         while (true)
         {
             yield return null;
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && isBluePortalCreate)
             {
                 Debug.Log("레드 포탈 발사");
 

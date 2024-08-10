@@ -5,4 +5,6 @@ using UnityEngine;
 public class PortalPlayer : MonoBehaviour
 {
     public bool isTeleporting = true;
+
+
 }

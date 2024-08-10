@@ -12,4 +12,6 @@ public class PotalManager : MonoSingleton<PotalManager>
 
     public Portal bluePotal;
     public RedPotal redPotal;
+
+    public GameObject _bluePortal;
 }

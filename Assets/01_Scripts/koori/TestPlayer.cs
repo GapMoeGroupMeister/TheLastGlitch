@@ -30,7 +30,6 @@ public class TestPlayer : MonoBehaviour
         if(_xMove != 0)
         {
             transform.localScale = new Vector3(_xMove, 1, 1);
-
         }
     }
 }

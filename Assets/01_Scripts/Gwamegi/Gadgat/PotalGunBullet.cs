@@ -13,6 +13,8 @@ public abstract class PotalGunBullet : MonoBehaviour
     protected Vector2 _bluePotalTransform;
 
 
+    public abstract void IsTeleporting();
+
     private void Start()
     {
         _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

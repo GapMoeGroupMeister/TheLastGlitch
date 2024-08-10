@@ -1,28 +1,39 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Portal : MonoBehaviour
 {
-    [SerializeField] private Transform _teleportingPortal;
+    public GameObject _teleportingPortal;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public bool isMy;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.GetMask("Player") && collision.gameObject.GetComponent<PortalPlayer>().isTeleporting)
+        Debug.Log("밍");
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            collision.gameObject.transform.position = _teleportingPortal.position;
-            collision.gameObject.GetComponent<PortalPlayer>().isTeleporting = false;
+            if (collision.gameObject.GetComponent<PortalPlayer>().isTeleporting)
+            {
+                Debug.Log("이동");
+                Debug.Log(collision.gameObject.transform.position);
+                _teleportingPortal.gameObject.GetComponent<Portal>().isMy = true;
+                collision.gameObject.GetComponent<PortalPlayer>().isTeleporting = false;
+                collision.gameObject.transform.position = _teleportingPortal.transform.position;
+                Debug.Log(collision.gameObject.transform.position);
+
+            }
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.GetMask("Player"))
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && isMy)
         {
+            Debug.Log("밍 나감");
             collision.gameObject.GetComponent<PortalPlayer>().isTeleporting = true;
+            isMy = false;
         }
     }
+
 
 }
