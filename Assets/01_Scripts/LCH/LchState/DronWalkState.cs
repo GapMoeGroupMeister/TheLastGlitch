@@ -17,8 +17,6 @@ public class DronWalkState : EnemyWalkState
         base.Enter();
     }
 
-    
-
     public override void UpdateState()
     {
         base.UpdateState();
