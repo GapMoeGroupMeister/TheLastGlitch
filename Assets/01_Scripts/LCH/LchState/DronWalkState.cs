@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DronWalkState : EnemyState<EnemyStateEnum>
+public class DronWalkState : EnemyWalkState
 {
     private Enemy _enemy;
     public DronEnemy _dron;
@@ -15,15 +15,9 @@ public class DronWalkState : EnemyState<EnemyStateEnum>
     public override void Enter()
     {
         base.Enter();
-        _enemy.StartCoroutine(Delaytime());
     }
 
-    private IEnumerator Delaytime()
-    {
-        _dron.dir = _enemy.GetRandomVector() - _enemy.transform.position;
-        yield return new WaitForSeconds(2f);
-        _stateMachine.ChangeState(EnemyStateEnum.Idle);
-    }
+    
 
     public override void UpdateState()
     {
@@ -36,12 +30,9 @@ public class DronWalkState : EnemyState<EnemyStateEnum>
         if (player != null)
         {
             _enemy.targetTrm = player.transform;
-            if (_enemy.isMelee)
+            if (!_enemy.isCloser)
             {
-                if (!_enemy.isCloser)
-                {
-                    _stateMachine.ChangeState(EnemyStateEnum.Attack);
-                }
+                _stateMachine.ChangeState(EnemyStateEnum.Attack);
             }
         }
     }

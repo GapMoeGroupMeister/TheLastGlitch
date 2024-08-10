@@ -6,7 +6,6 @@ public class DronEnemy : Enemy
 {
     public PolygonCollider2D _collider;
     [SerializeField] private ContactFilter2D _filter;
-    public Vector2 dir;
     public Collider2D GetPlayer()
     {
         int count = Physics2D.OverlapCollider(_collider, _filter, _colliders);
@@ -19,9 +18,10 @@ public class DronEnemy : Enemy
         isCloser = false;
         StateMachine.AddState(EnemyStateEnum.Idle, new DronIdleState(this, StateMachine, "Idle"));
         StateMachine.AddState(EnemyStateEnum.Dead, new EnemyDeadState(this, StateMachine, "Dead"));
-        StateMachine.AddState(EnemyStateEnum.Chase, new DronChaseState(this, StateMachine, "Chase"));
         StateMachine.AddState(EnemyStateEnum.Attack, new DronAttackState(this, StateMachine, "Attack"));
         StateMachine.AddState(EnemyStateEnum.Walk, new DronWalkState(this, StateMachine, "Walk"));
         _colliders = new Collider2D[3];
     }
+
+    
 }

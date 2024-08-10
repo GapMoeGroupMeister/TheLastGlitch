@@ -14,6 +14,7 @@ public class DronAttackState : EnemyAttackState
     {
         base.Enter();
         _enemy.MovementComponent._canMove = false;
+        _enemy.MovementComponent.StopImmediately();
         _enemy.HandleSpriteFlip(_enemy.targetTrm.position);
     }
 
@@ -23,13 +24,10 @@ public class DronAttackState : EnemyAttackState
         if (_endTriggerCalled)
         {
             _enemy.lastAttackTime = Time.time;
-            if (_enemy.isMelee)
+            if (!_enemy.isCloser)
             {
-                if (!_enemy.isCloser)
-                {
-                    _enemy.MovementComponent._canMove = true;
-                    _stateMachine.ChangeState(EnemyStateEnum.Walk);
-                }
+                _enemy.MovementComponent._canMove = true;
+                _stateMachine.ChangeState(EnemyStateEnum.Walk);
             }
         }
         base.UpdateState();

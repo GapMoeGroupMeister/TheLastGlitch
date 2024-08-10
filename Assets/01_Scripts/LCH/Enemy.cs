@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public enum EnemyStateEnum
@@ -20,6 +21,7 @@ public class Enemy : EnemySetting
 {
     public bool isMelee = true;
     public bool isCloser;
+    public Vector2 dir;
     public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
 
 
@@ -34,14 +36,15 @@ public class Enemy : EnemySetting
         StateMachine = new StateMachine<EnemyStateEnum>();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         StateMachine.InitInitialize(EnemyStateEnum.Idle, this);
+        StartCoroutine(Delaytime());
     }
 
     private void Update()
     {
-        Debug.Log(StateMachine.CurrentState);
+        Debug.Log(StateMachine.CurrentState);        
         StateMachine.CurrentState.UpdateState();
         if(targetTrm != null && IsDie == false)
         {
@@ -60,6 +63,18 @@ public class Enemy : EnemySetting
     public override void AnimationEndTrigger()
     {
         StateMachine.CurrentState.AnimationEndTrigger();
+    }
+
+    protected IEnumerator Delaytime()
+    {
+        while (true)
+        {
+            dir = GetRandomVector() - transform.position;
+            yield return new WaitForSeconds(2f);
+            dir = Vector2.zero;
+            yield return new WaitForSeconds(2f);
+        }
+
     }
 
 }

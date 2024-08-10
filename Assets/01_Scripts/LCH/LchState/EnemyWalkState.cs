@@ -16,14 +16,6 @@ public class EnemyWalkState : EnemyState<EnemyStateEnum>
     public override void Enter()
     {
         base.Enter();
-        _enemy.StartCoroutine(Delaytime());
-    }
-
-    private IEnumerator Delaytime()
-    {
-        dir = _enemy.GetRandomVector() - _enemy.transform.position;
-        yield return new WaitForSeconds(2f);
-        _stateMachine.ChangeState(EnemyStateEnum.Idle);
     }
 
     public override void UpdateState()
@@ -33,19 +25,19 @@ public class EnemyWalkState : EnemyState<EnemyStateEnum>
         _enemy.MovementComponent.SetMovement(dir.normalized.x);
 
         Collider2D player = _enemy.GetPlayerRange();
+        Debug.Log(player + _enemy.name);
 
         if (player != null)
         {
             _enemy.targetTrm = player.transform;
 
-            if (_enemy.isMelee)
+            if (_enemy.isCloser)
             {
-                if(_enemy.isCloser)
-                {
-                    _stateMachine.ChangeState(EnemyStateEnum.Chase);
-                    return;
-                }
+                _stateMachine.ChangeState(EnemyStateEnum.Chase);
+                return;
             }
+            else
+                _stateMachine.ChangeState(EnemyStateEnum.Attack);
         }
     }
 
