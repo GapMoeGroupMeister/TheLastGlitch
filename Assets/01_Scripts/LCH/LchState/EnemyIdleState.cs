@@ -13,7 +13,7 @@ public class EnemyIdleState : EnemyState<EnemyStateEnum>
     public override void Enter()
     {
         base.Enter();
-        _enemy.MovementComponent.StopImmediately(false);
+        _enemy.MovementComponent.StopImmediately(true);
     }
 
     public override void Exit()
@@ -24,11 +24,8 @@ public class EnemyIdleState : EnemyState<EnemyStateEnum>
     public override void UpdateState()
     {
         base.UpdateState();
-        Collider2D player = _enemy.GetPlayerRange();
-        if(player != null)
-        {
-            _enemy.targetTrm = player.transform;
-            _stateMachine.ChangeState(EnemyStateEnum.Chase);
-        }
+         new WaitForSeconds(2f);
+        _stateMachine.ChangeState(EnemyStateEnum.Walk);
+
     }
 }

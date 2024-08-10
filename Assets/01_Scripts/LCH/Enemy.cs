@@ -5,6 +5,7 @@ public enum EnemyStateEnum
     Idle,
     Attack,
     Chase,
+    Walk,
     Dead
 }
 
@@ -14,7 +15,7 @@ public enum BossStateEnum
     Closed,
     Opened,
     AngryOpened
-}
+} 
 public class Enemy : EnemySetting
 {
     public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
@@ -34,8 +35,7 @@ public class Enemy : EnemySetting
         StateMachine.AddState(EnemyStateEnum.Chase,new EnemyChaseState(this,StateMachine,"Chase"));
         StateMachine.AddState(EnemyStateEnum.Dead, new EnemyDeadState(this, StateMachine, "Dead"));
         StateMachine.AddState(EnemyStateEnum.Attack, new EnemyAttackState(this, StateMachine, "Attack"));
-
-        StateMachine.InitInitialize(EnemyStateEnum.Idle, this);
+        StateMachine.AddState(EnemyStateEnum.Walk, new EnemyWalkState(this, StateMachine, "Walk"));
     }
 
     private void Start()
@@ -51,6 +51,16 @@ public class Enemy : EnemySetting
         {
             HandleSpriteFlip(targetTrm.position);
         }
+
+        if(MovementComponent._xMove < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        Debug.Log(MovementComponent._xMove);
     }
     public override void AnimationEndTrigger()
     {

@@ -58,6 +58,6 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  damageRaduis: 0
+  damageRaduis: 1.8
   detecutCont: 1
   _colliders: []

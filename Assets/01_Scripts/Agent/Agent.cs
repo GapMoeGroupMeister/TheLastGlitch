@@ -40,6 +40,18 @@ public abstract class Agent : MonoBehaviour
             transform.eulerAngles = Vector3.zero;
         }
     }
+
+    public void PlayerFlip(float xFlip)
+    {
+        if (xFlip < 0)
+        {
+            transform.eulerAngles = Vector3.zero;
+        }
+        else if (xFlip > 0)
+        {
+            transform.eulerAngles = new Vector3(0, -180f, 0);
+        }
+    }
     #endregion
 
 }
