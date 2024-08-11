@@ -22,7 +22,7 @@ public class PlayerDeadState : PlayerState<PlayerStateEnum>
     {
         base.UpdateState();
 
-        if (!_player.IsDie)
+        if (!_player._isDead)
         {
             _stateMachine.ChangeState(PlayerStateEnum.Idle);
         }
