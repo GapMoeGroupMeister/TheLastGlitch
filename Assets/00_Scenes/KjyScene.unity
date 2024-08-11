@@ -407,7 +407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &964771154
 Transform:
   m_ObjectHideFlags: 0
@@ -533,7 +533,9 @@ MonoBehaviour:
   _groundCheckerSize: {x: 0.4, y: 0.2}
   isGround:
     _value: 0
+  _xMove: 0
   knockbackTime: 0.2
+  _canMove: 1
 --- !u!114 &964771159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,6 +550,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   OnGetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeadEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &969134927
@@ -776,7 +781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7867192051387084950, guid: eca83f27ff9c5ee45a7386206b04f5d3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
