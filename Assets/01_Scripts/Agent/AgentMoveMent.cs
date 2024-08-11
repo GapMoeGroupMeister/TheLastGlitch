@@ -22,7 +22,7 @@ public class AgentMovement : MonoBehaviour
     private float _timeInAir;
     private Agent _owner;
     public float knockbackTime = 0.2f;
-    protected bool _canMove = true;
+    public bool _canMove = true;
     protected Coroutine _kbCoroutine;
     public void Initialize(Agent agent)
     {
@@ -40,14 +40,13 @@ public class AgentMovement : MonoBehaviour
     }
     public void StopImmediately(bool isYStop = false)
     {
-        _xMove = 0;
         if (isYStop)
         {
             rbCompo.velocity = Vector2.zero;
         }
         else
         {
-            rbCompo.velocity = new Vector2(_xMove, rbCompo.velocity.y);
+            rbCompo.velocity = new Vector2(0, rbCompo.velocity.y);
         }
     }
     public void Jump(float multiplier = 1f)

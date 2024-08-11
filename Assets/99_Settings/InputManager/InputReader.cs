@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.InputSystem;
 using static PlayerController;
 
@@ -29,6 +30,16 @@ public class InputReader : ScriptableObject, IPlayerActions
     }
 
     public Vector2 Movement { get; private set; }
+    public Vector2 mousePos;
+    public Vector2 MousePos 
+    { 
+        get 
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(this.mousePos);
+            mousePos.z = 0;
+            return mousePos;
+        } 
+    }
 
     public void OnJump(InputAction.CallbackContext context)
     {
@@ -74,5 +85,10 @@ public class InputReader : ScriptableObject, IPlayerActions
     {
         if (context.performed)
             OnActiveSkillEvent?.Invoke();
+    }
+
+    public void OnMousePos(InputAction.CallbackContext context)
+    {
+        mousePos = context.ReadValue<Vector2>();
     }
 }

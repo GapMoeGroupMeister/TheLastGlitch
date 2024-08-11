@@ -45,6 +45,7 @@ public abstract class Player : Agent
     public bool _isSwaping;
     public bool _isUseGadget;
     public bool _isHit;
+    public bool _isDead;
 
     public bool _isCanAttack = true;
 
@@ -65,7 +66,7 @@ public abstract class Player : Agent
     protected virtual void Update()
     {
         OnMovement();
-        PlayerFlip(_xMove);
+        HandleSpriteFlip(_input.MousePos);
     }
 
     private void OnUseGadget()
@@ -127,6 +128,11 @@ public abstract class Player : Agent
     {
         yield return new WaitForSeconds(1f);
         _isAttack = false;
+    }
+
+    public void MousePos(Vector3 mousePos)
+    {
+        HandleSpriteFlip(mousePos);
     }
 
     public override void SetDeadState()

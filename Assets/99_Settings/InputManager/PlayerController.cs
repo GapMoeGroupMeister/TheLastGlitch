@@ -89,6 +89,15 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MousePos"",
+                    ""type"": ""Value"",
+                    ""id"": ""68925f38-e006-42e6-b7db-3087e5574b13"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -190,6 +199,17 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
                     ""action"": ""ActiveSkill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a84a8998-92dd-4908-b402-750e68f6c5e4"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePos"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -205,6 +225,7 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
         m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
         m_Player_UseGadget = m_Player.FindAction("UseGadget", throwIfNotFound: true);
         m_Player_ActiveSkill = m_Player.FindAction("ActiveSkill", throwIfNotFound: true);
+        m_Player_MousePos = m_Player.FindAction("MousePos", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -273,6 +294,7 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interaction;
     private readonly InputAction m_Player_UseGadget;
     private readonly InputAction m_Player_ActiveSkill;
+    private readonly InputAction m_Player_MousePos;
     public struct PlayerActions
     {
         private @PlayerController m_Wrapper;
@@ -284,6 +306,7 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
         public InputAction @Interaction => m_Wrapper.m_Player_Interaction;
         public InputAction @UseGadget => m_Wrapper.m_Player_UseGadget;
         public InputAction @ActiveSkill => m_Wrapper.m_Player_ActiveSkill;
+        public InputAction @MousePos => m_Wrapper.m_Player_MousePos;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -314,6 +337,9 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
             @ActiveSkill.started += instance.OnActiveSkill;
             @ActiveSkill.performed += instance.OnActiveSkill;
             @ActiveSkill.canceled += instance.OnActiveSkill;
+            @MousePos.started += instance.OnMousePos;
+            @MousePos.performed += instance.OnMousePos;
+            @MousePos.canceled += instance.OnMousePos;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -339,6 +365,9 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
             @ActiveSkill.started -= instance.OnActiveSkill;
             @ActiveSkill.performed -= instance.OnActiveSkill;
             @ActiveSkill.canceled -= instance.OnActiveSkill;
+            @MousePos.started -= instance.OnMousePos;
+            @MousePos.performed -= instance.OnMousePos;
+            @MousePos.canceled -= instance.OnMousePos;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -365,5 +394,6 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
         void OnInteraction(InputAction.CallbackContext context);
         void OnUseGadget(InputAction.CallbackContext context);
         void OnActiveSkill(InputAction.CallbackContext context);
+        void OnMousePos(InputAction.CallbackContext context);
     }
 }
