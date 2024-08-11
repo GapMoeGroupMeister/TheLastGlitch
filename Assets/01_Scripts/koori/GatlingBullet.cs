@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GatlingBullet : MonoBehaviour, Ipoolable
 {
-    public string ItemName => "GatlingBullet";
+    
     private Rigidbody2D _rb;
     public Vector2 pos;
     private GameObject _drone;
@@ -18,6 +18,7 @@ public class GatlingBullet : MonoBehaviour, Ipoolable
 
     public GameObject ObjectPrefab => gameObject;
 
+    public string PoolName => "GatlingBullet";
 
     private void OnEnable()
     {
