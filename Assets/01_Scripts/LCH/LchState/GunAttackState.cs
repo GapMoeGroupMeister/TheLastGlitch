@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyIdleState : EnemyState<EnemyStateEnum>
+public class GunAttackState : EnemyState<EnemyStateEnum>
 {
     private Enemy _enemy;
-    public EnemyIdleState(Enemy enemyBase, StateMachine<EnemyStateEnum> state, string animHashName) : base(enemyBase, state, animHashName)
+    public GunAttackState(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
         _enemy = enemyBase;
     }
@@ -13,7 +13,6 @@ public class EnemyIdleState : EnemyState<EnemyStateEnum>
     public override void Enter()
     {
         base.Enter();
-        _enemy.MovementComponent.StopImmediately(false);
     }
 
     public override void Exit()
@@ -24,8 +23,5 @@ public class EnemyIdleState : EnemyState<EnemyStateEnum>
     public override void UpdateState()
     {
         base.UpdateState();
-         new WaitForSeconds(2f);
-        _stateMachine.ChangeState(EnemyStateEnum.Walk);
-
     }
 }

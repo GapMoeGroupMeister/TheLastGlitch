@@ -26,7 +26,6 @@ public class EnemyChaseState : EnemyState<EnemyStateEnum>
 
         if(distance < _enemy.attackRadius && _enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
         {
-            Debug.Log("c->a");
             _stateMachine.ChangeState(EnemyStateEnum.Attack);
             return;
         }
