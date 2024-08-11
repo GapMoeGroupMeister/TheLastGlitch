@@ -18,6 +18,6 @@ public class PlayerStatSO : MonoBehaviour
 
     private void StatAdjustment()
     {
-        _playerHealth = 
+        //_playerHealth = 
     }
 }
