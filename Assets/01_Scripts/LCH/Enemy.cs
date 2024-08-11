@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public enum EnemyStateEnum
@@ -5,6 +6,7 @@ public enum EnemyStateEnum
     Idle,
     Attack,
     Chase,
+    Walk,
     Dead
 }
 
@@ -14,9 +16,12 @@ public enum BossStateEnum
     Closed,
     Opened,
     AngryOpened
-}
+} 
 public class Enemy : EnemySetting
 {
+    public bool isMelee = true;
+    public bool isCloser;
+    public Vector2 dir;
     public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
 
 
@@ -29,30 +34,47 @@ public class Enemy : EnemySetting
     {
         base.Awake();
         StateMachine = new StateMachine<EnemyStateEnum>();
-
-        StateMachine.AddState(EnemyStateEnum.Idle, new EnemyIdleState(this, StateMachine, "Idle"));
-        StateMachine.AddState(EnemyStateEnum.Chase,new EnemyChaseState(this,StateMachine,"Chase"));
-        StateMachine.AddState(EnemyStateEnum.Dead, new EnemyDeadState(this, StateMachine, "Dead"));
-        StateMachine.AddState(EnemyStateEnum.Attack, new EnemyAttackState(this, StateMachine, "Attack"));
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         StateMachine.InitInitialize(EnemyStateEnum.Idle, this);
+        StartCoroutine(Delaytime());
     }
 
     private void Update()
     {
-        Debug.Log(StateMachine.CurrentState);
+        Debug.Log(StateMachine.CurrentState);        
         StateMachine.CurrentState.UpdateState();
         if(targetTrm != null && IsDie == false)
         {
             HandleSpriteFlip(targetTrm.position);
         }
+
+        if(MovementComponent._xMove < 0 && MovementComponent._xMove != 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if(MovementComponent._xMove > 0 && MovementComponent._xMove !=0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
     public override void AnimationEndTrigger()
     {
         StateMachine.CurrentState.AnimationEndTrigger();
+    }
+
+    protected IEnumerator Delaytime()
+    {
+        while (true)
+        {
+            dir = GetRandomVector() - transform.position;
+            yield return new WaitForSeconds(2f);
+            dir = Vector2.zero;
+            yield return new WaitForSeconds(2f);
+        }
+
     }
 
 }

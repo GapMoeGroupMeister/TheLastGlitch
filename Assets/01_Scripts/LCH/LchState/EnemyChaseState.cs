@@ -22,11 +22,10 @@ public class EnemyChaseState : EnemyState<EnemyStateEnum>
             return;
         }
 
-        _enemy.MovementComponent.SetMovement(Mathf.Sign(dir.x));
+        _enemy.MovementComponent.SetMovement(dir.normalized.x);
 
         if(distance < _enemy.attackRadius && _enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
         {
-            Debug.Log("c->a");
             _stateMachine.ChangeState(EnemyStateEnum.Attack);
             return;
         }

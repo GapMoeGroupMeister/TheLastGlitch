@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GatlingBullet : MonoBehaviour, Ipoolable
 {
-    public string ItemName => "GatlingBullet";
+    
     private Rigidbody2D _rb;
     public Vector2 pos;
     private GameObject _drone;
@@ -18,6 +18,7 @@ public class GatlingBullet : MonoBehaviour, Ipoolable
 
     public GameObject ObjectPrefab => gameObject;
 
+    public string PoolName => "GatlingBullet";
 
     private void OnEnable()
     {
@@ -57,7 +58,7 @@ public class GatlingBullet : MonoBehaviour, Ipoolable
         if (collision.gameObject.TryGetComponent<Health>(out Health health))
         {
             Debug.Log("Take Damage");
-            health.TakeDamage(_damage, -collision.transform.position.normalized, _knockBack);
+            health.TakeDamage(_damage, collision.transform.position.normalized, _knockBack);
             PoolManager.Instance.Push(this);
 
         }
