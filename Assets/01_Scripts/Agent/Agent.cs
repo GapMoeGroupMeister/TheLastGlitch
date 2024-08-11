@@ -43,11 +43,11 @@ public abstract class Agent : MonoBehaviour
 
     public void PlayerFlip(float xFlip)
     {
-        if (xFlip < 0)
+        if (xFlip > 0)
         {
             transform.eulerAngles = Vector3.zero;
         }
-        else if (xFlip > 0)
+        else if (xFlip < 0)
         {
             transform.eulerAngles = new Vector3(0, -180f, 0);
         }
