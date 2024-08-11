@@ -23,9 +23,9 @@ public class PlayerCanAttackState : PlayerState<PlayerStateEnum>
     {
         base.UpdateState();
 
-        if (_player._isAttack)
-        {
-            _stateMachine.ChangeState(PlayerStateEnum.Weapon2Attack1);
-        }
+        //if (_player._isAttack)
+        //{
+        //    _stateMachine.ChangeState(PlayerStateEnum.Weapon2Attack1);
+        //}
     }
 }

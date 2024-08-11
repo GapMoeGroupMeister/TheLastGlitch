@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDeadState : PlayerState<PlayerStateEnum>
+public class PlayerWeapon1Attack1State : PlayerState<PlayerStateEnum>
 {
-    public PlayerDeadState(Player _onwer, StateMachine<PlayerStateEnum> state, string animHashName) : base(_onwer, state, animHashName)
+    public PlayerWeapon1Attack1State(Player _onwer, StateMachine<PlayerStateEnum> state, string animHashName) : base(_onwer, state, animHashName)
     {
     }
 
@@ -21,10 +21,5 @@ public class PlayerDeadState : PlayerState<PlayerStateEnum>
     public override void UpdateState()
     {
         base.UpdateState();
-
-        if (!_player._isDead)
-        {
-            _stateMachine.ChangeState(PlayerStateEnum.Idle);
-        }
     }
 }

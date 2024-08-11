@@ -34,5 +34,11 @@ public class PlayerWalkState : PlayerCanAttackState
         {
             _stateMachine.ChangeState(PlayerStateEnum.Jump);
         }
+
+        if (_player._isDead)
+        {
+            _stateMachine.ChangeState(PlayerStateEnum.Dead);
+        }
     }
 }
+

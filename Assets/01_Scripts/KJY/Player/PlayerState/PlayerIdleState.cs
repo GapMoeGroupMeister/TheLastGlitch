@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PlayerIdleState : PlayerCanAttackState
+public class PlayerIdleState : PlayerState<PlayerStateEnum>
 {
     public PlayerIdleState(Player _onwer, StateMachine<PlayerStateEnum> state, string animHashName) : base(_onwer, state, animHashName)
     {
@@ -30,14 +30,14 @@ public class PlayerIdleState : PlayerCanAttackState
             _stateMachine.ChangeState(PlayerStateEnum.Walk);
         }
 
-        if (!_player.MovementComponent.isGround.Value)
+        if (_player.MovementComponent.rbCompo.velocity.y > 0 && !_player.MovementComponent.isGround.Value)
         {
             _stateMachine.ChangeState(PlayerStateEnum.Jump);
         }
 
-        if (_player.MovementComponent.rbCompo.velocity.y > 0 && !_player.MovementComponent.isGround.Value)
+        if (_player._isDead)
         {
-            _stateMachine.ChangeState(PlayerStateEnum.Jump);
+            _stateMachine.ChangeState(PlayerStateEnum.Dead);
         }
     }
 }
