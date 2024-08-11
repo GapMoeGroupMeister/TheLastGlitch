@@ -39,7 +39,6 @@ public abstract class EnemySetting : Agent
     }
     private void Update()
     {
-        Debug.Log(GetPlayerRange());
     }
 
     public Collider2D GetPlayerRange()
@@ -58,6 +57,11 @@ public abstract class EnemySetting : Agent
     public virtual void Attack()
     {
         DamageCasterCompo.CastDamge(damage, knockbackPower);                                                                                                                                                                                                                          
+    }
+
+    public virtual void LaserAttack()
+    {
+
     }
 
     protected virtual void OnDrawGizmos()

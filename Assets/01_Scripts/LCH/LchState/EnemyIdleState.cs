@@ -13,7 +13,7 @@ public class EnemyIdleState : EnemyState<EnemyStateEnum>
     public override void Enter()
     {
         base.Enter();
-        _enemy.MovementComponent.StopImmediately(true);
+        _enemy.MovementComponent.StopImmediately(false);
     }
 
     public override void Exit()
