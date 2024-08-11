@@ -12,9 +12,9 @@ public class Laser : MonoBehaviour, Ipoolable
     [SerializeField] private PoolItemSO _poolItem;
     [SerializeField] private GameObject _laserPrefab;
 
-    public string ItemName => _poolItem.name;
-
     public GameObject ObjectPrefab => _laserPrefab;
+
+    public string PoolName => _poolItem.name;
 
     public void ResetItem()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface Ipoolable
 {
-    public string ItemName { get; }
+    public string PoolName { get; }
     public GameObject ObjectPrefab { get; }
     public void ResetItem();
 }
