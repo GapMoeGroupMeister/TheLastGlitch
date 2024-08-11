@@ -6,10 +6,17 @@ public class EffectFeedBack : Feedback
 {
     [SerializeField] private ParticleSystem _particleSystem;
 
+    [SerializeField] private string _effectName;
+
     public override void PlayFeedback()
     {
-        Instantiate(_particleSystem,transform.position,Quaternion.identity);
+        PoolingEffect effect = PoolManager.Instance.Pop(_effectName) as PoolingEffect;
+        effect.transform.position = transform.position;
+        
+        
+        
     }
+
 
     public override void StopFeedback()
     {

@@ -66,10 +66,10 @@ public class RocketLauncher : MonoBehaviour
         print(controlPoint2);
 
 
+        Vector3 targetTrm = new Vector3(targetPosition.x + Random.Range(-1.5f,1.5f), targetPosition.y + Random.Range(-1.5f, 1.5f), targetPosition.z);
 
 
-
-        movement.Initialize(launchPoint.position, controlPoint1, controlPoint2, targetPosition, duration);
+        movement.Initialize(launchPoint.position, controlPoint1, controlPoint2, targetTrm, duration);
         
     }
 }
