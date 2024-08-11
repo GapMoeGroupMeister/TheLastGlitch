@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0403a32488b97a4ea5d19a2565a1207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemy: {fileID: 0}
+  _enemy: {fileID: 5267843822686459007}
 --- !u!1 &3824209589037874041
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +216,7 @@ MonoBehaviour:
     _value: 0
   _xMove: 0
   knockbackTime: 0.2
+  _canMove: 1
 --- !u!50 &8372963509870727408
 Rigidbody2D:
   serializedVersion: 4
@@ -346,24 +347,24 @@ MonoBehaviour:
   FinalDeadEvent:
     m_PersistentCalls:
       m_Calls: []
-  detectRadius: 0
-  attackRadius: 0
-  knockbackPower: 0
-  attackCooldown: 0
-  damage: 0
+  detectRadius: 7
+  attackRadius: 3
+  knockbackPower: 5
+  attackCooldown: 4
+  damage: 4
   _whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   contactFilter:
     useTriggers: 0
-    useLayerMask: 0
+    useLayerMask: 1
     useDepth: 0
     useOutsideDepth: 0
     useNormalAngle: 0
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 8
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0
@@ -373,6 +374,10 @@ MonoBehaviour:
   targetTrm: {fileID: 0}
   lastAttackTime: 0
   _colliders: []
+  isMelee: 1
+  isCloser: 0
+  isBoom: 0
+  dir: {x: 0, y: 0}
 --- !u!1 &4322047243523738322
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +450,18 @@ PrefabInstance:
     - target: {fileID: 4598191442199148070, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: m_Name
       value: DamgeCaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931229925153676881, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: damageRaduis
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931229925153676881, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: filter.useLayerMask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931229925153676881, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: filter.layerMask.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: m_LocalPosition.x

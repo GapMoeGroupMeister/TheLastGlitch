@@ -23,8 +23,10 @@ public class EnemyAttackState : EnemyState<EnemyStateEnum>
         if (_endTriggerCalled)
         {
             _enemy.lastAttackTime = Time.time;
-            if(_enemy.isCloser)
+            if (_enemy.isCloser)
                 _stateMachine.ChangeState(EnemyStateEnum.Chase);
+            else if (_enemy.isBoom)
+                _stateMachine.ChangeState(EnemyStateEnum.Attack);
 
             _enemy.MovementComponent._canMove = true;
         }                                                                                                                                                                                                                                                                                                                                                                                                               
