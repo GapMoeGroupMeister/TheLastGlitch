@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &40739705 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5267843822686459007, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-  m_PrefabInstance: {fileID: 120894732}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 192192d8c02d9c6469876e8d13f4bb73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &120894732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -142,17 +131,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3464832156084856847, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: _enemy
-      value: 
-      objectReference: {fileID: 40739705}
     - target: {fileID: 3824209589037874041, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
       propertyPath: m_Name
       value: TankerEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3824209589037874041, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4020223228009269660, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
       propertyPath: m_LocalPosition.x
@@ -195,53 +176,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5267843822686459007, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: damage
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5267843822686459007, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: attackRadius
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5267843822686459007, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: detectRadius
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5267843822686459007, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: attackCooldown
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5267843822686459007, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: knockbackPower
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5267843822686459007, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: _whatIsPlayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5267843822686459007, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: contactFilter.useLayerMask
+      propertyPath: stopRay
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5267843822686459007, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: contactFilter.layerMask.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7521964218491795868, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: maxX
-      value: 17.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7521964218491795868, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: minX
-      value: -61.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7521964218491795868, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: _whatIsPlayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7700510437377218634, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    - target: {fileID: 8461370531466164299, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
+      propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: 98fc93256f746d546b71aee4d32d30f6, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -677,7 +618,7 @@ Transform:
   m_GameObject: {fileID: 305593336}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -63.2, y: 28.1, z: 0.04213287}
+  m_LocalPosition: {x: -38.97, y: 2.41, z: 0.04213287}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -694,6 +635,18 @@ PrefabInstance:
     - target: {fileID: 4598191442199148070, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: m_Name
       value: DamgeCaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931229925153676881, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: damageRaduis
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931229925153676881, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: filter.useLayerMask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931229925153676881, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: filter.layerMask.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1076,7 +1029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1183505465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1242,6 +1195,7 @@ MonoBehaviour:
   attackRadius: 2
   knockbackPower: 5
   attackCooldown: 1
+  stopRay: 0
   damage: 10
   _whatIsPlayer:
     serializedVersion: 2
@@ -1427,17 +1381,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &1746155714 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6519005202214797683, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
-  m_PrefabInstance: {fileID: 6826621849787226853}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7b07c3e902a0af4cbaef0b1b4a56f43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2019262925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,6 +1596,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 956432196079648140, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6f162413ec7b6344082a236c56f0c53c, type: 2}
     - target: {fileID: 2334984035475473934, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.004526
@@ -1699,19 +1646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3065351043755773162, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3856152975751186313, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
-      propertyPath: contactFilter.useDepth
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3856152975751186313, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
-      propertyPath: contactFilter.useLayerMask
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3856152975751186313, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
-      propertyPath: contactFilter.layerMask.m_Bits
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1766,29 +1701,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6014781012363453298, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3a2b620a768cc04fa340d6c96f20448, type: 2}
     - target: {fileID: 7079840489748371561, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
       propertyPath: m_Name
       value: GunEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 7079840489748371561, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9192426514676359067, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
-      propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9192426514676359067, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
-      propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1746155714}
-    - target: {fileID: 9192426514676359067, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
-      propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetDeadState
-      objectReference: {fileID: 0}
-    - target: {fileID: 9192426514676359067, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
-      propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Enemy, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1850,6 +1773,14 @@ PrefabInstance:
     - target: {fileID: 3916682341307116186, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082354339809903148, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d7aba290bb38424ab1fcabdde6f698e, type: 2}
+    - target: {fileID: 7168073841813027517, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
+      propertyPath: stopRay
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

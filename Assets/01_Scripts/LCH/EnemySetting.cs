@@ -11,6 +11,7 @@ public abstract class EnemySetting : Agent
     [SerializeField]
     public int detectRadius;
     public int attackRadius,knockbackPower,attackCooldown;
+    public float stopRay;
     public int damage;
     public LayerMask _whatIsPlayer;
     public ContactFilter2D contactFilter;
@@ -37,14 +38,17 @@ public abstract class EnemySetting : Agent
         _enemyLayers = LayerMask.NameToLayer("Enemy");
         _colliders = new Collider2D[20];
     }
-    private void Update()
-    {
-    }
 
     public Collider2D GetPlayerRange()
     {
         int count = Physics2D.OverlapCircleNonAlloc(transform.position, detectRadius,_colliders,_whatIsPlayer);
         return count > 0 ? _colliders[0] : null;
+    }
+
+    public bool GetPlayer()
+    {
+        bool isPlayer = Physics2D.Raycast(transform.position,Vector2.right,stopRay,_whatIsPlayer);
+        return isPlayer;
     }
 
     public Vector3 GetRandomVector()
@@ -63,6 +67,7 @@ public abstract class EnemySetting : Agent
     {
 
     }
+
     protected virtual void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
@@ -70,6 +75,9 @@ public abstract class EnemySetting : Agent
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRadius);
         Gizmos.color = Color.white;
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawRay(transform.position, Vector2.right);
     }
 
     public abstract void AnimationEndTrigger();
