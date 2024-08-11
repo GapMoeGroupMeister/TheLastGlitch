@@ -50,20 +50,24 @@ public class RocketLauncher : MonoBehaviour
         Vector3 targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         // 로켓 생성
-        GameObject rocket = Instantiate(rocketPrefab, launchPoint.position, Quaternion.identity);
+        RocketMovement rockePrefab = PoolManager.Instance.Pop("Rocket") as RocketMovement;
+        Debug.Log("밍");
+        GameObject rocket = rockePrefab.gameObject;
+        rocket.SetActive(true);
+
         RocketMovement movement = rocket.GetComponent<RocketMovement>();
 
 
 
+        Vector3 target = targetPosition - launchPoint.position ;
 
         // 로켓 초기화 및 발사
-        controlPoint1 = new Vector3(Random.Range(-7.5f, 7.5f), Random.Range(-7.5f, 7.5f));
+        controlPoint1 = new Vector3(target.x + Random.Range(-7.5f, 7.5f), target.y - Random.Range(-7.5f, 7.5f));
 
 
-        controlPoint2 = new Vector3(Random.Range(-7.5f, 7.5f), Random.Range(0, 7.5f));
+        controlPoint2 = new Vector3(target.x + Random.Range(-7.5f, 7.5f), target.y - Random.Range(0, 7.5f));
 
-        print(controlPoint1);
-        print(controlPoint2);
+
 
 
         Vector3 targetTrm = new Vector3(targetPosition.x + Random.Range(-1.5f,1.5f), targetPosition.y + Random.Range(-1.5f, 1.5f), targetPosition.z);

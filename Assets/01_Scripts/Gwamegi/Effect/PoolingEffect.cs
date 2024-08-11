@@ -12,6 +12,11 @@ public class PoolingEffect : MonoBehaviour, Ipoolable
 
     public void ResetItem()
     {
-        
+        transform.position = Vector3.zero;
+    }
+
+    private void OnDisable()
+    {
+        PoolManager.Instance.Push(this);
     }
 }
