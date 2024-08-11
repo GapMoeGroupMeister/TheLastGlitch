@@ -63,7 +63,6 @@ public abstract class EnemySetting : Agent
     {
 
     }
-
     protected virtual void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
