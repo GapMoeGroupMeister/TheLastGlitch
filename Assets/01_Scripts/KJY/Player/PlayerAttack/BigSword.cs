@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
-using UnityEditor.iOS;
 
 public class BigSword : MonoBehaviour
 {
