@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DronWalkState : EnemyWalkState
+public class GunWalkState : EnemyState<EnemyStateEnum>
 {
-    public DronEnemy _dron;
-    public DronWalkState(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
+    GunEnemy _gun;
+    public GunWalkState(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
-        _dron = enemyBase as DronEnemy;
+        _gun = enemyBase as GunEnemy;
     }
 
     public override void Enter()
@@ -18,10 +18,9 @@ public class DronWalkState : EnemyWalkState
     public override void UpdateState()
     {
         base.UpdateState();
+        _enemy.MovementComponent.SetMovement(_gun.dir.normalized.x);
 
-        _enemy.MovementComponent.SetMovement(_dron.dir.normalized.x);
-
-        Collider2D player = _dron.GetPlayerDron();
+        Collider2D player = _gun.ThisIsPlayer();
 
         if (player != null)
         {
@@ -31,10 +30,5 @@ public class DronWalkState : EnemyWalkState
                 _stateMachine.ChangeState(EnemyStateEnum.Attack);
             }
         }
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
     }
 }

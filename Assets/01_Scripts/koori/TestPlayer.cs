@@ -5,17 +5,21 @@ using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
 using static UnityEngine.InputSystem.InputControlExtensions;
 
-public class TestPlayer : MonoBehaviour
+public class TestPlayer : Agent
 {
     private Rigidbody2D _rigid;
     public float velocity;
     public float jumpPower;
     private float _xMove;
     [SerializeField] GameObject _drone;
+    private Health Health;
 
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody2D>();
+        Health = GetComponent<Health>();
+        Health.Initialize(this);
+
     }
     private void Update()
     {
@@ -43,5 +47,14 @@ public class TestPlayer : MonoBehaviour
             print(1);
             GameObject drone = Instantiate(_drone);
         }
+    }
+
+    public void Test()
+    {
+        Debug.Log("aa");
+    }
+
+    public override void SetDeadState()
+    {
     }
 }

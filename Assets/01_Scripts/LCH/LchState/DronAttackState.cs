@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class DronAttackState : EnemyAttackState
 {
-    private Enemy _enemy;
     public DronAttackState(Enemy enemyBase, StateMachine<EnemyStateEnum> state, string animHashName) : base(enemyBase, state, animHashName)
     {
-        _enemy = enemyBase;
     }
 
     public override void Enter()
