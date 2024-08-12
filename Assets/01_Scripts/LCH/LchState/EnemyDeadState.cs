@@ -30,12 +30,6 @@ public class EnemyDeadState : EnemyState<EnemyStateEnum>
     public override void UpdateState()
     {
         base.UpdateState();
-        if (_endTriggerCalled && !_onExplosion)
-        {
-            _onExplosion = true;
-            PlayExplosion();
-        }
-
     }
 
     private void PlayExplosion()

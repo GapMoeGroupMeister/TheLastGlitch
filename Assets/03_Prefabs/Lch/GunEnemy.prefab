@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &552201136969390560
 Transform:
   m_ObjectHideFlags: 0
@@ -255,6 +255,7 @@ MonoBehaviour:
     _value: 0
   _xMove: 0
   knockbackTime: 0.2
+  _canMove: 1
 --- !u!114 &9192426514676359067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +275,7 @@ MonoBehaviour:
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6519005202214797683}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
         m_MethodName: SetDeadState
         m_Mode: 1
@@ -328,6 +329,10 @@ MonoBehaviour:
   targetTrm: {fileID: 0}
   lastAttackTime: 0
   _colliders: []
+  isMelee: 1
+  isCloser: 0
+  isBoom: 0
+  dir: {x: 0, y: 0}
 --- !u!1001 &112793715532597404
 PrefabInstance:
   m_ObjectHideFlags: 0
