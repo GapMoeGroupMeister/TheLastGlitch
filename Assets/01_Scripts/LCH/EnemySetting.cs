@@ -23,6 +23,9 @@ public abstract class EnemySetting : Agent
     public Transform targetTrm = null;
     [HideInInspector] public float lastAttackTime;
 
+    [SerializeField] private Laser _laser;
+    [SerializeField] private Transform _firePos;
+
     public bool CanStateChangeble { get; protected set; } = true;
 
     protected int _enemyLayers;
@@ -65,7 +68,9 @@ public abstract class EnemySetting : Agent
 
     public virtual void LaserAttack()
     {
-
+        Laser laser = Instantiate(_laser, _firePos.position, Quaternion.identity);
+        laser.FireLaser(targetTrm);
+        DamageCasterCompo.CastDamge(damage, knockbackPower);
     }
 
     protected virtual void OnDrawGizmos()

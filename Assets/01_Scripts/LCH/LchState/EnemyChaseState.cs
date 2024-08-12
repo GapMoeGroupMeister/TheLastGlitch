@@ -16,7 +16,7 @@ public class EnemyChaseState : EnemyState<EnemyStateEnum>
         Vector2 dir = _enemy.targetTrm.position - _enemy.transform.position;
         float distance = dir.magnitude;
 
-        if (_enemy.MovementComponent._canMove = _enemy.GetPlayer() == false)
+        if (_enemy.GetPlayer() == false)
         {
             _enemy.MovementComponent._canMove = true;
         }
@@ -37,6 +37,11 @@ public class EnemyChaseState : EnemyState<EnemyStateEnum>
         if(distance < _enemy.attackRadius && _enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
         {
             _stateMachine.ChangeState(EnemyStateEnum.Attack);
+            if (_enemy.isBoom)
+            {
+                _stateMachine.ChangeState(EnemyStateEnum.Dead);
+                return;
+            }
             return;
         }
     }
