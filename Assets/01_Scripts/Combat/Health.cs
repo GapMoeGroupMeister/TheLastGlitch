@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth = 100;
+    public float _maxHealth = 100;
 
     private float _currentHealth;
     Agent _onwer;

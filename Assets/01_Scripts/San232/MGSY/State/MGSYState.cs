@@ -7,6 +7,7 @@ public class MGSYState<T> : State<T> where T : Enum
 {
     [SerializeField] protected Health health;
     [SerializeField] protected MGSY mgsy;
+    [SerializeField] protected float _detectionRadius;
 
     public MGSYState(MGSY enemyBase, StateMachine<T> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
