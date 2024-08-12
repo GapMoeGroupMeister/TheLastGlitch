@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MgsyIdleState : MGSYState<BossStateEnum>
 {
-    [SerializeField] private LayerMask detectionLayer;
-
     public MgsyIdleState(MGSY enemyBase, StateMachine<BossStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
 
@@ -13,11 +11,11 @@ public class MgsyIdleState : MGSYState<BossStateEnum>
 
     private void DetectPlayer()
     {
-        Collider2D detectedCollider = Physics2D.OverlapCircle(mgsy.transform.position, _detectionRadius, detectionLayer);
+        Collider2D detectedCollider = Physics2D.OverlapCircle(mgsy.transform.position, mgsy.detectRadius, mgsy._whatIsPlayer);
 
         if (detectedCollider != null && detectedCollider.CompareTag("Player"))
         {
-            mgsy.state = "Closed";
+            _stateMachine.ChangeState(BossStateEnum.Closed);
         }
 
     }
@@ -34,5 +32,10 @@ public class MgsyIdleState : MGSYState<BossStateEnum>
         base.UpdateState();
 
         DetectPlayer();
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
     }
 }

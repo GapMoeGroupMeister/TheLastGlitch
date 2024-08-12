@@ -15,7 +15,8 @@ public enum BossStateEnum
     Idle,
     Closed,
     Opened,
-    AngryOpened
+    AngryOpened,
+    Dead
 } 
 public class Enemy : EnemySetting
 {
