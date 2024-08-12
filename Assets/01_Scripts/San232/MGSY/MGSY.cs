@@ -10,7 +10,7 @@ public class MGSY : EnemySetting
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
     [field : SerializeField] public GameObject Shell1 { get; set; }
     [field : SerializeField] public GameObject Sheel2 { get; set; }
-    public GameObject test => testEnemyPrefab;
+    public GameObject test => testEnemyPrefab;  
 
     protected override void Awake()
     {
@@ -24,7 +24,7 @@ public class MGSY : EnemySetting
         StateMachine.AddState(BossStateEnum.Closed, new MgsyClosedState(this, StateMachine, "Closed"));
         StateMachine.AddState(BossStateEnum.Opened, new MgsyOpenedState(this, StateMachine, "Opened"));
         StateMachine.AddState(BossStateEnum.AngryOpened, new MgsyAngryOpenedState(this, StateMachine, "AngryOpened"));
-
+        StateMachine.AddState(BossStateEnum.Dead, new MgsyDeadState(this, StateMachine, "Dead"));
         StateMachine.InitInitialize(BossStateEnum.Idle, this);
     }
     
@@ -36,7 +36,7 @@ public class MGSY : EnemySetting
 
     public override void SetDeadState()
     {
-        
+        StateMachine.ChangeState(BossStateEnum.Dead);
     }
 
     public Collider2D GetPlayerInRange()
