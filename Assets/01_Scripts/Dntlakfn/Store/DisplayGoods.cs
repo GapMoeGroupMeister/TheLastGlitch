@@ -6,20 +6,24 @@ using static UnityEditor.Progress;
 
 public class DisplayGoods : MonoBehaviour
 {
+    
     [SerializeField] protected GameObject _goods;
     [SerializeField] protected TestItemListSO items;
     [SerializeField] protected TestItemSO item;
     
-    public List<GoodsControl> Goods;
+    public List<GoodsControl> Goods; //진열된 아이탬 리스트
 
     private void Awake()
     {
         Goods = new List<GoodsControl>();
-        item = items.list[Random.Range(0, items.list.Count)];
+        
         Debug.Log(item);
-        //CheckDuplication(item);
+
+        //CheckDuplication(item); 이거 고쳐라
+
         for (int i = 0; i < Mathf.Clamp(items.list.Count, 0, 6); i++)
         {
+            item = items.list[i];
             GoodsControl good = Instantiate(_goods, transform).GetComponent<GoodsControl>();
             good.item = item;
             good.UpdateItem();
@@ -32,10 +36,13 @@ public class DisplayGoods : MonoBehaviour
     
 
 
+    // 상점 새로고침 
     public void UpdateGoods()
     {
         item = items.list[Random.Range(0, items.list.Count)];
-        //CheckDuplication(item);
+
+        //CheckDuplication(item); 이거 고쳐라
+
         for (int i = 0; i < Mathf.Clamp(items.list.Count, 0, 6); i++)
         {
             Goods[i].item = item;
@@ -46,7 +53,8 @@ public class DisplayGoods : MonoBehaviour
     }
 
 
-    private void CheckDuplication(TestItemSO item) // 중복 채크
+    // 중복 탬 체크
+    private void CheckDuplication(TestItemSO item) // 중복 체크
     {
         while (TestInventory.HaveItems.Contains(item) && !(TestInventory.HaveItems.Count >= items.list.Count))
         {
