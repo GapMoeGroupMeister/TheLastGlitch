@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: beed09b268d07a24e96851929fd632e4, type: 3}
-  m_Name: KillMinSuGay
+  m_Name: Tlqkf
   m_EditorClassIdentifier: 
-  questName: Kill MGSY
-  questDetail: "\uC2DC\uBC1C \uCEE4\uD50C \uB2E4 \uB4A4\uC84C\uC73C\uBA74"
-  questType: 1
+  questName: "\uAC1C\uC0C8\uB07C\uB4E4"
+  questDetail: "\uAF41\uB0E5\uB300\uB294\uAC70 \uC886\uAC19\uB124"
+  questType: 0
   questLevel: 1
-  targetPlace: GayBar
+  targetPlace: "\uC2DC\uBC1C"
   isClear: 0
-  target: MinGaSuY
-  targetNumber: 1
-  currentTargetNumber: 1
+  target: 
+  targetNumber: 0
+  currentTargetNumber: 0
   award: 0
