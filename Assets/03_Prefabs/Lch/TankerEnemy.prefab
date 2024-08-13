@@ -106,7 +106,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 98fc93256f746d546b71aee4d32d30f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 5267843822686459007}
   m_Layer: 8
   m_Name: TankerEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,7 +182,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -32.44, y: 1.49, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3825167376458230614}
@@ -260,8 +260,8 @@ MonoBehaviour:
   OnGetHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BlikeFeedback, Assembly-CSharp
+      - m_Target: {fileID: 3640926057371132230}
+        m_TargetAssemblyTypeName: EffectFeedBack, Assembly-CSharp
         m_MethodName: PlayFeedback
         m_Mode: 1
         m_Arguments:
@@ -275,7 +275,7 @@ MonoBehaviour:
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5267843822686459007}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
         m_MethodName: SetDeadState
         m_Mode: 1
@@ -351,7 +351,7 @@ MonoBehaviour:
   attackRadius: 3
   knockbackPower: 5
   attackCooldown: 4
-  stopRay: 0
+  stopRay: 1
   damage: 4
   _whatIsPlayer:
     serializedVersion: 2
@@ -391,6 +391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5905877849355112812}
   - component: {fileID: 7874161593083135391}
+  - component: {fileID: 3640926057371132230}
   m_Layer: 8
   m_Name: HitFeedback
   m_TagString: Untagged
@@ -425,6 +426,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cbfa0e705d523744a50d7eb8746e9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3640926057371132230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4322047243523738322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac27e7b9ed1e6034b867df63a142a0cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystem: {fileID: 1189340810403874827, guid: fb8e03d08228b534bb74ee486dae2664, type: 3}
+  _effectName: EnemyHitParticle
 --- !u!1001 &3744123774641101656
 PrefabInstance:
   m_ObjectHideFlags: 0
