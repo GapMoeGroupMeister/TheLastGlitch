@@ -260,7 +260,7 @@ MonoBehaviour:
   OnGetHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 977640080878720278}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BlikeFeedback, Assembly-CSharp
         m_MethodName: PlayFeedback
         m_Mode: 1
@@ -351,6 +351,7 @@ MonoBehaviour:
   attackRadius: 3
   knockbackPower: 5
   attackCooldown: 4
+  stopRay: 0
   damage: 4
   _whatIsPlayer:
     serializedVersion: 2
@@ -373,6 +374,8 @@ MonoBehaviour:
   maxX: 0
   targetTrm: {fileID: 0}
   lastAttackTime: 0
+  _laser: {fileID: 0}
+  _firePos: {fileID: 0}
   _colliders: []
   isMelee: 1
   isCloser: 0
@@ -388,7 +391,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5905877849355112812}
   - component: {fileID: 7874161593083135391}
-  - component: {fileID: 977640080878720278}
   m_Layer: 8
   m_Name: HitFeedback
   m_TagString: Untagged
@@ -423,22 +425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cbfa0e705d523744a50d7eb8746e9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &977640080878720278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4322047243523738322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6508d37976def24a8335447774b5ad4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _blikeSprite: {fileID: -2143550423, guid: 4e711af8f99125a47b005345a765481c, type: 3}
-  _basicSprite: {fileID: 263038991, guid: 4e711af8f99125a47b005345a765481c, type: 3}
-  _flashTime: 0.1
-  _targetRender: {fileID: 8461370531466164299}
 --- !u!1001 &3744123774641101656
 PrefabInstance:
   m_ObjectHideFlags: 0

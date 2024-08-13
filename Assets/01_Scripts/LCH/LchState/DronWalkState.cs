@@ -26,7 +26,7 @@ public class DronWalkState : EnemyWalkState
         if (player != null)
         {
             _enemy.targetTrm = player.transform;
-            if (!_enemy.isCloser)
+            if (!_enemy.isCloser && _enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
             {
                 _stateMachine.ChangeState(EnemyStateEnum.Attack);
             }
