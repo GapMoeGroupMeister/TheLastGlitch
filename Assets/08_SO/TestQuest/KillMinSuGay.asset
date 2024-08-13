@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: KillMinSuGay
   m_EditorClassIdentifier: 
   questName: Kill MGSY
-  questContents: If No Pain, That's Gay
-  questType: 2
+  questDetail: "\uC2DC\uBC1C \uCEE4\uD50C \uB2E4 \uB4A4\uC84C\uC73C\uBA74"
+  questType: 1
+  questLevel: 1
   targetPlace: GayBar
   isClear: 0
   target: MinGaSuY
   targetNumber: 1
+  currentTargetNumber: 1
+  award: 0

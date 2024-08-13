@@ -17,7 +17,7 @@ public class EnemyDeadState : EnemyState<EnemyStateEnum>
     {
         base.Enter();
         _enemy.gameObject.layer = _deadLayer;
-        _enemy.MovementComponent.StopImmediately();
+        _enemy.MovementComponent._canMove = false;
         _enemy.SetDead(true);
         _onExplosion = false;
     }
@@ -30,12 +30,6 @@ public class EnemyDeadState : EnemyState<EnemyStateEnum>
     public override void UpdateState()
     {
         base.UpdateState();
-        if (_endTriggerCalled && !_onExplosion)
-        {
-            _onExplosion = true;
-            PlayExplosion();
-        }
-
     }
 
     private void PlayExplosion()

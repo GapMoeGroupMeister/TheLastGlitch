@@ -109,6 +109,7 @@ MonoBehaviour:
   _colliders: []
   isMelee: 1
   isCloser: 0
+  isBoom: 0
   dir: {x: 0, y: 0}
 --- !u!114 &2642503958888725377
 MonoBehaviour:
@@ -331,6 +332,18 @@ PrefabInstance:
     - target: {fileID: 4598191442199148070, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: m_Name
       value: DamgeCaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931229925153676881, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: damageRaduis
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931229925153676881, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: filter.useLayerMask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931229925153676881, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: filter.layerMask.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: m_LocalScale.x
