@@ -13,13 +13,13 @@ public class Player2 : Player
 
         _stateMachine = new StateMachine<PlayerStateEnum>();
 
-        _stateMachine.AddState(PlayerStateEnum.Idle, new PlayerIdleState(this, _stateMachine,"Idle"));
+        _stateMachine.AddState(PlayerStateEnum.Idle, new PlayerIdleState(this, _stateMachine, "Idle"));
         _stateMachine.AddState(PlayerStateEnum.Walk, new PlayerWalkState(this, _stateMachine, "Walk"));
         _stateMachine.AddState(PlayerStateEnum.Jump, new PlayerJumpState(this, _stateMachine, "Jump"));
         _stateMachine.AddState(PlayerStateEnum.Fall, new PlayerFallState(this, _stateMachine, "Fall"));
         _stateMachine.AddState(PlayerStateEnum.Dead, new PlayerDeadState(this, _stateMachine, "Dead"));
 
-        _stateMachine.InitInitialize(PlayerStateEnum.Idle,this);
+        _stateMachine.InitInitialize(PlayerStateEnum.Idle, this);
     }
 
     protected override void Update()
@@ -27,10 +27,4 @@ public class Player2 : Player
         base.Update();
         _stateMachine.CurrentState.UpdateState();
     }
-
-    
-
-
-
-
 }
