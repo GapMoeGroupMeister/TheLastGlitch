@@ -31,14 +31,21 @@ public class MgsyClosedState : MGSYState<BossStateEnum>
 
         MgsyClosedPatternRoutine();
 
-        if (patternIndex >= 0 && patternIndex < 50)
+        if (patternIndex >= 0 && patternIndex < 21)
         {
-            Debug.Log("¾ÆÀÕ");
+            mgsy.OnCoreExplosion?.Invoke();
+            
+            _stateMachine.ChangeState(BossStateEnum.Opened);
         }
-        else if (patternIndex >= 50)
+        else if (patternIndex >= 21)
         {
             Debug.Log("ÀÀ¾î¾ÆÀÕ");
         }
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
     }
 
     private IEnumerator MgsyClosedPatternRoutine()
