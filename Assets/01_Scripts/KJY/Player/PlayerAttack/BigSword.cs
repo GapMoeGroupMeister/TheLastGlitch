@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class BigSword : MonoBehaviour
 {
@@ -10,54 +11,42 @@ public class BigSword : MonoBehaviour
 
     [SerializeField] private GameObject _swordParent;
 
-    private bool _attack = false;
+    private Sequence AttackSequence;
 
     private void Awake()
     {
-        _input.OnAttackEvent += Attack;
+        _input.OnAttackEvent += BigSwordAttack;
+    }
+
+    private void Start()
+    {
+        AttackSequence.Restart();
     }
 
     private void Update()
     {
-        if (_input.MousePos.x > 0)
-        {
-            _swordParent.transform.rotation = Quaternion.Euler(0, 0, 180);
-        }
 
-        else if (_input.MousePos.x < 0)
+    }
+
+
+    public void BigSwordAttack()
+    {
+        if (!WeaponCoolTime.instance._attack)
         {
-            _swordParent.transform.rotation = Quaternion.Euler(0, 0, 0);
+            AttackSequence = DOTween.Sequence();
+            AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -5), 0.25f, RotateMode.FastBeyond360));
+            AttackSequence.AppendInterval(0.1f);
+            AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -180), 0.4f));
+            AttackSequence.Play();
+            StartCoroutine(AttackCoolTimeBG());
         }
     }
 
-    public void Attack()
+    private IEnumerator AttackCoolTimeBG()
     {
-        if (!_attack)
-        {
-            if (_input.MousePos.x > 0)
-            {
-                Sequence AttackSequence = DOTween.Sequence();
-                AttackSequence.Append(_swordParent.transform.DORotate(new Vector3(0, 0, 0), 0.3f));
-                AttackSequence.Append(_swordParent.transform.DORotate(new Vector3(0, 0, 181), 0.3f));
-                AttackSequence.Play();
-                StartCoroutine(AttackCoolTime());
-            }
-
-            else if (_input.MousePos.x < 0)
-            {
-                Sequence AttackSequence = DOTween.Sequence();
-                AttackSequence.Append(_swordParent.transform.DORotate(new Vector3(0, 0, 180), 0.3f));
-                AttackSequence.Append(_swordParent.transform.DORotate(new Vector3(0, 0, -1), 0.3f));
-                AttackSequence.Play();
-                StartCoroutine(AttackCoolTime());
-            }
-        }
-    }
-
-    private IEnumerator AttackCoolTime()
-    {
-        _attack = true;
+        WeaponCoolTime.instance._attack = true;
         yield return new WaitForSeconds(0.8f);
-        _attack = false;
+        WeaponCoolTime.instance._attack = false;
     }
+
 }

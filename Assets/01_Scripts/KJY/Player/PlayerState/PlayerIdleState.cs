@@ -25,6 +25,7 @@ public class PlayerIdleState : PlayerState<PlayerStateEnum>
     {
         base.UpdateState();
         //Debug.Log("Idle State");
+        _player.MovementComponent._xMove = 0;
         if (_player._xMove != 0)
         {
             _stateMachine.ChangeState(PlayerStateEnum.Walk);

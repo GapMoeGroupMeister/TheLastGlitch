@@ -587,7 +587,9 @@ MonoBehaviour:
   _groundCheckerSize: {x: 0.4, y: 0.2}
   isGround:
     _value: 0
+  _xMove: 0
   knockbackTime: 0.2
+  _canMove: 1
 --- !u!50 &1758090504329130241
 Rigidbody2D:
   serializedVersion: 4
@@ -629,6 +631,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   OnGetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeadEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1850123603775790782
