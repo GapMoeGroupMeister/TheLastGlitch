@@ -588,12 +588,12 @@ GameObject:
   - component: {fileID: 6506296038356724377}
   - component: {fileID: 1758090504329130241}
   - component: {fileID: 2363376403250414896}
-  - component: {fileID: 1850123603775790782}
   - component: {fileID: -7624474669247304932}
   - component: {fileID: 4195452680329989504}
-  m_Layer: 0
+  - component: {fileID: 2093510349151606830}
+  m_Layer: 3
   m_Name: TestPlayer2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -690,29 +690,6 @@ MonoBehaviour:
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1850123603775790782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7867192051387084950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b56886f6e7b196d4c81f77267e4fac67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _input: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
-  _isAttack: 0
-  _isDoubleAttack: 0
-  _isActiveSkill: 0
-  _isInteraction: 0
-  _isSwaping: 0
-  _isUseGadget: 0
-  _isHit: 0
-  _isDead: 0
-  _isCanAttack: 1
-  _xMove: 0
 --- !u!70 &-7624474669247304932
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -761,6 +738,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attack: 0
+--- !u!114 &2093510349151606830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867192051387084950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56886f6e7b196d4c81f77267e4fac67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _input: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
+  _isAttack: 0
+  _isDoubleAttack: 0
+  _isActiveSkill: 0
+  _isInteraction: 0
+  _isSwaping: 0
+  _isUseGadget: 0
+  _isHit: 0
+  _isDead: 0
+  _isCanAttack: 1
+  _xMove: 0
 --- !u!1 &8850751305182702950
 GameObject:
   m_ObjectHideFlags: 0
