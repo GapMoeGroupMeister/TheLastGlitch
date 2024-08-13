@@ -12,12 +12,7 @@ public class EffectFeedBack : Feedback
     {
         PoolingEffect effect = PoolManager.Instance.Pop(_effectName) as PoolingEffect;
         effect.transform.position = transform.position;
-        
-        
-        
     }
-
-
     public override void StopFeedback()
     {
        
