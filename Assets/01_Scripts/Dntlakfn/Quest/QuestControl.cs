@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,6 +9,7 @@ using UnityEngine.UI;
 public class QuestControl : MonoBehaviour
 {
     [SerializeField] protected TestListQuestSO quests;
+    [SerializeField] protected AcceptedQuestListSO acceptedQuests;
     public UnityEvent OnCreat;
 
 
@@ -24,7 +26,10 @@ public class QuestControl : MonoBehaviour
         CheckComplete();
     }
 
-
+    private void OnDisable()
+    {
+        Destroy(gameObject);
+    }
 
 
     public void UpdateQuest()
@@ -64,7 +69,16 @@ public class QuestControl : MonoBehaviour
         
     }
 
-
+    public void AcceptQuest()
+    {
+        if(!acceptedQuests.AcceptedList.Contains(_quest))
+        {
+            acceptedQuests.AcceptedList.Add(_quest);
+            quests.list.Remove(_quest);
+            Destroy(gameObject);
+        }
+        
+    }
 
     public void CheckComplete()
     {
