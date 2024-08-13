@@ -12,14 +12,14 @@ public class DisplayQuest : MonoBehaviour
 
     private void Awake()
     {
-        _quest = _quests.list[Random.Range(0, 3)];
+        CreatQuest();
     }
 
     public void CreatQuest()
     {
-        for(int i = _quest.questLevel-1; i < _quest.questLevel+2; i++)
+        for(int i = _quest.questLevel-1; i < _quest.questLevel+5; i++)
         {
-            
+            _quest = _quests.list[i];
             QuestControl a = Instantiate(_empty, transform).GetComponent<QuestControl>();
             a._quest = _quest;
             a.OnCreat?.Invoke();
@@ -27,6 +27,8 @@ public class DisplayQuest : MonoBehaviour
         
         
     }
+
+
 
     private void Update()
     {

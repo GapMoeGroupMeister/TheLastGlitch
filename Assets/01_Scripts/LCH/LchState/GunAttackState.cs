@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class GunAttackState : EnemyState<EnemyStateEnum>
 {
-    private Enemy _enemy;
+    GunEnemy _gun;
     public GunAttackState(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
-        _enemy = enemyBase;
+        _gun = enemyBase as GunEnemy;
     }
 
     public override void Enter()
     {
         base.Enter();
+        _enemy.MovementComponent._canMove = false;
+        _enemy.MovementComponent.StopImmediately();
+        _enemy.HandleSpriteFlip(_enemy.targetTrm.position);
     }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
     public override void UpdateState()
     {
+        if (_endTriggerCalled)
+        {
+            _enemy.lastAttackTime = Time.time;
+            if (!_enemy.isCloser)
+            {
+                _enemy.MovementComponent._canMove = true;
+                _stateMachine.ChangeState(EnemyStateEnum.Walk);
+            }
+        }
         base.UpdateState();
     }
 }

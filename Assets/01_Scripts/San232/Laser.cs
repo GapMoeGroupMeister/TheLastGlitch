@@ -1,28 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    [SerializeField] private Transform _target;
-    [SerializeField] private GameObject _laserPrefab;
     [SerializeField] private LineRenderer _lineRenderer;
 
     private void Awake()
     {
-        _target = GameObject.FindWithTag("Player").transform;
-        _lineRenderer = _laserPrefab.GetComponent<LineRenderer>();
+        _lineRenderer = GetComponent<LineRenderer>();
     }
 
-    public void FireLaser()
+    public void FireLaser(Transform target)
     {
-        Vector3 startPosition = transform.position;
+        _lineRenderer.SetPosition(0, transform.position);
+        _lineRenderer.SetPosition(1, target.position);
+        StartCoroutine(DelayTime());
+    }
 
-        Vector3 endPosition = _target.position;
-
-        _lineRenderer.SetPosition(0, startPosition);
-        _lineRenderer.SetPosition(1, endPosition);
-
-        transform.LookAt(_target);
+    private IEnumerator DelayTime()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 }

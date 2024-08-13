@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class DronWalkState : EnemyWalkState
 {
-    private Enemy _enemy;
     public DronEnemy _dron;
     public DronWalkState(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
-        _enemy = enemyBase;
-        _dron = _enemy as DronEnemy;
+        _dron = enemyBase as DronEnemy;
     }
 
     public override void Enter()
@@ -23,12 +21,12 @@ public class DronWalkState : EnemyWalkState
 
         _enemy.MovementComponent.SetMovement(_dron.dir.normalized.x);
 
-        Collider2D player = _dron.GetPlayer();
+        Collider2D player = _dron.GetPlayerDron();
 
         if (player != null)
         {
             _enemy.targetTrm = player.transform;
-            if (!_enemy.isCloser)
+            if (!_enemy.isCloser && _enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
             {
                 _stateMachine.ChangeState(EnemyStateEnum.Attack);
             }

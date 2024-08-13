@@ -19,13 +19,21 @@ public class QuestControl : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI _contents;
 
 
+    private void Update()
+    {
+        CheckComplete();
+    }
+
+
+
+
     public void UpdateQuest()
     {
         _name.text = _quest.questName;
         _detail.text = _quest.questDetail;
         if(_quest.questType == QuestType.Clear)
         {
-            _contents.text = $"{_quest.targetPlace}";
+            _contents.text = $"\"{_quest.targetPlace}\" Å¬¸®¾î";
 
         }
         else if(_quest.questType == QuestType.Hunt)
@@ -65,9 +73,11 @@ public class QuestControl : MonoBehaviour
             if(_quest.isClear)
             {
                 GetComponent<Image>().color = Color.green;
+                transform.Find("BackGround").GetComponent<Image>().color = Color.green;
                 _name.color = Color.green;
+                _detail.color = Color.green;
                 _contents.color = Color.green;
-                
+
             }
 
         }
@@ -76,7 +86,9 @@ public class QuestControl : MonoBehaviour
             if(_quest.targetNumber <= _quest.currentTargetNumber)
             {
                 GetComponent<Image>().color = Color.green;
+                transform.Find("BackGround").GetComponent<Image>().color = Color.green;
                 _name.color = Color.green;
+                _detail.color = Color.green;
                 _contents.color = Color.green;
             }
         }

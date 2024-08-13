@@ -23,6 +23,5 @@ public class MgsyClosedState : MGSYState<BossStateEnum>
     {
         base.UpdateState();
         
-
     }
 }
