@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 6519005202214797683}
   m_Layer: 8
   m_Name: GunEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,7 +151,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.13, y: 2.13, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3560255617417624217}
@@ -330,8 +330,8 @@ MonoBehaviour:
   maxX: 0
   targetTrm: {fileID: 0}
   lastAttackTime: 0
-  _laser: {fileID: 0}
-  _firePos: {fileID: 0}
+  _laser: {fileID: 3419725608764539512, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
+  _firePos: {fileID: 2540853020489956635}
   _colliders: []
   isMelee: 1
   isCloser: 0
@@ -347,7 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2540853020489956635}
   m_Layer: 8
-  m_Name: GameObject
+  m_Name: FirePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -362,7 +362,7 @@ Transform:
   m_GameObject: {fileID: 8414723766709375596}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.34, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -383,6 +383,14 @@ PrefabInstance:
     - target: {fileID: 5931229925153676881, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: damageRaduis
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931229925153676881, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: filter.useLayerMask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931229925153676881, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
+      propertyPath: filter.layerMask.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: m_LocalPosition.x
