@@ -24,6 +24,7 @@ public class PlayerFallState : PlayerState<PlayerStateEnum>
         base.UpdateState();
         if (_player.MovementComponent.isGround.Value)
         {
+            _player._xMove = 0;
             _stateMachine.ChangeState(PlayerStateEnum.Idle);
         }
     }
