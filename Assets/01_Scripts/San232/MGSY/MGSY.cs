@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,11 @@ public class MGSY : EnemySetting
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
     [field : SerializeField] public GameObject Shell1 { get; set; }
     [field : SerializeField] public GameObject Sheel2 { get; set; }
-    public GameObject test => testEnemyPrefab;  
+    public GameObject test => testEnemyPrefab;
+
+    public Action OnCoreExplosion;
+    public Action OnMobSpawn;
+    public Action OnElectricExplosion;
 
     protected override void Awake()
     {

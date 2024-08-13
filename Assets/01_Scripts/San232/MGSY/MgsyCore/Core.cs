@@ -18,6 +18,11 @@ public class Core : MonoBehaviour
         CoreDamagerCaster = GetComponentInChildren<DamageCaster>();
     }
 
+    public void DisCountCore()
+    {
+        coreCount--;
+    }
+
     public void Explode()
     {
         // 폭발 범위 내의 모든 콜라이더 가져오기
@@ -38,7 +43,7 @@ public class Core : MonoBehaviour
             }
         }
 
-        // 폭발 효과 (애니메이션, 파티클 등) 추가 가능
+        // 파 티 클 넣 어
         Debug.Log("Explosion triggered!");
     }
 
