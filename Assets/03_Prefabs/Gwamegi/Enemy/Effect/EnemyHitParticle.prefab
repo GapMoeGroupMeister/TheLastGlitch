@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3453595213658273161}
   - component: {fileID: 1189340810403874827}
   - component: {fileID: 3081797341322309110}
+  - component: {fileID: 4085442233665326756}
   m_Layer: 0
   m_Name: EnemyHitParticle
   m_TagString: Untagged
@@ -4908,6 +4909,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4085442233665326756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2261207672067465182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a817b4d0accafff43ac4f7deb0fe0bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolName: EnemyHitParticle
 --- !u!1 &5145329219807710110
 GameObject:
   m_ObjectHideFlags: 0
