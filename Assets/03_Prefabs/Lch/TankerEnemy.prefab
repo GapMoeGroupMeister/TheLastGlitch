@@ -59,8 +59,8 @@ Transform:
   m_GameObject: {fileID: 3702629414100853878}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.036, y: 0.894, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.101, y: 0.37, z: 0}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4020223228009269660}
@@ -171,7 +171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4020223228009269660
 Transform:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -32.44, y: 1.49, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3825167376458230614}
@@ -243,7 +243,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &7700510437377218634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,11 +347,11 @@ MonoBehaviour:
   FinalDeadEvent:
     m_PersistentCalls:
       m_Calls: []
-  detectRadius: 7
-  attackRadius: 3
+  detectRadius: 5
+  attackRadius: 1
   knockbackPower: 5
   attackCooldown: 4
-  stopRay: 1
+  stopRay: 0.5
   damage: 4
   _whatIsPlayer:
     serializedVersion: 2
@@ -454,7 +454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5931229925153676881, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: damageRaduis
-      value: 1.8
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5931229925153676881, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: filter.useLayerMask
@@ -466,11 +466,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.59
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.24
+      value: -0.108
       objectReference: {fileID: 0}
     - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: m_LocalPosition.z
