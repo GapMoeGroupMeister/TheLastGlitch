@@ -13,6 +13,7 @@ public class DronAttackState : EnemyAttackState
         base.Enter();
         _enemy.MovementComponent._canMove = false;
         _enemy.MovementComponent.StopImmediately();
+        _enemy.HandleSpriteFlip(_enemy.targetTrm.position);
     }
 
     public override void UpdateState()

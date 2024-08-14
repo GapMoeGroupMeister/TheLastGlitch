@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2666332217921906545}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.43, y: 0.54, z: 0}
+  m_LocalPosition: {x: -0.15399769, y: -0.031000048, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -51,7 +51,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2334984035475473934
 Transform:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &8427935281844567002
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.056786537, y: 0.77608585}
+  m_Offset: {x: 0.06612015, y: 0.13535714}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -141,7 +141,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.7414608, y: 1.6814423}
+  m_Size: {x: 0.98667145, y: 0.5146909}
   m_EdgeRadius: 0
 --- !u!114 &4348948770106824971
 MonoBehaviour:
@@ -204,7 +204,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   detectRadius: 0
-  attackRadius: 10
+  attackRadius: 6
   knockbackPower: 4
   attackCooldown: 2
   stopRay: 0
@@ -278,7 +278,7 @@ Transform:
   m_GameObject: {fileID: 6802288738564397790}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.56, z: 0}
+  m_LocalPosition: {x: 0.7110023, y: -0.31900007, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -331,8 +331,8 @@ PolygonCollider2D:
     - - {x: 1.040205, y: 0.16783619}
       - {x: 0.8321542, y: 0.27929762}
       - {x: 1.1657033, y: -0.54153574}
-      - {x: 6.620979, y: -7.317731}
-      - {x: 8.618855, y: -5.100052}
+      - {x: 1.9438434, y: -3.182873}
+      - {x: 5.602441, y: -3.2359765}
   m_UseDelaunayMesh: 0
 --- !u!1 &8866732821189782316
 GameObject:
@@ -362,7 +362,7 @@ Transform:
   m_GameObject: {fileID: 8866732821189782316}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.78, y: 0.44, z: 0}
+  m_LocalPosition: {x: 0.047, y: -0.215, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -468,7 +468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5931229925153676881, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: damageRaduis
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5931229925153676881, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: filter.useLayerMask
@@ -480,11 +480,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.48
+      value: 0.008
       objectReference: {fileID: 0}
     - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.52
+      value: 0.002
       objectReference: {fileID: 0}
     - target: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
       propertyPath: m_LocalPosition.z
