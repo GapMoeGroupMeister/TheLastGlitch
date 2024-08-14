@@ -55,11 +55,11 @@ public class Enemy : EnemySetting
 
         if(MovementComponent._xMove < 0 && MovementComponent._xMove != 0)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         else if(MovementComponent._xMove > 0 && MovementComponent._xMove !=0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.localScale = Vector3.one;
         }
     }
     public override void AnimationEndTrigger()
