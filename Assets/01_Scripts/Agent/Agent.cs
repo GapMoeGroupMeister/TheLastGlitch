@@ -35,11 +35,11 @@ public abstract class Agent : MonoBehaviour
         {
             if (targerPosition.x < transform.position.x)
             {
-                transform.eulerAngles = new Vector3(0, -180f, 0);
+                transform.localScale = new Vector3(-1, 1, 1);
             }
             else if (targerPosition.x > transform.position.x)
             {
-                transform.eulerAngles = Vector3.zero;
+                transform.localScale = Vector3.one;
             }
         }
     }
