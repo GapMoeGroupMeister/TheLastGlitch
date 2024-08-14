@@ -15,6 +15,11 @@ public class DisplayQuest : MonoBehaviour
         CreatQuest();
     }
 
+    private void OnEnable()
+    {
+        CreatQuest();
+    }
+
     public void CreatQuest()
     {
         for(int i = _quest.questLevel-1; i < _quest.questLevel+5; i++)

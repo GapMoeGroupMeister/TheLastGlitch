@@ -28,7 +28,7 @@ public class DamageCaster : MonoBehaviour
 
                 Debug.Log(hit.collider.name);
                 Vector2 attackDir = new Vector2(Mathf.Clamp(Vector3.Cross(hit.transform.position, transform.position).z, -1, 1), 0);
-                health.TakeDamage(damage, attackDir, knockbackPower);
+                health.TakeDamage(damage, -attackDir, knockbackPower);
             }
         }
         return cut > 0;
