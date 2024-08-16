@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfe366c365232a04c8dd66f4d2896519, type: 3}
-  m_Name: TankerEnemy
+  m_Name: Gun
   m_EditorClassIdentifier: 
-  poolName: Tanker
-  prefab: {fileID: 3824209589037874041, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
+  poolName: Gun
+  prefab: {fileID: 7079840489748371561, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
   count: 5

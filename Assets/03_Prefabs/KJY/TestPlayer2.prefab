@@ -140,6 +140,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _damage: 30
+  _knockBackPower: 5
 --- !u!1 &1513884805097410242
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _input: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
   _damage: 15
+  _katanaParent: {fileID: 0}
 --- !u!1 &7102679031231249925
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,7 +662,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e3bf99a556c742c44a0f46132733d1b2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -738,6 +740,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attack: 0
+  _player1Gun: 0
+  _player1Knife: 0
+  _player2BigSword: 0
+  _player2Katana: 0
 --- !u!114 &2093510349151606830
 MonoBehaviour:
   m_ObjectHideFlags: 0

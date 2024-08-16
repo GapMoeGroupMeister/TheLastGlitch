@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GunWalkState : EnemyState<EnemyStateEnum>
@@ -25,7 +26,7 @@ public class GunWalkState : EnemyState<EnemyStateEnum>
         if (player != null)
         {
             _enemy.targetTrm = player.transform;
-            if (!_enemy.isCloser)
+            if (!_enemy.isCloser && _enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
             {
                 _stateMachine.ChangeState(EnemyStateEnum.Attack);
             }

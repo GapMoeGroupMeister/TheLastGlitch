@@ -34,7 +34,8 @@ public class EnemyDeadState : EnemyState<EnemyStateEnum>
         if (_endTriggerCalled)
         {
             // Dead
-            UnityEngine.Object.Destroy(_enemy.gameObject);
+            //UnityEngine.Object.Destroy(_enemy.gameObject);
+            PlayExplosion();
         }
     }
 
