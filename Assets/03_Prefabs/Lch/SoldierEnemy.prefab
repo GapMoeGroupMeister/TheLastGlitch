@@ -14,13 +14,14 @@ GameObject:
   - component: {fileID: 2642503958888725377}
   - component: {fileID: 2918568570046843929}
   - component: {fileID: 8237377631263640247}
+  - component: {fileID: 835469926914236568}
   m_Layer: 8
   m_Name: SoldierEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3135521774869302223
 Transform:
   m_ObjectHideFlags: 0
@@ -132,7 +133,19 @@ MonoBehaviour:
       m_Calls: []
   OnDeadEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7168073841813027517}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: SetDeadState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2918568570046843929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +217,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9384373, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &835469926914236568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3916682341307116186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da3178cfc6bded74faca0aeb00201319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolName: Soldier
 --- !u!1 &5092450715677355001
 GameObject:
   m_ObjectHideFlags: 0
