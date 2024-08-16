@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
 {
     [field: SerializeField] private InputReader _input;
 
+    [SerializeField] private GameObject _gunParent;
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _firePos;
 
@@ -16,9 +17,24 @@ public class Gun : MonoBehaviour
         _input.OnAttackEvent += Fire;
     }
 
+    private void Start()
+    {
+
+    }
+
     private void Fire()
     {
-        Instantiate(_bulletPrefab, _firePos.position, Quaternion.identity);
+        if (_gunParent.activeSelf == true)
+        {
+            GameObject bullet = InstantiateBullet();
+
+            bullet.transform.SetPositionAndRotation(_firePos.position, _firePos.rotation);
+        }
+    }
+
+    private GameObject InstantiateBullet()
+    {
+        return Instantiate(_bulletPrefab);
     }
 
 }
