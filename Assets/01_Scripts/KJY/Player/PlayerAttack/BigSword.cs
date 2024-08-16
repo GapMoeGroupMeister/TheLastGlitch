@@ -14,6 +14,7 @@ public class BigSword : MonoBehaviour
     [SerializeField] private LayerMask _enemyLayer;
 
     [SerializeField] private float _damage = 30f;
+    [SerializeField] private float _knockBackPower = 10f;
 
     private DG.Tweening.Sequence AttackSequence;
 
@@ -35,14 +36,17 @@ public class BigSword : MonoBehaviour
 
     public void BigSwordAttack()
     {
-        if (!WeaponCoolTime.instance._attack)
+        if (_swordParent.activeSelf == true)
         {
-            AttackSequence = DOTween.Sequence();
-            AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -5), 0.25f, RotateMode.FastBeyond360));
-            AttackSequence.AppendInterval(0.1f);
-            AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -180), 0.4f));
-            AttackSequence.Play();
-            StartCoroutine(AttackCoolTimeBG());
+            if (!WeaponCoolTime.instance._attack)
+            {
+                AttackSequence = DOTween.Sequence();
+                AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -5), 0.25f, RotateMode.FastBeyond360));
+                AttackSequence.AppendInterval(0.1f);
+                AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -180), 0.4f));
+                AttackSequence.Play();
+                StartCoroutine(AttackCoolTimeBG());
+            }
         }
     }
 
@@ -60,7 +64,7 @@ public class BigSword : MonoBehaviour
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 Vector2 attackDir = new Vector2(Mathf.Clamp(Vector3.Cross(collision.gameObject.transform.position, transform.position).z, -1, 1), 0);
-                collision.gameObject.GetComponent<Health>().TakeDamage(_damage, attackDir, 100);
+                collision.gameObject.GetComponent<Health>().TakeDamage(_damage, -attackDir, _knockBackPower);
             }
         }
     }

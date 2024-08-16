@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -7,37 +8,38 @@ public class Bullet : MonoBehaviour
     [field : SerializeField] private InputReader _input;
     [SerializeField] private float _bulletSpeed = 8f;
 
-    private Rigidbody2D _rigid;
+    [SerializeField] private float _damage = 20f;
+    [SerializeField] private float _knockBackPower = 10f;
 
-    private bool _shot = false;
+    private Rigidbody2D _rigid;
 
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if(!_shot)
-        {
-            if (_input.MousePos.x < 0)
-            {
-                _rigid.velocity = Vector2.left * _bulletSpeed;
-                _shot = true;
-                StartCoroutine(BulletActive());
-            }
-            else if (_input.MousePos.x > 0)
-            {
-                _rigid.velocity = Vector2.right * _bulletSpeed;
-                _shot = true;
-                StartCoroutine(BulletActive());
-            }
-        }
+        _rigid.velocity = transform.right * _bulletSpeed;
+        StartCoroutine(BulletActive());
     }
 
     private IEnumerator BulletActive()
     {
         yield return new WaitForSeconds(3f);
-        gameObject.SetActive(false);
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject)
+        {
+            Destroy(gameObject);
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                Vector2 attackDir = new Vector2(Mathf.Clamp(Vector3.Cross(collision.gameObject.transform.position, transform.position).z, -1, 1), 0);
+                collision.gameObject.GetComponent<Health>().TakeDamage(_damage, -attackDir, _knockBackPower);
+            }
+        }
     }
 }
