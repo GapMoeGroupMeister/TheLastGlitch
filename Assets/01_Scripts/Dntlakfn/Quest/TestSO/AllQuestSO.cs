@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
-
-
-[CreateAssetMenu(menuName = "SO/List/QuestList")]
-public class TestListQuestSO : ScriptableObject
+[CreateAssetMenu(menuName = "SO/List/AllQuest")]
+public class AllQuestSO : ScriptableObject
 {
-    public List<TestQuestSO> list;
+    public static List<TestQuestSO> list;
 
 
     private void OnValidate()
     {
         list = new List<TestQuestSO>();
     }
-
 }
