@@ -73,9 +73,29 @@ public class QuestControl : MonoBehaviour
     {
         if(!acceptedQuests.AcceptedList.Contains(_quest))
         {
-            acceptedQuests.AcceptedList.Add(_quest);
-            quests.list.Remove(_quest);
-            Destroy(gameObject);
+            if(_quest.questType != QuestType.Clear)
+            {
+                acceptedQuests.AcceptedList.Add(_quest);
+                quests.list.Remove(_quest);
+                Destroy(gameObject);
+            }
+            else
+            {
+                foreach (TestQuestSO item in acceptedQuests.AcceptedList)
+                {
+                    if (item.questType == QuestType.Clear)
+                    {
+                        return;
+                    } 
+                }
+                EnterStage.map = _quest.targetPlace;
+                Debug.Log(EnterStage.map);
+                acceptedQuests.AcceptedList.Add(_quest);
+                quests.list.Remove(_quest);
+                Destroy(gameObject);
+            }
+            
+            
         }
         
     }
