@@ -8,6 +8,7 @@ public class Katana : MonoBehaviour
     [field: SerializeField] private InputReader _input;
 
     [SerializeField] private float _damage = 15f;
+    [SerializeField] private GameObject _katanaParent;  
 
     private void Awake()
     {
@@ -16,11 +17,13 @@ public class Katana : MonoBehaviour
 
     public void KatanaAttack()
     {
-        if (!WeaponCoolTime.instance._attack)
+        if (_katanaParent.activeSelf == true)
         {
-            transform.DOLocalMoveX(transform.localPosition.x - 0.7f, 0.1f).SetLoops(2, LoopType.Yoyo);
-            StartCoroutine(AttackCoolTimeKA());
-
+            if (!WeaponCoolTime.instance._attack)
+            {
+                transform.DOLocalMoveX(transform.localPosition.x - 0.7f, 0.1f).SetLoops(2, LoopType.Yoyo);
+                StartCoroutine(AttackCoolTimeKA());
+            }
         }
     }
 
