@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: beed09b268d07a24e96851929fd632e4, type: 3}
-  m_Name: Tlqkf
+  m_Name: UseWakgood
   m_EditorClassIdentifier: 
-  questName: "\uAC1C\uC0C8\uB07C\uB4E4"
-  questDetail: "\uAF41\uB0E5\uB300\uB294\uAC70 \uC886\uAC19\uB124"
+  questName: "\uC288\uD37C\uC2A4\uD0C0 \"Wak\""
+  questDetail: "\uC774\uBC88\uC5D0 \uB098\uC774\uD2B8\uC2DC\uD2F0\uC5D0 \uBC29\uBB38\uD558\uB294
+    \uC138\uACC4\uC801\uC778 \uC2A4\uD0C0 \"Wakgood\".  \uADF8\uB97C \uACF5\uC5F0\uC7A5\uAE4C\uC9C0
+    \uC548\uC804\uD558\uAC8C \uACBD\uD638\uD558\uB77C. "
   questType: 0
   questLevel: 1
-  targetPlace: "\uC2DC\uBC1C"
+  targetPlace: a3
   isClear: 0
   target: 
   targetNumber: 0

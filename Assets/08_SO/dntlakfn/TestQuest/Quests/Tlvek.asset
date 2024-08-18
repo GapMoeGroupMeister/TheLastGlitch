@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: beed09b268d07a24e96851929fd632e4, type: 3}
-  m_Name: RotoRlemf
+  m_Name: Tlvek
   m_EditorClassIdentifier: 
-  questName: "\uC81C\uBC1C \uAF41\uB0E5\uAC70\uB9B4\uAC70\uBA74"
-  questDetail: "\uB0A8\uB4E4 \uC548\uBCF4\uC774\uB294\uB370\uC11C \uD558\uAC70\uB098
-    \uC560\uAD6D\uC744 \uD574\uB77C"
+  questName: "\uB098\uB3C4"
+  questDetail: "\uC5EC\uCE5C"
   questType: 0
   questLevel: 1
-  targetPlace: "\uC9D1"
+  targetPlace: a2
   isClear: 0
   target: 
   targetNumber: 0

@@ -165,13 +165,14 @@ GameObject:
   - component: {fileID: 7700510437377218634}
   - component: {fileID: 487412549287718225}
   - component: {fileID: 5267843822686459007}
+  - component: {fileID: 2323894190186584449}
   m_Layer: 8
   m_Name: TankerEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4020223228009269660
 Transform:
   m_ObjectHideFlags: 0
@@ -381,6 +382,19 @@ MonoBehaviour:
   isCloser: 0
   isBoom: 0
   dir: {x: 0, y: 0}
+--- !u!114 &2323894190186584449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3824209589037874041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da3178cfc6bded74faca0aeb00201319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolName: Tanker
 --- !u!1 &4322047243523738322
 GameObject:
   m_ObjectHideFlags: 0

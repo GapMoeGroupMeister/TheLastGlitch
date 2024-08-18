@@ -45,13 +45,14 @@ GameObject:
   - component: {fileID: 4348948770106824971}
   - component: {fileID: 1799079265480698016}
   - component: {fileID: 3856152975751186313}
+  - component: {fileID: 8411017161285904528}
   m_Layer: 8
   m_Name: Dron
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2334984035475473934
 Transform:
   m_ObjectHideFlags: 0
@@ -206,7 +207,7 @@ MonoBehaviour:
   detectRadius: 0
   attackRadius: 6
   knockbackPower: 4
-  attackCooldown: 2
+  attackCooldown: 3
   stopRay: 0
   damage: 5
   _whatIsPlayer:
@@ -252,6 +253,19 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+--- !u!114 &8411017161285904528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3065351043755773162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da3178cfc6bded74faca0aeb00201319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolName: Dron
 --- !u!1 &6802288738564397790
 GameObject:
   m_ObjectHideFlags: 0

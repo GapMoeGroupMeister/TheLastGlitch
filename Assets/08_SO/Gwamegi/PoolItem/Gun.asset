@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5255f52446e88bd4c95cb0a032b5ecb3, type: 3}
-  m_Name: AcceptedQuestList
+  m_Script: {fileID: 11500000, guid: cfe366c365232a04c8dd66f4d2896519, type: 3}
+  m_Name: Gun
   m_EditorClassIdentifier: 
-  AcceptedList:
-  - {fileID: 11400000, guid: 63a518c9377d0864dbc0a4133bb0eba3, type: 2}
+  poolName: Gun
+  prefab: {fileID: 7079840489748371561, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
+  count: 5
