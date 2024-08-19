@@ -7,6 +7,11 @@ public class Knife : MonoBehaviour
 {
     [field: SerializeField] private InputReader _input;
 
+    [SerializeField] private GameObject _knifeParent;
+
+    [SerializeField] private float _damage = 20f;
+    [SerializeField] private float _knockBackPower = 20f;
+
     private bool _attack = false;
 
     private void Awake()
@@ -16,17 +21,33 @@ public class Knife : MonoBehaviour
 
     public void Attack()
     {
-        if (!_attack)
+        if (_knifeParent.activeSelf == true)
         {
-            transform.DOLocalMoveX(transform.localPosition.x + 0.7f, 0.1f).SetLoops(2, LoopType.Yoyo);
-            StartCoroutine(AttackCoolTimeKA());
+            if (!WeaponCoolTime.instance._attack)
+            {
+                transform.DOLocalMoveX(transform.localPosition.x + 0.7f, 0.1f).SetLoops(2, LoopType.Yoyo);
+                StartCoroutine(AttackCoolTimeKA());
+            }
         }
+        
     }
 
     private IEnumerator AttackCoolTimeKA()
     {
-        _attack = true;
+        WeaponCoolTime.instance._attack = true;
         yield return new WaitForSeconds(0.2f);
-        _attack = false;
+        WeaponCoolTime.instance._attack = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (WeaponCoolTime.instance._attack)
+        {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                Vector2 attackDir = new Vector2(Mathf.Clamp(Vector3.Cross(collision.gameObject.transform.position, transform.position).z, -1, 1), 0);
+                collision.gameObject.GetComponent<Health>().TakeDamage(_damage, -attackDir, _knockBackPower);
+            }
+        }
     }
 }

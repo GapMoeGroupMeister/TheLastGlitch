@@ -27,4 +27,16 @@ public class TestQuestSO : ScriptableObject
 
 
     public int award;
+
+    private void OnValidate()
+    {
+        if (QuestType.Clear == questType)
+        {
+            isClear = false;
+        }
+        else
+        {
+            currentTargetNumber = 0;
+        }
+    }
 }

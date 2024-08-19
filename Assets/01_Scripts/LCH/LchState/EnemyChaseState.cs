@@ -36,11 +36,16 @@ public class EnemyChaseState : EnemyState<EnemyStateEnum>
 
         if(distance < _enemy.attackRadius && _enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
         {
+            if(_enemy.CanAttack)
             _stateMachine.ChangeState(EnemyStateEnum.Attack);
+
             if (_enemy.isBoom)
             {
-                _stateMachine.ChangeState(EnemyStateEnum.Dead);
-                return;
+                if (_enemy.CanAttack)
+                {
+                    _stateMachine.ChangeState(EnemyStateEnum.Dead);
+                    return;
+                }
             }
             return;
         }
