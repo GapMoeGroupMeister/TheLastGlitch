@@ -19,7 +19,6 @@ public enum PassiveType
     Speed
 }
 
-[CreateAssetMenu(menuName = "SO/Player/PassiveSO")]
 public abstract class PassiveSO : ScriptableObject
 {
     [Header("PlayerStat")]
