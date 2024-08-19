@@ -9,18 +9,16 @@ public class MGSY : EnemySetting
     [SerializeField] protected Health health;
     public string state;
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
-    [field : SerializeField] public GameObject Shell1 { get; set; }
-    [field : SerializeField] public GameObject Sheel2 { get; set; }
     public GameObject test => testEnemyPrefab;
 
     public Action OnCoreExplosion;
     public Action OnMobSpawn;
     public Action OnElectricExplosion;
 
+
     protected override void Awake()
     {
         base.Awake();
-
         health = GetComponent<Health>();
 
         StateMachine = new StateMachine<BossStateEnum>();

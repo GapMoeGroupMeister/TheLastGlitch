@@ -9,18 +9,33 @@ public class Core : MonoBehaviour
     [SerializeField] private int _coreBombDamage;
     [SerializeField] private float _coreBombRadius;
 
+
     public static int coreCount;
 
     public DamageCaster CoreDamagerCaster { get; private set; }
 
+    [SerializeField] private MGSY _mgsy;
+
     private void Awake()
     {
         CoreDamagerCaster = GetComponentInChildren<DamageCaster>();
+        _mgsy = transform.parent.gameObject.GetComponent<MGSY>();
     }
 
-    public void DisCountCore()
+    private void OnEnable()
+    {
+        _mgsy.OnCoreExplosion += Explode;
+    }
+
+    private void OnDisable()
+    {
+        _mgsy.OnCoreExplosion -= Explode;
+    }
+
+    public void DestroyCore()
     {
         coreCount--;
+        gameObject.SetActive(false);
     }
 
     public void Explode()
@@ -52,5 +67,10 @@ public class Core : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _coreBombRadius);
+    }
+
+    public void ResetItem()
+    {
+        throw new System.NotImplementedException();
     }
 }

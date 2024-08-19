@@ -23,6 +23,9 @@ public class MgsyClosedState : MGSYState<BossStateEnum>
     {
         base.Enter();
         health.IsHittable = false;
+
+
+        
     }
 
     public override void UpdateState()
