@@ -18,5 +18,6 @@ public class GunEnemy : Enemy
         StateMachine.AddState(EnemyStateEnum.Attack, new GunAttackState(this, StateMachine, "Attack"));
         StateMachine.AddState(EnemyStateEnum.Chase, new DronChaseState(this, StateMachine, "Chase"));
         StateMachine.AddState(EnemyStateEnum.Walk, new GunWalkState(this, StateMachine, "Walk"));
+        StateMachine.AddState(EnemyStateEnum.Hit, new EnemyHitState(this, StateMachine, "Hit"));
     }
 }

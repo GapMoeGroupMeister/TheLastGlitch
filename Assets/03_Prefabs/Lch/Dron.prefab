@@ -70,6 +70,7 @@ Transform:
   - {fileID: 4801966524799927161}
   - {fileID: 5565510963273948657}
   - {fileID: 7676224124510093892}
+  - {fileID: 1606709638655077408}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2184039394157073342
@@ -159,7 +160,19 @@ MonoBehaviour:
   _maxHealth: 100
   OnGetHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6854040670158097934}
+        m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedbacks
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -292,7 +305,7 @@ Transform:
   m_GameObject: {fileID: 6802288738564397790}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7110023, y: -0.31900007, z: 0}
+  m_LocalPosition: {x: 2.84, y: -0.31900007, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -342,12 +355,71 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.040205, y: 0.16783619}
-      - {x: 0.8321542, y: 0.27929762}
-      - {x: 1.1657033, y: -0.54153574}
-      - {x: 1.9438434, y: -3.182873}
-      - {x: 5.602441, y: -3.2359765}
+    - - {x: 2.1325855, y: -0.4521625}
+      - {x: 2.6773882, y: 0.38263038}
+      - {x: 0.9442754, y: -0.85153687}
+      - {x: -2.012341, y: -3.197635}
+      - {x: 0.48006916, y: -3.280262}
   m_UseDelaunayMesh: 0
+--- !u!1 &8588259018996720626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1606709638655077408}
+  - component: {fileID: 6854040670158097934}
+  - component: {fileID: 3138625653727461466}
+  m_Layer: 8
+  m_Name: HitFeedback
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1606709638655077408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8588259018996720626}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.081, y: 0.123, z: -0.0012104688}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2334984035475473934}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6854040670158097934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8588259018996720626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbfa0e705d523744a50d7eb8746e9a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3138625653727461466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8588259018996720626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac27e7b9ed1e6034b867df63a142a0cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystem: {fileID: 1189340810403874827, guid: fb8e03d08228b534bb74ee486dae2664, type: 3}
+  _effectName: EnemyHitParticle
 --- !u!1 &8866732821189782316
 GameObject:
   m_ObjectHideFlags: 0
