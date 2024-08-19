@@ -7,6 +7,7 @@ public enum EnemyStateEnum
     Attack,
     Chase,
     Walk,
+    Hit,
     Dead
 }
 
@@ -24,6 +25,7 @@ public class Enemy : EnemySetting
     public bool isCloser;
     public bool isBoom;
     public Vector2 dir;
+    public bool CanAttack = true;
     public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
 
 
