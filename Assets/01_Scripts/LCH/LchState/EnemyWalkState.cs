@@ -35,7 +35,10 @@ public class EnemyWalkState : EnemyState<EnemyStateEnum>
                 return;
             }
             else
-                _stateMachine.ChangeState(EnemyStateEnum.Attack);
+                if (_enemy.CanAttack)
+                {
+                    _stateMachine.ChangeState(EnemyStateEnum.Attack);
+               }
         }
 
         if(_enemy.MovementComponent._xMove == 0)
