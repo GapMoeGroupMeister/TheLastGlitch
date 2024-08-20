@@ -56319,6 +56319,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4190762316685022265, guid: eca83f27ff9c5ee45a7386206b04f5d3, type: 3}
+      propertyPath: _swordSwingTime
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7867192051387084950, guid: eca83f27ff9c5ee45a7386206b04f5d3, type: 3}
       propertyPath: m_Name
       value: TestPlayer2

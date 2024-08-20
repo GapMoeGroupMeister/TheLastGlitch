@@ -10,6 +10,10 @@ public class Katana : MonoBehaviour
     [SerializeField] private float _damage = 15f;
     [SerializeField] private GameObject _katanaParent;
 
+    [SerializeField] private int _attackSequence1;
+    [SerializeField] private int _attackSequence2;
+    [SerializeField] private Ease _ease;
+
     private DG.Tweening.Sequence AttackSequence;
 
     private void Awake()
@@ -24,8 +28,8 @@ public class Katana : MonoBehaviour
             if (!WeaponCoolTime.instance._attack)
             {
                 AttackSequence = DOTween.Sequence();
-                AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, 50), 0.1f, RotateMode.FastBeyond360));
-                AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, 250), 0.1f));
+                AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence1), 0.1f, RotateMode.FastBeyond360));
+                AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence2), 0.3f).SetEase(_ease));
                 AttackSequence.Play();
                 StartCoroutine(AttackCoolTimeKA());
             }

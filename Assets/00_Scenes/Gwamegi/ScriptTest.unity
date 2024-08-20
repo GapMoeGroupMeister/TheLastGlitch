@@ -1131,6 +1131,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1513884805097410242, guid: eca83f27ff9c5ee45a7386206b04f5d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2363376403250414896, guid: eca83f27ff9c5ee45a7386206b04f5d3, type: 3}
       propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -1159,9 +1163,37 @@ PrefabInstance:
       propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5144526594312163327, guid: eca83f27ff9c5ee45a7386206b04f5d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.508
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645644073753438460, guid: eca83f27ff9c5ee45a7386206b04f5d3, type: 3}
+      propertyPath: _ease
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645644073753438460, guid: eca83f27ff9c5ee45a7386206b04f5d3, type: 3}
+      propertyPath: _attackSequence1
+      value: 230
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645644073753438460, guid: eca83f27ff9c5ee45a7386206b04f5d3, type: 3}
+      propertyPath: _attackSequence2
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 7867192051387084950, guid: eca83f27ff9c5ee45a7386206b04f5d3, type: 3}
       propertyPath: m_Name
       value: TestPlayer2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948263866629889510, guid: eca83f27ff9c5ee45a7386206b04f5d3, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948263866629889510, guid: eca83f27ff9c5ee45a7386206b04f5d3, type: 3}
+      propertyPath: m_FlipY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850751305182702950, guid: eca83f27ff9c5ee45a7386206b04f5d3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
