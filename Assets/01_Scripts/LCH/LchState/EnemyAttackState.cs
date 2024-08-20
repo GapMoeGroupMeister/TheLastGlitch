@@ -16,6 +16,7 @@ public class EnemyAttackState : EnemyState<EnemyStateEnum>
     {
         base.Enter();
         _enemy.MovementComponent._canMove = false;
+        _enemy.FirstAttack = false;
     }
     public override void UpdateState()
     {

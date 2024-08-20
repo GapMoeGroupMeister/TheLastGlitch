@@ -23,6 +23,11 @@ public class DronWalkState : EnemyWalkState
 
         Collider2D player = _dron.GetPlayerDron();
 
+        if (_enemy.FirstAttack)
+        {
+            _stateMachine.ChangeState(EnemyStateEnum.Attack);
+        }
+
         if (player != null)
         {
             _enemy.targetTrm = player.transform;

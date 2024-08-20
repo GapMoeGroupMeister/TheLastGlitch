@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GunEnemy : Enemy
 {
+    private LaserShooter _laser;
     public Collider2D ThisIsPlayer()
     {
         int cut = Physics2D.OverlapCircleNonAlloc(transform.position, attackRadius, _colliders, _whatIsPlayer);
@@ -19,5 +20,7 @@ public class GunEnemy : Enemy
         StateMachine.AddState(EnemyStateEnum.Chase, new DronChaseState(this, StateMachine, "Chase"));
         StateMachine.AddState(EnemyStateEnum.Walk, new GunWalkState(this, StateMachine, "Walk"));
         StateMachine.AddState(EnemyStateEnum.Hit, new EnemyHitState(this, StateMachine, "Hit"));
+
+        _laser = GetComponent<LaserShooter>();
     }
 }

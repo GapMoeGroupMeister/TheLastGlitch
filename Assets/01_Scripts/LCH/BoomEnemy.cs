@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BoomEnemy : Enemy
 {
+    [SerializeField] private float _boomDealy;
     protected override void Awake()
     {
         base.Awake();

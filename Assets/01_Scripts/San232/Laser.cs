@@ -20,11 +20,11 @@ public class Laser : MonoBehaviour
     {
         gameObject.SetActive(true);
         StartCoroutine(LaserDelayRoutine(delay));
-        gameObject.SetActive(false);
     }
 
     public IEnumerator LaserDelayRoutine(float delay)
     {
         yield return new WaitForSeconds(delay);
+        gameObject.SetActive(false);
     }
 }

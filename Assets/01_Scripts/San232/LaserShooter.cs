@@ -7,11 +7,6 @@ public class LaserShooter : MonoBehaviour
     [Header("Setting")]
     [SerializeField] private float _laserTime = 0.3f;
 
-    private void Awake()
-    {
-        _laser = GetComponentInChildren<Laser>();
-    }
-
     public void FireLaser(Transform firePos, Transform target)
     {
         _laser.gameObject.SetActive(true);
