@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TankerHit
+  m_Name: DronAttack
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,9 +21,15 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 263038991, guid: 4e711af8f99125a47b005345a765481c, type: 3}
+      value: {fileID: 1514398110, guid: 5b2b1f16e6f9d2640b3f037cd07bc370, type: 3}
     - time: 0.125
-      value: {fileID: -2143550423, guid: 4e711af8f99125a47b005345a765481c, type: 3}
+      value: {fileID: 318491233, guid: 5b2b1f16e6f9d2640b3f037cd07bc370, type: 3}
+    - time: 0.25
+      value: {fileID: 284553318, guid: 5b2b1f16e6f9d2640b3f037cd07bc370, type: 3}
+    - time: 0.375
+      value: {fileID: 1134489260, guid: 5b2b1f16e6f9d2640b3f037cd07bc370, type: 3}
+    - time: 0.5
+      value: {fileID: 191929599, guid: 5b2b1f16e6f9d2640b3f037cd07bc370, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,14 +52,17 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 263038991, guid: 4e711af8f99125a47b005345a765481c, type: 3}
-    - {fileID: -2143550423, guid: 4e711af8f99125a47b005345a765481c, type: 3}
+    - {fileID: 1514398110, guid: 5b2b1f16e6f9d2640b3f037cd07bc370, type: 3}
+    - {fileID: 318491233, guid: 5b2b1f16e6f9d2640b3f037cd07bc370, type: 3}
+    - {fileID: 284553318, guid: 5b2b1f16e6f9d2640b3f037cd07bc370, type: 3}
+    - {fileID: 1134489260, guid: 5b2b1f16e6f9d2640b3f037cd07bc370, type: 3}
+    - {fileID: 191929599, guid: 5b2b1f16e6f9d2640b3f037cd07bc370, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.25
+    m_StopTime: 1.125
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -73,7 +82,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.25
+  - time: 0.375
+    functionName: AnimationLaserAttackTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.125
     functionName: AnimationEnd
     data: 
     objectReferenceParameter: {fileID: 0}

@@ -57,7 +57,7 @@ public class Enemy : EnemySetting
         StateMachine.CurrentState.UpdateState();
         if(targetTrm != null && IsDie == false)
         {
-            HandleSpriteFlip(targetTrm.position);
+            //HandleSpriteFlip(targetTrm.position);
         }
 
         if(MovementComponent._xMove < 0 && MovementComponent._xMove != 0)

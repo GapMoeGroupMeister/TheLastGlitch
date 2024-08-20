@@ -24,9 +24,11 @@ public class DronAttackState : EnemyAttackState
             if (!_enemy.isCloser)
             {
                 _enemy.MovementComponent._canMove = true;
-                _enemy.HandleSpriteFlip(_enemy.targetTrm.position);
-                _stateMachine.ChangeState(EnemyStateEnum.Walk);
+              _stateMachine.ChangeState(EnemyStateEnum.Walk);
+                return;
+               
             }
+            _stateMachine.ChangeState(EnemyStateEnum.Chase);
         }
         base.UpdateState();
     }
