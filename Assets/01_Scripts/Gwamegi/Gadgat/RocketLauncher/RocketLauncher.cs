@@ -13,16 +13,22 @@ public class RocketLauncher : MonoBehaviour
     public Vector3 controlPoint1; // Bezier 곡선 제어점 1
     public Vector3 controlPoint2; // Bezier 곡선 제어점 2
 
-    [SerializeField] private CinemachineVirtualCamera ShootCamera;
-    [SerializeField] private CinemachineVirtualCamera MainCamera;
+    private bool isFristAttack = true;
+
+    [SerializeField] private int whileCount;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R)) // 좌클릭 감지
+        if (Input.GetKeyDown(KeyCode.R) && isFristAttack) // 좌클릭 감지
         {
-            ShootCamera.Priority = 1; MainCamera.Priority = 0;
-            StartCoroutine(Shoot());
+            isFristAttack = false;
+            for (int i = 0; i < whileCount; i++)
+            {
+                StartCoroutine(Shoot());
+            }
         }
+
+
     }
 
     private IEnumerator Shoot()
@@ -36,9 +42,6 @@ public class RocketLauncher : MonoBehaviour
                 break;
             }
         }
-
-        yield return new WaitForSeconds(duration);
-        ShootCamera.Priority = 0; MainCamera.Priority = 1;
     }
 
     private void LaunchRocket()
@@ -59,21 +62,23 @@ public class RocketLauncher : MonoBehaviour
 
 
 
-        Vector3 target = targetPosition - launchPoint.position ;
+        Vector3 target = targetPosition - launchPoint.position;
 
         // 로켓 초기화 및 발사
-        controlPoint1 = new Vector3(target.x + Random.Range(-7.5f, 7.5f), target.y - Random.Range(-7.5f, 7.5f));
+        controlPoint1 = new Vector3(target.x + Random.Range(-7.5f, 4f), target.y - Random.Range(-7.5f, 4f));
 
 
-        controlPoint2 = new Vector3(target.x + Random.Range(-7.5f, 7.5f), target.y - Random.Range(0, 7.5f));
+        controlPoint2 = new Vector3(target.x + Random.Range(-7.5f, 4f), target.y - Random.Range(0, 7.5f));
 
 
 
 
-        Vector3 targetTrm = new Vector3(targetPosition.x + Random.Range(-1.5f,1.5f), targetPosition.y + Random.Range(-1.5f, 1.5f), targetPosition.z);
+        Vector3 targetTrm = new Vector3(targetPosition.x + Random.Range(-0.75f, 0.75f), targetPosition.y + Random.Range(-0.75f, 0.75f), targetPosition.z);
 
 
         movement.Initialize(launchPoint.position, controlPoint1, controlPoint2, targetTrm, duration);
-        
+
+        Destroy(gameObject);
+
     }
 }

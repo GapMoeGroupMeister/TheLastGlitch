@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class RocketMovement : MonoBehaviour, Ipoolable
 {
+
     private Vector3 startPosition;
     private Vector3 controlPoint1;
     private Vector3 controlPoint2;
