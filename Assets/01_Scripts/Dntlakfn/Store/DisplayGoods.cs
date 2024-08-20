@@ -13,11 +13,11 @@ public class DisplayGoods : MonoBehaviour
     
     public List<GoodsControl> Goods; //진열된 아이탬 리스트
 
-    private void Awake()
+    private void OnEnable()
     {
         Goods = new List<GoodsControl>();
         
-        Debug.Log(item);
+    
 
         //CheckDuplication(item); 이거 고쳐라
 
@@ -39,12 +39,11 @@ public class DisplayGoods : MonoBehaviour
     // 상점 새로고침 
     public void UpdateGoods()
     {
-        item = items.list[Random.Range(0, items.list.Count)];
-
         //CheckDuplication(item); 이거 고쳐라
 
         for (int i = 0; i < Mathf.Clamp(items.list.Count, 0, 6); i++)
         {
+            item = items.list[Random.Range(0, items.list.Count)];
             Goods[i].item = item;
             Goods[i].UpdateItem();
             

@@ -18,7 +18,6 @@ public class TestInventory : MonoBehaviour
     {
         get
         {
-            
             trigger = !trigger;
             return !trigger;
         }
@@ -35,10 +34,17 @@ public class TestInventory : MonoBehaviour
 
     public void SetInventory()
     {
-        Image icon = Instantiate(empty, transform).GetComponent<Image>();
-        icon.sprite = HaveItems.Last()._icon;
-        
- 
+        gameObject.SetActive(true);
+        for (int i = gameObject.GetComponentsInChildren<GoodsControl>() != null ? gameObject.GetComponentsInChildren<GoodsControl>().Length : 0; i < HaveItems.Count; i++)
+        {
+            Image icon = Instantiate(empty, transform).GetComponent<Image>();
+            icon.sprite = HaveItems[i]._icon;
+        }
+        gameObject.SetActive(false);
+
+
+
+
     }
 
    

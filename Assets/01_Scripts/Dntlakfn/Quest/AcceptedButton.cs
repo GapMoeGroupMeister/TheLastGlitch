@@ -10,8 +10,11 @@ public class AcceptedButton : MonoBehaviour
 
     [SerializeField] protected GameObject aa;
     [SerializeField] protected GameObject bb;
+
+    [SerializeField] protected TextMeshProUGUI aaa;
+    [SerializeField] protected TextMeshProUGUI bbb;
         
-    private void Awake()
+    private void OnEnable()
     {
         aa = FindAnyObjectByType<AcceptedQuest>().gameObject;
         bb = FindAnyObjectByType<DisplayQuest>().gameObject;
@@ -20,8 +23,8 @@ public class AcceptedButton : MonoBehaviour
     {
         Debug.Log("El");
 
-        a.GetComponentInChildren<TextMeshProUGUI>().color = new Color(0, 255, 255);
-        q.GetComponentInChildren<TextMeshProUGUI>().color = new Color(0, 174, 164);
+        bbb.color = new Color(0, 255, 255);
+        aaa.color = new Color(0, 174, 164);
         aa.gameObject.SetActive(true);
         bb.gameObject.SetActive(false);
        
@@ -31,8 +34,9 @@ public class AcceptedButton : MonoBehaviour
     {
         Debug.Log("rl");
 
-        q.GetComponentInChildren<TextMeshProUGUI>().color = new Color(0, 255, 255);
-        a.GetComponentInChildren<TextMeshProUGUI>().color = new Color(0, 174, 164);
+        aaa.color = new Color(0, 255, 255, 255);
+        bbb.color = new Color(0, 174, 164, 255);
+        Debug.Log(aaa.color);
         aa.gameObject.SetActive(false);
         bb.gameObject.SetActive(true);
         

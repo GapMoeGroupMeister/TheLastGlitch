@@ -12,19 +12,13 @@ public class DisplayQuest : MonoBehaviour
     [SerializeField] protected TestQuestSO _quest;
     
     [SerializeField] protected GameObject _empty;
-
-    private void Start()
+    
+    private void OnEnable()
     {
-        
         _quests.list.Clear();
         TestQuestSO[] a = _allQuests.list.ToArray();
         Debug.Log(a.Length);
         _quests.list = a.ToList();
-        CreatQuest();
-    }
-    
-    private void OnEnable()
-    {
         CreatQuest();
     }
 
