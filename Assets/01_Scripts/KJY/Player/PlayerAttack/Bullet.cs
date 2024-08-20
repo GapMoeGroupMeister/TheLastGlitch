@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _damage = 20f;
     [SerializeField] private float _knockBackPower = 10f;
 
+
     private Rigidbody2D _rigid;
 
     private void Awake()
@@ -21,6 +22,7 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
         _rigid.velocity = transform.right * _bulletSpeed;
+
         StartCoroutine(BulletActive());
     }
 
@@ -30,7 +32,14 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
+    
+
     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject)
         {

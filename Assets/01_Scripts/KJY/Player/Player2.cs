@@ -18,6 +18,7 @@ public class Player2 : Player
         _stateMachine.AddState(PlayerStateEnum.Jump, new PlayerJumpState(this, _stateMachine, "Jump"));
         _stateMachine.AddState(PlayerStateEnum.Fall, new PlayerFallState(this, _stateMachine, "Fall"));
         _stateMachine.AddState(PlayerStateEnum.Dead, new PlayerDeadState(this, _stateMachine, "Dead"));
+        _stateMachine.AddState(PlayerStateEnum.Hit, new PlayerHitState(this, _stateMachine, "Hit"));
 
         _stateMachine.InitInitialize(PlayerStateEnum.Idle, this);
     }

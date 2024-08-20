@@ -17,6 +17,14 @@ public class PlayerWeapon : MonoBehaviour
     private void Update()
     {
         AimWeapon();
+        if (_input.MousePos.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (_input.MousePos.x > transform.position.x)
+        {
+            transform.localScale = Vector3.one;
+        }
     }
 
     public void AimWeapon()

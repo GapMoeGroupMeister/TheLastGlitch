@@ -12,6 +12,8 @@ public class Gun : MonoBehaviour
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _firePos;
 
+    private bool _isShootCool = false;
+
     private void Awake()
     {
         _input.OnAttackEvent += Fire;
@@ -26,10 +28,21 @@ public class Gun : MonoBehaviour
     {
         if (_gunParent.activeSelf == true)
         {
-            GameObject bullet = InstantiateBullet();
+            if (!_isShootCool)
+            {
+                GameObject bullet = InstantiateBullet();
 
-            bullet.transform.SetPositionAndRotation(_firePos.position, _firePos.rotation);
+                bullet.transform.SetPositionAndRotation(_firePos.position, _firePos.rotation);
+                StartCoroutine(ShootCoolTime());
+            }
         }
+    }
+
+    private IEnumerator ShootCoolTime()
+    {
+        _isShootCool = true;
+        yield return new WaitForSeconds(1f);
+        _isShootCool = false;
     }
 
     private GameObject InstantiateBullet()
