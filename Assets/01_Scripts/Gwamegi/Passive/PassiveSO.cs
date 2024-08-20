@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 /// <summary>
 /// PassiveActivatedType
@@ -19,7 +20,6 @@ public enum PassiveType
     Speed
 }
 
-[CreateAssetMenu(menuName = "SO/Player/PassiveSO")]
 public abstract class PassiveSO : ScriptableObject
 {
     [Header("PlayerStat")]

@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _quests: {fileID: 11400000, guid: 60100c790cb10cd489b3b616800aa44d, type: 2}
-  _allQuests: {fileID: 11400000, guid: 16227c65b47cbf546869ed23d780591f, type: 2}
+  _allQuests: {fileID: 11400000, guid: 61874f26d9883834da3e60a9e32d6bc9, type: 2}
   _quest: {fileID: 11400000, guid: 5ce139460ad262a4b86dc19ac6b34038, type: 2}
   _empty: {fileID: 8190962209381688882, guid: f40eed553efe41740a92d18b39009ae9, type: 3}
 --- !u!114 &23497778
