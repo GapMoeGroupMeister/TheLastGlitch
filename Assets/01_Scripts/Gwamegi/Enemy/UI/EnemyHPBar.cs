@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HPBar : MonoBehaviour
+public class EnemyHPBar : MonoBehaviour
 {
     [SerializeField] private GameObject _hpBar;
 
@@ -22,7 +22,7 @@ public class HPBar : MonoBehaviour
         {
             if (value >= 0 && value <= 1)
                 _health = value;
-            else if (value >= 1)
+            else if(value >= 1)
             {
                 _health = 1;
             }
@@ -44,26 +44,26 @@ public class HPBar : MonoBehaviour
     {
 
         _hpBar.transform.localScale = new Vector3(Health, 1, 1);
-        if (_enemy.IsDie)
+        if (_enemy.IsDie) 
         {
             Health = 0;
             return;
-        }
+                }
 
         Health = _enemyHealth.GetCurrentHP() / _enemyHealth._maxHealth;
-
         Flip();
+
     }
 
     private void Flip()
     {
         if (_enemy.MovementComponent._xMove < 0 && _enemy.MovementComponent._xMove != 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = Vector3.one;
         }
         else if (_enemy.MovementComponent._xMove > 0 && _enemy.MovementComponent._xMove != 0)
         {
-            transform.localScale = Vector3.one;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
     }
 }
