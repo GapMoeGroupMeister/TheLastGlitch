@@ -8,6 +8,9 @@ public class ShockWaveSO : PassiveSO
     {
         Collider2D[] enemy = Physics2D.OverlapCircleAll(owner.transform.position, distance.x,enemyLayer);
 
+        if (enemy.Length <= 0) return;
+
+
         foreach (Collider2D item in enemy)
         {
             item.GetComponent<Health>().TakeDamage(damage,item.transform.position.normalized, knockbackPower);
