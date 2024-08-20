@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class MGSY : EnemySetting
 {
-    [SerializeField] private GameObject testEnemyPrefab;
-    [SerializeField] protected Health health;
-    public string state;
+    [SerializeField] private GameObject testEnemyPrefab = null;
+    [SerializeField] protected Health health = null;
+    public string state = null;
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
     public GameObject test => testEnemyPrefab;
+
+    public int ?isRunningHash = null;
 
     public Action OnCoreExplosion;
     public Action OnMobSpawn;

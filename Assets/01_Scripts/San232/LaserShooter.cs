@@ -9,7 +9,7 @@ public class LaserShooter : MonoBehaviour
 
     private void Awake()
     {
-        _laser = transform.gameObject.GetComponent<Laser>();
+        _laser = GetComponentInChildren<Laser>();
     }
 
     public void FireLaser(Transform firePos, Transform target)
