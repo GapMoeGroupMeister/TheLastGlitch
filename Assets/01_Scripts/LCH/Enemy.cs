@@ -34,6 +34,11 @@ public class Enemy : EnemySetting
         StateMachine.ChangeState(EnemyStateEnum.Dead);
     }
 
+    public void GetHit()
+    {
+        StateMachine.ChangeState(EnemyStateEnum.Hit);
+    }
+
     protected override void Awake()
     {
         base.Awake();
