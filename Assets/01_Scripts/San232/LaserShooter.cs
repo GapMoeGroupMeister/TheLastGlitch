@@ -14,6 +14,7 @@ public class LaserShooter : MonoBehaviour
 
     public void FireLaser(Transform firePos, Transform target)
     {
+        _laser.gameObject.SetActive(true);
         _laser.SetLaserPositions(firePos.position, target.position);
         _laser.ActivateLaser(_laserTime);
     }

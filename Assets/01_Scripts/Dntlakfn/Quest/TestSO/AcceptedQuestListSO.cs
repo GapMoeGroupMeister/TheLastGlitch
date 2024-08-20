@@ -13,9 +13,4 @@ public class AcceptedQuestListSO : ScriptableObject
         Debug.Log("되긴하니");
         AcceptedList = new List<TestQuestSO>();
     }
-
-
-
-
-
 }
