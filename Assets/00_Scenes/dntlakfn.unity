@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &20093196
 RectTransform:
   m_ObjectHideFlags: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ce51b3f9262bb4a8ff1ed2accc9b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  empty: {fileID: 0}
+  empty: {fileID: 344787331706739191, guid: 9002ecccb74fe3b42a7c12840f2c4f62, type: 3}
   trigger: 0
 --- !u!114 &20093198
 MonoBehaviour:
@@ -1045,7 +1045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &659604842
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3271,6 +3271,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1815231922}
     m_Modifications:
+    - target: {fileID: 695464126786033895, guid: 56e12547b4e4f7944b584a00f5f05c85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 695464126786033895, guid: 56e12547b4e4f7944b584a00f5f05c85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 695464126786033895, guid: 56e12547b4e4f7944b584a00f5f05c85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1815231925}
+    - target: {fileID: 695464126786033895, guid: 56e12547b4e4f7944b584a00f5f05c85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 695464126786033895, guid: 56e12547b4e4f7944b584a00f5f05c85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Off
+      objectReference: {fileID: 0}
+    - target: {fileID: 695464126786033895, guid: 56e12547b4e4f7944b584a00f5f05c85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ExitQuest, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 695464126786033895, guid: 56e12547b4e4f7944b584a00f5f05c85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 944980661852394670, guid: 56e12547b4e4f7944b584a00f5f05c85, type: 3}
       propertyPath: m_text
       value: 'Exit
@@ -3608,6 +3636,8 @@ MonoBehaviour:
   q: {fileID: 1204495244}
   aa: {fileID: 0}
   bb: {fileID: 0}
+  aaa: {fileID: 1146366398}
+  bbb: {fileID: 27391585}
 --- !u!1 &1815231921
 GameObject:
   m_ObjectHideFlags: 0
@@ -3619,13 +3649,14 @@ GameObject:
   - component: {fileID: 1815231922}
   - component: {fileID: 1815231924}
   - component: {fileID: 1815231923}
+  - component: {fileID: 1815231925}
   m_Layer: 5
   m_Name: QuestUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1815231922
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3686,6 +3717,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815231921}
   m_CullTransparentMesh: 1
+--- !u!114 &1815231925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815231921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445c68aaf9d8da94ba2570afd976bda2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1835624608
 GameObject:
   m_ObjectHideFlags: 0
