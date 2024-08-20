@@ -34,6 +34,11 @@ public class EnemyChaseState : EnemyState<EnemyStateEnum>
 
         _enemy.MovementComponent.SetMovement(dir.normalized.x);
 
+        if(_enemy.FirstAttack)
+        {
+            _stateMachine.ChangeState(EnemyStateEnum.Attack);
+        }
+
         if(distance < _enemy.attackRadius && _enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
         {
             if(_enemy.CanAttack)

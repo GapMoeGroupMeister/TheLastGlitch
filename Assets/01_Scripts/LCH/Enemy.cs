@@ -26,6 +26,7 @@ public class Enemy : EnemySetting
     public bool isBoom;
     public Vector2 dir;
     public bool CanAttack = true;
+    public bool FirstAttack = true;
     public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
 
 
