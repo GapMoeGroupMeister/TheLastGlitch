@@ -16,6 +16,9 @@ public class BigSword : MonoBehaviour
     [SerializeField] private float _damage = 30f;
     [SerializeField] private float _knockBackPower = 10f;
 
+    [SerializeField] private float _swordSwingTime = 0.25f;
+    [SerializeField] private float _swordReturnTime = 0.4f;
+
     private DG.Tweening.Sequence AttackSequence;
 
     private void Awake()
@@ -41,9 +44,8 @@ public class BigSword : MonoBehaviour
             if (!WeaponCoolTime.instance._attack)
             {
                 AttackSequence = DOTween.Sequence();
-                AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -5), 0.25f, RotateMode.FastBeyond360));
-                AttackSequence.AppendInterval(0.1f);
-                AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -180), 0.4f));
+                AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -130), _swordSwingTime, RotateMode.FastBeyond360));
+                AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -180), _swordReturnTime));
                 AttackSequence.Play();
                 StartCoroutine(AttackCoolTimeBG());
             }
