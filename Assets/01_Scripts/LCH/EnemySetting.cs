@@ -23,7 +23,7 @@ public abstract class EnemySetting : Agent
     public Transform targetTrm = null;
     [HideInInspector] public float lastAttackTime;
 
-    [SerializeField] private Laser _laser;
+    [SerializeField] private LaserShooter _laserShooter;
     [SerializeField] private Transform _firePos;
 
     public bool CanStateChangeble { get; protected set; } = true;
@@ -37,6 +37,7 @@ public abstract class EnemySetting : Agent
     protected override void Awake()
     {
         base.Awake();
+        _laserShooter = GetComponent<LaserShooter>();
         DamageCasterCompo = transform.Find("DamgeCaster").GetComponent<DamageCaster>();
         _enemyLayers = LayerMask.NameToLayer("Enemy");
         _colliders = new Collider2D[20];
@@ -68,8 +69,7 @@ public abstract class EnemySetting : Agent
 
     public virtual void LaserAttack()
     {
-        Laser laser = Instantiate(_laser, _firePos.position, Quaternion.identity);
-        laser.FireLaser(targetTrm);
+        _laserShooter.FireLaser(_firePos, targetTrm);
         DamageCasterCompo.CastDamge(damage, knockbackPower);
     }
 

@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Laser : MonoBehaviour
@@ -12,16 +10,21 @@ public class Laser : MonoBehaviour
         _lineRenderer = GetComponent<LineRenderer>();
     }
 
-    public void FireLaser(Transform target)
+    public void SetLaserPositions(Vector3 startPosition, Vector3 endPosition)
     {
-        _lineRenderer.SetPosition(0, transform.position);
-        _lineRenderer.SetPosition(1, target.position);
-        StartCoroutine(DelayTime());
+        _lineRenderer.SetPosition(0, startPosition);
+        _lineRenderer.SetPosition(1, endPosition);
     }
 
-    private IEnumerator DelayTime()
+    public void ActivateLaser(float delay)
     {
-        yield return new WaitForSeconds(0.5f);
-        Destroy(gameObject);
+        gameObject.SetActive(true);
+        StartCoroutine(DelayTime(delay));
+    }
+
+    public IEnumerator DelayTime(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        gameObject.SetActive(false);
     }
 }
