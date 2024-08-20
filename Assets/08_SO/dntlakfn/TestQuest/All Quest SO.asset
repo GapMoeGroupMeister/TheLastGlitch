@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 383c1dd1860398c4b96ca46f28a6ab04, type: 3}
-  m_Name: AllQuestSO
+  m_Name: All Quest SO
   m_EditorClassIdentifier: 
   list:
+  - {fileID: 11400000, guid: 95f6fc48061ac6b44aeef3d755f8956b, type: 2}
   - {fileID: 11400000, guid: 42ca89d508566f3469ed9f017e6e8156, type: 2}
   - {fileID: 11400000, guid: 5ce139460ad262a4b86dc19ac6b34038, type: 2}
   - {fileID: 11400000, guid: b8319b22ca734c74f8012e39a0bff65d, type: 2}
   - {fileID: 11400000, guid: 8cd808857af55084e8a6829547f42a22, type: 2}
   - {fileID: 11400000, guid: f81b26680ccc2714fa653595c3e6c5bd, type: 2}
   - {fileID: 11400000, guid: 63a518c9377d0864dbc0a4133bb0eba3, type: 2}
-  - {fileID: 11400000, guid: 95f6fc48061ac6b44aeef3d755f8956b, type: 2}
