@@ -34,6 +34,11 @@ public class Enemy : EnemySetting
         StateMachine.ChangeState(EnemyStateEnum.Dead);
     }
 
+    public void GetHit()
+    {
+        StateMachine.ChangeState(EnemyStateEnum.Hit);
+    }
+
     protected override void Awake()
     {
         base.Awake();
@@ -52,7 +57,7 @@ public class Enemy : EnemySetting
         StateMachine.CurrentState.UpdateState();
         if(targetTrm != null && IsDie == false)
         {
-            HandleSpriteFlip(targetTrm.position);
+            //HandleSpriteFlip(targetTrm.position);
         }
 
         if(MovementComponent._xMove < 0 && MovementComponent._xMove != 0)

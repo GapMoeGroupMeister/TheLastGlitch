@@ -11,9 +11,7 @@ public class EnemyHitState : EnemyState<EnemyStateEnum>
     public override void Enter()
     {
         base.Enter();
-
     }
-
     public override void UpdateState()
     {
         base.UpdateState();
