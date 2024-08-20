@@ -33,6 +33,13 @@ public class Health : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
+    public float GetCurrentHP()
+    {
+        return _currentHealth;
+    }
+
+
+
     public void TakeDamage(float amount, Vector2 dir, float knockbackPower)
     {
         if(IsHittable)
