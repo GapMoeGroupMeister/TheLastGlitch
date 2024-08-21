@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class DronIdleState : EnemyState<EnemyStateEnum>
 {
-    private Enemy _enemy;
+    StateManager stateManager;
     public DronIdleState(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
-         _enemy = enemyBase;
+        stateManager = enemyBase as StateManager;
     }
 
     public override void Enter()
     {
         base.Enter();
-        _enemy.MovementComponent.StopImmediately(true);
+        stateManager.WalkChanges();
     }
 
     public override void Exit()

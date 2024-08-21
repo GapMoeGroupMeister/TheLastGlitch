@@ -6,6 +6,7 @@ public class StateManager : Enemy
 {
     public void WalkChanges()
     {
+        MovementComponent._canMove = false;
         StartCoroutine(ChangeToWalk());
     }
 

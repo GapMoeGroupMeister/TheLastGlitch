@@ -22,25 +22,6 @@ public class DronWalkState : EnemyState<EnemyStateEnum>
         _enemy.MovementComponent.SetMovement(_dron.dir.normalized.x);
 
         Collider2D player = _dron.GetPlayerDron();
-
-        if (_enemy.FirstAttack&& _enemy.distance < _enemy.attackRadius)
-        {
-            _stateMachine.ChangeState(EnemyStateEnum.Attack);
-        }
-
-        if (player != null)
-        {
-            _enemy.targetTrm = player.transform;
-            if (_enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
-            {
-                _stateMachine.ChangeState(EnemyStateEnum.Attack);
-            }
-        }
-
-        if(_enemy.MovementComponent._xMove == 0)
-        {
-            _stateMachine.ChangeState(EnemyStateEnum.Idle);
-        }
     }
 
     public override void Exit()

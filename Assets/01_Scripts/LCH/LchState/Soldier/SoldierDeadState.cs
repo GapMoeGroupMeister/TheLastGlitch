@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankerDeadState : DeadInt
+public class SoldierDeadState : DeadInt
 {
-    
-    public TankerDeadState(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
+    public SoldierDeadState(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
     }
 
@@ -17,11 +16,10 @@ public class TankerDeadState : DeadInt
 
     public override void UpdateState()
     {
+        base.UpdateState();
         if (_endTriggerCalled)
         {
             PlayExplosion();
         }
-
-        base.UpdateState();
     }
 }

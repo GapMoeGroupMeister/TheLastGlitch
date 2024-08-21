@@ -14,7 +14,6 @@ public class TankerIdleState : EnemyState<EnemyStateEnum>
     public override void Enter()
     {
         base.Enter();
-        _enemy.MovementComponent._canMove = false;
         stateManager.WalkChanges();
     }
 
