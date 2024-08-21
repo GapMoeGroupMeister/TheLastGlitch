@@ -14,7 +14,19 @@ public class EnemyIdleState : EnemyState<EnemyStateEnum>
     {
         base.Enter();
         _enemy.MovementComponent.StopImmediately(false);
+        if (_enemy.Boom)
+        {
+            _enemy.StartCoroutine(BoomDealay());
+        }
         _walkCoroutine = _enemy.StartCoroutine(ChangeToWalk());
+    }
+
+    private IEnumerator BoomDealay()
+    {
+             _enemy.MovementComponent.moveSpeed = 0f;
+             yield return new WaitForSeconds(1f);
+             _enemy.StateMachine.ChangeState(EnemyStateEnum.Dead);
+
     }
 
     private IEnumerator ChangeToWalk()
