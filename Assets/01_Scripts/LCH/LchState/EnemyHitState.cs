@@ -12,6 +12,8 @@ public class EnemyHitState : EnemyState<EnemyStateEnum>
     {
         base.Enter();
         _enemy.MovementComponent._xMove = 0f;
+        _enemy.MovementComponent._canMove = false;
+        _enemy.MovementComponent.StopImmediately(true);
     }
     public override void UpdateState()
     {
