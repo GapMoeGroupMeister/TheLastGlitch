@@ -57,7 +57,7 @@ public class HackPulse : MonoBehaviour
             enemy._canMove = true;
         }
     }
-
+    
 #if UNITY_EDITOR    
     private void OnDrawGizmosSelected()
     {
