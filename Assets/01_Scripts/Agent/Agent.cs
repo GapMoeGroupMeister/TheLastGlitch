@@ -31,13 +31,16 @@ public abstract class Agent : MonoBehaviour
     }
     public void HandleSpriteFlip(Vector3 targerPosition)
     {
-        if (targerPosition.x < transform.position.x)
+        if (!WeaponCoolTime.instance._attack)
         {
-            transform.eulerAngles = new Vector3(0, -180f, 0);
-        }
-        else if (targerPosition.x > transform.position.x)
-        {
-            transform.eulerAngles = Vector3.zero;
+            if (targerPosition.x < transform.position.x)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (targerPosition.x > transform.position.x)
+            {
+                transform.localScale = Vector3.one;
+            }
         }
     }
 

@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class DronAttackState : EnemyAttackState
 {
-    private Enemy _enemy;
     public DronAttackState(Enemy enemyBase, StateMachine<EnemyStateEnum> state, string animHashName) : base(enemyBase, state, animHashName)
     {
-        _enemy = enemyBase;
     }
 
     public override void Enter()
@@ -15,7 +13,7 @@ public class DronAttackState : EnemyAttackState
         base.Enter();
         _enemy.MovementComponent._canMove = false;
         _enemy.MovementComponent.StopImmediately();
-        _enemy.HandleSpriteFlip(_enemy.targetTrm.position);
+        _enemy.FirstAttack = false;
     }
 
     public override void UpdateState()
@@ -27,8 +25,11 @@ public class DronAttackState : EnemyAttackState
             if (!_enemy.isCloser)
             {
                 _enemy.MovementComponent._canMove = true;
-                _stateMachine.ChangeState(EnemyStateEnum.Walk);
+              _stateMachine.ChangeState(EnemyStateEnum.Walk);
+                return;
+               
             }
+            _stateMachine.ChangeState(EnemyStateEnum.Chase);
         }
         base.UpdateState();
     }

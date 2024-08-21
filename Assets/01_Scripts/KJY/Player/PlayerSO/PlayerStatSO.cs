@@ -4,20 +4,13 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 [CreateAssetMenu(menuName = "SO/Player1/Stat")]
-public class PlayerStatSO : MonoBehaviour
+public class PlayerStatSO : ScriptableObject
 {
-    public int _playerHealth;
-    public int _playerAtkPower;
-    public int _playerMoveSpeed;
-    public int _playerCritProbability;
-    public int _playerCritDamage;
+    public int playerHealth;
+    public int playerAtkPower;
+    public int playerMoveSpeed;
+    public int playerCritProbability;
+    public int playerCritDamage;
 
-    public AgentMovement _agentMm;
-    public Health _health;
-    public Player1 _player1Stat;
-
-    private void StatAdjustment()
-    {
-        //_playerHealth = 
-    }
+    public string type = "1";
 }

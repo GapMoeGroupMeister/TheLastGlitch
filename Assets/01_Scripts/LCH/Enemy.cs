@@ -7,6 +7,7 @@ public enum EnemyStateEnum
     Attack,
     Chase,
     Walk,
+    Hit,
     Dead
 }
 
@@ -15,19 +16,28 @@ public enum BossStateEnum
     Idle,
     Closed,
     Opened,
-    AngryOpened
+    AngryOpened,
+    Dead
 } 
 public class Enemy : EnemySetting
 {
     public bool isMelee = true;
     public bool isCloser;
+    public bool isBoom;
     public Vector2 dir;
+    public bool CanAttack = true;
+    public bool FirstAttack = true;
     public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
 
 
     public override void SetDeadState()
     {
         StateMachine.ChangeState(EnemyStateEnum.Dead);
+    }
+
+    public void GetHit()
+    {
+        StateMachine.ChangeState(EnemyStateEnum.Hit);
     }
 
     protected override void Awake()
@@ -48,16 +58,16 @@ public class Enemy : EnemySetting
         StateMachine.CurrentState.UpdateState();
         if(targetTrm != null && IsDie == false)
         {
-            HandleSpriteFlip(targetTrm.position);
+            //HandleSpriteFlip(targetTrm.position);
         }
 
         if(MovementComponent._xMove < 0 && MovementComponent._xMove != 0)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         else if(MovementComponent._xMove > 0 && MovementComponent._xMove !=0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.localScale = Vector3.one;
         }
     }
     public override void AnimationEndTrigger()

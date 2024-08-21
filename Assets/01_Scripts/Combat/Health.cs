@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth = 100;
+    public float _maxHealth = 100;
 
     private float _currentHealth;
     Agent _onwer;
@@ -32,6 +32,13 @@ public class Health : MonoBehaviour
     {
         _currentHealth = _maxHealth;
     }
+
+    public float GetCurrentHP()
+    {
+        return _currentHealth;
+    }
+
+
 
     public void TakeDamage(float amount, Vector2 dir, float knockbackPower)
     {

@@ -29,13 +29,16 @@ public class EnemyWalkState : EnemyState<EnemyStateEnum>
         {
             _enemy.targetTrm = player.transform;
 
-            if (_enemy.isCloser)
+            if (_enemy.isCloser || _enemy.isBoom)
             {
                 _stateMachine.ChangeState(EnemyStateEnum.Chase);
                 return;
             }
             else
-                _stateMachine.ChangeState(EnemyStateEnum.Attack);
+                if (_enemy.CanAttack)
+                {
+                    _stateMachine.ChangeState(EnemyStateEnum.Attack);
+               }
         }
 
         if(_enemy.MovementComponent._xMove == 0)

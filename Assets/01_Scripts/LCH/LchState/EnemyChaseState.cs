@@ -16,6 +16,16 @@ public class EnemyChaseState : EnemyState<EnemyStateEnum>
         Vector2 dir = _enemy.targetTrm.position - _enemy.transform.position;
         float distance = dir.magnitude;
 
+        if (_enemy.GetPlayer() == false)
+        {
+            _enemy.MovementComponent._canMove = true;
+        }
+        else
+        {
+            _enemy.MovementComponent._canMove = false;
+            _stateMachine.ChangeState(EnemyStateEnum.Idle);
+        }
+   
         if(distance > _enemy.detectRadius + 3f)
         {
             _stateMachine.ChangeState(EnemyStateEnum.Idle);
@@ -24,9 +34,24 @@ public class EnemyChaseState : EnemyState<EnemyStateEnum>
 
         _enemy.MovementComponent.SetMovement(dir.normalized.x);
 
-        if(distance < _enemy.attackRadius && _enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
+        if(_enemy.FirstAttack)
         {
             _stateMachine.ChangeState(EnemyStateEnum.Attack);
+        }
+
+        if(distance < _enemy.attackRadius && _enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
+        {
+            if(_enemy.CanAttack)
+            _stateMachine.ChangeState(EnemyStateEnum.Attack);
+
+            if (_enemy.isBoom)
+            {
+                if (_enemy.CanAttack)
+                {
+                    _stateMachine.ChangeState(EnemyStateEnum.Dead);
+                    return;
+                }
+            }
             return;
         }
     }

@@ -26,7 +26,16 @@ public class DamageCaster : MonoBehaviour
                 Vector2 attackableDir = _colliders[i].transform.position - transform.position;
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, attackableDir.normalized, attackableDir.magnitude, filter.layerMask);
 
+                Debug.Log(hit.collider.name);
                 Vector2 attackDir = new Vector2(Mathf.Clamp(Vector3.Cross(hit.transform.position, transform.position).z, -1, 1), 0);
+                if(attackableDir.x < 0)
+                {
+                    attackableDir *= -1;
+                }
+                else
+                {
+                    attackableDir *= 1;
+                }
                 health.TakeDamage(damage, attackDir, knockbackPower);
             }
         }

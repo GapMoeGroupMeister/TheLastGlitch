@@ -5,10 +5,15 @@ using UnityEngine;
 
 
 
-[CreateAssetMenu(menuName = "SO/QuestDataList")]
+[CreateAssetMenu(menuName = "SO/List/QuestList")]
 public class TestListQuestSO : ScriptableObject
 {
     public List<TestQuestSO> list;
 
+
+    private void OnValidate()
+    {
+        list = new List<TestQuestSO>();
+    }
 
 }

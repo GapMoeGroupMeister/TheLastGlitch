@@ -7,4 +7,5 @@ using UnityEngine;
 public class PoolListSO : ScriptableObject
 {
     public List<PoolItemSO> list;
+    public int a;
 }

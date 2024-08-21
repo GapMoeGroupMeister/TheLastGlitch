@@ -1,21 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MGSY : EnemySetting
 {
-    [SerializeField] private GameObject testEnemyPrefab;
-    [SerializeField] protected Health health;
-    public string state;
+    [SerializeField] private GameObject testEnemyPrefab = null;
+    [SerializeField] protected Health health = null;
+    public string state = null;
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
-    [field : SerializeField] public GameObject Shell1 { get; set; }
-    [field : SerializeField] public GameObject Sheel2 { get; set; }
     public GameObject test => testEnemyPrefab;
+
+    public int ?isRunningHash = null;
+
+    public Action OnCoreExplosion;
+    public Action OnMobSpawn;
+    public Action OnElectricExplosion;
+
 
     protected override void Awake()
     {
         base.Awake();
-
         health = GetComponent<Health>();
 
         StateMachine = new StateMachine<BossStateEnum>();
@@ -24,7 +29,7 @@ public class MGSY : EnemySetting
         StateMachine.AddState(BossStateEnum.Closed, new MgsyClosedState(this, StateMachine, "Closed"));
         StateMachine.AddState(BossStateEnum.Opened, new MgsyOpenedState(this, StateMachine, "Opened"));
         StateMachine.AddState(BossStateEnum.AngryOpened, new MgsyAngryOpenedState(this, StateMachine, "AngryOpened"));
-
+        StateMachine.AddState(BossStateEnum.Dead, new MgsyDeadState(this, StateMachine, "Dead"));
         StateMachine.InitInitialize(BossStateEnum.Idle, this);
     }
     
@@ -36,7 +41,7 @@ public class MGSY : EnemySetting
 
     public override void SetDeadState()
     {
-        
+        StateMachine.ChangeState(BossStateEnum.Dead);
     }
 
     public Collider2D GetPlayerInRange()

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3453595213658273161}
   - component: {fileID: 1189340810403874827}
   - component: {fileID: 3081797341322309110}
+  - component: {fileID: 4085442233665326756}
   m_Layer: 0
   m_Name: EnemyHitParticle
   m_TagString: Untagged
@@ -28,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.42, y: 0.16, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5848142967335975692}
   m_Father: {fileID: 0}
@@ -42,7 +43,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2261207672067465182}
   serializedVersion: 8
-  lengthInSec: 0.5
+  lengthInSec: 0.1
   simulationSpeed: 1
   stopAction: 1
   cullingMode: 0
@@ -118,7 +119,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.3
-      minScalar: 0.1
+      minScalar: 0.0001
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -666,7 +667,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 25
+    angle: 24.2
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -752,7 +753,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.0001
       mode: 0
       spread: 0
       speed:
@@ -2744,11 +2745,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 0
+    enabled: 1
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 8.12
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2905,11 +2906,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 0
-    frequency: 0.5
+    frequency: 0.46
     damping: 1
-    octaves: 1
-    octaveMultiplier: 0.5
-    octaveScale: 2
+    octaves: 4
+    octaveMultiplier: 0.52
+    octaveScale: 2.86
     quality: 1
     scrollSpeed:
       serializedVersion: 2
@@ -3994,12 +3995,12 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 1
-    mode: 1
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.012
+      scalar: 0.27
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4908,6 +4909,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4085442233665326756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2261207672067465182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a817b4d0accafff43ac4f7deb0fe0bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolName: EnemyHitParticle
 --- !u!1 &5145329219807710110
 GameObject:
   m_ObjectHideFlags: 0
@@ -5573,7 +5587,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 16.02
+    angle: 5.34
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1

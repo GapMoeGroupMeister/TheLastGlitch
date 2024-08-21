@@ -13,12 +13,13 @@ public class EnemyAnimEndTrigger : MonoBehaviour
     
     public void AnimationAttackTrigger()
     {
-        _enemy.Attack();
         Debug.Log("attack");
+        _enemy.Attack();
     }
 
     public void AnimationLaserAttackTrigger()
     {
-
+        Debug.Log("attack");
+        _enemy.LaserAttack();
     }
 }

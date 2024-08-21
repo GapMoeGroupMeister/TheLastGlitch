@@ -3,62 +3,72 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
-using UnityEditor.iOS;
+using UnityEngine.Experimental.GlobalIllumination;
+using Unity.VisualScripting;
 
 public class BigSword : MonoBehaviour
 {
     [field: SerializeField] private InputReader _input;
 
     [SerializeField] private GameObject _swordParent;
+    [SerializeField] private LayerMask _enemyLayer;
 
-    private bool _attack = false;
+    [SerializeField] private float _damage = 30f;
+    [SerializeField] private float _knockBackPower = 10f;
+
+    [SerializeField] private float _swordSwingTime = 0.25f;
+    [SerializeField] private float _swordReturnTime = 0.4f;
+
+    private DG.Tweening.Sequence AttackSequence;
 
     private void Awake()
     {
-        _input.OnAttackEvent += Attack;
+        _input.OnAttackEvent += BigSwordAttack;
+    }
+
+    private void Start()
+    {
+        AttackSequence.Restart();
     }
 
     private void Update()
     {
-        if (_input.MousePos.x > 0)
-        {
-            _swordParent.transform.rotation = Quaternion.Euler(0, 0, 180);
-        }
 
-        else if (_input.MousePos.x < 0)
-        {
-            _swordParent.transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
     }
 
-    public void Attack()
-    {
-        if (!_attack)
-        {
-            if (_input.MousePos.x > 0)
-            {
-                Sequence AttackSequence = DOTween.Sequence();
-                AttackSequence.Append(_swordParent.transform.DORotate(new Vector3(0, 0, 0), 0.3f));
-                AttackSequence.Append(_swordParent.transform.DORotate(new Vector3(0, 0, 181), 0.3f));
-                AttackSequence.Play();
-                StartCoroutine(AttackCoolTime());
-            }
 
-            else if (_input.MousePos.x < 0)
+    public void BigSwordAttack()
+    {
+        if (_swordParent.activeSelf == true)
+        {
+            if (!WeaponCoolTime.instance._attack)
             {
-                Sequence AttackSequence = DOTween.Sequence();
-                AttackSequence.Append(_swordParent.transform.DORotate(new Vector3(0, 0, 180), 0.3f));
-                AttackSequence.Append(_swordParent.transform.DORotate(new Vector3(0, 0, -1), 0.3f));
+                AttackSequence = DOTween.Sequence();
+                AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -130), _swordSwingTime, RotateMode.FastBeyond360));
+                AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -180), _swordReturnTime));
                 AttackSequence.Play();
-                StartCoroutine(AttackCoolTime());
+                StartCoroutine(AttackCoolTimeBG());
             }
         }
     }
 
-    private IEnumerator AttackCoolTime()
+    private IEnumerator AttackCoolTimeBG()
     {
-        _attack = true;
+        WeaponCoolTime.instance._attack = true;
         yield return new WaitForSeconds(0.8f);
-        _attack = false;
+        WeaponCoolTime.instance._attack = false;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (WeaponCoolTime.instance._attack)
+        {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                Vector2 attackDir = new Vector2(Mathf.Clamp(Vector3.Cross(collision.gameObject.transform.position, transform.position).z, -1, 1), 0);
+                collision.gameObject.GetComponent<Health>().TakeDamage(_damage, -attackDir, _knockBackPower);
+            }
+        }
+    }
+
 }
