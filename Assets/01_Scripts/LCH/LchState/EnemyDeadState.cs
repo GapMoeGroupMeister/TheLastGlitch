@@ -21,16 +21,8 @@ public class EnemyDeadState : EnemyState<EnemyStateEnum>
         _enemy.MovementComponent.StopImmediately();
         _enemy.SetDead(true);
         _onExplosion = false;
-        if (_enemy.isBoom)
-        {
-            _enemy.StartCoroutine(BoomDelay());
-        }
     }
 
-    private IEnumerator BoomDelay()
-    {
-       
-    }
 
     public override void Exit()
     {
