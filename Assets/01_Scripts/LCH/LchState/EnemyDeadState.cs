@@ -29,7 +29,7 @@ public class EnemyDeadState : EnemyState<EnemyStateEnum>
 
     private IEnumerator BoomDelay()
     {
-        yield return 
+       
     }
 
     public override void Exit()
