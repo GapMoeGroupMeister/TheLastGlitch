@@ -21,27 +21,24 @@ public enum BossStateEnum
 } 
 public class Enemy : EnemySetting
 {
-    public bool isMelee = true;
-    public bool isCloser;
-    public bool isBoom;
     public Vector2 dir;
     public bool CanAttack = true;
     public bool FirstAttack = true;
     public bool Boom = false;
     public float distance;
+    public bool FirstWake = true;
+    
     public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
-
-
-    public override void SetDeadState()
-    {
-        StateMachine.ChangeState(EnemyStateEnum.Dead);
-    }
 
     public void GetHit()
     {
         StateMachine.ChangeState(EnemyStateEnum.Hit);
     }
 
+    public override void SetDeadState()
+    {
+        StateMachine.ChangeState(EnemyStateEnum.Dead);
+    }
     protected override void Awake()
     {
         base.Awake();

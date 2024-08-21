@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DronWalkState : EnemyWalkState
+public class DronWalkState : EnemyState<EnemyStateEnum>
 {
     public DronEnemy _dron;
     public DronWalkState(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
@@ -23,7 +23,7 @@ public class DronWalkState : EnemyWalkState
 
         Collider2D player = _dron.GetPlayerDron();
 
-        if (_enemy.FirstAttack)
+        if (_enemy.FirstAttack&& _enemy.distance < _enemy.attackRadius)
         {
             _stateMachine.ChangeState(EnemyStateEnum.Attack);
         }
@@ -31,10 +31,15 @@ public class DronWalkState : EnemyWalkState
         if (player != null)
         {
             _enemy.targetTrm = player.transform;
-            if (!_enemy.isCloser && _enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
+            if (_enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
             {
                 _stateMachine.ChangeState(EnemyStateEnum.Attack);
             }
+        }
+
+        if(_enemy.MovementComponent._xMove == 0)
+        {
+            _stateMachine.ChangeState(EnemyStateEnum.Idle);
         }
     }
 

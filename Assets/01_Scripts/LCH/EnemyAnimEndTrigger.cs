@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyAnimEndTrigger : MonoBehaviour
 {
     [SerializeField] private Enemy _enemy;
+    [SerializeField] private ADEnemy _ad;
 
     public void AnimationEnd()
     {
@@ -20,6 +21,6 @@ public class EnemyAnimEndTrigger : MonoBehaviour
     public void AnimationLaserAttackTrigger()
     {
         Debug.Log("attack");
-        _enemy.LaserAttack();
+        _ad.LaserAttack();
     }
 }

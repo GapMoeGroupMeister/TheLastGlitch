@@ -15,18 +15,16 @@ public class GunAttackState : EnemyState<EnemyStateEnum>
         base.Enter();
         _enemy.MovementComponent._canMove = false;
         _enemy.MovementComponent.StopImmediately();
-        _enemy.HandleSpriteFlip(_enemy.targetTrm.position);
     }
     public override void UpdateState()
     {
+        _enemy.HandleSpriteFlip(_enemy.targetTrm.position);
         if (_endTriggerCalled)
         {
             _enemy.lastAttackTime = Time.time;
-            if (!_enemy.isCloser)
-            {
+         
                 _enemy.MovementComponent._canMove = true;
                 _stateMachine.ChangeState(EnemyStateEnum.Walk);
-            }
         }
         base.UpdateState();
     }

@@ -14,6 +14,7 @@ public class GunWalkState : EnemyState<EnemyStateEnum>
     public override void Enter()
     {
         base.Enter();
+        _enemy.MovementComponent._canMove = true;
     }
 
     public override void UpdateState()
@@ -26,10 +27,15 @@ public class GunWalkState : EnemyState<EnemyStateEnum>
         if (player != null)
         {
             _enemy.targetTrm = player.transform;
-            if (!_enemy.isCloser && _enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
+            if (_enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
             {
                 _stateMachine.ChangeState(EnemyStateEnum.Attack);
             }
+        }
+
+        if(_enemy.MovementComponent._xMove == 0)
+        {
+            _stateMachine.ChangeState(EnemyStateEnum.Idle);
         }
     }
 }

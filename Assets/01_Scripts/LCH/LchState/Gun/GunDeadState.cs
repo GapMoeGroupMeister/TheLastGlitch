@@ -1,15 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDeadState : EnemyState<EnemyStateEnum>
+public class GunDeadState : EnemyState<EnemyStateEnum>
 {
     private readonly int _deadLayer = LayerMask.NameToLayer("DeadEnemy");
-    private bool _onExplosion = false;
-    public EnemyDeadState(Enemy enemyBase, StateMachine<EnemyStateEnum> state, string animHashName) : base(enemyBase, state, animHashName)
+    public GunDeadState(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
-        _enemy = enemyBase;
     }
 
     public override void Enter()
@@ -20,24 +17,15 @@ public class EnemyDeadState : EnemyState<EnemyStateEnum>
         _enemy.MovementComponent._xMove = 0;
         _enemy.MovementComponent.StopImmediately();
         _enemy.SetDead(true);
-        _onExplosion = false;
-    }
-
-
-    public override void Exit()
-    {
-        base.Exit();
     }
 
     public override void UpdateState()
     {
-        base.UpdateState();
         if (_endTriggerCalled)
         {
-            // Dead
-            //UnityEngine.Object.Destroy(_enemy.gameObject);
             PlayExplosion();
         }
+        base.UpdateState();
     }
 
     private void PlayExplosion()

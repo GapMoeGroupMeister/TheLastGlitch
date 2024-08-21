@@ -24,8 +24,6 @@ public class DronIdleState : EnemyState<EnemyStateEnum>
     public override void UpdateState()
     {
         base.UpdateState();
-        new WaitForSeconds(2f);
-        _stateMachine.ChangeState(EnemyStateEnum.Walk);
 
     }
 }
