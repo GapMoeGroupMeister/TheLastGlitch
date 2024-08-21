@@ -857,6 +857,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: laser
       objectReference: {fileID: 0}
+    - target: {fileID: 7169714416049541945, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1024,6 +1028,7 @@ GameObject:
   - component: {fileID: 1976350833}
   - component: {fileID: 1976350837}
   - component: {fileID: 1976350838}
+  - component: {fileID: 1976350840}
   m_Layer: 0
   m_Name: TestMinGaSuY
   m_TagString: Untagged
@@ -1243,6 +1248,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _laser: {fileID: 1339263878}
   _laserTime: 0.7
+--- !u!114 &1976350840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976350832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e34cee3f78606b478aec4d588df80c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mobCount: 15
+  _currentMobCount: 0
+  _minCount: 7
+  _maxCount: 14
+  _spawnCoolTime: 0
+  _minCoolTime: 2
+  _maxCoolTime: 4
+  _patternCoolTime: 0
+  _maxPatternCool: 6
+  _minPatternCool: 12
+  _enemys:
+  - {fileID: 7079840489748371561, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
+  - {fileID: 3916682341307116186, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
+  - {fileID: 3824209589037874041, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
+  - {fileID: 8313388324781040890, guid: a2f09a759657ded489b43a17964086e0, type: 3}
+  - {fileID: 3065351043755773162, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
 --- !u!1 &2147331282
 GameObject:
   m_ObjectHideFlags: 0

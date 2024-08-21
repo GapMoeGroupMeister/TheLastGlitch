@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MgsyEnemySpawn : MonoBehaviour
@@ -19,18 +20,17 @@ public class MgsyEnemySpawn : MonoBehaviour
     [SerializeField] private float _maxPatternCool = 6;
     [SerializeField] private float _minPatternCool = 12;
 
+    [Header("EnemyList")]
+    [SerializeField] private List<GameObject> _enemys = new List<GameObject>();
+
     private void Awake()
     {
-        DecideCount();
+        ResetCount();
     }
 
     private void ResetCount()
     {
         _currentMobCount = 0;
-    }
-
-    private void DecideCount()
-    {
         _mobCount = Random.Range(_minCount, _maxCount);
     }
 
@@ -51,7 +51,7 @@ public class MgsyEnemySpawn : MonoBehaviour
             {
                 _patternCoolTime = Random.Range(_minPatternCool, _maxPatternCool);
                 yield return new WaitForSeconds(_patternCoolTime);
-                DecideCount();
+                ResetCount();
             }
             else
             {

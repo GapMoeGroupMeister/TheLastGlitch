@@ -14,7 +14,6 @@ public class MgsyOpenedState : MGSYState<BossStateEnum>
     {
         base.Enter();
         health.IsHittable = true;
-        mgsy.SpawnEntity(mgsy.test);
 
     }
 }

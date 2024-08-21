@@ -9,7 +9,6 @@ public class MGSY : EnemySetting
     [SerializeField] protected Health health = null;
     public string state = null;
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
-    public GameObject test => testEnemyPrefab;
 
     public Animator mgsyAnimator = null;
 
@@ -55,8 +54,4 @@ public class MGSY : EnemySetting
         StateMachine.CurrentState.AnimationEndTrigger();
     }
 
-    public void SpawnEntity(GameObject entities)
-    {
-        Instantiate(entities);
-    }
 }
