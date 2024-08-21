@@ -13,6 +13,7 @@ public class SelfDestructDrone : Drone
     {
         _rb = GetComponent<Rigidbody2D>();
         speed = 3;
+        detectRadius = _radius;
     }
     protected override void Attack()
     {
@@ -24,6 +25,11 @@ public class SelfDestructDrone : Drone
         }
         else
             autoMove = true;
+    }
+
+    public override void Update()
+    {
+        base.Update();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
