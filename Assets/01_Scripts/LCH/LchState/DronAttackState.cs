@@ -6,6 +6,7 @@ public class DronAttackState : EnemyAttackState
 {
     public DronAttackState(Enemy enemyBase, StateMachine<EnemyStateEnum> state, string animHashName) : base(enemyBase, state, animHashName)
     {
+
     }
 
     public override void Enter()
@@ -27,7 +28,6 @@ public class DronAttackState : EnemyAttackState
                 _enemy.MovementComponent._canMove = true;
               _stateMachine.ChangeState(EnemyStateEnum.Walk);
                 return;
-               
             }
             _stateMachine.ChangeState(EnemyStateEnum.Chase);
         }

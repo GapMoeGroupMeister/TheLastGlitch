@@ -11,18 +11,18 @@ public class MGSY : EnemySetting
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
     public GameObject test => testEnemyPrefab;
 
+    public Animator mgsyAnimator = null;
+
     public int ?isRunningHash = null;
 
     public Action OnCoreExplosion;
     public Action OnMobSpawn;
     public Action OnElectricExplosion;
 
-
     protected override void Awake()
     {
         base.Awake();
         health = GetComponent<Health>();
-
         StateMachine = new StateMachine<BossStateEnum>();
 
         StateMachine.AddState(BossStateEnum.Idle, new MgsyIdleState(this, StateMachine, "Idle"));
@@ -36,7 +36,6 @@ public class MGSY : EnemySetting
     private void Update()
     {
         StateMachine.CurrentState.UpdateState();
-        
     }
 
     public override void SetDeadState()
