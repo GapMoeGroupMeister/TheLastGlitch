@@ -9,7 +9,7 @@ using static PlayerController;
 [CreateAssetMenu(menuName = "SO/InputReader")]
 public class InputReader : ScriptableObject, IPlayerActions
 {
-    private PlayerController playerController;
+    public PlayerController playerController;
 
     public Action OnJumpEvent;
     public Action OnAttackEvent;

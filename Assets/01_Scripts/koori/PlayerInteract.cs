@@ -53,7 +53,14 @@ public class PlayerInteract : MonoBehaviour
         if (_isInteractive)
         {
             _interactiveObject.OnInteract();
+            _input.playerController.Disable();
         }
+    }
+
+    public void Disconnect()
+    {
+        _interactiveObject.OnDisconnect();
+        _input.playerController.Enable();
     }
 
     private void OnDrawGizmos()
