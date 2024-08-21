@@ -10,6 +10,10 @@ public class Katana : MonoBehaviour
     [SerializeField] private float _damage = 15f;
     [SerializeField] private GameObject _katanaParent;
 
+    [SerializeField] private float _knockBackPower = 10f;
+    [SerializeField] private float _swordSwingTime = 0.2f;
+    [SerializeField] private float _swordReturnTime = 0.2f;
+
     [SerializeField] private int _attackSequence1;
     [SerializeField] private int _attackSequence2;
     [SerializeField] private Ease _ease;
@@ -28,8 +32,8 @@ public class Katana : MonoBehaviour
             if (!WeaponCoolTime.instance._attack)
             {
                 AttackSequence = DOTween.Sequence();
-                AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence1), 0.1f, RotateMode.FastBeyond360));
-                AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence2), 0.3f).SetEase(_ease));
+                AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence1), _swordSwingTime, RotateMode.FastBeyond360));
+                AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence2), _swordReturnTime).SetEase(_ease));
                 AttackSequence.Play();
                 StartCoroutine(AttackCoolTimeKA());
             }
@@ -39,8 +43,11 @@ public class Katana : MonoBehaviour
     private IEnumerator AttackCoolTimeKA()
     {
         WeaponCoolTime.instance._attack = true;
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(_swordSwingTime);
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+        yield return new WaitForSeconds(_swordReturnTime);
         WeaponCoolTime.instance._attack = false;
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = true ;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,7 +56,8 @@ public class Katana : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.right, 2);
+                Vector2 attackDir = new Vector2(Mathf.Clamp(Vector3.Cross(collision.gameObject.transform.position, transform.position).z, -1, 1), 0);
+                collision.gameObject.GetComponent<Health>().TakeDamage(_damage, -attackDir, _knockBackPower);
             }
         }
     }
