@@ -11,6 +11,7 @@ public class EnemyHitState : EnemyState<EnemyStateEnum>
     public override void Enter()
     {
         base.Enter();
+        _enemy.MovementComponent._xMove = 0f;
     }
     public override void UpdateState()
     {

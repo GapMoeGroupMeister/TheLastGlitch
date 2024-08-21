@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class EnemyChaseState : EnemyState<EnemyStateEnum>
     {
         base.UpdateState();
         Vector2 dir = _enemy.targetTrm.position - _enemy.transform.position;
-        float distance = dir.magnitude;
+       _enemy.distance = dir.magnitude;
 
         if (_enemy.GetPlayer() == false)
         {
@@ -26,7 +27,7 @@ public class EnemyChaseState : EnemyState<EnemyStateEnum>
             _stateMachine.ChangeState(EnemyStateEnum.Idle);
         }
    
-        if(distance > _enemy.detectRadius + 3f)
+        if(_enemy.distance > _enemy.detectRadius + 3f)
         {
             _stateMachine.ChangeState(EnemyStateEnum.Idle);
             return;
@@ -34,25 +35,33 @@ public class EnemyChaseState : EnemyState<EnemyStateEnum>
 
         _enemy.MovementComponent.SetMovement(dir.normalized.x);
 
-        if(_enemy.FirstAttack)
+        if (_enemy.FirstAttack&&!_enemy.isBoom)
         {
             _stateMachine.ChangeState(EnemyStateEnum.Attack);
         }
 
-        if(distance < _enemy.attackRadius && _enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
+        if(_enemy.distance < _enemy.attackRadius && _enemy.lastAttackTime + _enemy.attackCooldown < Time.time&&!_enemy.isBoom)
         {
             if(_enemy.CanAttack)
             _stateMachine.ChangeState(EnemyStateEnum.Attack);
+            return;
+        }
 
-            if (_enemy.isBoom)
+        if(_enemy.distance < _enemy.attackRadius&&_enemy.isBoom)
+        {  
+            if (_enemy.CanAttack)
             {
-                if (_enemy.CanAttack)
+                if(_enemy.distance > _enemy.attackRadius)
                 {
-                    _stateMachine.ChangeState(EnemyStateEnum.Dead);
-                    return;
+                    _enemy.Boom = false;
+                    _enemy.StateMachine.ChangeState(EnemyStateEnum.Idle);
+                }
+                else
+                {
+                    _enemy.Boom = true;
+                    _enemy.StateMachine.ChangeState(EnemyStateEnum.Idle);
                 }
             }
-            return;
         }
     }
 }
