@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,12 @@ using UnityEngine.UI;
 
 public class QuestControl : MonoBehaviour
 {
+    [SerializeField] protected EventBox _eb;
+
     [SerializeField] protected TestListQuestSO quests;
     [SerializeField] protected AcceptedQuestListSO acceptedQuests;
     public UnityEvent OnCreat;
+    public Action OnAccept;
 
 
     [field:SerializeField]
@@ -47,7 +51,7 @@ public class QuestControl : MonoBehaviour
         }
     }
 
-    public void RemoveQuest()
+    public void QuestClear()
     {
         if (_quest.questType == QuestType.Clear)
         {
@@ -98,6 +102,35 @@ public class QuestControl : MonoBehaviour
             
         }
         
+    }
+
+    public void RemoveAcceptedQuest()
+    {
+        acceptedQuests.AcceptedList.Remove(_quest);
+        quests.list.Add(_quest);
+        quests.list.Sort((x, y) =>
+        {
+            if(x.questLevel <= y.questLevel)
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
+        });
+
+    }
+
+    public void Click()
+    {
+        if (acceptedQuests.AcceptedList.Contains(_quest))
+        {
+            OnAccept = RemoveAcceptedQuest;
+            _eb.SetEvent(OnAccept, "퀘스트 취소할꺼임? 병신임? 클릭하나 제대로 못함? 임무를 장난으로 받음? 책임감 없는 새끼");
+        }
+        OnAccept = AcceptQuest;
+        _eb.SetEvent(OnAccept, "퀘스트 받을꺼임?");
     }
 
     public void CheckComplete()

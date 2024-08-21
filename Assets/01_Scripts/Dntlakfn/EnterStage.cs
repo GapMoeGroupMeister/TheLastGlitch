@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnterStage : MonoBehaviour
+public class EnterStage : MonoBehaviour, IInteractive
 {
     public static string map;
 
     private bool a;
+
+    public void OnInteract()
+    {
+        if (map != null)
+        {
+            SceneManager.LoadScene(map);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,19 +25,5 @@ public class EnterStage : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         a = false;
-    }
-
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E) && a)
-        {
-            if(map != null)
-            {
-                SceneManager.LoadScene(map);
-            }
-
-            
-        }
     }
 }

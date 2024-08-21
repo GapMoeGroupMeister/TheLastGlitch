@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnterStore : MonoBehaviour
+public class EnterStore : MonoBehaviour, IInteractive
 {
     public UnityEvent OnEnter;
     [SerializeField] protected GameObject storeUI;
     [SerializeField] protected bool isEnter;
+
+    public void OnInteract()
+    {
+        storeUI.SetActive(isEnter);
+        OnEnter?.Invoke();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
        isEnter = true;
@@ -17,12 +24,5 @@ public class EnterStore : MonoBehaviour
         isEnter = false;
     }
     
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            storeUI.SetActive(isEnter);
-            OnEnter?.Invoke();
-        }
-    }
+    
 }
