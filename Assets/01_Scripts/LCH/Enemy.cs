@@ -27,6 +27,8 @@ public class Enemy : EnemySetting
     public Vector2 dir;
     public bool CanAttack = true;
     public bool FirstAttack = true;
+    public bool Boom = false;
+    public float distance;
     public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
 
 
