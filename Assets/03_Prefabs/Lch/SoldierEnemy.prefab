@@ -85,7 +85,7 @@ MonoBehaviour:
       m_Calls: []
   detectRadius: 5
   attackRadius: 1
-  knockbackPower: 4
+  knockbackPower: 20
   attackCooldown: 2
   stopRay: 0.5
   damage: 1
@@ -118,6 +118,9 @@ MonoBehaviour:
   isBoom: 0
   dir: {x: 0, y: 0}
   CanAttack: 1
+  FirstAttack: 1
+  Boom: 0
+  distance: 0
 --- !u!114 &2642503958888725377
 MonoBehaviour:
   m_ObjectHideFlags: 0

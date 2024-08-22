@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EnemyHitMat
+  m_Name: PlayerHitEffect
   m_Shader: {fileID: -6465566751694194690, guid: 9a0d618326680744f8f02f6a61d281e9, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -72,5 +72,5 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Color: {r: 19.785456, g: 2.5509536, b: 2.5509536, a: 1}
+    - _Color: {r: 17.633148, g: 6.984753, b: 6.185451, a: 1}
   m_BuildTextureStacks: []

@@ -35,6 +35,8 @@ public abstract class PassiveSO : ScriptableObject
     public float time;
     public Vector2 distance;
 
+    public ParticleSystem effect;
+
     public PATEnum type;
     public PassiveType passiveType;
 

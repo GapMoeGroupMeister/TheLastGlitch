@@ -17,6 +17,6 @@ public class PoolingEffect : MonoBehaviour, Ipoolable
 
     private void OnDisable()
     {
-        PoolManager.Instance.Push(this);
+        PoolManager.Instance.Push(this);    
     }
 }
