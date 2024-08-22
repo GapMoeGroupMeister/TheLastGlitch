@@ -135,6 +135,11 @@ public abstract class Player : Agent
         HandleSpriteFlip(mousePos);
     }
 
+    public void SetHitState()
+    {
+        _isHit = true;
+    }
+
     public override void SetDeadState()
     {
         IsDie = true;
