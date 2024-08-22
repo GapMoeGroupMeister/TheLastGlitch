@@ -12,7 +12,10 @@ public class BoomIdleState : EnemyState<EnemyStateEnum>
 
     public override void Enter()
     {
-        state.WalkChanges();
+        if (_enemy.IsDie)
+        {
+            state.WalkChanges();
+        }
         base.Enter();
     }
 }

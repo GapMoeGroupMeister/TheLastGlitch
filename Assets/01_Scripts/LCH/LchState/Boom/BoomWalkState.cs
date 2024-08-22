@@ -20,16 +20,19 @@ public class BoomWalkState : EnemyState<EnemyStateEnum>
     public override void UpdateState()
     {
         base.UpdateState();
-        state.EnemyMove();
-        state.EnemyStop();
-        state.EnemyFlips();
-
-        Collider2D player = _enemy.GetPlayerRange();
-
-        if (player != null)
+        if (_enemy.IsDie)
         {
-            _enemy.targetTrm = player.transform;
-            _enemy.StateMachine.ChangeState(EnemyStateEnum.Chase);
+            state.EnemyMove();
+            state.EnemyStop();
+            state.EnemyFlips();
+
+            Collider2D player = _enemy.GetPlayerRange();
+
+            if (player != null)
+            {
+                _enemy.targetTrm = player.transform;
+                _enemy.StateMachine.ChangeState(EnemyStateEnum.Chase);
+            }
         }
     }
 }

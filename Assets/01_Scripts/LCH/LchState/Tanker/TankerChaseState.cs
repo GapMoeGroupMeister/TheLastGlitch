@@ -11,6 +11,7 @@ public class TankerChaseState : ChaseInt
     public override void UpdateState()
     {
         base.UpdateState();
-        ChaseUpdate();
+        if(!_enemy.IsDie)
+            ChaseUpdate();
     }
 }

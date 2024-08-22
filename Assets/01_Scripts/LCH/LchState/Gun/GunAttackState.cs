@@ -13,6 +13,7 @@ public class GunAttackState : EnemyState<EnemyStateEnum>
     public override void Enter()
     {
         base.Enter();
+        if(!_enemy.IsDie)
         _enemy.MovementComponent._canMove = false;
         _enemy.MovementComponent.StopImmediately();
         _enemy.FirstAttack = false;
@@ -20,7 +21,7 @@ public class GunAttackState : EnemyState<EnemyStateEnum>
     }
     public override void UpdateState()
     {
-        if (_endTriggerCalled)
+        if (_endTriggerCalled&& !_enemy.IsDie)
         {
             _enemy.lastAttackTime = Time.time;
          

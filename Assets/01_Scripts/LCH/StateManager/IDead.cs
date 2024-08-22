@@ -20,15 +20,18 @@ public abstract class DeadInt : EnemyState<EnemyStateEnum>
 
     public void PlayExplosion()
     {
-        _enemy.FinalDeadEvent?.Invoke();
-        Ipoolable ipoolable = _enemy.GetComponent<Ipoolable>();
-        if (ipoolable != null)
+        if (_enemy.IsDie)
         {
-            PoolManager.Instance.Push(ipoolable);
-        }
-        else
-        {
-            GameObject.Destroy(_enemy.gameObject);
+            _enemy.FinalDeadEvent?.Invoke();
+            Ipoolable ipoolable = _enemy.GetComponent<Ipoolable>();
+            if (ipoolable != null)
+            {
+                PoolManager.Instance.Push(ipoolable);
+            }
+            else
+            {
+                GameObject.Destroy(_enemy.gameObject);
+            }
         }
     }
 

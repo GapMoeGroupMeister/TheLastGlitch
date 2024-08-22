@@ -50,8 +50,8 @@ public class Health : MonoBehaviour
             _currentHealth -= amount;
             if (_currentHealth <= 0)
             {
-                _currentHealth = _maxHealth;
                 OnDeadEvent?.Invoke();
+                _currentHealth = _maxHealth;
             }
 
         }

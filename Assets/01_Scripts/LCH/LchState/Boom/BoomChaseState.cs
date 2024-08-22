@@ -10,21 +10,24 @@ public class BoomChaseState : EnemyState<EnemyStateEnum>
 
     public override void UpdateState()
     {
-        Vector2 dir = _enemy.targetTrm.position - _enemy.transform.position;
-        _enemy.distance = dir.magnitude;
-        _enemy.HandleSpriteFlip(_enemy.targetTrm.position);
-        _enemy.MovementComponent.SetMovement(dir.normalized.x);
-
-        if (_enemy.distance > _enemy.detectRadius + 3f || _enemy.fainting == true)
+        if(!_enemy.IsDie)
         {
-            _stateMachine.ChangeState(EnemyStateEnum.Idle);
-            return;
-        }
+            Vector2 dir = _enemy.targetTrm.position - _enemy.transform.position;
+            _enemy.distance = dir.magnitude;
+            _enemy.HandleSpriteFlip(_enemy.targetTrm.position);
+            _enemy.MovementComponent.SetMovement(dir.normalized.x);
 
-        if (_enemy.distance < _enemy.attackRadius)
-        {
-            if (_enemy.CanAttack)
-                _stateMachine.ChangeState(EnemyStateEnum.Wait);
+            if (_enemy.distance > _enemy.detectRadius + 3f || _enemy.fainting == true )
+            {
+                _stateMachine.ChangeState(EnemyStateEnum.Idle);
+                return;
+            }
+
+            if (_enemy.distance < _enemy.attackRadius)
+            {
+                if (_enemy.CanAttack)
+                    _stateMachine.ChangeState(EnemyStateEnum.Wait);
+            }
         }
         base.UpdateState();
     }

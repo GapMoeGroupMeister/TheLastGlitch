@@ -57,6 +57,11 @@ public class Enemy : EnemySetting
         Debug.Log(StateMachine.CurrentState);        
         StateMachine.CurrentState.UpdateState();
     }
+
+    private void LateUpdate()
+    {
+        StateMachine.CurrentState.LateUpdateState();
+    }
     public override void AnimationEndTrigger()
     {
         StateMachine.CurrentState.AnimationEndTrigger();

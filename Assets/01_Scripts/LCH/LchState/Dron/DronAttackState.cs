@@ -11,20 +11,25 @@ public class DronAttackState : EnemyState<EnemyStateEnum>
     public override void Enter()
     {
         base.Enter();
-        _enemy.MovementComponent._canMove = false;
-        _enemy.MovementComponent.StopImmediately();
-        _enemy.FirstAttack = false;
+      if(!_enemy.IsDie)
+        {
+            _enemy.MovementComponent._canMove = false;
+            _enemy.MovementComponent.StopImmediately();
+            _enemy.FirstAttack = false;
+        }
     }
 
     public override void UpdateState()
     {
-
-        if (_endTriggerCalled)
+        if (!_enemy.IsDie)
         {
-            _enemy.lastAttackTime = Time.time;
-          
-           _enemy.MovementComponent._canMove = true;
-          _stateMachine.ChangeState(EnemyStateEnum.Walk);
+            if (_endTriggerCalled)
+            {
+                _enemy.lastAttackTime = Time.time;
+
+                _enemy.MovementComponent._canMove = true;
+                _stateMachine.ChangeState(EnemyStateEnum.Walk);
+            }
         }
         base.UpdateState();
     }

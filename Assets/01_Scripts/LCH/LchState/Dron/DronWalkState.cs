@@ -21,22 +21,24 @@ public class DronWalkState : EnemyState<EnemyStateEnum>
 
     public override void UpdateState()
     {
-        base.UpdateState();
-
-        state.EnemyMove();
-        state.EnemyStop();
-        state.EnemyFlips();
-
-        Collider2D player = _dron.GetPlayerDron();
-
-        if (player != null)
+        if(!_enemy.IsDie)
         {
-            _enemy.targetTrm = player.transform;
-            if (_enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
+            state.EnemyMove();
+            state.EnemyStop();
+            state.EnemyFlips();
+
+            Collider2D player = _dron.GetPlayerDron();
+
+            if (player != null)
             {
-                _stateMachine.ChangeState(EnemyStateEnum.Attack);
+                _enemy.targetTrm = player.transform;
+                if (_enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
+                {
+                    _stateMachine.ChangeState(EnemyStateEnum.Attack);
+                }
             }
         }
+        base.UpdateState();
     }
 
     public override void Exit()
