@@ -5,5 +5,4 @@ using UnityEngine;
 public interface IInteractive
 {
     public void OnInteract();
-    public void OnDisconnect();
 }

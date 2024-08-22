@@ -53,7 +53,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2334984035475473934
 Transform:
   m_ObjectHideFlags: 0
@@ -164,9 +164,9 @@ MonoBehaviour:
   OnGetHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6854040670158097934}
-        m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
-        m_MethodName: PlayFeedbacks
+      - m_Target: {fileID: 3138625653727461466}
+        m_TargetAssemblyTypeName: EffectFeedBack, Assembly-CSharp
+        m_MethodName: PlayFeedback
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -271,15 +271,14 @@ MonoBehaviour:
   maxX: 0
   targetTrm: {fileID: 0}
   lastAttackTime: 0
-  _colliders: []
-  dir: {x: 0, y: 0}
-  CanAttack: 1
-  FirstAttack: 1
-  Boom: 0
-  distance: 0
-  FirstWake: 1
   _laserShooter: {fileID: 0}
   _firePos: {fileID: 7676224124510093892}
+  _colliders: []
+  isMelee: 1
+  isCloser: 0
+  isBoom: 0
+  dir: {x: 0, y: 0}
+  CanAttack: 1
   _collider: {fileID: 3442106468549865575}
   _filter:
     useTriggers: 0
@@ -320,8 +319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd7cf0e368f1bd4fa02ca92e3ccd893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _laser: {fileID: 2195000049240880422}
-  _laserTime: 0.5
+  _laser: {fileID: 3419725608764539512, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
+  _laserTime: 0.3
 --- !u!1 &6802288738564397790
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +595,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 3856152975751186313}
-  _ad: {fileID: 3856152975751186313}
 --- !u!1001 &3328447565378749192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -741,17 +739,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3867970362761614958, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
   m_PrefabInstance: {fileID: 3531801467025373022}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2195000049240880422 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3419725608764539512, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
-  m_PrefabInstance: {fileID: 3531801467025373022}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 536ebc661ccd30a49a5daa2bdfbfa6d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8789224066907024644
 PrefabInstance:
   m_ObjectHideFlags: 0
