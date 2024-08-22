@@ -201,7 +201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &858460608999379685
 Transform:
   m_ObjectHideFlags: 0
@@ -337,7 +337,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 342303367121405578}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: GetHit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -349,7 +349,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 7894687139663960352}
         m_TargetAssemblyTypeName: EffectFeedBack, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: PlayFeedback
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
