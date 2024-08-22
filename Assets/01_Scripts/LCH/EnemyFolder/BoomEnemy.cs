@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoomEnemy : Enemy
+public class BoomEnemy : StateManager
 {
-    [SerializeField] private float _boomDealy;
+    public float _boomDealy;
+    public float _boomWait { get; set; }
     protected override void Awake()
     {
         base.Awake();
@@ -14,6 +15,7 @@ public class BoomEnemy : Enemy
         StateMachine.AddState(EnemyStateEnum.Chase, new BoomChaseState(this, StateMachine, "Chase"));
         StateMachine.AddState(EnemyStateEnum.Dead, new BoomDeadState(this, StateMachine, "Dead"));
         StateMachine.AddState(EnemyStateEnum.Walk, new BoomWalkState(this, StateMachine, "Walk"));
+        StateMachine.AddState(EnemyStateEnum.Attack, new BoomAttackState(this, StateMachine, "Attack"));
         StateMachine.AddState(EnemyStateEnum.Wait, new BoomWatingState(this, StateMachine, "Wait"));
     }
 }
