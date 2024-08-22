@@ -14,9 +14,4 @@ public class GadgetCraft : MonoBehaviour, IInteractive
     {
         _craftWindow.SetActive(true);
     }
-
-    public void OnDisconnect()
-    {
-        _craftWindow.SetActive(false);
-    }
 }

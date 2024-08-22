@@ -55,11 +55,8 @@ public class BigSword : MonoBehaviour
     private IEnumerator AttackCoolTimeBG()
     {
         WeaponCoolTime.instance._attack = true;
-        yield return new WaitForSeconds(_swordSwingTime);
-        gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
-        yield return new WaitForSeconds(_swordReturnTime);
+        yield return new WaitForSeconds(0.8f);
         WeaponCoolTime.instance._attack = false;
-        gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

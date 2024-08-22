@@ -9,7 +9,7 @@ using static PlayerController;
 [CreateAssetMenu(menuName = "SO/InputReader")]
 public class InputReader : ScriptableObject, IPlayerActions
 {
-    public PlayerController playerController;
+    private PlayerController playerController;
 
     public Action OnJumpEvent;
     public Action OnAttackEvent;
@@ -18,7 +18,6 @@ public class InputReader : ScriptableObject, IPlayerActions
     public Action OnActiveSkillEvent;
     public Action OnSwapingEvent;
     public Action OnInteractionEvent;
-    public Action OnDashEvent;
 
     private void OnEnable()
     {
@@ -91,11 +90,5 @@ public class InputReader : ScriptableObject, IPlayerActions
     public void OnMousePos(InputAction.CallbackContext context)
     {
         mousePos = context.ReadValue<Vector2>();
-    }
-
-    public void OnDash(InputAction.CallbackContext context)
-    {
-        if(context.performed)
-            OnDashEvent?.Invoke();
     }
 }

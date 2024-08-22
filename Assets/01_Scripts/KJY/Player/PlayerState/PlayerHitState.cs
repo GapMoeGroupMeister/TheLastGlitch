@@ -16,22 +16,10 @@ public class PlayerHitState : PlayerState<PlayerStateEnum>
     public override void Exit()
     {
         base.Exit();
-        _player._isHit = false;
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
-        if (_player._xMove != 0)
-        {
-            _stateMachine.ChangeState(PlayerStateEnum.Walk);
-        }
-
-        else if (_player._isHit)
-        {
-            _stateMachine.ChangeState(PlayerStateEnum.Idle);
-        }
-
-
     }
 }

@@ -20,7 +20,7 @@ public class EnemyHitState : EnemyState<EnemyStateEnum>
         base.UpdateState();
         if (_endTriggerCalled)
         {
-            _stateMachine.ChangeState(EnemyStateEnum.Walk);
+            _stateMachine.ChangeState(EnemyStateEnum.Idle);
         }
     }
 }
