@@ -9,20 +9,18 @@ public class EnterStore : MonoBehaviour, IInteractive
     [SerializeField] protected GameObject storeUI;
     [SerializeField] protected bool isEnter;
 
+    public void OnDisconnect()
+    {
+        storeUI.SetActive(false);
+    }
+
     public void OnInteract()
     {
-        storeUI.SetActive(isEnter);
+        storeUI.SetActive(true);
         OnEnter?.Invoke();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-       isEnter = true;
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        isEnter = false;
-    }
+   
     
     
 }

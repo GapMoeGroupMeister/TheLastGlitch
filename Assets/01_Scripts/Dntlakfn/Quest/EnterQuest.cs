@@ -9,20 +9,18 @@ public class EnterQuest : MonoBehaviour, IInteractive
     [SerializeField] protected GameObject QuestUI;
     [SerializeField] protected bool isEnter;
 
+    public void OnDisconnect()
+    {
+        QuestUI.SetActive(false);
+    }
+
     public void OnInteract()
     {
-        QuestUI.SetActive(isEnter);
+        QuestUI.SetActive(true);
         OnEnter?.Invoke();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        isEnter = true;
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        isEnter = false;
-    }
+   
 
     
 }

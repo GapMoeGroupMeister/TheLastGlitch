@@ -8,8 +8,15 @@ public class EventBox : MonoBehaviour
 {
     [SerializeField] protected TextMeshProUGUI _warningText;
     public Action action;
+
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void SetEvent(Action action, string message)
     {
+        gameObject.SetActive(true);
         this.action = action;
         _warningText.text = message;
     }
@@ -18,6 +25,7 @@ public class EventBox : MonoBehaviour
     {
         action?.Invoke();
         action = null;
+        gameObject.SetActive(false);
     }
 
     public void Cancel()

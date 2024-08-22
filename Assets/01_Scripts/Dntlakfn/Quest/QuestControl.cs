@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class QuestControl : MonoBehaviour
 {
-    [SerializeField] protected EventBox _eb;
+    public EventBox _eb;
 
     [SerializeField] protected TestListQuestSO quests;
     [SerializeField] protected AcceptedQuestListSO acceptedQuests;
@@ -22,8 +22,13 @@ public class QuestControl : MonoBehaviour
 
     [SerializeField] protected TextMeshProUGUI _name;
     [SerializeField] protected TextMeshProUGUI _detail;
+    [SerializeField] protected TextMeshProUGUI _level;
     [SerializeField] protected TextMeshProUGUI _contents;
 
+    private void Awake()
+    {
+        _eb = FindAnyObjectByType<EventBox>();
+    }
 
     private void Update()
     {
@@ -40,6 +45,7 @@ public class QuestControl : MonoBehaviour
     {
         _name.text = _quest.questName;
         _detail.text = _quest.questDetail;
+        _level.text = _quest.questLevel.ToString();
         if(_quest.questType == QuestType.Clear)
         {
             _contents.text = $"\"{_quest.targetPlace}\" 클리어";
@@ -119,18 +125,24 @@ public class QuestControl : MonoBehaviour
                 return 1;
             }
         });
-
+        Destroy(gameObject);
     }
 
     public void Click()
     {
+        
         if (acceptedQuests.AcceptedList.Contains(_quest))
         {
             OnAccept = RemoveAcceptedQuest;
             _eb.SetEvent(OnAccept, "퀘스트 취소할꺼임? 병신임? 클릭하나 제대로 못함? 임무를 장난으로 받음? 책임감 없는 새끼");
         }
-        OnAccept = AcceptQuest;
-        _eb.SetEvent(OnAccept, "퀘스트 받을꺼임?");
+        else
+        {
+            OnAccept = AcceptQuest;
+            _eb.SetEvent(OnAccept, "퀘스트 받을꺼임?");
+            
+        }
+        
     }
 
     public void CheckComplete()

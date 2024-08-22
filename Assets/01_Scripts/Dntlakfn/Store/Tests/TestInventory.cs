@@ -22,12 +22,16 @@ public class TestInventory : MonoBehaviour
             return !trigger;
         }
     }
-    
-    
+
+    private void Awake()
+    {
+        HaveItems = new List<TestItemSO>();
+    }
 
     private void Start()
     {
-        HaveItems = new List<TestItemSO>();
+        
+        Debug.Log(HaveItems);
         gameObject.SetActive(Trigger);
     }
 

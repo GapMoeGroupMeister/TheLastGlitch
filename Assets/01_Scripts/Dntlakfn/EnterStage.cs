@@ -6,8 +6,14 @@ using UnityEngine.SceneManagement;
 public class EnterStage : MonoBehaviour, IInteractive
 {
     public static string map;
+    [SerializeField] protected EventBox eb;
 
-    private bool a;
+    
+
+    public void OnDisconnect()
+    {
+        
+    }
 
     public void OnInteract()
     {
@@ -17,13 +23,6 @@ public class EnterStage : MonoBehaviour, IInteractive
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        a = true;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        a = false;
-    }
+    
+    
 }
