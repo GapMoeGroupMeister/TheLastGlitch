@@ -1734,7 +1734,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 342303367121405578, guid: a2f09a759657ded489b43a17964086e0, type: 3}
       propertyPath: stopRay
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 342303367121405578, guid: a2f09a759657ded489b43a17964086e0, type: 3}
       propertyPath: _boomDealy

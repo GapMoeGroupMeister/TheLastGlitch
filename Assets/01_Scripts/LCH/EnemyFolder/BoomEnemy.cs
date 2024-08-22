@@ -15,7 +15,6 @@ public class BoomEnemy : StateManager
         StateMachine.AddState(EnemyStateEnum.Chase, new BoomChaseState(this, StateMachine, "Chase"));
         StateMachine.AddState(EnemyStateEnum.Dead, new BoomDeadState(this, StateMachine, "Dead"));
         StateMachine.AddState(EnemyStateEnum.Walk, new BoomWalkState(this, StateMachine, "Walk"));
-        StateMachine.AddState(EnemyStateEnum.Attack, new BoomAttackState(this, StateMachine, "Attack"));
         StateMachine.AddState(EnemyStateEnum.Wait, new BoomWatingState(this, StateMachine, "Wait"));
     }
 }
