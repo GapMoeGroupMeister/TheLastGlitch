@@ -19,7 +19,7 @@ public class DronEnemy : ADEnemy
         StateMachine.AddState(EnemyStateEnum.Idle, new DronIdleState(this, StateMachine, "Idle"));
         StateMachine.AddState(EnemyStateEnum.Attack, new DronAttackState(this, StateMachine, "Attack"));
         StateMachine.AddState(EnemyStateEnum.Walk, new DronWalkState(this, StateMachine, "Walk"));
-        StateMachine.AddState(EnemyStateEnum.Walk, new DronDeadState(this, StateMachine, "Dead"));
+        StateMachine.AddState(EnemyStateEnum.Dead, new DronDeadState(this, StateMachine, "Dead"));
         StateMachine.AddState(EnemyStateEnum.Hit, new EnemyHitState(this, StateMachine, "Hit"));
 
         _colliders = new Collider2D[3];

@@ -21,6 +21,7 @@ public class TankerWalkState : EnemyState<EnemyStateEnum>
         base.UpdateState();
         stateManager.EnemyMove();
         stateManager.EnemyStop();
+        stateManager.EnemyFlips();
         Collider2D player = _enemy.GetPlayerRange();
 
         if (player != null)

@@ -21,6 +21,7 @@ public class SoldierWalkState : EnemyState<EnemyStateEnum>
         base.UpdateState();
         state.EnemyMove();
         state.EnemyStop();
+        state.EnemyFlips();
         Collider2D player = _enemy.GetPlayerRange();
 
         if (player != null)

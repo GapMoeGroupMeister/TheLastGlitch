@@ -15,10 +15,22 @@ public class StateManager : Enemy
         MovementComponent._canMove = false;
         FirstAttack = false;
     }
-
     public void EnemyMove()
     {
         MovementComponent.SetMovement(dir.normalized.x);
+    }
+
+    public void EnemyFlips()
+    {
+
+        if (MovementComponent._xMove < 0 && MovementComponent._xMove != 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (MovementComponent._xMove > 0 && MovementComponent._xMove != 0)
+        {
+            transform.localScale = Vector3.one;
+        }
     }
 
     public void EnemyAttack()
