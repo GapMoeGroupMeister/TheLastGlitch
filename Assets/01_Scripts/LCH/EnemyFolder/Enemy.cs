@@ -28,7 +28,7 @@ public class Enemy : EnemySetting
     public bool Boom = false;
     public float distance;
     public bool FirstWake = true;
-    
+    public bool fainting = false;
     public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
 
     public void GetHit()

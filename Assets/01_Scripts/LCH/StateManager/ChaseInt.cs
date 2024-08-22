@@ -15,7 +15,7 @@ public abstract class ChaseInt : EnemyState<EnemyStateEnum>
         _enemy.HandleSpriteFlip(_enemy.targetTrm.position);
         _enemy.MovementComponent.SetMovement(dir.normalized.x);
 
-        if (_enemy.distance > _enemy.detectRadius + 3f)
+        if (_enemy.distance > _enemy.detectRadius + 3f || _enemy.fainting == true)
         {
             _stateMachine.ChangeState(EnemyStateEnum.Idle);
             return;

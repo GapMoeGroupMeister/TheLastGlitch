@@ -8,6 +8,7 @@ public class Knife : MonoBehaviour
     [field: SerializeField] private InputReader _input;
 
     [SerializeField] private GameObject _knifeParent;
+    [SerializeField] private GameObject _player;
 
     [SerializeField] private float _damage = 20f;
     [SerializeField] private float _knockBackPower = 20f;
@@ -45,8 +46,15 @@ public class Knife : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                Vector2 attackDir = new Vector2(Mathf.Clamp(Vector3.Cross(collision.gameObject.transform.position, transform.position).z, -1, 1), 0);
-                collision.gameObject.GetComponent<Health>().TakeDamage(_damage, -attackDir, _knockBackPower);
+                if (_player.transform.localScale.x > 0)
+                {
+                    collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.right, _knockBackPower);
+                }
+
+                if (_player.transform.localScale.x < 0)
+                {
+                    collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.left, _knockBackPower);
+                }
             }
         }
     }

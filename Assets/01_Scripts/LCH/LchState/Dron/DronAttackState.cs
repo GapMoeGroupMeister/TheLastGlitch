@@ -23,9 +23,8 @@ public class DronAttackState : EnemyState<EnemyStateEnum>
         {
             _enemy.lastAttackTime = Time.time;
           
-                _enemy.MovementComponent._canMove = true;
-              _stateMachine.ChangeState(EnemyStateEnum.Walk);
-            _stateMachine.ChangeState(EnemyStateEnum.Chase);
+           _enemy.MovementComponent._canMove = true;
+          _stateMachine.ChangeState(EnemyStateEnum.Walk);
         }
         base.UpdateState();
     }

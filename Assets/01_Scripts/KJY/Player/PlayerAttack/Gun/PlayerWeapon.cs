@@ -6,6 +6,8 @@ public class PlayerWeapon : MonoBehaviour
 {
     [field: SerializeField] private InputReader _input;
 
+    [SerializeField] private Transform _player;
+
     private float desiredAngle;
     private WeaponRenderer _weaponRenderer;
 
@@ -16,15 +18,8 @@ public class PlayerWeapon : MonoBehaviour
 
     private void Update()
     {
+        transform.position = new Vector3(_player.position.x, _player.position.y - 0.1f, _player.position.x);
         AimWeapon();
-        if (_input.MousePos.x < transform.position.x)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else if (_input.MousePos.x > transform.position.x)
-        {
-            transform.localScale = Vector3.one;
-        }
     }
 
     public void AimWeapon()

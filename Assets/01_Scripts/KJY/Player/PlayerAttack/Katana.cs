@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Katana : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Katana : MonoBehaviour
 
     [SerializeField] private float _damage = 15f;
     [SerializeField] private GameObject _katanaParent;
+    [SerializeField] private GameObject _player;
 
     [SerializeField] private float _knockBackPower = 10f;
     [SerializeField] private float _swordSwingTime = 0.2f;
@@ -56,8 +58,15 @@ public class Katana : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                Vector2 attackDir = new Vector2(Mathf.Clamp(Vector3.Cross(collision.gameObject.transform.position, transform.position).z, -1, 1), 0);
-                collision.gameObject.GetComponent<Health>().TakeDamage(_damage, -attackDir, _knockBackPower);
+                if (_player.transform.localScale.x > 0)
+                {
+                    collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.right, _knockBackPower);
+                }
+
+                if (_player.transform.localScale.x < 0)
+                {
+                    collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.left, _knockBackPower);
+                }
             }
         }
     }
