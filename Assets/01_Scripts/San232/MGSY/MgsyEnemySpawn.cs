@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MgsyEnemySpawn : MonoBehaviour
-{
+{ 
     public bool IsSpawning { get; set; } = false;
 
     [Header("SpawnCount")]

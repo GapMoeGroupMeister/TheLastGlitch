@@ -12,8 +12,6 @@ public class MgsyAngryOpenedState : MGSYState<BossStateEnum>
     public override void Enter()
     {
         base.Enter();
-        mgsy.isRunningHash = _animBoolHash;
-        
     }
 
 }

@@ -2,6 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+public enum BossStateEnum
+{
+    Idle,
+    Closed,
+    Opened,
+    AngryOpened,
+    Dead,
+    Opening
+}
 
 public class MGSY : EnemySetting
 {
@@ -11,12 +22,12 @@ public class MGSY : EnemySetting
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
 
     public Animator mgsyAnimator = null;
-
+     
     public int ?isRunningHash = null;
 
-    public Action OnCoreExplosion;
-    public Action OnMobSpawn;
-    public Action OnElectricExplosion;
+    public UnityEvent OnCoreExplosion;
+    public UnityEvent OnMobSpawn;
+    public UnityEvent OnElectricExplosion;
 
     protected override void Awake()
     {
@@ -29,7 +40,9 @@ public class MGSY : EnemySetting
         StateMachine.AddState(BossStateEnum.Opened, new MgsyOpenedState(this, StateMachine, "Opened"));
         StateMachine.AddState(BossStateEnum.AngryOpened, new MgsyAngryOpenedState(this, StateMachine, "AngryOpened"));
         StateMachine.AddState(BossStateEnum.Dead, new MgsyDeadState(this, StateMachine, "Dead"));
-        StateMachine.InitInitialize(BossStateEnum.Idle, this);
+        StateMachine.AddState(BossStateEnum.Opening, new MGSYOpeningState(this, StateMachine, "Opening"));
+        StateMachine.InitInitialize(BossStateEnum.Idle, this);  
+
     }
     
     private void Update()
@@ -40,6 +53,18 @@ public class MGSY : EnemySetting
     public override void SetDeadState()
     {
         StateMachine.ChangeState(BossStateEnum.Dead);
+    }
+
+    public void Opening2Opened()
+    {
+        if(health.GetCurrentHP() > health._maxHealth)
+        {
+            StateMachine.ChangeState(BossStateEnum.Opened);
+        }
+        else
+        {
+            StateMachine.ChangeState(BossStateEnum.AngryOpened);
+        }
     }
 
     public Collider2D GetPlayerInRange()
@@ -55,3 +80,4 @@ public class MGSY : EnemySetting
     }
 
 }
+

@@ -22,16 +22,6 @@ public class Core : MonoBehaviour
         _mgsy = transform.parent.gameObject.GetComponent<MGSY>();
     }
 
-    private void OnEnable()
-    {
-        _mgsy.OnCoreExplosion += Explode;
-    }
-
-    private void OnDisable()
-    {
-        _mgsy.OnCoreExplosion -= Explode;
-    }
-
     public void DestroyCore()
     {
         coreCount--;
