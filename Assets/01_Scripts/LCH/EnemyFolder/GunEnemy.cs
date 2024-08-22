@@ -19,5 +19,7 @@ public class GunEnemy : ADEnemy
         StateMachine.AddState(EnemyStateEnum.Dead, new GunDeadState(this, StateMachine, "Dead"));
         StateMachine.AddState(EnemyStateEnum.Walk, new GunWalkState(this, StateMachine, "Walk"));
         StateMachine.AddState(EnemyStateEnum.Hit, new EnemyHitState(this, StateMachine, "Hit"));
+
+        _colliders = new Collider2D[3];
     }
 }
