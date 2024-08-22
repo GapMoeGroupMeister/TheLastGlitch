@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2846818086698124575}
   - component: {fileID: 6505332952545737800}
   - component: {fileID: 3379695534772755344}
+  - component: {fileID: 1137381570048296330}
   m_Layer: 8
   m_Name: HitFeedback
   m_TagString: Untagged
@@ -59,6 +60,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particleSystem: {fileID: 1189340810403874827, guid: fb8e03d08228b534bb74ee486dae2664, type: 3}
   _effectName: EnemyHitParticle
+--- !u!114 &1137381570048296330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546506327826405586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeec9050a7b544b43bdac22b45d5f4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6479434287472843206
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 6519005202214797683}
+  _ad: {fileID: 6519005202214797683}
 --- !u!1 &7079840489748371561
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,13 +208,14 @@ GameObject:
   - component: {fileID: 9192426514676359067}
   - component: {fileID: 6519005202214797683}
   - component: {fileID: 5841682681104572464}
+  - component: {fileID: 9121657263680432209}
   m_Layer: 8
   m_Name: GunEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &552201136969390560
 Transform:
   m_ObjectHideFlags: 0
@@ -336,9 +351,21 @@ MonoBehaviour:
   OnGetHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6505332952545737800}
-        m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
-        m_MethodName: PlayFeedbacks
+      - m_Target: {fileID: 3379695534772755344}
+        m_TargetAssemblyTypeName: EffectFeedBack, Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6519005202214797683}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: GetHit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -405,14 +432,15 @@ MonoBehaviour:
   maxX: 0
   targetTrm: {fileID: 0}
   lastAttackTime: 0
-  _laserShooter: {fileID: 0}
-  _firePos: {fileID: 2540853020489956635}
   _colliders: []
-  isMelee: 1
-  isCloser: 0
-  isBoom: 0
   dir: {x: 0, y: 0}
   CanAttack: 1
+  FirstAttack: 1
+  Boom: 0
+  distance: 0
+  FirstWake: 1
+  _laserShooter: {fileID: 0}
+  _firePos: {fileID: 2540853020489956635}
 --- !u!114 &5841682681104572464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,6 +454,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolName: Gun
+--- !u!114 &9121657263680432209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079840489748371561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bd7cf0e368f1bd4fa02ca92e3ccd893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _laser: {fileID: 6174088293087374213}
+  _laserTime: 0.3
 --- !u!1 &8414723766709375596
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,3 +713,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3867970362761614958, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
   m_PrefabInstance: {fileID: 8852822074912762365}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6174088293087374213 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3419725608764539512, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
+  m_PrefabInstance: {fileID: 8852822074912762365}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 536ebc661ccd30a49a5daa2bdfbfa6d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
