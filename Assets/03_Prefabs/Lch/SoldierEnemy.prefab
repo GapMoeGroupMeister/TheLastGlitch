@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3135521774869302223}
   - component: {fileID: 7557804757636441054}
-  - component: {fileID: 7168073841813027517}
   - component: {fileID: 2642503958888725377}
   - component: {fileID: 2918568570046843929}
   - component: {fileID: 8237377631263640247}
   - component: {fileID: 835469926914236568}
+  - component: {fileID: 3589308455657737191}
   m_Layer: 8
   m_Name: SoldierEnemy
   m_TagString: Enemy
@@ -68,56 +68,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7168073841813027517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3916682341307116186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 192192d8c02d9c6469876e8d13f4bb73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FinalDeadEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  detectRadius: 5
-  attackRadius: 1
-  knockbackPower: 4
-  attackCooldown: 2
-  stopRay: 0.5
-  damage: 1
-  _whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 8
-  contactFilter:
-    useTriggers: 0
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 8
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  minX: 0
-  maxX: 0
-  targetTrm: {fileID: 0}
-  lastAttackTime: 0
-  _laserShooter: {fileID: 0}
-  _firePos: {fileID: 0}
-  _colliders: []
-  isMelee: 1
-  isCloser: 0
-  isBoom: 0
-  dir: {x: 0, y: 0}
-  CanAttack: 1
 --- !u!114 &2642503958888725377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,10 +96,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3589308455657737191}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: GetHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7168073841813027517}
+      - m_Target: {fileID: 3589308455657737191}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
         m_MethodName: SetDeadState
         m_Mode: 1
@@ -245,6 +207,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolName: Soldier
+--- !u!114 &3589308455657737191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3916682341307116186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8721c2cbdf40dbb458b18c89ad546b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FinalDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  detectRadius: 5
+  attackRadius: 1
+  knockbackPower: 3
+  attackCooldown: 2
+  stopRay: 0.5
+  damage: 3
+  _whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 8
+  contactFilter:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 8
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  minX: 0
+  maxX: 0
+  targetTrm: {fileID: 0}
+  lastAttackTime: 0
+  _colliders: []
+  dir: {x: 0, y: 0}
+  CanAttack: 1
+  FirstAttack: 1
+  Boom: 0
+  distance: 0
+  FirstWake: 1
 --- !u!1 &5092450715677355001
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,7 +375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0403a32488b97a4ea5d19a2565a1207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemy: {fileID: 7168073841813027517}
+  _enemy: {fileID: 3589308455657737191}
+  _ad: {fileID: 0}
 --- !u!1 &6916443470149827016
 GameObject:
   m_ObjectHideFlags: 0

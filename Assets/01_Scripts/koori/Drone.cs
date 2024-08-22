@@ -10,7 +10,6 @@ public abstract class Drone : MonoBehaviour
     protected bool autoMove = true;
     public Collider2D target;
     [SerializeField] private LayerMask enemyLayer;
-    private LchTestPlayer _player;
     private void Awake()
     {
         _rbCompo = GetComponent<Rigidbody2D>();
