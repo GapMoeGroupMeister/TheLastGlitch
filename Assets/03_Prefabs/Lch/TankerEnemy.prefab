@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3178cfc6bded74faca0aeb00201319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolName: TankerEnemy
+  poolName: Tanker
 --- !u!50 &8372963509870727408
 Rigidbody2D:
   serializedVersion: 4

@@ -35,4 +35,18 @@ public abstract class DeadInt : EnemyState<EnemyStateEnum>
         }
     }
 
+    public void EnemyPush()
+    {
+        Ipoolable ipoolable = _enemy._enemyPooling;
+        Debug.Log(ipoolable);
+        if (ipoolable != null)
+        {
+            PoolManager.Instance.Push(ipoolable);
+        }
+        else
+        {
+            GameObject.Destroy(_enemy.gameObject);
+        }
+    }
+
 }

@@ -18,7 +18,8 @@ public class GunDeadState : DeadInt
     {
         if (_endTriggerCalled)
         {
-            PlayExplosion();
+            //PlayExplosion();
+            EnemyPush();
         }
         base.LateUpdateState();
     }

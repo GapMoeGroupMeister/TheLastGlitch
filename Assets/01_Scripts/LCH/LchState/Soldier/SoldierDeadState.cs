@@ -18,7 +18,8 @@ public class SoldierDeadState : DeadInt
     {
         if (_endTriggerCalled)
         {
-            PlayExplosion();
+            //PlayExplosion();
+            EnemyPush();
         }
         base.LateUpdateState();
     }

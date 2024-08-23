@@ -10,7 +10,7 @@ public class BoomDeadState : DeadInt
 
     public override void Enter()
     {
-            DeadEnter();
+        DeadEnter();
         base.Enter();
     }
 
@@ -18,7 +18,8 @@ public class BoomDeadState : DeadInt
     {
         if (_endTriggerCalled)
         {
-                PlayExplosion();
+            //PlayExplosion();
+            EnemyPush();
         }
         base.LateUpdateState();
     }

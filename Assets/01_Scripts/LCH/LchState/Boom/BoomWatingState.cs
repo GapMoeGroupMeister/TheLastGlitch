@@ -21,7 +21,7 @@ public class BoomWatingState : EnemyState<EnemyStateEnum>
 
     public override void UpdateState()
     {
-            if(_enemy.IsDie)
+            if(!_enemy.IsDie)
             {
 
                  boom._boomWait += Time.deltaTime;

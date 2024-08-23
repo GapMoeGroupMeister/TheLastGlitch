@@ -20,7 +20,7 @@ public class BoomWalkState : EnemyState<EnemyStateEnum>
     public override void UpdateState()
     {
         base.UpdateState();
-        if (_enemy.IsDie)
+        if (!_enemy.IsDie)
         {
             state.EnemyMove();
             state.EnemyStop();

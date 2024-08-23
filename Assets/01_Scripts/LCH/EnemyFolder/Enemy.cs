@@ -29,6 +29,7 @@ public class Enemy : EnemySetting
     public float distance;
     public bool FirstWake = true;
     public bool fainting = false;
+    public EnemyPooling _enemyPooling { get; set; }
     public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
 
     public void GetHit()
@@ -44,6 +45,7 @@ public class Enemy : EnemySetting
     {
         base.Awake();
         StateMachine = new StateMachine<EnemyStateEnum>();
+        _enemyPooling = GetComponent<EnemyPooling>();
     }
 
     protected virtual void Start()
@@ -54,7 +56,6 @@ public class Enemy : EnemySetting
 
     private void Update()
     {
-        Debug.Log(StateMachine.CurrentState);        
         StateMachine.CurrentState.UpdateState();
     }
 
