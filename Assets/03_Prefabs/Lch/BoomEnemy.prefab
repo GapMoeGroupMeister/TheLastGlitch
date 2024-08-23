@@ -393,7 +393,7 @@ MonoBehaviour:
   attackRadius: 1
   knockbackPower: 5
   attackCooldown: 1
-  stopRay: 0
+  stopRay: 0.3
   damage: 10
   _whatIsPlayer:
     serializedVersion: 2
@@ -423,7 +423,8 @@ MonoBehaviour:
   Boom: 0
   distance: 0
   FirstWake: 1
-  _boomDealy: 0
+  fainting: 0
+  _boomDealy: 2
 --- !u!114 &8323998336330734658
 MonoBehaviour:
   m_ObjectHideFlags: 0

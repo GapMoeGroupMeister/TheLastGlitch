@@ -10,16 +10,17 @@ public class GunDeadState : DeadInt
 
     public override void Enter()
     {
-        base.Enter();
         DeadEnter();
+        base.Enter();
     }
 
-    public override void UpdateState()
+    public override void LateUpdateState()
     {
         if (_endTriggerCalled)
         {
-            PlayExplosion();
+            //PlayExplosion();
+            EnemyPush();
         }
-        base.UpdateState();
+        base.LateUpdateState();
     }
 }

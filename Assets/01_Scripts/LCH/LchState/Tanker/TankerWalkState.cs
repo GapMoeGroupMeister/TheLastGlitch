@@ -18,16 +18,19 @@ public class TankerWalkState : EnemyState<EnemyStateEnum>
 
     public override void UpdateState()
     {
-        base.UpdateState();
-        stateManager.EnemyMove();
-        stateManager.EnemyStop();
-        stateManager.EnemyFlips();
-        Collider2D player = _enemy.GetPlayerRange();
-
-        if (player != null)
+        if(!_enemy.IsDie)
         {
-            _enemy.targetTrm = player.transform;
-            _enemy.StateMachine.ChangeState(EnemyStateEnum.Chase);
+            stateManager.EnemyMove();
+            stateManager.EnemyStop();
+            stateManager.EnemyFlips();
+            Collider2D player = _enemy.GetPlayerRange();
+
+            if (player != null)
+            {
+                _enemy.targetTrm = player.transform;
+                _enemy.StateMachine.ChangeState(EnemyStateEnum.Chase);
+            }
         }
+        base.UpdateState();
     }
 }

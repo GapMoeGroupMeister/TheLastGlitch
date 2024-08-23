@@ -32,6 +32,11 @@ public class State<T> where T : Enum
         _agent.AnimatorComponent.SetBool(_animBoolHash, false);
     }
 
+    public virtual void LateUpdateState()
+    {
+
+    }
+
     public void AnimationEndTrigger()
     {
         _endTriggerCalled = true;

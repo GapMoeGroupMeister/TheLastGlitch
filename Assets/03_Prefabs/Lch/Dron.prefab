@@ -53,7 +53,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2334984035475473934
 Transform:
   m_ObjectHideFlags: 0
@@ -278,6 +278,7 @@ MonoBehaviour:
   Boom: 0
   distance: 0
   FirstWake: 1
+  fainting: 0
   _laserShooter: {fileID: 0}
   _firePos: {fileID: 7676224124510093892}
   _collider: {fileID: 3442106468549865575}
