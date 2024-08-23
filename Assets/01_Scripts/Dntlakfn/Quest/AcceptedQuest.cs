@@ -7,6 +7,7 @@ using UnityEngine;
 public class AcceptedQuest : MonoBehaviour
 {
     public AcceptedQuestListSO list;
+    [SerializeField] protected EventBox eb;
     [SerializeField] protected GameObject _empty;
 
     private void OnEnable()
@@ -20,6 +21,7 @@ public class AcceptedQuest : MonoBehaviour
         {
             QuestControl a = Instantiate(_empty, transform).GetComponent<QuestControl>();
             a._quest = item;
+            a._eb = eb;
             a.OnCreat?.Invoke();
 
 

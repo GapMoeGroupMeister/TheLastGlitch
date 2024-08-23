@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,12 @@ using UnityEngine.UI;
 
 public class QuestControl : MonoBehaviour
 {
+    public EventBox _eb;
+
     [SerializeField] protected TestListQuestSO quests;
     [SerializeField] protected AcceptedQuestListSO acceptedQuests;
     public UnityEvent OnCreat;
+    public Action OnAccept;
 
 
     [field:SerializeField]
@@ -18,8 +22,13 @@ public class QuestControl : MonoBehaviour
 
     [SerializeField] protected TextMeshProUGUI _name;
     [SerializeField] protected TextMeshProUGUI _detail;
+    [SerializeField] protected TextMeshProUGUI _level;
     [SerializeField] protected TextMeshProUGUI _contents;
 
+    private void Awake()
+    {
+        _eb = FindAnyObjectByType<EventBox>();
+    }
 
     private void Update()
     {
@@ -36,6 +45,7 @@ public class QuestControl : MonoBehaviour
     {
         _name.text = _quest.questName;
         _detail.text = _quest.questDetail;
+        _level.text = _quest.questLevel.ToString();
         if(_quest.questType == QuestType.Clear)
         {
             _contents.text = $"\"{_quest.targetPlace}\" 클리어";
@@ -47,7 +57,7 @@ public class QuestControl : MonoBehaviour
         }
     }
 
-    public void RemoveQuest()
+    public void QuestClear()
     {
         if (_quest.questType == QuestType.Clear)
         {
@@ -95,6 +105,41 @@ public class QuestControl : MonoBehaviour
                 Destroy(gameObject);
             }
             
+            
+        }
+        
+    }
+
+    public void RemoveAcceptedQuest()
+    {
+        acceptedQuests.AcceptedList.Remove(_quest);
+        quests.list.Add(_quest);
+        quests.list.Sort((x, y) =>
+        {
+            if(x.questLevel <= y.questLevel)
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
+        });
+        Destroy(gameObject);
+    }
+
+    public void Click()
+    {
+        
+        if (acceptedQuests.AcceptedList.Contains(_quest))
+        {
+            OnAccept = RemoveAcceptedQuest;
+            _eb.SetEvent(OnAccept, "퀘스트 취소할꺼임? 병신임? 클릭하나 제대로 못함? 임무를 장난으로 받음? 책임감 없는 새끼");
+        }
+        else
+        {
+            OnAccept = AcceptQuest;
+            _eb.SetEvent(OnAccept, "퀘스트 받을꺼임?");
             
         }
         

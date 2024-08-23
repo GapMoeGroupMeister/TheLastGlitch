@@ -10,6 +10,8 @@ public class PlayerDash : MonoBehaviour
     [SerializeField] private GameObject _player;
     [SerializeField] private float _dashDistance = 1f;
 
+    private bool _isDash = false;
+
     private void Awake()
     {
         _input.OnDashEvent += Dash;
@@ -19,16 +21,27 @@ public class PlayerDash : MonoBehaviour
     {
         if (!WeaponCoolTime.instance._attack)
         {
-            if (_player.transform.localScale.x < 0)
+            if(!_isDash)
             {
-                transform.DOMoveX(transform.position.x - _dashDistance, 0.1f);
-            }
+                if (_player.transform.localScale.x < 0)
+                {
+                    transform.DOMoveX(transform.position.x - _dashDistance, 0.1f);
+                    StartCoroutine(DashCoolTime());
+                }
 
-            if (_player.transform.localScale.x > 0)
-            {
-                transform.DOMoveX(transform.position.x + _dashDistance, 0.1f);
+                if (_player.transform.localScale.x > 0)
+                {
+                    transform.DOMoveX(transform.position.x + _dashDistance, 0.1f);
+                    StartCoroutine(DashCoolTime());
+                }
             }
         }
-        
+    }
+
+    private IEnumerator DashCoolTime()
+    {
+        _isDash = true;
+        yield return new WaitForSeconds(0.75f);
+        _isDash = false;
     }
 }

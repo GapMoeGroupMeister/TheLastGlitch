@@ -10,7 +10,7 @@ public class DisplayQuest : MonoBehaviour
     [SerializeField] protected TestListQuestSO _quests;
     [SerializeField] protected AllQuestSO _allQuests;
     [SerializeField] protected TestQuestSO _quest;
-    
+    [SerializeField] protected EventBox eb;
     [SerializeField] protected GameObject _empty;
     
     private void OnEnable()
@@ -29,6 +29,7 @@ public class DisplayQuest : MonoBehaviour
             _quest = _quests.list[i];
             QuestControl a = Instantiate(_empty, transform).GetComponent<QuestControl>();
             a._quest = _quest;
+            a._eb = eb;
             a.OnCreat?.Invoke();
         }
         

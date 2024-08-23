@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 
 public class GoodsControl : MonoBehaviour
 {
-    public UnityEvent OnBuy;
+    public Action OnBuy;
     
     [SerializeField] protected Button buyBtn;
     public TestItemSO item {  get; set; }
@@ -16,6 +17,7 @@ public class GoodsControl : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI _name;
     [SerializeField] protected TextMeshProUGUI _toolTip;
     [SerializeField] protected TextMeshProUGUI _price;
+    public EventBox _eb;
 
    
 
@@ -39,6 +41,12 @@ public class GoodsControl : MonoBehaviour
         //인벤토리 리스트에 구매한 아이탬 넣어줌
         TestInventory.HaveItems.Add(item);
 
+    }
+
+    public void Click()
+    {
+        OnBuy = BuyItem;
+        _eb.SetEvent(OnBuy, "구매하시겠습니까?");
     }
 
     

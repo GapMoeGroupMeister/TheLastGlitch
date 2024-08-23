@@ -136,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _input: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
   _swordParent: {fileID: 8850751305182702950}
+  _player: {fileID: 7867192051387084950}
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -496,6 +497,7 @@ MonoBehaviour:
   _input: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
   _damage: 15
   _katanaParent: {fileID: 1513884805097410242}
+  _player: {fileID: 0}
   _knockBackPower: 10
   _swordSwingTime: 0.2
   _swordReturnTime: 0.3
@@ -603,12 +605,12 @@ GameObject:
   - component: {fileID: 2093510349151606830}
   - component: {fileID: 4989390872012543687}
   m_Layer: 3
-  m_Name: TestPlayer2
+  m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &517577890333664687
 Transform:
   m_ObjectHideFlags: 0
