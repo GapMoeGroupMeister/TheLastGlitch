@@ -173,7 +173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4020223228009269660
 Transform:
   m_ObjectHideFlags: 0
@@ -324,6 +324,7 @@ MonoBehaviour:
   Boom: 0
   distance: 0
   FirstWake: 1
+  fainting: 0
 --- !u!114 &3228533001194290562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3178cfc6bded74faca0aeb00201319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolName: TankerEnemy
+  poolName: Tanker
 --- !u!50 &8372963509870727408
 Rigidbody2D:
   serializedVersion: 4

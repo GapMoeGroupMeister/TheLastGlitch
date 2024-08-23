@@ -21,17 +21,21 @@ public class BoomWatingState : EnemyState<EnemyStateEnum>
 
     public override void UpdateState()
     {
-         boom._boomWait += Time.deltaTime;
-        if (boom._boomDealy < boom._boomWait && _enemy.targetTrm.position.x < _enemy.attackRadius)
-        { 
-            _stateMachine.ChangeState(EnemyStateEnum.Dead);
+            if(!_enemy.IsDie)
+            {
+
+                 boom._boomWait += Time.deltaTime;
+                if (boom._boomDealy < boom._boomWait && _enemy.targetTrm.position.x < _enemy.attackRadius)
+                { 
+                    _stateMachine.ChangeState(EnemyStateEnum.Dead);
+                }
+                if(!boom.ThisIsPlayer())
+                {
+                    boom._boomWait= 0f;
+                    _enemy.MovementComponent._canMove = true;
+                    _stateMachine.ChangeState(EnemyStateEnum.Walk);
+            }
+            base.UpdateState();
         }
-        if(!boom.ThisIsPlayer())
-        {
-            boom._boomWait= 0f;
-            _enemy.MovementComponent._canMove = true;
-            _stateMachine.ChangeState(EnemyStateEnum.Walk);
-        }
-        base.UpdateState();
     }
 }
