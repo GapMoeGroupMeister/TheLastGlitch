@@ -20,7 +20,7 @@ public enum BossStateEnum
     AngryOpened,
     Dead
 } 
-public class Enemy : EnemySetting
+public class Enemy : EnemySetting, Ipoolable
 {
     public Vector2 dir;
     public bool CanAttack = true;
@@ -29,8 +29,13 @@ public class Enemy : EnemySetting
     public float distance;
     public bool FirstWake = true;
     public bool fainting = false;
-    public EnemyPooling _enemyPooling { get; set; }
     public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
+
+    [SerializeField] private string poolName;
+
+    public string PoolName => poolName;
+
+    public GameObject ObjectPrefab => gameObject;
 
     public void GetHit()
     {
@@ -45,7 +50,6 @@ public class Enemy : EnemySetting
     {
         base.Awake();
         StateMachine = new StateMachine<EnemyStateEnum>();
-        _enemyPooling = GetComponent<EnemyPooling>();
     }
 
     protected virtual void Start()
@@ -80,4 +84,8 @@ public class Enemy : EnemySetting
 
     }
 
+    public void ResetItem()
+    {
+       
+    }
 }

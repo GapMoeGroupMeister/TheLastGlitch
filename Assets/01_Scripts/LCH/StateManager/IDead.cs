@@ -37,7 +37,7 @@ public abstract class DeadInt : EnemyState<EnemyStateEnum>
 
     public void EnemyPush()
     {
-        Ipoolable ipoolable = _enemy._enemyPooling;
+        Ipoolable ipoolable = _enemy.GetComponent<Ipoolable>(); 
         Debug.Log(ipoolable);
         if (ipoolable != null)
         {

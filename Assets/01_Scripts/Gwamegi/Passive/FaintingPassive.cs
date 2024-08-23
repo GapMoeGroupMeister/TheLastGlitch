@@ -21,7 +21,10 @@ public class FaintingPassive : PassiveSO
             Instantiate(effect, enemyCompo.gameObject.transform.position, Quaternion.identity);
 
             enemyCompo.MovementComponent._canMove =false;
+            enemyCompo.fainting = true;
             enemyCompo.MovementComponent.StopImmediately();
+            Debug.Log(enemyCompo.MovementComponent._canMove + "밍");
+            Debug.Log(enemyCompo.fainting + "밍");
 
             enemyCompo.CanAttack =false;
             owner.StartCoroutine(AttackCoolTIme(enemyCompo));
@@ -34,7 +37,11 @@ public class FaintingPassive : PassiveSO
     {
         yield return new WaitForSeconds(time);
         enemyCompo.CanAttack = true;
+        enemyCompo.fainting = false;
+
         enemyCompo.MovementComponent._canMove = true;
+        Debug.Log(enemyCompo.MovementComponent._canMove + "밍");
+        Debug.Log(enemyCompo.fainting + "밍");
 
     }
 }
