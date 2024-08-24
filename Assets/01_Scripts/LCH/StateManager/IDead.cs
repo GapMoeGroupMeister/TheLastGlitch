@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class DeadInt : EnemyState<EnemyStateEnum>
 {
+    Pooling _enemyPush;
     public DeadInt(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
     }
@@ -16,6 +17,7 @@ public abstract class DeadInt : EnemyState<EnemyStateEnum>
         _enemy.MovementComponent.StopImmediately();
         _enemy.SetDead(true);
         _enemy.gameObject.tag = "Untagged";
+       _enemyPush = _enemy._enemyPooling = _enemy.GetComponent<Pooling>();
     }
 
 
@@ -24,7 +26,7 @@ public abstract class DeadInt : EnemyState<EnemyStateEnum>
         if (_enemy.IsDie)
         {
             _enemy.FinalDeadEvent?.Invoke();
-            Ipoolable ipoolable = _enemy.GetComponent<Ipoolable>();
+            Ipoolable ipoolable = _enemyPush.GetComponent<Ipoolable>();
             if (ipoolable != null)
             {
                 PoolManager.Instance.Push(ipoolable);
@@ -38,7 +40,7 @@ public abstract class DeadInt : EnemyState<EnemyStateEnum>
 
     public void EnemyPush()
     {
-        Ipoolable ipoolable = _enemy.GetComponent<Ipoolable>();
+        Ipoolable ipoolable = _enemyPush.GetComponent<Ipoolable>();
         if (ipoolable != null)
         {
             PoolManager.Instance.Push(ipoolable);

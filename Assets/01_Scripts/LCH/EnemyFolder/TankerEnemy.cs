@@ -2,16 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankerEnemy : StateManager ,Ipoolable
+public class TankerEnemy : StateManager 
 {
-    public string PoolName => poolName;
-
-    public GameObject ObjectPrefab => gameObject;
-
-    public void ResetItem()
-    {
-        
-    }
 
     protected override void Awake()
     {

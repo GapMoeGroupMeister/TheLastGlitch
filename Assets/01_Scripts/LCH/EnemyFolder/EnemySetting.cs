@@ -18,6 +18,9 @@ public abstract class EnemySetting : Agent
 
     public float minX, maxX;
 
+    int count;
+    bool isPlayer;
+
     public DamageCaster DamageCasterComp { get; protected set; }
 
     public Transform targetTrm = null;
@@ -41,13 +44,16 @@ public abstract class EnemySetting : Agent
 
     public Collider2D GetPlayerRange()
     {
-        int count = Physics2D.OverlapCircleNonAlloc(transform.position, detectRadius,_colliders,_whatIsPlayer);
+        if(IsDie)
+            count = Physics2D.OverlapCircleNonAlloc(transform.position, detectRadius,_colliders,_whatIsPlayer);
+
         return count > 0 ? _colliders[0] : null;
     }
 
     public bool GetPlayer()
     {
-        bool isPlayer = Physics2D.Raycast(transform.position,Vector2.right,stopRay,_whatIsPlayer);
+        if (IsDie)
+            isPlayer = Physics2D.Raycast(transform.position,Vector2.right,stopRay,_whatIsPlayer);
         return isPlayer;
     }
 

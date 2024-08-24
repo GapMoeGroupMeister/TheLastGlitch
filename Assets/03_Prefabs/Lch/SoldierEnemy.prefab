@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2918568570046843929}
   - component: {fileID: 8237377631263640247}
   - component: {fileID: 3589308455657737191}
+  - component: {fileID: -4351799922616541886}
   m_Layer: 8
   m_Name: SoldierEnemy
   m_TagString: Enemy
@@ -243,6 +244,19 @@ MonoBehaviour:
   distance: 0
   FirstWake: 1
   fainting: 0
+  _enemyPooling: {fileID: 0}
+--- !u!114 &-4351799922616541886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3916682341307116186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da3178cfc6bded74faca0aeb00201319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   poolName: Soldier
 --- !u!1 &5092450715677355001
 GameObject:

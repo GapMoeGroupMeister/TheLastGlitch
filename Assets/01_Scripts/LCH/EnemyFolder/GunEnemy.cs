@@ -2,20 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunEnemy : ADEnemy ,Ipoolable
+public class GunEnemy : ADEnemy
 {
-    public string PoolName => poolName;
-
-    public GameObject ObjectPrefab => gameObject;
-
-    public void ResetItem()
-    {
-   
-    }
-
+    int cut;
     public Collider2D ThisIsPlayer()
     {
-        int cut = Physics2D.OverlapCircleNonAlloc(transform.position, attackRadius, _colliders, _whatIsPlayer);
+        if(IsDie)
+         cut = Physics2D.OverlapCircleNonAlloc(transform.position, attackRadius, _colliders, _whatIsPlayer);
+
         return cut > 0 ? _colliders[0] : null;
     }
 

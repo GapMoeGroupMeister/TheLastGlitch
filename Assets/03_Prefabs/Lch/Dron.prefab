@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 1799079265480698016}
   - component: {fileID: 3856152975751186313}
   - component: {fileID: 8605155596378037593}
+  - component: {fileID: 4865420498346267626}
   m_Layer: 8
   m_Name: Dron
   m_TagString: Enemy
@@ -279,6 +280,7 @@ MonoBehaviour:
   FirstWake: 1
   fainting: 0
   poolName: Dron
+  _enemyPooling: {fileID: 0}
   _laserShooter: {fileID: 0}
   _firePos: {fileID: 7676224124510093892}
   _collider: {fileID: 3442106468549865575}
@@ -310,6 +312,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _laser: {fileID: 2195000049240880422}
   _laserTime: 0.5
+--- !u!114 &4865420498346267626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3065351043755773162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da3178cfc6bded74faca0aeb00201319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolName: b
 --- !u!1 &6802288738564397790
 GameObject:
   m_ObjectHideFlags: 0

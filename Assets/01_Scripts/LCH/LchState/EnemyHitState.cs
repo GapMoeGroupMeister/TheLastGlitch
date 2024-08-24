@@ -20,10 +20,10 @@ public class EnemyHitState : EnemyState<EnemyStateEnum>
     }
     public override void UpdateState()
     {
-        base.UpdateState();
         if (_endTriggerCalled && !_enemy.IsDie)
         {
             _stateMachine.ChangeState(EnemyStateEnum.Walk);
         }
+        base.UpdateState();
     }
 }

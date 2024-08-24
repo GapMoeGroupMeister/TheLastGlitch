@@ -2,24 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DronEnemy : ADEnemy , Ipoolable
+public class DronEnemy : ADEnemy
 {
     public PolygonCollider2D _collider;
     [SerializeField] private ContactFilter2D _filter;
 
-    public string PoolName => poolName;
-
-    public GameObject ObjectPrefab => gameObject;
-
-    public Collider2D GetPlayerDron()
+    int count;
+    public Collider2D GetPlayerDron()   
     {
-        int count = Physics2D.OverlapCollider(_collider, _filter, _colliders);
-        return count > 0 ? _colliders[0] : null;
-    }
+        if(!IsDie)
+            count = Physics2D.OverlapCollider(_collider, _filter, _colliders);
 
-    public void ResetItem()
-    {
-        
+          return count > 0 ? _colliders[0] : null;
     }
 
     protected override void Awake()

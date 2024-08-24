@@ -16,11 +16,6 @@ public class BoomDeadState : DeadInt
 
     public override void LateUpdateState()
     {
-        if (_endTriggerCalled)
-        {
-            PlayExplosion();
-            EnemyPush();
-        }
         base.LateUpdateState();
     }
 }
