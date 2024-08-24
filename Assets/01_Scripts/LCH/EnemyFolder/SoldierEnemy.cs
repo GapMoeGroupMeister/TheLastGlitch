@@ -2,17 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoldierEnemy : StateManager , Ipoolable
+public class SoldierEnemy : StateManager 
 {
-    public string PoolName => poolName;
-
-    public GameObject ObjectPrefab => gameObject;
-
-    public void ResetItem()
-    {
-      
-    }
-
     protected override void Awake()
     {
         base.Awake();

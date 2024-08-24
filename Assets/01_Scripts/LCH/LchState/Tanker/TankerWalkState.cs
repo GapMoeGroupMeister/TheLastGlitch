@@ -12,8 +12,12 @@ public class TankerWalkState : EnemyState<EnemyStateEnum>
 
     public override void Enter()
     {
-        base.Enter();
         _enemy.MovementComponent._canMove = true;
+        if (_enemy.IsDie)
+        {
+            _enemy.StateMachine.ChangeState(EnemyStateEnum.Dead);
+        }
+        base.Enter();
     }
 
     public override void UpdateState()

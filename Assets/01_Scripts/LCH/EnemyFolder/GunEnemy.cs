@@ -2,19 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunEnemy : ADEnemy ,Ipoolable
+public class GunEnemy : ADEnemy
 {
-    public string PoolName => poolName;
-
-    public GameObject ObjectPrefab => gameObject;
-
     int cut;
-
-    public void ResetItem()
-    {
-   
-    }
-
     public Collider2D ThisIsPlayer()
     {
         if(IsDie)

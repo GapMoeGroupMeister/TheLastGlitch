@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 6087083862216309433}
   - component: {fileID: 3399427739390093216}
   - component: {fileID: 342303367121405578}
+  - component: {fileID: 5969781746478416666}
   m_Layer: 8
   m_Name: BoomEnemy
   m_TagString: Enemy
@@ -424,7 +425,21 @@ MonoBehaviour:
   FirstWake: 1
   fainting: 0
   poolName: Boom
+  _enemyPooling: {fileID: 0}
   _boomDealy: 2
+--- !u!114 &5969781746478416666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8313388324781040890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da3178cfc6bded74faca0aeb00201319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolName: Boom
 --- !u!1001 &930632909447237566
 PrefabInstance:
   m_ObjectHideFlags: 0

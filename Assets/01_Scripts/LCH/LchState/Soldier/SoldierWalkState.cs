@@ -14,6 +14,10 @@ public class SoldierWalkState : EnemyState<EnemyStateEnum>
     {
         base.Enter();
         _enemy.MovementComponent._canMove = true;
+        if (_enemy.IsDie)
+        {
+            _enemy.StateMachine.ChangeState(EnemyStateEnum.Dead);
+        }
     }
 
     public override void UpdateState()

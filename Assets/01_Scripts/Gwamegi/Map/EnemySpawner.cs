@@ -22,8 +22,6 @@ public class EnemySpawner : MonoBehaviour
         EnemySpawn();
     }
 
-
-
     public void EnemySpawn()
     {
         switch (type)
