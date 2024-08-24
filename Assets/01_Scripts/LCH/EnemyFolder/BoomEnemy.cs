@@ -9,6 +9,8 @@ public class BoomEnemy : StateManager , Ipoolable
 
     public string PoolName => poolName;
 
+    int cut;
+
     public GameObject ObjectPrefab => gameObject;
 
     public void ResetItem()
@@ -18,7 +20,8 @@ public class BoomEnemy : StateManager , Ipoolable
 
     public Collider2D ThisIsPlayer()
     {
-        int cut = Physics2D.OverlapCircleNonAlloc(transform.position, attackRadius, _colliders, _whatIsPlayer);
+        if(IsDie)
+            cut = Physics2D.OverlapCircleNonAlloc(transform.position, attackRadius, _colliders, _whatIsPlayer);
         return cut > 0 ? _colliders[0] : null;
     }
 

@@ -10,7 +10,7 @@ public class SoldierEnemy : StateManager , Ipoolable
 
     public void ResetItem()
     {
-        throw new System.NotImplementedException();
+      
     }
 
     protected override void Awake()
