@@ -29,6 +29,7 @@ public class Enemy : EnemySetting
     public float distance;
     public bool FirstWake = true;
     public bool fainting = false;
+    public string poolName;
     public EnemyPooling _enemyPooling { get; set; }
     public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
 

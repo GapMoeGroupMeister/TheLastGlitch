@@ -25,7 +25,7 @@ public class BoomWatingState : EnemyState<EnemyStateEnum>
             {
 
                  boom._boomWait += Time.deltaTime;
-                if (boom._boomDealy < boom._boomWait && _enemy.targetTrm.position.x < _enemy.attackRadius)
+                if (boom._boomDealy < boom._boomWait && boom.ThisIsPlayer())
                 { 
                     _stateMachine.ChangeState(EnemyStateEnum.Dead);
                 }

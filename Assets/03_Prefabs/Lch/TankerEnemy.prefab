@@ -164,7 +164,6 @@ GameObject:
   - component: {fileID: 5381001992659816126}
   - component: {fileID: 313470962380873986}
   - component: {fileID: 6040475595593215478}
-  - component: {fileID: 3228533001194290562}
   - component: {fileID: 8372963509870727408}
   - component: {fileID: 487412549287718225}
   m_Layer: 8
@@ -238,7 +237,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6040475595593215478}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: GetHit
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -250,7 +249,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 7874161593083135391}
         m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
-        m_MethodName: PlayFeedbacks
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -325,18 +324,6 @@ MonoBehaviour:
   distance: 0
   FirstWake: 1
   fainting: 0
---- !u!114 &3228533001194290562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3824209589037874041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da3178cfc6bded74faca0aeb00201319, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   poolName: Tanker
 --- !u!50 &8372963509870727408
 Rigidbody2D:

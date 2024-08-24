@@ -207,7 +207,6 @@ GameObject:
   - component: {fileID: 3569530223340005636}
   - component: {fileID: 9192426514676359067}
   - component: {fileID: 6519005202214797683}
-  - component: {fileID: 5841682681104572464}
   - component: {fileID: 9121657263680432209}
   m_Layer: 8
   m_Name: GunEnemy
@@ -328,7 +327,7 @@ MonoBehaviour:
   gravityDelay: 0.15
   _whatIsGround:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   _groundCheckerSize: {x: 0, y: 0}
   isGround:
     _value: 0
@@ -353,7 +352,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3379695534772755344}
         m_TargetAssemblyTypeName: EffectFeedBack, Assembly-CSharp
-        m_MethodName: PlayFeedback
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -365,7 +364,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 6519005202214797683}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: GetHit
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -440,21 +439,9 @@ MonoBehaviour:
   distance: 0
   FirstWake: 1
   fainting: 0
+  poolName: Gun
   _laserShooter: {fileID: 0}
   _firePos: {fileID: 2540853020489956635}
---- !u!114 &5841682681104572464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7079840489748371561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da3178cfc6bded74faca0aeb00201319, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolName: Gun
 --- !u!114 &9121657263680432209
 MonoBehaviour:
   m_ObjectHideFlags: 0
