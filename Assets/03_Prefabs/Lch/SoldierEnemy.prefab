@@ -257,6 +257,7 @@ MonoBehaviour:
   distance: 0
   FirstWake: 1
   fainting: 0
+  poolName: Soldier
 --- !u!1 &5092450715677355001
 GameObject:
   m_ObjectHideFlags: 0
