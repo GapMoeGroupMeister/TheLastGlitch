@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using System;
-using UnityEngine.Experimental.GlobalIllumination;
-using Unity.VisualScripting;
-
+using UnityEngine.Events;
 public class BigSword : MonoBehaviour
 {
+    public UnityEvent OnAttackEvent;
+
     [field: SerializeField] private InputReader _input;
 
     [SerializeField] private GameObject _swordParent;
@@ -78,7 +77,7 @@ public class BigSword : MonoBehaviour
                 {
                     collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.left, _knockBackPower);
                 }
-
+                OnAttackEvent?.Invoke();
             }
         }
     }

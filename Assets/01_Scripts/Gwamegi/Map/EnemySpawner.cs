@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public SpawnEnemyType type;
 
-    public EnemyPooling enemy;
+    public Pooling enemy;
 
     private void Start()
     {
@@ -29,23 +29,23 @@ public class EnemySpawner : MonoBehaviour
         switch (type)
         {
             case SpawnEnemyType.Gun:
-                enemy = PoolManager.Instance.Pop("Gun") as EnemyPooling;
+                enemy = PoolManager.Instance.Pop("Gun") as Pooling;
                 enemy.gameObject.transform.position = transform.position;
                 break;
             case SpawnEnemyType.Boom:
-                enemy = PoolManager.Instance.Pop("Boom") as EnemyPooling;
+                enemy = PoolManager.Instance.Pop("Boom") as Pooling;
                 enemy.gameObject.transform.position = transform.position;
                 break;
             case SpawnEnemyType.Dron:
-                enemy = PoolManager.Instance.Pop("Dron") as EnemyPooling;
+                enemy = PoolManager.Instance.Pop("Dron") as Pooling;
                 enemy.gameObject.transform.position = transform.position;
                 break;
             case SpawnEnemyType.Soldier:
-                enemy = PoolManager.Instance.Pop("Soldier") as EnemyPooling;
+                enemy = PoolManager.Instance.Pop("Soldier") as Pooling;
                 enemy.gameObject.transform.position = transform.position;
                 break;
             case SpawnEnemyType.Tanker:
-                enemy = PoolManager.Instance.Pop("Tanker") as EnemyPooling;
+                enemy = PoolManager.Instance.Pop("TankerEnemy") as Pooling;
                 enemy.gameObject.transform.position = transform.position;
                 break;
             default: 

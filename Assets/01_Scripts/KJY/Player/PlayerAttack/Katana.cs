@@ -1,11 +1,13 @@
 using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEngine.Events;
 
 public class Katana : MonoBehaviour
 {
+    public UnityEvent OnAttackEvent;
+
+
     [field: SerializeField] private InputReader _input;
 
     [SerializeField] private float _damage = 15f;
@@ -67,6 +69,7 @@ public class Katana : MonoBehaviour
                 {
                     collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.left, _knockBackPower);
                 }
+                OnAttackEvent?.Invoke();
             }
         }
     }

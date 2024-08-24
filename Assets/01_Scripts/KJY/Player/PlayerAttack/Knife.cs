@@ -1,10 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class Knife : MonoBehaviour
 {
+    public UnityEvent OnAttackEvent;
+
     [field: SerializeField] private InputReader _input;
 
     [SerializeField] private GameObject _knifeParent;
@@ -55,6 +57,7 @@ public class Knife : MonoBehaviour
                 {
                     collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.left, _knockBackPower);
                 }
+                OnAttackEvent?.Invoke();
             }
         }
     }

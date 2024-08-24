@@ -7,7 +7,7 @@ public class TimePassiveFeedBack : Feedback
     [SerializeField] private PassiveManager passiveManager;
     public override void PlayFeedback()
     {
-        passiveManager.UseTimeSkill();
+        passiveManager.UseTimePassiveSkill();
     }
 
     public override void StopFeedback()

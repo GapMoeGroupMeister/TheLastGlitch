@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPooling : MonoBehaviour, Ipoolable
+public class Pooling : MonoBehaviour, Ipoolable
 {
     public string poolName;
 
