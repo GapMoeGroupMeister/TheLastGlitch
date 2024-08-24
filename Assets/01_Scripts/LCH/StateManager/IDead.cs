@@ -15,6 +15,7 @@ public abstract class DeadInt : EnemyState<EnemyStateEnum>
         _enemy.MovementComponent._xMove = 0;
         _enemy.MovementComponent.StopImmediately();
         _enemy.SetDead(true);
+        _enemy.gameObject.tag = "Untagged";
     }
 
 
@@ -37,8 +38,7 @@ public abstract class DeadInt : EnemyState<EnemyStateEnum>
 
     public void EnemyPush()
     {
-        Ipoolable ipoolable = _enemy.GetComponent<Ipoolable>(); 
-        Debug.Log(ipoolable);
+        Ipoolable ipoolable = _enemy.GetComponent<Ipoolable>();
         if (ipoolable != null)
         {
             PoolManager.Instance.Push(ipoolable);
@@ -48,5 +48,4 @@ public abstract class DeadInt : EnemyState<EnemyStateEnum>
             GameObject.Destroy(_enemy.gameObject);
         }
     }
-
 }

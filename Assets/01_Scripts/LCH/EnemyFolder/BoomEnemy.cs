@@ -2,10 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoomEnemy : StateManager
+public class BoomEnemy : StateManager , Ipoolable
 {
     public float _boomDealy;
     public float _boomWait { get; set; }
+
+    public string PoolName => poolName;
+
+    public GameObject ObjectPrefab => gameObject;
+
+    public void ResetItem()
+    {
+       
+    }
 
     public Collider2D ThisIsPlayer()
     {

@@ -2,8 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunEnemy : ADEnemy
+public class GunEnemy : ADEnemy ,Ipoolable
 {
+    public string PoolName => poolName;
+
+    public GameObject ObjectPrefab => gameObject;
+
+    public void ResetItem()
+    {
+   
+    }
+
     public Collider2D ThisIsPlayer()
     {
         int cut = Physics2D.OverlapCircleNonAlloc(transform.position, attackRadius, _colliders, _whatIsPlayer);

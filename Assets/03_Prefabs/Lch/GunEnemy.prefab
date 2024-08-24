@@ -327,7 +327,7 @@ MonoBehaviour:
   gravityDelay: 0.15
   _whatIsGround:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   _groundCheckerSize: {x: 0, y: 0}
   isGround:
     _value: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3379695534772755344}
         m_TargetAssemblyTypeName: EffectFeedBack, Assembly-CSharp
-        m_MethodName: PlayFeedback
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -364,7 +364,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 6519005202214797683}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: GetHit
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
