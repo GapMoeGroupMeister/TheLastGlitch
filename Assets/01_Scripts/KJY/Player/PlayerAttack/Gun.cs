@@ -6,6 +6,8 @@ using UnityEngine.Rendering;
 
 public class Gun : MonoBehaviour
 {
+    [SerializeField] private AttackPassiveFeedBack _attackPassiveFeedback;
+
     [field: SerializeField] private InputReader _input;
 
     [SerializeField] private GameObject _gunParent;
@@ -59,6 +61,7 @@ public class Gun : MonoBehaviour
         GameObject bullet = InstantiateBullet();
 
         bullet.transform.SetPositionAndRotation(_firePos.position, _firePos.rotation);
+        bullet.GetComponent<Bullet>().OnAttackEvent.AddListener(_attackPassiveFeedback.PlayFeedback);
         StartCoroutine(ShootCoolTime());
     }
 
