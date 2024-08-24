@@ -17,12 +17,7 @@ public class TankerDeadState : DeadInt
 
     public override void LateUpdateState()
     {
-        if (_endTriggerCalled)
-        {
-            PlayExplosion();
-            EnemyPush();
-        }
-
+       
         base.LateUpdateState();
     }
 }

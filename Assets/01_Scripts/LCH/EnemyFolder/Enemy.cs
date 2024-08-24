@@ -44,6 +44,7 @@ public class Enemy : EnemySetting
     protected override void Awake()
     {
         base.Awake();
+        if(!IsDie)
         StateMachine = new StateMachine<EnemyStateEnum>();
     }
 
