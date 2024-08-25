@@ -13,8 +13,12 @@ public class TankerIdleState : EnemyState<EnemyStateEnum>
 
     public override void Enter()
     {
-        if(!_enemy.IsDie)
-            stateManager.WalkChanges();
+      
+        stateManager.WalkChanges();
+        if (_enemy.IsDie)
+        {
+            _enemy.StateMachine.ChangeState(EnemyStateEnum.Dead);
+        }
         base.Enter();
     }
 

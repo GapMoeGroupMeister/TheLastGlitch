@@ -100,7 +100,7 @@ Transform:
   m_GameObject: {fileID: 6479434287472843206}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0.05, y: 0.02, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -328,7 +328,7 @@ MonoBehaviour:
   gravityDelay: 0.15
   _whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   _groundCheckerSize: {x: 0, y: 0}
   isGround:
     _value: 0
@@ -703,7 +703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7169714416049541945, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

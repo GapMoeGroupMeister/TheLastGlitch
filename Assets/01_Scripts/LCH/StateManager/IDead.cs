@@ -11,13 +11,12 @@ public abstract class DeadInt : EnemyState<EnemyStateEnum>
     private readonly int _deadLayer = LayerMask.NameToLayer("DeadEnemy");
     public void DeadEnter()
     {
+        _enemy.SetDead(true);
         _enemy.gameObject.layer = _deadLayer;
         _enemy.MovementComponent._canMove = false;
         _enemy.MovementComponent._xMove = 0;
         _enemy.MovementComponent.StopImmediately();
-        _enemy.SetDead(true);
-        _enemy.gameObject.tag = "Untagged";
-       _enemyPush = _enemy._enemyPooling = _enemy.GetComponent<Pooling>();
+        _enemy.gameObject.tag = "DeadEnemyTag";
     }
 
 

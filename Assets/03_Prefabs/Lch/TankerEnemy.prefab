@@ -238,7 +238,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6040475595593215478}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: GetHit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -250,7 +250,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 7874161593083135391}
         m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: PlayFeedbacks
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -326,6 +326,7 @@ MonoBehaviour:
   FirstWake: 1
   fainting: 0
   _enemyPooling: {fileID: 0}
+  EnemyAttack: 0
 --- !u!50 &8372963509870727408
 Rigidbody2D:
   serializedVersion: 4

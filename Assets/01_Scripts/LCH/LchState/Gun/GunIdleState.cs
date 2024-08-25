@@ -12,9 +12,8 @@ public class GunIdleState : EnemyState<EnemyStateEnum>
 
     public override void Enter()
     {
+        stateManager.WalkChanges();
         base.Enter();
-        if(!_enemy.IsDie)
-            stateManager.WalkChanges();
 
     }
 

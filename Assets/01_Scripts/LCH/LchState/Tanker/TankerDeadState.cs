@@ -17,7 +17,6 @@ public class TankerDeadState : DeadInt
 
     public override void LateUpdateState()
     {
-       
         base.LateUpdateState();
     }
 }

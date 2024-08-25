@@ -10,8 +10,8 @@ public class SoldierChaseState : ChaseInt
 
     public override void UpdateState()
     {
+        ChaseUpdate();
         base.UpdateState();
-        if(!_enemy.IsDie)
-             ChaseUpdate();
+      
     }
 }

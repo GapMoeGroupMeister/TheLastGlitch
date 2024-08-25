@@ -14,7 +14,6 @@ public class StateMachine<T> where T : Enum
         CurrentState = stateDict[state];
         CurrentState.Enter();
     }
-
     public void ChangeState(T changeState)
     {
             CurrentState.Exit();

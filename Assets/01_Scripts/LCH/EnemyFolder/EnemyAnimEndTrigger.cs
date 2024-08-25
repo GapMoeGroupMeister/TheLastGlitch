@@ -9,6 +9,7 @@ public class EnemyAnimEndTrigger : MonoBehaviour
 
     public void AnimationEnd()
     {
+        Debug.Log("AnimationEnd");
         _enemy.AnimationEndTrigger();
     }
     
