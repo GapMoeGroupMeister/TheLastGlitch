@@ -44,16 +44,14 @@ public abstract class EnemySetting : Agent
 
     public Collider2D GetPlayerRange()
     {
-        if(IsDie)
-            count = Physics2D.OverlapCircleNonAlloc(transform.position, detectRadius,_colliders,_whatIsPlayer);
+        count = Physics2D.OverlapCircleNonAlloc(transform.position, detectRadius,_colliders,_whatIsPlayer);
 
         return count > 0 ? _colliders[0] : null;
     }
 
     public bool GetPlayer()
     {
-        if (IsDie)
-            isPlayer = Physics2D.Raycast(transform.position,Vector2.right,stopRay,_whatIsPlayer);
+        isPlayer = Physics2D.Raycast(transform.position,Vector2.right,stopRay,_whatIsPlayer);
         return isPlayer;
     }
 

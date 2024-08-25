@@ -12,8 +12,8 @@ public class SoldierIdleState : EnemyState<EnemyStateEnum>
 
     public override void Enter()
     {
-        if(!_enemy.IsDie)
-            stateManager.WalkChanges();
+      
+        stateManager.WalkChanges();
         base.Enter();
 
     }

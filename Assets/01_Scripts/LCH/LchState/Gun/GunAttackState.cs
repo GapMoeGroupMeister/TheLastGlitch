@@ -12,16 +12,15 @@ public class GunAttackState : EnemyState<EnemyStateEnum>
 
     public override void Enter()
     {
-        base.Enter();
-        if(!_enemy.IsDie)
         _enemy.MovementComponent._canMove = false;
         _enemy.MovementComponent.StopImmediately();
         _enemy.FirstAttack = false;
         _enemy.HandleSpriteFlip(_enemy.targetTrm.position);
+        base.Enter();
     }
     public override void UpdateState()
     {
-        if (_endTriggerCalled&& !_enemy.IsDie)
+        if (_endTriggerCalled)
         {
             _enemy.lastAttackTime = Time.time;
          

@@ -30,7 +30,7 @@ public class Enemy : EnemySetting
     public bool FirstWake = true;
     public bool fainting = false;
     public Pooling _enemyPooling;
-    public StateMachine<EnemyStateEnum> StateMachine { get; private set; }
+    public StateMachine<EnemyStateEnum> StateMachine { get; set; }
 
     public void GetHit()
     {
@@ -43,9 +43,9 @@ public class Enemy : EnemySetting
     }
     protected override void Awake()
     {
-        base.Awake();
         if(!IsDie)
         StateMachine = new StateMachine<EnemyStateEnum>();
+        base.Awake();
     }
 
     protected virtual void Start()
@@ -70,12 +70,15 @@ public class Enemy : EnemySetting
 
     protected IEnumerator Delaytime()
     {
-        while (true)
+        if (!IsDie)
         {
-            dir = GetRandomVector() - transform.position;
-            yield return new WaitForSeconds(2f);
-            dir = Vector2.zero;
-            yield return new WaitForSeconds(2f);
+            while (true)
+            {
+                dir = GetRandomVector() - transform.position;
+                yield return new WaitForSeconds(2f);
+                dir = Vector2.zero;
+                yield return new WaitForSeconds(2f);
+            }
         }
 
     }

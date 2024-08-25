@@ -22,8 +22,6 @@ public class SoldierWalkState : EnemyState<EnemyStateEnum>
 
     public override void UpdateState()
     {
-        if(!_enemy.IsDie)
-        {
             state.EnemyMove();
             state.EnemyStop();
             state.EnemyFlips();
@@ -34,7 +32,6 @@ public class SoldierWalkState : EnemyState<EnemyStateEnum>
                 _enemy.targetTrm = player.transform;
                 _enemy.StateMachine.ChangeState(EnemyStateEnum.Chase);
             }
-        }
         base.UpdateState();
     }
 }

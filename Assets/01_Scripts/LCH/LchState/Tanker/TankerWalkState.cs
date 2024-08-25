@@ -22,8 +22,6 @@ public class TankerWalkState : EnemyState<EnemyStateEnum>
 
     public override void UpdateState()
     {
-        if(!_enemy.IsDie)
-        {
             stateManager.EnemyMove();
             stateManager.EnemyStop();
             stateManager.EnemyFlips();
@@ -34,7 +32,6 @@ public class TankerWalkState : EnemyState<EnemyStateEnum>
                 _enemy.targetTrm = player.transform;
                 _enemy.StateMachine.ChangeState(EnemyStateEnum.Chase);
             }
-        }
         base.UpdateState();
     }
 }

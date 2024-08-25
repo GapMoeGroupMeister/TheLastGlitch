@@ -8,10 +8,18 @@ public class TankerChaseState : ChaseInt
     {
     }
 
+    public override void Enter()
+    {
+        if (_enemy.IsDie)
+        {
+            _enemy.StateMachine.ChangeState(EnemyStateEnum.Dead);
+        }
+        base.Enter();
+    }
+
     public override void UpdateState()
     {
+        ChaseUpdate();
         base.UpdateState();
-        if(!_enemy.IsDie)
-            ChaseUpdate();
     }
 }
