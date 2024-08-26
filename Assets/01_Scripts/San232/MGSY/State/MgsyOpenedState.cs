@@ -14,6 +14,6 @@ public class MgsyOpenedState : MGSYState<BossStateEnum>
     {
         base.Enter();
         health.IsHittable = true;
-
+        mgsy.OpenedPatterns[0]?.Invoke();
     }
 }

@@ -9,8 +9,6 @@ public class MgsyClosedState : MGSYState<BossStateEnum>
     public Action OnClosedEnter;
 
     private int patternIndex;
-    private int minIndex = 1;
-    private int maxIndex = 101;
     private float minCool= 3f;
     private float maxCool = 7f;
 
@@ -32,18 +30,7 @@ public class MgsyClosedState : MGSYState<BossStateEnum>
     {
         base.UpdateState();
 
-        MgsyClosedPatternRoutine();
-
-        if (patternIndex >= 0 && patternIndex < 21)
-        {
-            mgsy.OnCoreExplosion?.Invoke();
-            
-            _stateMachine.ChangeState(BossStateEnum.Opened);
-        }
-        else if (patternIndex >= 21)
-        {
-            Debug.Log("ÀÀ¾î¾ÆÀÕ");
-        }
+        mgsy.StartCoroutine(MgsyClosedPatternRoutine());
     }
 
     public override void Exit()
@@ -53,7 +40,8 @@ public class MgsyClosedState : MGSYState<BossStateEnum>
 
     private IEnumerator MgsyClosedPatternRoutine()
     {
-        patternIndex = Random.Range(minIndex, maxIndex);
+        patternIndex = Random.Range(0, mgsy.ClosedPatterns.Count);
+        mgsy.ClosedPatterns[patternIndex]?.Invoke();
         yield return new WaitForSeconds(Random.Range(minCool, maxCool));
     }
 }

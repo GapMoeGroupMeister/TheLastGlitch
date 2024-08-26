@@ -573,6 +573,7 @@ GameObject:
   - component: {fileID: 854546267}
   - component: {fileID: 854546266}
   - component: {fileID: 854546272}
+  - component: {fileID: 854546273}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -668,6 +669,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &854546273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854546265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46b6d6f66279954e8e235623db33088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mgsy: {fileID: 0}
 --- !u!1 &907787399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,9 +1036,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1976350836}
+  - component: {fileID: 1976350841}
   - component: {fileID: 1976350835}
   - component: {fileID: 1976350839}
-  - component: {fileID: 1976350834}
   - component: {fileID: 1976350833}
   - component: {fileID: 1976350837}
   - component: {fileID: 1976350838}
@@ -1062,55 +1076,6 @@ MonoBehaviour:
   _xMove: 0
   knockbackTime: 0.2
   _canMove: 1
---- !u!114 &1976350834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976350832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfa5194fe8e71004bb4d505c427fb570, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FinalDeadEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  detectRadius: 0
-  attackRadius: 0
-  knockbackPower: 0
-  attackCooldown: 0
-  stopRay: 0
-  damage: 0
-  _whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 0
-  contactFilter:
-    useTriggers: 1
-    useLayerMask: 1
-    useDepth: 1
-    useOutsideDepth: 1
-    useNormalAngle: 1
-    useOutsideNormalAngle: 1
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 8
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  minX: 0
-  maxX: 0
-  targetTrm: {fileID: 0}
-  lastAttackTime: 0
-  _laserShooter: {fileID: 0}
-  _firePos: {fileID: 0}
-  _colliders: []
-  testEnemyPrefab: {fileID: 3916682341307116186, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
-  health: {fileID: 1976350835}
-  state: 
-  mgsyAnimator: {fileID: 854546272}
 --- !u!114 &1976350835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1130,7 +1095,7 @@ MonoBehaviour:
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1976350834}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MGSY, Assembly-CSharp
         m_MethodName: SetDeadState
         m_Mode: 1
@@ -1276,6 +1241,54 @@ MonoBehaviour:
   - {fileID: 3824209589037874041, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
   - {fileID: 8313388324781040890, guid: a2f09a759657ded489b43a17964086e0, type: 3}
   - {fileID: 3065351043755773162, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
+--- !u!114 &1976350841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976350832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa5194fe8e71004bb4d505c427fb570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FinalDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  detectRadius: 0
+  attackRadius: 0
+  knockbackPower: 0
+  attackCooldown: 0
+  stopRay: 0
+  damage: 0
+  _whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 0
+  contactFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  minX: 0
+  maxX: 0
+  targetTrm: {fileID: 0}
+  lastAttackTime: 0
+  _colliders: []
+  testEnemyPrefab: {fileID: 0}
+  state: 
+  mgsyAnimator: {fileID: 0}
+  ClosedPatterns: []
+  OpenedPatterns: []
 --- !u!1 &2147331282
 GameObject:
   m_ObjectHideFlags: 0

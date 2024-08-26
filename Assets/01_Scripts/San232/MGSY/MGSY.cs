@@ -17,22 +17,20 @@ public enum BossStateEnum
 public class MGSY : EnemySetting
 {
     [SerializeField] private GameObject testEnemyPrefab = null;
-    [SerializeField] protected Health health = null;
     public string state = null;
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
 
     public Animator mgsyAnimator = null;
-     
-    public int ?isRunningHash = null;
 
-    public UnityEvent OnCoreExplosion;
-    public UnityEvent OnMobSpawn;
-    public UnityEvent OnElectricExplosion;
+    public int? isRunningHash = null;
+
+    public List<UnityEvent> ClosedPatterns = new List<UnityEvent>();
+
+    public List<UnityEvent> OpenedPatterns = new List<UnityEvent>();
 
     protected override void Awake()
     {
         base.Awake();
-        health = GetComponent<Health>();
         StateMachine = new StateMachine<BossStateEnum>();
 
         StateMachine.AddState(BossStateEnum.Idle, new MgsyIdleState(this, StateMachine, "Idle"));
@@ -41,10 +39,10 @@ public class MGSY : EnemySetting
         StateMachine.AddState(BossStateEnum.AngryOpened, new MgsyAngryOpenedState(this, StateMachine, "AngryOpened"));
         StateMachine.AddState(BossStateEnum.Dead, new MgsyDeadState(this, StateMachine, "Dead"));
         StateMachine.AddState(BossStateEnum.Opening, new MGSYOpeningState(this, StateMachine, "Opening"));
-        StateMachine.InitInitialize(BossStateEnum.Idle, this);  
+        StateMachine.InitInitialize(BossStateEnum.Idle, this);
 
     }
-    
+
     private void Update()
     {
         StateMachine.CurrentState.UpdateState();
@@ -57,7 +55,7 @@ public class MGSY : EnemySetting
 
     public void Opening2Opened()
     {
-        if(health.GetCurrentHP() > health._maxHealth)
+        if (HealthComponent.GetCurrentHP() > HealthComponent._maxHealth)
         {
             StateMachine.ChangeState(BossStateEnum.Opened);
         }

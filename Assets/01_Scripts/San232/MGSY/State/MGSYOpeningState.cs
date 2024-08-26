@@ -18,7 +18,10 @@ public class MGSYOpeningState : MGSYState<BossStateEnum>
         base.UpdateState();
     }
 
-    public override void Exit() { base.Exit(); }
+    public override void Exit()
+    {
+        base.Exit();
+    }
 
     public void Change2OpenedState()
     {

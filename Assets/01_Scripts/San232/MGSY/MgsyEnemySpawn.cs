@@ -21,7 +21,7 @@ public class MgsyEnemySpawn : MonoBehaviour
     [SerializeField] private float _minPatternCool = 12;
 
     [Header("EnemyList")]
-    [SerializeField] private List<GameObject> _enemys = new List<GameObject>();
+    [SerializeField] private List<Enemy> _enemys = new List<Enemy>();
 
     private void Awake()
     {
@@ -36,32 +36,16 @@ public class MgsyEnemySpawn : MonoBehaviour
 
     private void StartSpawnEnemy()
     {
-        if (IsSpawning)
-        {
-            StartCoroutine(SpawnEnemies());
-        }
+        //StartCoroutine(SpawnEnemies());
     }
 
-    private IEnumerator SpawnEnemies()
-    {
-        while (_currentMobCount < _mobCount)
-        {
-
-            if(_currentMobCount >= _mobCount)
-            {
-                _patternCoolTime = Random.Range(_minPatternCool, _maxPatternCool);
-                yield return new WaitForSeconds(_patternCoolTime);
-                ResetCount();
-            }
-            else
-            {
-                _currentMobCount++;
-                _spawnCoolTime = Random.Range(_minCoolTime, _maxCoolTime);
-                yield return new WaitForSeconds(_spawnCoolTime);
-
-            }
-        }
-
-        
-    }
+    //private IEnumerator SpawnEnemies()
+    //{
+    //    while (_currentMobCount < _mobCount && IsSpawning)
+    //    {
+    //        int randIndex = Random.Range(0, _enemys.Count);
+    //        _enemys[randIndex].
+    //        _currentMobCount++;
+    //    }
+    //}
 }
