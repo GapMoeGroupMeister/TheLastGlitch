@@ -10,16 +10,18 @@ public class DronDeadState : DeadInt
 
     public override void Enter()
     {
-        base.Enter();
         DeadEnter();
+        base.Enter();
     }
 
-    public override void UpdateState()
+    public override void LateUpdateState()
     {
-        base.UpdateState();
+       
         if (_endTriggerCalled)
         {
-            PlayExplosion();
+            //PlayExplosion();
+            EnemyPush();
         }
+        base.LateUpdateState();
     }
 }

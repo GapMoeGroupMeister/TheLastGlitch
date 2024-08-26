@@ -12,11 +12,11 @@ public class GunAttackState : EnemyState<EnemyStateEnum>
 
     public override void Enter()
     {
-        base.Enter();
         _enemy.MovementComponent._canMove = false;
         _enemy.MovementComponent.StopImmediately();
         _enemy.FirstAttack = false;
         _enemy.HandleSpriteFlip(_enemy.targetTrm.position);
+        base.Enter();
     }
     public override void UpdateState()
     {

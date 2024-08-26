@@ -12,8 +12,8 @@ public class SoldierAttackState : EnemyState<EnemyStateEnum>
 
     public override void Enter()
     {
-        base.Enter();
         stateManager.CloserAttackEnter();
+        base.Enter();
     }
 
     public override void UpdateState()

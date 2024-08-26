@@ -15,10 +15,17 @@ public abstract class ChaseInt : EnemyState<EnemyStateEnum>
         _enemy.HandleSpriteFlip(_enemy.targetTrm.position);
         _enemy.MovementComponent.SetMovement(dir.normalized.x);
 
-        if (_enemy.distance > _enemy.detectRadius + 3f)
+        if (_enemy.fainting == true)
         {
+            Debug.Log("Idle»óÅÂ");
             _stateMachine.ChangeState(EnemyStateEnum.Idle);
             return;
+        }
+
+        if (_enemy.FirstAttack && _enemy.distance < _enemy.attackRadius)
+        { 
+            if (_enemy.CanAttack)
+                _stateMachine.ChangeState(EnemyStateEnum.Attack);
         }
 
         if (_enemy.distance < _enemy.attackRadius && _enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
@@ -27,10 +34,5 @@ public abstract class ChaseInt : EnemyState<EnemyStateEnum>
                 _stateMachine.ChangeState(EnemyStateEnum.Attack);
         }
 
-        if (_enemy.FirstAttack && _enemy.distance < _enemy.attackRadius)
-        {
-            if (_enemy.CanAttack)
-                _stateMachine.ChangeState(EnemyStateEnum.Attack);
-        }
     }
 }

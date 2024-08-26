@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankerEnemy : StateManager
+public class TankerEnemy : StateManager 
 {
+
     protected override void Awake()
     {
         base.Awake();

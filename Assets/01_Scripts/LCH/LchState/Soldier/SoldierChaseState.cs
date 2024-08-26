@@ -10,7 +10,8 @@ public class SoldierChaseState : ChaseInt
 
     public override void UpdateState()
     {
-        base.UpdateState();
         ChaseUpdate();
+        base.UpdateState();
+      
     }
 }

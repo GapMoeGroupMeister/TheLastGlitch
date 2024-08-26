@@ -19,8 +19,9 @@ MonoBehaviour:
   addPlayerCritDamage: 5
   damage: 0
   knockbackPower: 0
-  time: 0
+  time: 2
   distance: {x: 3.2, y: 0}
+  effect: {fileID: 1189340810403874827, guid: fb8e03d08228b534bb74ee486dae2664, type: 3}
   type: 2
   passiveType: 0
   enemyLayer:

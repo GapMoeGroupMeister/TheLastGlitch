@@ -10,17 +10,17 @@ public class EnemyHitState : EnemyState<EnemyStateEnum>
 
     public override void Enter()
     {
+            _enemy.MovementComponent._xMove = 0f;
+            _enemy.MovementComponent._canMove = false;
+            _enemy.MovementComponent.StopImmediately(true);
         base.Enter();
-        _enemy.MovementComponent._xMove = 0f;
-        _enemy.MovementComponent._canMove = false;
-        _enemy.MovementComponent.StopImmediately(true);
     }
     public override void UpdateState()
     {
-        base.UpdateState();
-        if (_endTriggerCalled)
+        if (_endTriggerCalled )
         {
             _stateMachine.ChangeState(EnemyStateEnum.Walk);
         }
+        base.UpdateState();
     }
 }

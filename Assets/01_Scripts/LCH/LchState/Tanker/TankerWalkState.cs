@@ -12,22 +12,26 @@ public class TankerWalkState : EnemyState<EnemyStateEnum>
 
     public override void Enter()
     {
-        base.Enter();
         _enemy.MovementComponent._canMove = true;
+        if (_enemy.IsDie)
+        {
+            _enemy.StateMachine.ChangeState(EnemyStateEnum.Dead);
+        }
+        base.Enter();
     }
 
     public override void UpdateState()
     {
-        base.UpdateState();
-        stateManager.EnemyMove();
-        stateManager.EnemyStop();
-        stateManager.EnemyFlips();
-        Collider2D player = _enemy.GetPlayerRange();
+            stateManager.EnemyMove();
+            stateManager.EnemyStop();
+            stateManager.EnemyFlips();
+            Collider2D player = _enemy.GetPlayerRange();
 
-        if (player != null)
-        {
-            _enemy.targetTrm = player.transform;
-            _enemy.StateMachine.ChangeState(EnemyStateEnum.Chase);
-        }
+            if (player != null)
+            {
+                _enemy.targetTrm = player.transform;
+                _enemy.StateMachine.ChangeState(EnemyStateEnum.Chase);
+            }
+        base.UpdateState();
     }
 }

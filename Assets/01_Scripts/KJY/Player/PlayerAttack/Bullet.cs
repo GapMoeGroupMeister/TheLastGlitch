@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Bullet : MonoBehaviour
 {
+    public UnityEvent OnAttackEvent;
+
     [field : SerializeField] private InputReader _input;
     [SerializeField] private float _bulletSpeed = 8f;
 
@@ -48,6 +50,7 @@ public class Bullet : MonoBehaviour
             {
                 Vector2 attackDir = new Vector2(Mathf.Clamp(Vector3.Cross(collision.gameObject.transform.position, transform.position).z, -1, 1), 0);
                 collision.gameObject.GetComponent<Health>().TakeDamage(_damage, -attackDir, _knockBackPower);
+                OnAttackEvent?.Invoke();
             }
         }
     }

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2642503958888725377}
   - component: {fileID: 2918568570046843929}
   - component: {fileID: 8237377631263640247}
-  - component: {fileID: 835469926914236568}
   - component: {fileID: 3589308455657737191}
+  - component: {fileID: -4351799922616541886}
   m_Layer: 8
   m_Name: SoldierEnemy
   m_TagString: Enemy
@@ -86,7 +86,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6909155668407297460}
         m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
-        m_MethodName: PlayFeedbacks
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 3589308455657737191}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: GetHit
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -142,7 +142,7 @@ MonoBehaviour:
   gravityDelay: 0.15
   _whatIsGround:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   _groundCheckerSize: {x: 0, y: 0}
   isGround:
     _value: 0
@@ -194,19 +194,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9384373, y: 1}
   m_EdgeRadius: 0
---- !u!114 &835469926914236568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3916682341307116186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da3178cfc6bded74faca0aeb00201319, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolName: Soldier
 --- !u!114 &3589308455657737191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +243,21 @@ MonoBehaviour:
   Boom: 0
   distance: 0
   FirstWake: 1
+  fainting: 0
+  _enemyPooling: {fileID: 0}
+--- !u!114 &-4351799922616541886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3916682341307116186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da3178cfc6bded74faca0aeb00201319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolName: Soldier
 --- !u!1 &5092450715677355001
 GameObject:
   m_ObjectHideFlags: 0

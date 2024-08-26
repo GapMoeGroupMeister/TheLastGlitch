@@ -14,12 +14,11 @@ public class StateMachine<T> where T : Enum
         CurrentState = stateDict[state];
         CurrentState.Enter();
     }
-
     public void ChangeState(T changeState)
     {
-        CurrentState.Exit();
-        CurrentState = stateDict[changeState];
-        CurrentState.Enter();
+            CurrentState.Exit();
+            CurrentState = stateDict[changeState];
+            CurrentState.Enter();
     }
 
     public void AddState(T stateEnum, State<T> state)

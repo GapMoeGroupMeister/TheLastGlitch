@@ -14,20 +14,24 @@ public class SoldierWalkState : EnemyState<EnemyStateEnum>
     {
         base.Enter();
         _enemy.MovementComponent._canMove = true;
+        if (_enemy.IsDie)
+        {
+            _enemy.StateMachine.ChangeState(EnemyStateEnum.Dead);
+        }
     }
 
     public override void UpdateState()
     {
-        base.UpdateState();
-        state.EnemyMove();
-        state.EnemyStop();
-        state.EnemyFlips();
-        Collider2D player = _enemy.GetPlayerRange();
+            state.EnemyMove();
+            state.EnemyStop();
+            state.EnemyFlips();
+            Collider2D player = _enemy.GetPlayerRange();
 
-        if (player != null)
-        {
-            _enemy.targetTrm = player.transform;
-            _enemy.StateMachine.ChangeState(EnemyStateEnum.Chase);
-        }
+            if (player != null)
+            {
+                _enemy.targetTrm = player.transform;
+                _enemy.StateMachine.ChangeState(EnemyStateEnum.Chase);
+            }
+        base.UpdateState();
     }
 }

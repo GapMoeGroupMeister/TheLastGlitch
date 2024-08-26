@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoomDeadState : DeadInt
+public class BoomDeadState : DeadInt 
 {
     public BoomDeadState(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
@@ -10,16 +10,12 @@ public class BoomDeadState : DeadInt
 
     public override void Enter()
     {
-        base.Enter();
         DeadEnter();
+        base.Enter();
     }
 
-    public override void UpdateState()
+    public override void LateUpdateState()
     {
-        if (_endTriggerCalled)
-        {
-            PlayExplosion();
-        }
-        base.UpdateState();
+        base.LateUpdateState();
     }
 }

@@ -15,27 +15,32 @@ public class GunWalkState : EnemyState<EnemyStateEnum>
 
     public override void Enter()
     {
-        base.Enter();
         _enemy.MovementComponent._canMove = true;
+        if (_enemy.IsDie)
+        {
+            _enemy.StateMachine.ChangeState(EnemyStateEnum.Dead);
+        }
+        base.Enter();
     }
 
     public override void UpdateState()
     {
-        base.UpdateState();
-        state.EnemyMove();
-        state.EnemyStop();
-        state.EnemyFlips();
+      
+            state.EnemyMove();
+            state.EnemyStop();
+            state.EnemyFlips();
 
-        Collider2D player = _gun.ThisIsPlayer();
+            Collider2D player = _gun.ThisIsPlayer();
 
-        if (player != null)
-        {
-            _enemy.targetTrm = player.transform;
-            if (_enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
+            if (player != null)
             {
-                _stateMachine.ChangeState(EnemyStateEnum.Attack);
+                _enemy.targetTrm = player.transform;
+                if (_enemy.lastAttackTime + _enemy.attackCooldown < Time.time)
+                {
+                    _stateMachine.ChangeState(EnemyStateEnum.Attack);
+                }
             }
-        }
+        base.UpdateState();
 
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoldierEnemy : StateManager
+public class SoldierEnemy : StateManager 
 {
     protected override void Awake()
     {

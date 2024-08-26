@@ -12,8 +12,9 @@ public class SoldierIdleState : EnemyState<EnemyStateEnum>
 
     public override void Enter()
     {
-        base.Enter();
+      
         stateManager.WalkChanges();
+        base.Enter();
 
     }
 }

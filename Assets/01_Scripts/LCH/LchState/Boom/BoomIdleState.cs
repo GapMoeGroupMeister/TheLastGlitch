@@ -11,13 +11,8 @@ public class BoomIdleState : EnemyState<EnemyStateEnum>
     }
 
     public override void Enter()
-    {
-        base.Enter();
+    { 
         state.WalkChanges();
-    }
-
-    public override void UpdateState()
-    {
-        base.UpdateState();
+        base.Enter();
     }
 }
