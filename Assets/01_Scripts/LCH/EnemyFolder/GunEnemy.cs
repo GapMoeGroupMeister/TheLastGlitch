@@ -7,8 +7,7 @@ public class GunEnemy : ADEnemy
     int cut;
     public Collider2D ThisIsPlayer()
     {
-        if(IsDie)
-         cut = Physics2D.OverlapCircleNonAlloc(transform.position, attackRadius, _colliders, _whatIsPlayer);
+        cut = Physics2D.OverlapCircleNonAlloc(transform.position, attackRadius, _colliders, _whatIsPlayer);
 
         return cut > 0 ? _colliders[0] : null;
     }

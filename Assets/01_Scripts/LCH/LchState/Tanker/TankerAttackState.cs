@@ -12,14 +12,14 @@ public class TankerAttackState : EnemyState<EnemyStateEnum>
 
     public override void Enter()
     {
-        if(!_enemy.IsDie)
-            stateManager.CloserAttackEnter();
+      
+        stateManager.CloserAttackEnter();
         base.Enter();
     }
 
     public override void UpdateState()
     {
-        if (_endTriggerCalled && !_enemy.IsDie)
+        if (_endTriggerCalled)
         {
            stateManager.EnemyAttack();
         }

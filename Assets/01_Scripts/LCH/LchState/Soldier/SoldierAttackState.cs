@@ -12,14 +12,13 @@ public class SoldierAttackState : EnemyState<EnemyStateEnum>
 
     public override void Enter()
     {
-       if(!_enemy.IsDie)
         stateManager.CloserAttackEnter();
         base.Enter();
     }
 
     public override void UpdateState()
     {
-        if (_endTriggerCalled&& !_enemy.IsDie)
+        if (_endTriggerCalled)
         {
             stateManager.EnemyAttack();
         }

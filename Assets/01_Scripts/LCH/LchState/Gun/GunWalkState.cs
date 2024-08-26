@@ -25,8 +25,7 @@ public class GunWalkState : EnemyState<EnemyStateEnum>
 
     public override void UpdateState()
     {
-       if(!_enemy.IsDie)
-        {
+      
             state.EnemyMove();
             state.EnemyStop();
             state.EnemyFlips();
@@ -41,7 +40,6 @@ public class GunWalkState : EnemyState<EnemyStateEnum>
                     _stateMachine.ChangeState(EnemyStateEnum.Attack);
                 }
             }
-        }
         base.UpdateState();
 
     }

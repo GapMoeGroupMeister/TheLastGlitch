@@ -36,7 +36,8 @@ public class StateManager : Enemy
     public void EnemyAttack()
     {
         lastAttackTime = Time.time;
-        StateMachine.ChangeState(EnemyStateEnum.Chase);
+        Debug.Log("공격->추적");
+       StateMachine.ChangeState(EnemyStateEnum.Chase);
         MovementComponent._canMove = true;
     }
 
@@ -44,13 +45,14 @@ public class StateManager : Enemy
     {
         if (MovementComponent._xMove == 0)
         {
-            StateMachine.ChangeState(EnemyStateEnum.Idle);
+           StateMachine.ChangeState(EnemyStateEnum.Idle);
         }
     }
 
     private IEnumerator ChangeToWalk()
     {
         yield return new WaitForSeconds(2f);
+        Debug.Log("I->WALK");
         StateMachine.ChangeState(EnemyStateEnum.Walk);
     }
 }

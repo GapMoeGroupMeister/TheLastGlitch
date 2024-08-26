@@ -23,9 +23,6 @@ public class BoomWalkState : EnemyState<EnemyStateEnum>
 
     public override void UpdateState()
     {
-        base.UpdateState();
-        if (!_enemy.IsDie)
-        {
             state.EnemyMove();
             state.EnemyStop();
             state.EnemyFlips();
@@ -37,6 +34,6 @@ public class BoomWalkState : EnemyState<EnemyStateEnum>
                 _enemy.targetTrm = player.transform;
                 _enemy.StateMachine.ChangeState(EnemyStateEnum.Chase);
             }
-        }
+        base.UpdateState();
     }
 }

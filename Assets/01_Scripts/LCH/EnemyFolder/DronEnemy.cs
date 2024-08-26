@@ -10,8 +10,7 @@ public class DronEnemy : ADEnemy
     int count;
     public Collider2D GetPlayerDron()   
     {
-        if(!IsDie)
-            count = Physics2D.OverlapCollider(_collider, _filter, _colliders);
+          count = Physics2D.OverlapCollider(_collider, _filter, _colliders);
 
           return count > 0 ? _colliders[0] : null;
     }
