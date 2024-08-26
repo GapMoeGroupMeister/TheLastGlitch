@@ -279,7 +279,6 @@ MonoBehaviour:
   distance: 0
   FirstWake: 1
   fainting: 0
-  poolName: Dron
   _enemyPooling: {fileID: 0}
   _laserShooter: {fileID: 0}
   _firePos: {fileID: 7676224124510093892}
@@ -324,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3178cfc6bded74faca0aeb00201319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolName: b
+  poolName: Dron
 --- !u!1 &6802288738564397790
 GameObject:
   m_ObjectHideFlags: 0
