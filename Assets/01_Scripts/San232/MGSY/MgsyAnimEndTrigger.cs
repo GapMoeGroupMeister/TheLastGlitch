@@ -25,4 +25,9 @@ public class MgsyAnimEndTrigger : MonoBehaviour
             _mgsy.StateMachine.ChangeState(BossStateEnum.AngryOpened);
         }
     }
+
+    public void CloseingEnd()
+    {
+        _mgsy.StateMachine.ChangeState(BossStateEnum.Closed);
+    }
 }

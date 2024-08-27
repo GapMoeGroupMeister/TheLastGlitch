@@ -20,7 +20,6 @@ public class MgsyClosedState : MGSYState<BossStateEnum>
     public override void Enter()
     {
         base.Enter();
-        health.IsHittable = false;
 
 
         

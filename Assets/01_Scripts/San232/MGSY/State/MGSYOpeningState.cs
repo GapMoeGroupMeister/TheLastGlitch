@@ -21,6 +21,7 @@ public class MGSYOpeningState : MGSYState<BossStateEnum>
     public override void Exit()
     {
         base.Exit();
+        mgsy.HealthComponent.IsHittable = true;
     }
 
     public void Change2OpenedState()

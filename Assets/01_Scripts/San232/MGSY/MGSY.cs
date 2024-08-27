@@ -11,7 +11,8 @@ public enum BossStateEnum
     Opened,
     AngryOpened,
     Dead,
-    Opening
+    Opening,
+    Closing
 }
 
 public class MGSY : EnemySetting
@@ -39,6 +40,7 @@ public class MGSY : EnemySetting
         StateMachine.AddState(BossStateEnum.AngryOpened, new MgsyAngryOpenedState(this, StateMachine, "AngryOpened"));
         StateMachine.AddState(BossStateEnum.Dead, new MgsyDeadState(this, StateMachine, "Dead"));
         StateMachine.AddState(BossStateEnum.Opening, new MGSYOpeningState(this, StateMachine, "Opening"));
+        StateMachine.AddState(BossStateEnum.Closing, new MGSYClosingState(this, StateMachine, "Closing"));
         StateMachine.InitInitialize(BossStateEnum.Idle, this);
 
     }
