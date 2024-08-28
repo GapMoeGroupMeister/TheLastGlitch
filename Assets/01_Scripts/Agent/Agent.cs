@@ -22,6 +22,12 @@ public abstract class Agent : MonoBehaviour
         HealthComponent = GetComponent<Health>();
         HealthComponent.Initialize(this);
     }
+
+    private void Start()
+    {
+        HealthComponent._maxHealth = _enemyStats.EnemyHeath;
+    }
+
     public abstract void SetDeadState();
     #region Flip
     public bool IsFacingRight()
