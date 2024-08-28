@@ -45,12 +45,13 @@ public abstract class EnemySetting : Agent
 
     private void Start()
     {
-        detectRadius = _enemyStats.EnemydetectRadius;
-        attackRadius = _enemyStats.EnemyattackRadius;
-        knockbackPower = _enemyStats.EnemyknockbackPower;
-        attackCooldown = _enemyStats.EnemyattackCooldown;
-        stopRay = _enemyStats.EnemystopRay;
-        damage = _enemyStats.Enemydamge;
+        detectRadius += _enemyStats.EnemydetectRadius;
+        attackRadius += _enemyStats.EnemyattackRadius;
+        knockbackPower += _enemyStats.EnemyknockbackPower;
+        attackCooldown += _enemyStats.EnemyattackCooldown;
+        stopRay += _enemyStats.EnemystopRay;
+        damage += _enemyStats.Enemydamge;
+       HealthComponent._maxHealth = _enemyStats.EnemyHeath;
     }
 
 
