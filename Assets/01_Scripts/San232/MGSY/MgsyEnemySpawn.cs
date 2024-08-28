@@ -44,8 +44,8 @@ public class MgsyEnemySpawn : MonoBehaviour
     //    while (_currentMobCount < _mobCount && IsSpawning)
     //    {
     //        int randIndex = Random.Range(0, _enemys.Count);
-    //        _enemys[randIndex].
-    //        _currentMobCount++;
+    //        GameObject enemyGo = _enemys[randIndex].gameObject;
+            
     //    }
     //}
 }
