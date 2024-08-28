@@ -140,6 +140,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2918568570046843929, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2918568570046843929, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
       propertyPath: _whatIsGround.m_Bits
       value: 0
       objectReference: {fileID: 0}
@@ -189,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3916682341307116186, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -251,6 +255,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4020223228009269660, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040475595593215478, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
+      propertyPath: damage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040475595593215478, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
+      propertyPath: stopRay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040475595593215478, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
+      propertyPath: _enemyStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ce710fe5c904dc40ba0f490635dd7fc, type: 2}
+    - target: {fileID: 6040475595593215478, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
+      propertyPath: attackRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040475595593215478, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
+      propertyPath: detectRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040475595593215478, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
+      propertyPath: attackCooldown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040475595593215478, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
+      propertyPath: knockbackPower
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -463,6 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3817697dc25bc46b3d60ba3a5c6340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyStats: {fileID: 0}
   velocity: 3
   jumpPower: 6
   _drone: {fileID: 4829551692014108205, guid: 38f6936b481d4864097b2ec311f3a625, type: 3}
@@ -1781,6 +1814,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6087083862216309433, guid: a2f09a759657ded489b43a17964086e0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087083862216309433, guid: a2f09a759657ded489b43a17964086e0, type: 3}
       propertyPath: _whatIsGround.m_Bits
       value: 0
       objectReference: {fileID: 0}
@@ -1790,7 +1827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8313388324781040890, guid: a2f09a759657ded489b43a17964086e0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1845,9 +1882,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3569530223340005636, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569530223340005636, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
+      propertyPath: _whatIsGround.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519005202214797683, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
+      propertyPath: _enemyStats
+      value: 
+      objectReference: {fileID: 11400000, guid: abf345b9529cc1940b611337809c6679, type: 2}
     - target: {fileID: 7079840489748371561, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
       propertyPath: m_Name
       value: GunEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079840489748371561, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
