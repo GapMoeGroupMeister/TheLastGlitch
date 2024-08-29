@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class RequestItemInfo : MonoBehaviour
 {
-    public PlayerItemSO _item;
     [SerializeField] private Image _item1, _item2;
     [SerializeField] private TMP_Text _item1Price, _item2Price;
     public void ReloadData(int item1, int item2, Sprite item1Img, Sprite item2Img)
