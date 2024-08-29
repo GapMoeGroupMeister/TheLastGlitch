@@ -109,13 +109,11 @@ public abstract class Player : Agent
         {
             _isDoubleAttack = false;
             _isAttack = true;
-            print("1");
         }
         else if (_isAttack)
         {
             _isDoubleAttack = true;
             _isAttack = false;
-            print("2");
         }
     }
 

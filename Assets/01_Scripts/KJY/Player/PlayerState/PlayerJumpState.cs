@@ -12,7 +12,6 @@ public class PlayerJumpState : PlayerState<PlayerStateEnum>
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Jump State");
     }
 
     public override void Exit()

@@ -11,7 +11,6 @@ public class PlayerFallState : PlayerState<PlayerStateEnum>
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Fall State");
     }
 
     public override void Exit()
