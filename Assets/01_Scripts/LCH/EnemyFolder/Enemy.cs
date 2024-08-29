@@ -11,15 +11,6 @@ public enum EnemyStateEnum
     Wait,
     Dead
 }
-
-public enum BossStateEnum
-{
-    Idle,
-    Closed,
-    Opened,
-    AngryOpened,
-    Dead
-} 
 public class Enemy : EnemySetting
 {
     public Vector2 dir;
