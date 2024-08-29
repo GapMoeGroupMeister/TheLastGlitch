@@ -15,6 +15,7 @@ public class DronWalkState : EnemyState<EnemyStateEnum>
 
     public override void Enter()
     {
+        Debug.Log("WalkIn");
         _enemy.MovementComponent._canMove = true;
         if (_enemy.IsDie)
         {
@@ -25,6 +26,7 @@ public class DronWalkState : EnemyState<EnemyStateEnum>
 
     public override void UpdateState()
     {
+        Debug.Log("update");
         if(!_enemy.IsDie)
         {
             state.EnemyMove();
