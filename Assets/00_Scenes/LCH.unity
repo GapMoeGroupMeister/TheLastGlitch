@@ -1679,6 +1679,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dron
       objectReference: {fileID: 0}
+    - target: {fileID: 3856152975751186313, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
+      propertyPath: _ray
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3856152975751186313, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
+      propertyPath: _iGround.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3856152975751186313, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
+      propertyPath: DeadItem.Array.data[1]
+      value: 
+      objectReference: {fileID: 5151407446827430101, guid: 15a5c681b0f8ed049be7ad5cd94f46ad, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1789,6 +1801,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6519005202214797683, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
+      propertyPath: DeadItem.Array.data[1]
+      value: 
+      objectReference: {fileID: 5151407446827430101, guid: 15a5c681b0f8ed049be7ad5cd94f46ad, type: 3}
     - target: {fileID: 7079840489748371561, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
       propertyPath: m_Name
       value: GunEnemy
