@@ -15,8 +15,6 @@ public class Knife : MonoBehaviour
     [SerializeField] private float _damage = 20f;
     [SerializeField] private float _knockBackPower = 20f;
 
-    private bool _attack = false;
-
     private void Awake()
     {
         _input.OnAttackEvent += Attack;
