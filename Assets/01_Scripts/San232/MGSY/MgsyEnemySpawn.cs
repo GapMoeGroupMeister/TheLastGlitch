@@ -39,13 +39,24 @@ public class MgsyEnemySpawn : MonoBehaviour
         //StartCoroutine(SpawnEnemies());
     }
 
-    //private IEnumerator SpawnEnemies()
-    //{
-    //    while (_currentMobCount < _mobCount && IsSpawning)
-    //    {
-    //        int randIndex = Random.Range(0, _enemys.Count);
-    //        GameObject enemyGo = _enemys[randIndex].gameObject;
+    private IEnumerator SpawnEnemies()
+    {
+        while (IsSpawning)
+        {
+            if (_currentMobCount <= _mobCount)
+            {
+                int randIndex = Random.Range(0, _enemys.Count);
+                GameObject enemyGo = _enemys[randIndex].gameObject;
+                _currentMobCount++;
+                float randCool = Random.Range(_minCoolTime, _maxCoolTime);
+                yield return new WaitForSeconds(randCool);
+            }
+            else if (_currentMobCount > _mobCount)
+            {
+                ResetCount();
+            }
             
-    //    }
-    //}
+
+        }
+    }
 }

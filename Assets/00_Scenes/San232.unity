@@ -1281,6 +1281,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   minX: 0
   maxX: 0
+  _enemyStats: {fileID: 0}
   targetTrm: {fileID: 0}
   lastAttackTime: 0
   _colliders: []
