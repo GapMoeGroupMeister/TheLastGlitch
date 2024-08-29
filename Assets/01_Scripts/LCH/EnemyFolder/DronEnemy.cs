@@ -7,10 +7,9 @@ public class DronEnemy : ADEnemy
     public PolygonCollider2D _collider;
     [SerializeField] private ContactFilter2D _filter;
 
-    int count;
     public Collider2D GetPlayerDron()   
     {
-          count = Physics2D.OverlapCollider(_collider, _filter, _colliders);
+         int count = Physics2D.OverlapCollider(_collider, _filter, _colliders);
 
           return count > 0 ? _colliders[0] : null;
     }
