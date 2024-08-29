@@ -53,7 +53,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2334984035475473934
 Transform:
   m_ObjectHideFlags: 0
@@ -74,6 +74,7 @@ Transform:
   - {fileID: 1606709638655077408}
   - {fileID: 1267227305506742994}
   - {fileID: 337400767560622384}
+  - {fileID: 4109944114531529925}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2184039394157073342
@@ -269,6 +270,9 @@ MonoBehaviour:
     maxNormalAngle: 0
   minX: 0
   maxX: 0
+  DeadItem: []
+  ItemPos: {fileID: 0}
+  _enemyStats: {fileID: 0}
   targetTrm: {fileID: 0}
   lastAttackTime: 0
   _colliders: []
@@ -279,7 +283,6 @@ MonoBehaviour:
   distance: 0
   FirstWake: 1
   fainting: 0
-  poolName: Dron
   _enemyPooling: {fileID: 0}
   _laserShooter: {fileID: 0}
   _firePos: {fileID: 7676224124510093892}
@@ -407,6 +410,37 @@ PolygonCollider2D:
       - {x: -2.012341, y: -3.197635}
       - {x: 0.48006916, y: -3.280262}
   m_UseDelaunayMesh: 0
+--- !u!1 &7138013470966764508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4109944114531529925}
+  m_Layer: 8
+  m_Name: ItemPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4109944114531529925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7138013470966764508}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 40.23, y: -2.073, z: -0.0012104688}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2334984035475473934}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8588259018996720626
 GameObject:
   m_ObjectHideFlags: 0
