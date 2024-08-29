@@ -1046,7 +1046,7 @@ GameObject:
   m_Layer: 0
   m_Name: TestMinGaSuY
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1281,15 +1281,20 @@ MonoBehaviour:
     maxNormalAngle: 0
   minX: 0
   maxX: 0
-  _enemyStats: {fileID: 0}
+  _enemyStats: {fileID: 11400000, guid: 7b47bab725339f24686d8a43d78211fb, type: 2}
   targetTrm: {fileID: 0}
   lastAttackTime: 0
   _colliders: []
   testEnemyPrefab: {fileID: 0}
   state: 
   mgsyAnimator: {fileID: 0}
-  ClosedPatterns: []
-  OpenedPatterns: []
+  ClosedPatterns:
+  - m_PersistentCalls:
+      m_Calls: []
+  OpenedPatterns:
+  - m_PersistentCalls:
+      m_Calls: []
+  AngryOpenedPatterns: []
 --- !u!1 &2147331282
 GameObject:
   m_ObjectHideFlags: 0

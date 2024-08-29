@@ -29,6 +29,8 @@ public class MGSY : EnemySetting
 
     public List<UnityEvent> OpenedPatterns = new List<UnityEvent>();
 
+    public List<UnityEvent> AngryOpenedPatterns = new List<UnityEvent>();
+
     protected override void Awake()
     {
         base.Awake();

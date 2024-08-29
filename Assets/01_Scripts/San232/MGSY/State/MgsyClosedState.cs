@@ -39,7 +39,7 @@ public class MgsyClosedState : MGSYState<BossStateEnum>
 
     private IEnumerator MgsyClosedPatternRoutine()
     {
-        patternIndex = Random.Range(0, mgsy.ClosedPatterns.Count);
+        patternIndex = Random.Range(0, mgsy.ClosedPatterns.Count +1);
         mgsy.ClosedPatterns[patternIndex]?.Invoke();
         yield return new WaitForSeconds(Random.Range(minCool, maxCool));
     }

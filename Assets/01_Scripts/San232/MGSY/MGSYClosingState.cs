@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MGSYClosingState : State<BossStateEnum>
+public class MGSYClosingState : MGSYState<BossStateEnum>
 {
-    public MGSYClosingState(Agent _onwer, StateMachine<BossStateEnum> state, string animHashName) : base(_onwer, state, animHashName)
+    public MGSYClosingState(MGSY enemyBase, StateMachine<BossStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
+    }
 
+    public override void Enter()
+    {
+        base.Enter();
+        mgsy.HealthComponent.IsHittable = false;
     }
 }
