@@ -8,7 +8,6 @@ public abstract class EnemySetting : Agent
     public UnityEvent FinalDeadEvent;
 
     [Header("Attack setting")]
-    [SerializeField]
     public int detectRadius;
     public int attackRadius,knockbackPower,attackCooldown;
     public float stopRay;
@@ -20,6 +19,8 @@ public abstract class EnemySetting : Agent
 
     int count;
     bool isPlayer;
+
+    public EnemyStats _enemyStats;
 
     public DamageCaster DamageCasterComp { get; protected set; }
 
@@ -41,6 +42,18 @@ public abstract class EnemySetting : Agent
         _enemyLayers = LayerMask.NameToLayer("Enemy");
         _colliders = new Collider2D[20];
     }
+
+    private void Start()
+    {
+        detectRadius += _enemyStats.EnemydetectRadius;
+        attackRadius += _enemyStats.EnemyattackRadius;
+        knockbackPower += _enemyStats.EnemyknockbackPower;
+        attackCooldown += _enemyStats.EnemyattackCooldown;
+        stopRay += _enemyStats.EnemystopRay;
+        damage += _enemyStats.Enemydamge;
+       HealthComponent._maxHealth = _enemyStats.EnemyHeath;
+    }
+
 
     public Collider2D GetPlayerRange()
     {
