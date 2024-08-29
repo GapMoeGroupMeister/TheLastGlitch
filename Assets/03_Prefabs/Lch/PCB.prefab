@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -7813775647408953500}
   - component: {fileID: -6185967885292920164}
   m_Layer: 0
-  m_Name: PCB
+  m_Name: pcb
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
