@@ -9,7 +9,6 @@ public class PlayerInteract : MonoBehaviour
 
     private IInteractive _interactiveObject;
     private GameObject _interactiveIcon;
-    private bool _isInteractive;
 
     [SerializeField] InputReader _input;
 
@@ -37,23 +36,26 @@ public class PlayerInteract : MonoBehaviour
             if (collider.TryGetComponent(out IInteractive component))
             {
                 _interactiveObject = component;
-                _isInteractive = true;
+                _interactiveIcon.transform.position = collider.transform.position;
             }
-            _interactiveIcon.transform.position = collider.transform.position;
+            else
+            {
+                throw new System.Exception($"{collider.name}오브젝트에 IInteractive를 구현해주세요.");
+            }
         }
         else
         {
-            _isInteractive = false;
             _interactiveObject = null;
         }
     }
 
     private void Interact()
     {
-        if (_isInteractive)
+        if (_interactiveObject != null)
         {
             _interactiveObject.OnInteract();
             _input.playerController.Disable();
+            Time.timeScale = 0f;
         }
     }
 
@@ -61,6 +63,7 @@ public class PlayerInteract : MonoBehaviour
     {
         _interactiveObject.OnDisconnect();
         _input.playerController.Enable();
+        Time.timeScale = 1.0f;
     }
 
     private void OnDrawGizmos()
