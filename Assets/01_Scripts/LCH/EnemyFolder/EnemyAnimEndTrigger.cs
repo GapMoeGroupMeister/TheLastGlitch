@@ -27,9 +27,8 @@ public class EnemyAnimEndTrigger : MonoBehaviour
 
     public void DeadTrigger()
     {
-        Vector2 pos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         int index = Random.Range(0, _enemy.DeadItem.Length);
-        GameObject.Instantiate(_enemy.DeadItem[index],pos, Quaternion.identity);
+        GameObject.Instantiate(_enemy.DeadItem[index],_enemy.ItemPos.position, Quaternion.identity);
         Ipoolable ipoolable = _enemy.GetComponent<Ipoolable>();
         if (ipoolable != null)
         {

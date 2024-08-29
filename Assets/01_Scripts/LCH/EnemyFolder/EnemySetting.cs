@@ -17,7 +17,9 @@ public abstract class EnemySetting : Agent
 
     public float minX, maxX;
 
-    public GameObject[] DeadItem; 
+    public GameObject[] DeadItem;
+
+    public Transform ItemPos;
 
     int count;
     bool isPlayer;

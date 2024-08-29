@@ -217,10 +217,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TankerEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 3824209589037874041, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4020223228009269660, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.18
@@ -261,26 +257,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4630320810775673290, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6040475595593215478, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: DeadItem.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6040475595593215478, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: DeadItem.Array.data[0]
-      value: 
-      objectReference: {fileID: 6473396969644008485, guid: bc058c88cb26be249bdfdca2a620a2f9, type: 3}
-    - target: {fileID: 6040475595593215478, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: DeadItem.Array.data[1]
-      value: 
-      objectReference: {fileID: 6053116263363009150, guid: 25e8919e3788e1145903fb9daa8f42bf, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 4630320810775673290, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-    - {fileID: 7194809998275508351, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
