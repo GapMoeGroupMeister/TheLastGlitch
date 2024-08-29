@@ -118,7 +118,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -269,6 +269,10 @@ MonoBehaviour:
     maxNormalAngle: 0
   minX: 0
   maxX: 0
+  DeadItem:
+  - {fileID: 2716918810560444823, guid: 945047ab8572a8544b6380f8949e4950, type: 3}
+  - {fileID: 6998462816182122661, guid: 687eebf32c53b4a4db3da2306b10cd62, type: 3}
+  _enemyStats: {fileID: 11400000, guid: 0f79060300063d94481daa4450b962f5, type: 2}
   targetTrm: {fileID: 0}
   lastAttackTime: 0
   _colliders: []
@@ -279,7 +283,6 @@ MonoBehaviour:
   distance: 0
   FirstWake: 1
   fainting: 0
-  poolName: Dron
   _enemyPooling: {fileID: 0}
   _laserShooter: {fileID: 0}
   _firePos: {fileID: 7676224124510093892}

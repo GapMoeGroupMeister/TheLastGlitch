@@ -252,7 +252,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -328,7 +328,7 @@ MonoBehaviour:
   gravityDelay: 0.15
   _whatIsGround:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   _groundCheckerSize: {x: 0, y: 0}
   isGround:
     _value: 0
@@ -430,6 +430,10 @@ MonoBehaviour:
     maxNormalAngle: 0
   minX: 0
   maxX: 0
+  DeadItem:
+  - {fileID: 6053116263363009150, guid: 25e8919e3788e1145903fb9daa8f42bf, type: 3}
+  - {fileID: 6998462816182122661, guid: 687eebf32c53b4a4db3da2306b10cd62, type: 3}
+  _enemyStats: {fileID: 11400000, guid: f71f41806dc48434395ed959ae4baa4a, type: 2}
   targetTrm: {fileID: 0}
   lastAttackTime: 0
   _colliders: []
@@ -659,11 +663,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3867970362761614958, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.56
       objectReference: {fileID: 0}
     - target: {fileID: 3867970362761614958, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.72
       objectReference: {fileID: 0}
     - target: {fileID: 3867970362761614958, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -703,7 +707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7169714416049541945, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

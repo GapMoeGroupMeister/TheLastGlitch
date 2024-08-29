@@ -236,7 +236,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -312,7 +312,7 @@ MonoBehaviour:
   gravityDelay: 0.15
   _whatIsGround:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   _groundCheckerSize: {x: 0, y: 0}
   isGround:
     _value: 0
@@ -337,7 +337,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 342303367121405578}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: GetHit
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -349,7 +349,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 7894687139663960352}
         m_TargetAssemblyTypeName: EffectFeedBack, Assembly-CSharp
-        m_MethodName: PlayFeedback
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -414,6 +414,9 @@ MonoBehaviour:
     maxNormalAngle: 0
   minX: 0
   maxX: 0
+  DeadItem:
+  - {fileID: 2716918810560444823, guid: 945047ab8572a8544b6380f8949e4950, type: 3}
+  _enemyStats: {fileID: 11400000, guid: 6cdb8fcc3ecf9e84eab21b9926f19362, type: 2}
   targetTrm: {fileID: 0}
   lastAttackTime: 0
   _colliders: []
@@ -424,7 +427,6 @@ MonoBehaviour:
   distance: 0
   FirstWake: 1
   fainting: 0
-  poolName: Boom
   _enemyPooling: {fileID: 0}
   _boomDealy: 2
 --- !u!114 &5969781746478416666
