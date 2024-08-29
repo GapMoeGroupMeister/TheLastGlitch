@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class DronEnemy : ADEnemy
 {
@@ -37,15 +38,12 @@ public class DronEnemy : ADEnemy
         _colliders = new Collider2D[3];
     }
 
-    private void Update()
+    protected override void Update()
     {
-        IsGround();
+        if (!IsGround())
+        {
+            transform.DOMoveY(transform.position.y - 1, 1.5f);
+        }
+        base.Update();
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, Vector2.down * _ray);
-    }
-
 }

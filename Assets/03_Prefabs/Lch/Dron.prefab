@@ -305,7 +305,7 @@ MonoBehaviour:
   _iGround:
     serializedVersion: 2
     m_Bits: 512
-  _ray: 4
+  _ray: 3
 --- !u!114 &8605155596378037593
 MonoBehaviour:
   m_ObjectHideFlags: 0
