@@ -24,7 +24,6 @@ public class MgsyIdleState : MGSYState<BossStateEnum>
     public override void Enter()
     {
         base.Enter();
-        health.IsHittable = true;
     }
 
     public override void UpdateState()
@@ -37,5 +36,6 @@ public class MgsyIdleState : MGSYState<BossStateEnum>
     public override void Exit()
     {
         base.Exit();
+        mgsy.HealthComponent.IsHittable = false;
     }
 }
