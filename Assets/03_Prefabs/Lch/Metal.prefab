@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8644807110095547117}
   - component: {fileID: -6040686132743970745}
   m_Layer: 13
-  m_Name: metal
+  m_Name: Metal
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,4 +254,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14592c558556c64d86b905636ccaedd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemName: 
+  itemType: 3

@@ -131,14 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -6040686132743970745, guid: 25e8919e3788e1145903fb9daa8f42bf, type: 3}
-      propertyPath: itemType
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511593961524736785, guid: 25e8919e3788e1145903fb9daa8f42bf, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5053237157381640352, guid: 25e8919e3788e1145903fb9daa8f42bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.345955
@@ -555,18 +547,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -6185967885292920164, guid: bc058c88cb26be249bdfdca2a620a2f9, type: 3}
-      propertyPath: m_Size.y
-      value: 1.2051101
-      objectReference: {fileID: 0}
-    - target: {fileID: -6185967885292920164, guid: bc058c88cb26be249bdfdca2a620a2f9, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.0931797
-      objectReference: {fileID: 0}
-    - target: {fileID: -4957230012745648789, guid: bc058c88cb26be249bdfdca2a620a2f9, type: 3}
-      propertyPath: itemType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4662626935372845302, guid: bc058c88cb26be249bdfdca2a620a2f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.272072
@@ -610,10 +590,6 @@ PrefabInstance:
     - target: {fileID: 6473396969644008485, guid: bc058c88cb26be249bdfdca2a620a2f9, type: 3}
       propertyPath: m_Name
       value: PCB
-      objectReference: {fileID: 0}
-    - target: {fileID: 7103153959815528666, guid: bc058c88cb26be249bdfdca2a620a2f9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
