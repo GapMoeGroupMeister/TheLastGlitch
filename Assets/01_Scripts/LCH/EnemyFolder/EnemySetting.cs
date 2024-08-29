@@ -19,8 +19,6 @@ public abstract class EnemySetting : Agent
 
     public GameObject[] DeadItem;
 
-    public Transform ItemPos;
-
     int count;
     bool isPlayer;
 
