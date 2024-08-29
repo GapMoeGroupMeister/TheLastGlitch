@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using System;
-using UnityEngine.Experimental.GlobalIllumination;
-using Unity.VisualScripting;
-
+using UnityEngine.Events;
 public class BigSword : MonoBehaviour
 {
+    public UnityEvent OnAttackEvent;
+
     [field: SerializeField] private InputReader _input;
 
     [SerializeField] private GameObject _swordParent;
+    [SerializeField] private GameObject _player;
     [SerializeField] private LayerMask _enemyLayer;
 
     [SerializeField] private float _damage = 30f;
@@ -55,8 +55,11 @@ public class BigSword : MonoBehaviour
     private IEnumerator AttackCoolTimeBG()
     {
         WeaponCoolTime.instance._attack = true;
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(_swordSwingTime);
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+        yield return new WaitForSeconds(_swordReturnTime);
         WeaponCoolTime.instance._attack = false;
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -65,8 +68,16 @@ public class BigSword : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                Vector2 attackDir = new Vector2(Mathf.Clamp(Vector3.Cross(collision.gameObject.transform.position, transform.position).z, -1, 1), 0);
-                collision.gameObject.GetComponent<Health>().TakeDamage(_damage, -attackDir, _knockBackPower);
+                if (_player.transform.localScale.x > 0)
+                {
+                    collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.right, _knockBackPower);
+                }
+
+                if (_player.transform.localScale.x < 0)
+                {
+                    collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.left, _knockBackPower);
+                }
+                OnAttackEvent?.Invoke();
             }
         }
     }

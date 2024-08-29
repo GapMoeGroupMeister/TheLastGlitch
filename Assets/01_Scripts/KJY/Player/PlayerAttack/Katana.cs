@@ -1,14 +1,22 @@
 using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Katana : MonoBehaviour
 {
+    public UnityEvent OnAttackEvent;
+
+
     [field: SerializeField] private InputReader _input;
 
     [SerializeField] private float _damage = 15f;
     [SerializeField] private GameObject _katanaParent;
+    [SerializeField] private GameObject _player;
+
+    [SerializeField] private float _knockBackPower = 10f;
+    [SerializeField] private float _swordSwingTime = 0.2f;
+    [SerializeField] private float _swordReturnTime = 0.2f;
 
     [SerializeField] private int _attackSequence1;
     [SerializeField] private int _attackSequence2;
@@ -28,8 +36,8 @@ public class Katana : MonoBehaviour
             if (!WeaponCoolTime.instance._attack)
             {
                 AttackSequence = DOTween.Sequence();
-                AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence1), 0.1f, RotateMode.FastBeyond360));
-                AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence2), 0.3f).SetEase(_ease));
+                AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence1), _swordSwingTime, RotateMode.FastBeyond360));
+                AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence2), _swordReturnTime).SetEase(_ease));
                 AttackSequence.Play();
                 StartCoroutine(AttackCoolTimeKA());
             }
@@ -39,8 +47,11 @@ public class Katana : MonoBehaviour
     private IEnumerator AttackCoolTimeKA()
     {
         WeaponCoolTime.instance._attack = true;
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(_swordSwingTime);
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+        yield return new WaitForSeconds(_swordReturnTime);
         WeaponCoolTime.instance._attack = false;
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = true ;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,7 +60,16 @@ public class Katana : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.right, 2);
+                if (_player.transform.localScale.x > 0)
+                {
+                    collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.right, _knockBackPower);
+                }
+
+                if (_player.transform.localScale.x < 0)
+                {
+                    collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.left, _knockBackPower);
+                }
+                OnAttackEvent?.Invoke();
             }
         }
     }

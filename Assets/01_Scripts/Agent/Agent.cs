@@ -22,6 +22,7 @@ public abstract class Agent : MonoBehaviour
         HealthComponent = GetComponent<Health>();
         HealthComponent.Initialize(this);
     }
+
     public abstract void SetDeadState();
     #region Flip
     public bool IsFacingRight()

@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 342303367121405578}
+  _ad: {fileID: 0}
 --- !u!1 &7485567998091557247
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +194,7 @@ GameObject:
   - component: {fileID: 6087083862216309433}
   - component: {fileID: 3399427739390093216}
   - component: {fileID: 342303367121405578}
-  - component: {fileID: 8323998336330734658}
+  - component: {fileID: 5969781746478416666}
   m_Layer: 8
   m_Name: BoomEnemy
   m_TagString: Enemy
@@ -333,7 +334,31 @@ MonoBehaviour:
   _maxHealth: 100
   OnGetHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 342303367121405578}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: GetHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7894687139663960352}
+        m_TargetAssemblyTypeName: EffectFeedBack, Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls:
@@ -368,7 +393,7 @@ MonoBehaviour:
   attackRadius: 1
   knockbackPower: 5
   attackCooldown: 1
-  stopRay: 0
+  stopRay: 0.3
   damage: 10
   _whatIsPlayer:
     serializedVersion: 2
@@ -391,15 +416,18 @@ MonoBehaviour:
   maxX: 0
   targetTrm: {fileID: 0}
   lastAttackTime: 0
-  _laserShooter: {fileID: 0}
-  _firePos: {fileID: 0}
   _colliders: []
-  isMelee: 1
-  isCloser: 0
-  isBoom: 0
   dir: {x: 0, y: 0}
   CanAttack: 1
---- !u!114 &8323998336330734658
+  FirstAttack: 1
+  Boom: 0
+  distance: 0
+  FirstWake: 1
+  fainting: 0
+  poolName: Boom
+  _enemyPooling: {fileID: 0}
+  _boomDealy: 2
+--- !u!114 &5969781746478416666
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

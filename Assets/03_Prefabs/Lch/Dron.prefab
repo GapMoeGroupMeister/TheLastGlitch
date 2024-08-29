@@ -45,8 +45,8 @@ GameObject:
   - component: {fileID: 4348948770106824971}
   - component: {fileID: 1799079265480698016}
   - component: {fileID: 3856152975751186313}
-  - component: {fileID: 8411017161285904528}
   - component: {fileID: 8605155596378037593}
+  - component: {fileID: 4865420498346267626}
   m_Layer: 8
   m_Name: Dron
   m_TagString: Enemy
@@ -164,9 +164,9 @@ MonoBehaviour:
   OnGetHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3138625653727461466}
-        m_TargetAssemblyTypeName: EffectFeedBack, Assembly-CSharp
-        m_MethodName: PlayFeedback
+      - m_Target: {fileID: 6854040670158097934}
+        m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -178,7 +178,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 3856152975751186313}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: GetHit
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -222,7 +222,7 @@ MonoBehaviour:
   gravityDelay: 0
   _whatIsGround:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   _groundCheckerSize: {x: 0, y: 0}
   isGround:
     _value: 0
@@ -271,14 +271,18 @@ MonoBehaviour:
   maxX: 0
   targetTrm: {fileID: 0}
   lastAttackTime: 0
-  _laserShooter: {fileID: 0}
-  _firePos: {fileID: 7676224124510093892}
   _colliders: []
-  isMelee: 1
-  isCloser: 0
-  isBoom: 0
   dir: {x: 0, y: 0}
   CanAttack: 1
+  FirstAttack: 1
+  Boom: 0
+  distance: 0
+  FirstWake: 1
+  fainting: 0
+  poolName: Dron
+  _enemyPooling: {fileID: 0}
+  _laserShooter: {fileID: 0}
+  _firePos: {fileID: 7676224124510093892}
   _collider: {fileID: 3442106468549865575}
   _filter:
     useTriggers: 0
@@ -294,19 +298,6 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
---- !u!114 &8411017161285904528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3065351043755773162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da3178cfc6bded74faca0aeb00201319, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolName: Dron
 --- !u!114 &8605155596378037593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,8 +310,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd7cf0e368f1bd4fa02ca92e3ccd893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _laser: {fileID: 3419725608764539512, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
-  _laserTime: 0.3
+  _laser: {fileID: 2195000049240880422}
+  _laserTime: 0.5
+--- !u!114 &4865420498346267626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3065351043755773162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da3178cfc6bded74faca0aeb00201319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolName: b
 --- !u!1 &6802288738564397790
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 3856152975751186313}
+  _ad: {fileID: 3856152975751186313}
 --- !u!1001 &3328447565378749192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -739,6 +744,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3867970362761614958, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
   m_PrefabInstance: {fileID: 3531801467025373022}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2195000049240880422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3419725608764539512, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
+  m_PrefabInstance: {fileID: 3531801467025373022}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 536ebc661ccd30a49a5daa2bdfbfa6d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8789224066907024644
 PrefabInstance:
   m_ObjectHideFlags: 0

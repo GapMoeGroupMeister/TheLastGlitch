@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class PassiveManager : MonoBehaviour
 {
@@ -12,18 +15,32 @@ public class PassiveManager : MonoBehaviour
     private void Start()
     {
         player = GameManager.Instance.Player;
+        UseTimePassiveSkill();
+
     }
 
 
-    public void UseTimeSkill()
+    public void UseTimePassiveSkill()
     {
         foreach (PassiveSO item in UsePassiveList)
         {
             if (item.type == PATEnum.Time)
-                item.Skill(player);
+            {
+                StartCoroutine(PassiveTimer(item.time, item));
+            }
         }
     }
-    public void UseAttackSkill()
+
+    private IEnumerator PassiveTimer(float time, PassiveSO item)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(time);
+            item.Skill(player);
+        }
+    }
+
+    public void UseAttackPassiveSkill()
     {
         foreach (PassiveSO item in UsePassiveList)
         {
@@ -31,7 +48,7 @@ public class PassiveManager : MonoBehaviour
                 item.Skill(player);
         }
     }
-    public void UseHitSkill()
+    public void UseHitassiveSkill()
     {
         foreach (PassiveSO item in UsePassiveList)
         {

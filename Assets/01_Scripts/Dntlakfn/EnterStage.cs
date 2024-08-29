@@ -3,33 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnterStage : MonoBehaviour
+public class EnterStage : MonoBehaviour, IInteractive
 {
     public static string map;
+    [SerializeField] protected EventBox eb;
 
-    private bool a;
+    
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnDisconnect()
     {
-        a = true;
+        
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void OnInteract()
     {
-        a = false;
-    }
-
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E) && a)
+        if (map != null)
         {
-            if(map != null)
-            {
-                SceneManager.LoadScene(map);
-            }
-
-            
+            SceneManager.LoadScene(map);
         }
     }
+
+    
+    
 }

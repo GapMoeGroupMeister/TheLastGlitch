@@ -16,4 +16,6 @@ public class TestListQuestSO : ScriptableObject
         list = new List<TestQuestSO>();
     }
 
+    
+
 }

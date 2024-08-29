@@ -48,10 +48,10 @@ public class Health : MonoBehaviour
             if (knockbackPower > 0)
                 _onwer.MovementComponent.GetKnockback(dir, knockbackPower);
             _currentHealth -= amount;
-            if (_currentHealth <= 0)
+            if (_currentHealth < 0)
             {
-                _currentHealth = _maxHealth;
                 OnDeadEvent?.Invoke();
+                _currentHealth = _maxHealth;
             }
 
         }

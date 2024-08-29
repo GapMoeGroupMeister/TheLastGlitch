@@ -7,7 +7,7 @@ public class HitPassiveFeedBack : Feedback
     [SerializeField] private PassiveManager _passiveManager;
     public override void PlayFeedback()
     {
-        _passiveManager.UseHitSkill();
+        _passiveManager.UseHitassiveSkill();
     }
 
     public override void StopFeedback()

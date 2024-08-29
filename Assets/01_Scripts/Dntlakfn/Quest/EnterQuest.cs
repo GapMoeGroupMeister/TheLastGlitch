@@ -3,26 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnterQuest : MonoBehaviour
+public class EnterQuest : MonoBehaviour, IInteractive
 {
     public UnityEvent OnEnter;
     [SerializeField] protected GameObject QuestUI;
     [SerializeField] protected bool isEnter;
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public void OnDisconnect()
     {
-        isEnter = true;
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        isEnter = false;
+        QuestUI.SetActive(false);
     }
 
-    private void Update()
+    public void OnInteract()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            QuestUI.SetActive(isEnter);
-            OnEnter?.Invoke();
-        }
+        QuestUI.SetActive(true);
+        OnEnter?.Invoke();
     }
+
+   
+
+    
 }
