@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3135521774869302223
 Transform:
   m_ObjectHideFlags: 0
@@ -39,7 +39,6 @@ Transform:
   - {fileID: 2616832863107037520}
   - {fileID: 219575009881170269}
   - {fileID: 8205726529911721661}
-  - {fileID: 8365029107907754332}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7557804757636441054
@@ -235,9 +234,10 @@ MonoBehaviour:
     maxNormalAngle: 0
   minX: 0
   maxX: 0
-  DeadItem: []
-  ItemPos: {fileID: 0}
-  _enemyStats: {fileID: 0}
+  DeadItem:
+  - {fileID: 6473396969644008485, guid: bc058c88cb26be249bdfdca2a620a2f9, type: 3}
+  - {fileID: 6053116263363009150, guid: 25e8919e3788e1145903fb9daa8f42bf, type: 3}
+  _enemyStats: {fileID: 11400000, guid: a8e939dbb56436642a4fb1e0cd6abcba, type: 2}
   targetTrm: {fileID: 0}
   lastAttackTime: 0
   _colliders: []
@@ -442,37 +442,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particleSystem: {fileID: 1189340810403874827, guid: fb8e03d08228b534bb74ee486dae2664, type: 3}
   _effectName: EnemyHitParticle
---- !u!1 &7919078405864623305
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8365029107907754332}
-  m_Layer: 8
-  m_Name: ItemPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8365029107907754332
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7919078405864623305}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.87999964, y: -0.33300006, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3135521774869302223}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1841718192197206379
 PrefabInstance:
   m_ObjectHideFlags: 0
