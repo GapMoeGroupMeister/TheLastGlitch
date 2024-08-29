@@ -166,7 +166,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6854040670158097934}
         m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: PlayFeedbacks
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -178,7 +178,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 3856152975751186313}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: GetHit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -510,7 +510,7 @@ Transform:
   m_GameObject: {fileID: 8866732821189782316}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.047, y: -0.215, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
