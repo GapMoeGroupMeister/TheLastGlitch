@@ -649,6 +649,7 @@ MonoBehaviour:
   <_quest>k__BackingField: {fileID: 0}
   _name: {fileID: 4990730591695424715}
   _detail: {fileID: 6301921164804961251}
+  _level: {fileID: 6391354848435048383}
   _contents: {fileID: 1304287528356448064}
 --- !u!1 &8574494822823326598
 GameObject:
@@ -682,10 +683,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 311251098680194517}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -152}
-  m_SizeDelta: {x: 0, y: 111}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 3.6642, y: -68.92712}
+  m_SizeDelta: {x: 284.4054, y: 37.7445}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7292297452227489158
 CanvasRenderer:
@@ -715,8 +716,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC774 \uC886\uAC19\uC740 \uD0DD\uC2A4\uD2B8 \uC2DC\uC548\uC131 \uBB38\uC81C\uB97C
-    \uD574\uACB0\uD558\uB77C."
+  m_text: "\uCD94\uCC9C \uB808\uBCA8 : 1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 469cf610883ad644a8eb0f9bad738794, type: 2}
   m_sharedMaterial: {fileID: -3828153460934156249, guid: 469cf610883ad644a8eb0f9bad738794, type: 2}
@@ -726,7 +726,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278218239
-  m_fontColor: {r: 1, g: 0.42829716, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 0.427451, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -743,14 +743,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -779,7 +779,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 34.259117, y: 21.87492, z: 32.6512, w: -127.597916}
+  m_margin: {x: 0.66773224, y: 1.2033653, z: -2.2321167, w: 2.8914948}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

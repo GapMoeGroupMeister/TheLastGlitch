@@ -45,7 +45,7 @@ public class QuestControl : MonoBehaviour
     {
         _name.text = _quest.questName;
         _detail.text = _quest.questDetail;
-        _level.text = _quest.questLevel.ToString();
+        _level.text = "추천 래벨 : " + _quest.questLevel;
         if(_quest.questType == QuestType.Clear)
         {
             _contents.text = $"\"{_quest.targetPlace}\" 클리어";
