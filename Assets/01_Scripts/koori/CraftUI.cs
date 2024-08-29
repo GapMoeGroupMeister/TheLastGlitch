@@ -17,9 +17,9 @@ public class CraftUI : MonoBehaviour
 
     private void ReloadItemCount()
     {
-        _battery.text = $"{m_Item.battery}";
-        _pcb.text = $"{m_Item.pcb}";
-        _sensor.text = $"{m_Item.sensor}";
-        _metal.text = $"{m_Item.metal}";
+        _battery.text = m_Item.requireItemDic[RequireItemType.battery].ToString();
+        _pcb.text = m_Item.requireItemDic[RequireItemType.pcb].ToString();
+        _sensor.text = m_Item.requireItemDic[RequireItemType.sensor].ToString();
+        _metal.text = m_Item.requireItemDic[RequireItemType.metal].ToString();
     }
 }
