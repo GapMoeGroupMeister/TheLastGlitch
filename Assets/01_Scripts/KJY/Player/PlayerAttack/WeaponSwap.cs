@@ -13,14 +13,13 @@ public class WeaponSwap : MonoBehaviour
     [SerializeField] private GameObject _weapon1;
     [SerializeField] private GameObject _weapon2;
 
-    private bool _weapon1SW;
-    private bool _weapon2SW;
-
-    private bool _swapCoolTime;
-
     private void Awake()
     {
         _input.OnSwapingEvent += WeaponSwaping;
+    }
+
+    private void Start()
+    {
     }
 
     private void WeaponSwaping()
@@ -28,20 +27,16 @@ public class WeaponSwap : MonoBehaviour
         if (!WeaponCoolTime.instance._attack)
         {
             StartCoroutine(SwapCool());
-            if (!_weapon1SW)
+            if (_weapon1.activeSelf)
             {
                 _weapon1.SetActive(false);
                 _weapon2.SetActive(true);
-                _weapon1SW = true;
-                _weapon2SW = false;
             }
 
-            else if (!_weapon2SW)
+            else if (_weapon2.activeSelf)
             {
                 _weapon2.SetActive(false);
                 _weapon1.SetActive(true);
-                _weapon2SW = true;
-                _weapon1SW = false;
             }
         }
     }
