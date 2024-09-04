@@ -54,7 +54,7 @@ public class MgsyEnemySpawn : MonoBehaviour
             {
                 ResetCount();
             }
-
+            
             IsSpawning = false;
         }
     }

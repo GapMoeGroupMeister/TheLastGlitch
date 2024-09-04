@@ -819,7 +819,38 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!1001 &1339263876
+--- !u!1 &932317907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 932317908}
+  m_Layer: 0
+  m_Name: FirePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &932317908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932317907}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1019336019
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -880,15 +911,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
---- !u!4 &1339263877 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3867970362761614958, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
-  m_PrefabInstance: {fileID: 1339263876}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1339263878 stripped
+--- !u!114 &1493130190 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3419725608764539512, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
-  m_PrefabInstance: {fileID: 1339263876}
+  m_PrefabInstance: {fileID: 1019336019}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -896,6 +922,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 536ebc661ccd30a49a5daa2bdfbfa6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1493130192 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3867970362761614958, guid: 9a9d40b5e2ae52445b30c8e49a48bfd4, type: 3}
+  m_PrefabInstance: {fileID: 1019336019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1658122915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,6 +1067,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1976350836}
+  - component: {fileID: 1976350842}
   - component: {fileID: 1976350841}
   - component: {fileID: 1976350835}
   - component: {fileID: 1976350839}
@@ -1124,7 +1156,7 @@ Transform:
   - {fileID: 1849109293}
   - {fileID: 1658122916}
   - {fileID: 580136824}
-  - {fileID: 1339263877}
+  - {fileID: 1493130192}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1976350837
@@ -1211,7 +1243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd7cf0e368f1bd4fa02ca92e3ccd893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _laser: {fileID: 1339263878}
+  _laser: {fileID: 0}
   _laserTime: 0.7
 --- !u!114 &1976350840
 MonoBehaviour:
@@ -1281,6 +1313,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   minX: 0
   maxX: 0
+  DeadItem: []
   _enemyStats: {fileID: 11400000, guid: 7b47bab725339f24686d8a43d78211fb, type: 2}
   targetTrm: {fileID: 0}
   lastAttackTime: 0
@@ -1290,11 +1323,87 @@ MonoBehaviour:
   mgsyAnimator: {fileID: 0}
   ClosedPatterns:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1976350840}
+        m_TargetAssemblyTypeName: MgsyEnemySpawn, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1976350840}
+        m_TargetAssemblyTypeName: MgsyEnemySpawn, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OpenedPatterns:
   - m_PersistentCalls:
-      m_Calls: []
-  AngryOpenedPatterns: []
+      m_Calls:
+      - m_Target: {fileID: 1976350840}
+        m_TargetAssemblyTypeName: MgsyEnemySpawn, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1976350840}
+        m_TargetAssemblyTypeName: MgsyEnemySpawn, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  AngryOpenedPatterns:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1976350840}
+        m_TargetAssemblyTypeName: MgsyEnemySpawn, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1976350842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976350832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bd7cf0e368f1bd4fa02ca92e3ccd893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _laser: {fileID: 1493130190}
+  _laserTime: 0.3
 --- !u!1 &2147331282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,9 +1417,9 @@ GameObject:
   - component: {fileID: 2147331285}
   - component: {fileID: 2147331286}
   - component: {fileID: 2147331287}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Poison
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1376,7 +1485,7 @@ Transform:
   m_GameObject: {fileID: 2147331282}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.53, y: 3.85, z: 0}
+  m_LocalPosition: {x: 19.13, y: 0.11, z: 0}
   m_LocalScale: {x: 0.3136, y: 0.741, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1451,3 +1560,4 @@ SceneRoots:
   - {fileID: 2147331284}
   - {fileID: 82461364}
   - {fileID: 1976350836}
+  - {fileID: 932317908}

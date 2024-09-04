@@ -13,6 +13,5 @@ public class MgsyOpenedState : MGSYState<BossStateEnum>
     public override void Enter()
     {
         base.Enter();
-        mgsy.OpenedPatterns[0]?.Invoke();
     }
 }

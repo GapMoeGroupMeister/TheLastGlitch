@@ -9,33 +9,30 @@ public class MgsyIdleState : MGSYState<BossStateEnum>
 
     }
 
-    private void DetectPlayer()
+    private void Change2Closed()
     {
-        Collider2D detectedCollider = Physics2D.OverlapCircle(mgsy.transform.position, mgsy.detectRadius, mgsy._whatIsPlayer);
-
-        if (detectedCollider != null && detectedCollider.CompareTag("Player"))
-        {
-            _stateMachine.ChangeState(BossStateEnum.Closed);
-        }
-
+        
+        _stateMachine.ChangeState(BossStateEnum.Closed);
+        
     }
 
 
     public override void Enter()
     {
         base.Enter();
+        mgsy.HealthComponent.IsHittable = false;
+        Change2Closed();
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
-
-        DetectPlayer();
+        
+        
     }
 
     public override void Exit()
     {
         base.Exit();
-        mgsy.HealthComponent.IsHittable = false;
     }
 }
