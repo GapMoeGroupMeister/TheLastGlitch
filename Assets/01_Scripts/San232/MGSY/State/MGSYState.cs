@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class MGSYState<T> : State<T> where T : Enum
 {
-    [SerializeField] protected Health health;
     [SerializeField] protected MGSY mgsy;
 
     public MGSYState(MGSY enemyBase, StateMachine<T> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
         mgsy = enemyBase;
-        health = enemyBase.GetComponent<Health>();
     }
 
     public override void Enter()

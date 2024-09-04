@@ -2,27 +2,38 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+public enum BossStateEnum
+{
+    Idle,
+    Closed,
+    Opened,
+    AngryOpened,
+    Dead,
+    Opening,
+    Closing
+}
 
 public class MGSY : EnemySetting
 {
     [SerializeField] private GameObject testEnemyPrefab = null;
-    [SerializeField] protected Health health = null;
     public string state = null;
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
-    public GameObject test => testEnemyPrefab;
 
-    public int ?isRunningHash = null;
+    public Animator mgsyAnimator = null;
 
-    public Action OnCoreExplosion;
-    public Action OnMobSpawn;
-    public Action OnElectricExplosion;
+    public int? isRunningHash = null;
 
+    public List<UnityEvent> ClosedPatterns = new List<UnityEvent>();
+
+    public List<UnityEvent> OpenedPatterns = new List<UnityEvent>();
+
+    public List<UnityEvent> AngryOpenedPatterns = new List<UnityEvent>();
 
     protected override void Awake()
     {
         base.Awake();
-        health = GetComponent<Health>();
-
         StateMachine = new StateMachine<BossStateEnum>();
 
         StateMachine.AddState(BossStateEnum.Idle, new MgsyIdleState(this, StateMachine, "Idle"));
@@ -30,18 +41,32 @@ public class MGSY : EnemySetting
         StateMachine.AddState(BossStateEnum.Opened, new MgsyOpenedState(this, StateMachine, "Opened"));
         StateMachine.AddState(BossStateEnum.AngryOpened, new MgsyAngryOpenedState(this, StateMachine, "AngryOpened"));
         StateMachine.AddState(BossStateEnum.Dead, new MgsyDeadState(this, StateMachine, "Dead"));
+        StateMachine.AddState(BossStateEnum.Opening, new MGSYOpeningState(this, StateMachine, "Opening"));
+        StateMachine.AddState(BossStateEnum.Closing, new MGSYClosingState(this, StateMachine, "Closing"));
         StateMachine.InitInitialize(BossStateEnum.Idle, this);
+
     }
-    
+
     private void Update()
     {
         StateMachine.CurrentState.UpdateState();
-        
     }
 
     public override void SetDeadState()
     {
         StateMachine.ChangeState(BossStateEnum.Dead);
+    }
+
+    public void Opening2Opened()
+    {
+        if (HealthComponent.GetCurrentHP() > HealthComponent._maxHealth)
+        {
+            StateMachine.ChangeState(BossStateEnum.Opened);
+        }
+        else
+        {
+            StateMachine.ChangeState(BossStateEnum.AngryOpened);
+        }
     }
 
     public Collider2D GetPlayerInRange()
@@ -56,8 +81,5 @@ public class MGSY : EnemySetting
         StateMachine.CurrentState.AnimationEndTrigger();
     }
 
-    public void SpawnEntity(GameObject entities)
-    {
-        Instantiate(entities);
-    }
 }
+

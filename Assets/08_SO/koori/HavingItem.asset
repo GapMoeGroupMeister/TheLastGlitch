@@ -16,3 +16,11 @@ MonoBehaviour:
   pcb: 0
   sensor: 0
   metal: 0
+  gatlingDrone: 0
+  selfDestructDrone: 0
+  hackPulse: 0
+  aed: 0
+  portalGun: 0
+  rocketLauncher: 0
+  doping: 0
+  shield: 0

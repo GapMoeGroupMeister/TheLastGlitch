@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63429e9abd493a240a5f4eb012e714fb, type: 3}
   m_Name: TankerStats
   m_EditorClassIdentifier: 
-  EnemyHeath: 0
-  EnemydetectRadius: 0
-  EnemyattackRadius: 0
-  Enemydamge: 0
+  EnemyHeath: 100
+  EnemydetectRadius: 7
+  EnemyattackRadius: 1
+  Enemydamge: 3
+  EnemyknockbackPower: 2
+  EnemyattackCooldown: 2
+  EnemystopRay: 0.5

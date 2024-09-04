@@ -9,7 +9,7 @@ public class Laser : MonoBehaviour
     {
         _lineRenderer = GetComponent<LineRenderer>();
     }
-
+    
     public void SetLaserPositions(Vector3 startPosition, Vector3 endPosition)
     {
         _lineRenderer.SetPosition(0, startPosition);

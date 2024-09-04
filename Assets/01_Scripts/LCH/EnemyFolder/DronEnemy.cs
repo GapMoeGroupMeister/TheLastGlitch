@@ -1,16 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class DronEnemy : ADEnemy
 {
     public PolygonCollider2D _collider;
     [SerializeField] private ContactFilter2D _filter;
 
-    int count;
+    [SerializeField] private LayerMask _iGround;
+
+    [SerializeField] private float _ray;
+
+    public bool IsGround()
+    {
+        bool ThisisGround = Physics2D.Raycast(transform.position, Vector2.down, _ray, _iGround);
+        return ThisisGround;
+    }
+
     public Collider2D GetPlayerDron()   
     {
-          count = Physics2D.OverlapCollider(_collider, _filter, _colliders);
+         int count = Physics2D.OverlapCollider(_collider, _filter, _colliders);
 
           return count > 0 ? _colliders[0] : null;
     }
@@ -28,5 +38,12 @@ public class DronEnemy : ADEnemy
         _colliders = new Collider2D[3];
     }
 
-    
+    protected override void Update()
+    {
+        if (!IsGround())
+        {
+            transform.DOMoveY(transform.position.y - 1, 1.5f);
+        }
+        base.Update();
+    }
 }

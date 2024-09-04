@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -36,6 +37,7 @@ public class GoodsControl : MonoBehaviour
 
     public void BuyItem()
     {
+        Money.money -= int.Parse(_price.text);
         gameObject.SetActive(false);
         Debug.Log(item);
         //인벤토리 리스트에 구매한 아이탬 넣어줌
@@ -45,8 +47,12 @@ public class GoodsControl : MonoBehaviour
 
     public void Click()
     {
-        OnBuy = BuyItem;
-        _eb.SetEvent(OnBuy, "구매하시겠습니까?");
+        if(Money.money >= int.Parse(_price.text))
+        {
+            OnBuy = BuyItem;
+            _eb.SetEvent(OnBuy, "구매하시겠습니까?");
+        }
+        
     }
 
     

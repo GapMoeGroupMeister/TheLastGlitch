@@ -17,10 +17,12 @@ public abstract class EnemySetting : Agent
 
     public float minX, maxX;
 
+    public GameObject[] DeadItem;
+
     int count;
     bool isPlayer;
 
-    public EnemyStats _enemyStats;
+    [SerializeField] EnemyStats _enemyStats;
 
     public DamageCaster DamageCasterComp { get; protected set; }
 
@@ -38,22 +40,17 @@ public abstract class EnemySetting : Agent
     protected override void Awake()
     {
         base.Awake();
-        DamageCasterCompo = transform.Find("DamgeCaster").GetComponent<DamageCaster>();
-        _enemyLayers = LayerMask.NameToLayer("Enemy");
-        _colliders = new Collider2D[20];
-    }
-
-    private void Start()
-    {
         detectRadius += _enemyStats.EnemydetectRadius;
         attackRadius += _enemyStats.EnemyattackRadius;
         knockbackPower += _enemyStats.EnemyknockbackPower;
         attackCooldown += _enemyStats.EnemyattackCooldown;
         stopRay += _enemyStats.EnemystopRay;
         damage += _enemyStats.Enemydamge;
-       HealthComponent.maxHealth = _enemyStats.EnemyHeath;
+        HealthComponent._maxHealth = _enemyStats.EnemyHeath;
+        DamageCasterCompo = transform.Find("DamgeCaster").GetComponent<DamageCaster>();
+        _enemyLayers = LayerMask.NameToLayer("Enemy");
+        _colliders = new Collider2D[20];
     }
-
 
     public Collider2D GetPlayerRange()
     {

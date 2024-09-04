@@ -6,20 +6,19 @@ using UnityEngine;
 
 public class CraftUI : MonoBehaviour
 {
-    [SerializeField] private PlayerItemSO m_Item;
-
-    [SerializeField] private TMP_Text _battery, _pcb, _sensor, _metal;
+    [SerializeField] private TMP_Text _battery, _pcb, _sensor, _metal, _gear;
 
     private void OnEnable()
     {
         ReloadItemCount();
     }
 
-    private void ReloadItemCount()
+    public void ReloadItemCount()
     {
-        _battery.text = $"{m_Item.battery}";
-        _pcb.text = $"{m_Item.pcb}";
-        _sensor.text = $"{m_Item.sensor}";
-        _metal.text = $"{m_Item.metal}";
+        _battery.text = PlayerItemSO.Instance.requireItemDic[RequireItemType.battery].ToString();
+        _pcb.text = PlayerItemSO.Instance.requireItemDic[RequireItemType.pcb].ToString();
+        _sensor.text = PlayerItemSO.Instance.requireItemDic[RequireItemType.sensor].ToString();
+        _metal.text = PlayerItemSO.Instance.requireItemDic[RequireItemType.metal].ToString();
+        _gear.text = PlayerItemSO.Instance.requireItemDic[RequireItemType.gear].ToString();
     }
 }

@@ -11,15 +11,6 @@ public enum EnemyStateEnum
     Wait,
     Dead
 }
-
-public enum BossStateEnum
-{
-    Idle,
-    Closed,
-    Opened,
-    AngryOpened,
-    Dead
-} 
 public class Enemy : EnemySetting
 {
     public Vector2 dir;
@@ -54,7 +45,7 @@ public class Enemy : EnemySetting
         StartCoroutine(Delaytime());
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         StateMachine.CurrentState.UpdateState();
     }
