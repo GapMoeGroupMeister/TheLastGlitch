@@ -17,7 +17,7 @@ public class Gun : MonoBehaviour
 
     [SerializeField] private int _bulletCount = 6;
 
-    private bool _isShootCool = false;
+    public bool _isShootCool = false;
     [SerializeField] private bool _isReloading = false;
 
     private void Awake()
@@ -28,6 +28,7 @@ public class Gun : MonoBehaviour
 
     private void OnEnable()
     {
+        _isShootCool = false;
         _isReloading = false;
     }
 
