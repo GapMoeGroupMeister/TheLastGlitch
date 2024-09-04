@@ -72,7 +72,7 @@ public class InputReader : ScriptableObject, IPlayerActions
 
     public void OnInteraction(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.canceled)
             OnInteractionEvent?.Invoke();
     }
 
