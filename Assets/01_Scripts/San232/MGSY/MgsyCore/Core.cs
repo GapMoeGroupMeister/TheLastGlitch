@@ -37,13 +37,13 @@ public class Core : MonoBehaviour
         foreach (Collider2D hitCollider in hitColliders)
         {
             // 적 객체인지 확인
-            if (hitCollider.CompareTag("Enemy"))
+            if (hitCollider.CompareTag("Player"))
             {
                 // 적에게 데미지 주기
-                Enemy enemy = hitCollider.GetComponent<Enemy>();
-                if (enemy != null)
+                Player player = hitCollider.GetComponent<Player>();
+                if (player != null)
                 {
-                    enemy.HealthComponent.TakeDamage(_coreBombDamage, Vector3.zero, 0);
+                    player.HealthComponent.TakeDamage(_coreBombDamage, Vector3.zero, 0);
                 }
             }
         }
@@ -59,8 +59,4 @@ public class Core : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, _coreBombRadius);
     }
 
-    public void ResetItem()
-    {
-        throw new System.NotImplementedException();
-    }
 }

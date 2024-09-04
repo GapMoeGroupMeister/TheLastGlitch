@@ -25,11 +25,9 @@ public class MGSY : EnemySetting
 
     public int? isRunningHash = null;
 
-    public List<UnityEvent> ClosedPatterns = new List<UnityEvent>();
+    public Dictionary<string, MGSYPattern> patternDic = new Dictionary<string, MGSYPattern>();
 
-    public List<UnityEvent> OpenedPatterns = new List<UnityEvent>();
-
-    public List<UnityEvent> AngryOpenedPatterns = new List<UnityEvent>();
+        
 
     protected override void Awake()
     {
@@ -67,6 +65,11 @@ public class MGSY : EnemySetting
         {
             StateMachine.ChangeState(BossStateEnum.AngryOpened);
         }
+    }
+
+    public void Coroutine(IEnumerator coroutine)
+    {
+        StartCoroutine(coroutine.ToString());
     }
 
     public Collider2D GetPlayerInRange()
