@@ -251,7 +251,6 @@ GameObject:
   - component: {fileID: 23497775}
   - component: {fileID: 23497776}
   - component: {fileID: 23497777}
-  - component: {fileID: 23497778}
   m_Layer: 5
   m_Name: Stand
   m_TagString: Untagged
@@ -273,10 +272,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1204495245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 199.71002, y: -309.57993}
-  m_SizeDelta: {x: 1296.5, y: 729.7}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 133.30836, y: -334}
+  m_SizeDelta: {x: 4004.8306, y: 723.1845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &23497776
 MonoBehaviour:
@@ -297,8 +296,8 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 3
   m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
@@ -321,36 +320,6 @@ MonoBehaviour:
   _quest: {fileID: 11400000, guid: 5ce139460ad262a4b86dc19ac6b34038, type: 2}
   eb: {fileID: 7135589861716024289}
   _empty: {fileID: 8190962209381688882, guid: f40eed553efe41740a92d18b39009ae9, type: 3}
---- !u!114 &23497778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23497774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Content: {fileID: 23497775}
-  m_Horizontal: 1
-  m_Vertical: 0
-  m_MovementType: 1
-  m_Elasticity: 0.1
-  m_Inertia: 1
-  m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
-  m_Viewport: {fileID: 0}
-  m_HorizontalScrollbar: {fileID: 0}
-  m_VerticalScrollbar: {fileID: 0}
-  m_HorizontalScrollbarVisibility: 0
-  m_VerticalScrollbarVisibility: 0
-  m_HorizontalScrollbarSpacing: 0
-  m_VerticalScrollbarSpacing: 0
-  m_OnValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &27391583
 GameObject:
   m_ObjectHideFlags: 0
@@ -2986,6 +2955,7 @@ GameObject:
   - component: {fileID: 1204495248}
   - component: {fileID: 1204495247}
   - component: {fileID: 1204495246}
+  - component: {fileID: 1204495249}
   m_Layer: 5
   m_Name: Quest
   m_TagString: Untagged
@@ -3011,8 +2981,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -104, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -105.67918, y: -0.7722}
+  m_SizeDelta: {x: 211.3584, y: 44.1493}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204495246
 MonoBehaviour:
@@ -3108,6 +3078,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204495244}
   m_CullTransparentMesh: 1
+--- !u!114 &1204495249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204495244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Content: {fileID: 23497775}
+  m_Horizontal: 1
+  m_Vertical: 0
+  m_MovementType: 1
+  m_Elasticity: 0.1
+  m_Inertia: 1
+  m_DecelerationRate: 0.135
+  m_ScrollSensitivity: 1
+  m_Viewport: {fileID: 2060786543}
+  m_HorizontalScrollbar: {fileID: 0}
+  m_VerticalScrollbar: {fileID: 0}
+  m_HorizontalScrollbarVisibility: 0
+  m_VerticalScrollbarVisibility: 0
+  m_HorizontalScrollbarSpacing: 0
+  m_VerticalScrollbarSpacing: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1269382955
 GameObject:
   m_ObjectHideFlags: 0
