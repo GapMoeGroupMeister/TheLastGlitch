@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    public float _maxHealth = 100;
+    public float maxHealth = 100;
 
     private float _currentHealth;
     Agent _onwer;
@@ -30,7 +30,22 @@ public class Health : MonoBehaviour
     }
     private void ResetHealth()
     {
-        _currentHealth = _maxHealth;
+        _currentHealth = maxHealth;
+    }
+
+    public void AddCurrentHP(int addHealth)
+    {
+        if (addHealth + _currentHealth > maxHealth)
+        {
+            _currentHealth = maxHealth;
+        }
+        else
+        {
+            _currentHealth += addHealth;
+        }
+
+
+        
     }
 
     public float GetCurrentHP()
@@ -51,7 +66,7 @@ public class Health : MonoBehaviour
             if (_currentHealth < 0)
             {
                 OnDeadEvent?.Invoke();
-                _currentHealth = _maxHealth;
+                _currentHealth = maxHealth;
             }
 
         }

@@ -37,6 +37,7 @@ public class PassiveManager : MonoBehaviour
         {
             yield return new WaitForSeconds(time);
             item.Skill(player);
+            Debug.Log("타임 패시브 실행");
         }
     }
 

@@ -51,7 +51,7 @@ public abstract class EnemySetting : Agent
         attackCooldown += _enemyStats.EnemyattackCooldown;
         stopRay += _enemyStats.EnemystopRay;
         damage += _enemyStats.Enemydamge;
-       HealthComponent._maxHealth = _enemyStats.EnemyHeath;
+       HealthComponent.maxHealth = _enemyStats.EnemyHeath;
     }
 
 

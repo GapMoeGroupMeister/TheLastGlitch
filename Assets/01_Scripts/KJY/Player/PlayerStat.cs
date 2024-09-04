@@ -31,7 +31,7 @@ public class PlayerStat : MonoBehaviour
         _critProbability = _playerSO.playerCritProbability;
 
         _agentMovement.moveSpeed = _moveSpeed;
-        _health._maxHealth = _maxHealth;
+        _health.maxHealth = _maxHealth;
 
     }
 

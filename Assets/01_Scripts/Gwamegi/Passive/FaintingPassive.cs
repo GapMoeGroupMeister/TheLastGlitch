@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "SO/Player/FaintingSO")]
+[CreateAssetMenu(menuName = "SO/Player/Passive/FaintingSO")]
 public class FaintingPassive : PassiveSO
 {
+    public ParticleSystem enemyEffect;
     public override void Skill(Agent owner)
     {
+        base.Skill(owner);
         Collider2D[] enemy = Physics2D.OverlapCircleAll(owner.transform.position, distance.x, enemyLayer);
 
         if (enemy.Length <= 0) return;
@@ -18,7 +20,7 @@ public class FaintingPassive : PassiveSO
         {
             Enemy enemyCompo = item.gameObject.GetComponent<Enemy>();
 
-            Instantiate(effect, enemyCompo.gameObject.transform.position, Quaternion.identity);
+            Instantiate(enemyEffect, enemyCompo.gameObject.transform.position, Quaternion.identity);
 
             enemyCompo.MovementComponent._canMove =false;
             enemyCompo.fainting = true;
