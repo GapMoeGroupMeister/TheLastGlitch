@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6185967885292920164}
   - component: {fileID: -4957230012745648789}
   m_Layer: 13
-  m_Name: PCB
+  m_Name: Gear
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 19eefa3843860354dbe62e365ffc1e02, type: 3}
+  - {fileID: 2100000, guid: d980e07f68e36a946a90d8f36e016a4f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bd81cc277427560459ec14ecd0047e65, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4fb97fc0d6c21a34eb380b08868cf436, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14592c558556c64d86b905636ccaedd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 1
+  itemType: 4
 --- !u!1 &7103153959815528666
 GameObject:
   m_ObjectHideFlags: 0

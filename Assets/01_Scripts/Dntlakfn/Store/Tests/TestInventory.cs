@@ -25,6 +25,7 @@ public class TestInventory : MonoBehaviour
 
     private void Awake()
     {
+        
         HaveItems = new List<TestItemSO>();
     }
 
