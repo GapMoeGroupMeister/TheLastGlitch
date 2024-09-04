@@ -17,8 +17,6 @@ public class MgsyClosedState : MGSYState<BossStateEnum>
     {
         base.Enter();
 
-
-        mgsy.StartCoroutine(MgsyClosedPatternRoutine());
     }
 
     public override void UpdateState()
@@ -32,17 +30,8 @@ public class MgsyClosedState : MGSYState<BossStateEnum>
     {
         base.Exit();
 
-        mgsy.StopCoroutine(MgsyClosedPatternRoutine());
     }
 
-    private IEnumerator MgsyClosedPatternRoutine()
-    {
-        while (true)
-        {
-            patternIndex = Random.Range(0, mgsy.ClosedPatterns.Count);
-            mgsy.ClosedPatterns[patternIndex]?.Invoke();
-            yield return new WaitForSeconds(Random.Range(minCool, maxCool));
-        }
-    }
+    
 
 }

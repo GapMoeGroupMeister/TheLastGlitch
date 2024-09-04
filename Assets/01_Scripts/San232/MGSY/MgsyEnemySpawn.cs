@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MgsyEnemySpawn : MonoBehaviour
-{ 
+public class MgsyEnemySpawn : MGSYPattern
+{
+    
     public bool IsSpawning { get; set; } = false;
 
     [Header("SpawnCount")]
@@ -12,20 +13,23 @@ public class MgsyEnemySpawn : MonoBehaviour
     [SerializeField] private int _minCount = 7;
     [SerializeField] private int _maxCount = 14;
 
-    [Header("CoolTime")]
-    [SerializeField] private float _spawnCoolTime = 0;
-    [SerializeField] private float _minCoolTime = 2;
-    [SerializeField] private float _maxCoolTime = 4;
-    [SerializeField] private float _patternCoolTime = 0;
-    [SerializeField] private float _maxPatternCool = 6;
-    [SerializeField] private float _minPatternCool = 12;
+    
 
     [Header("EnemyList")]
     [SerializeField] private List<Enemy> _enemys = new List<Enemy>();
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         ResetCount();
+        SetDicKey(this);
+        mgsy.patternDic.Add(_dicKey, this);
+    }
+
+    private void SetCool()
+    {
+        _spawnCoolTime = 0;
+        _spawnCoolTime = Random.Range(_minCoolTime, _maxCoolTime);
     }
 
     private void ResetCount()
@@ -57,5 +61,25 @@ public class MgsyEnemySpawn : MonoBehaviour
             
             IsSpawning = false;
         }
+    }
+
+    private IEnumerator MgsyEnemySpawnRoutine()
+    {
+        while (true)
+        {
+            Spawn();
+            yield return new WaitForSeconds(_spawnCoolTime);
+            SetCool();
+        }
+    }
+
+    public void StartEnemySpawn()
+    {
+        StartCoroutine(MgsyEnemySpawnRoutine());
+    }
+
+    public void EndEnemySpawn()
+    {
+        StopCoroutine(MgsyEnemySpawnRoutine());
     }
 }
