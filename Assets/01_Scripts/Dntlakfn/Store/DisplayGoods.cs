@@ -47,7 +47,10 @@ public class DisplayGoods : MonoBehaviour
         for (int i = 0; i < Mathf.Clamp(items.list.Count-1, 0, 6); i++)
         {
             item = items.list[Random.Range(0, items.list.Count-1)];
-            CheckDuplication(item);
+            if (CheckDuplication(item))
+            {
+                return;
+            }
             Goods[i].item = item;
             
             Goods[i].UpdateItem();

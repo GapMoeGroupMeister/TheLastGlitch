@@ -45,7 +45,7 @@ public class Enemy : EnemySetting
         StartCoroutine(Delaytime());
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         StateMachine.CurrentState.UpdateState();
     }

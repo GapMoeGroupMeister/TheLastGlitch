@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PCBMat
-  m_Shader: {fileID: -6465566751694194690, guid: febee496a3d7c9941827d91dfde962bd, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 19eefa3843860354dbe62e365ffc1e02, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

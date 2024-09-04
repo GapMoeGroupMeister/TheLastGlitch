@@ -17,6 +17,7 @@ public class StateManager : Enemy
     }
     public void EnemyMove()
     {
+        Debug.Log(dir.normalized.x);
         MovementComponent.SetMovement(dir.normalized.x);
     }
 

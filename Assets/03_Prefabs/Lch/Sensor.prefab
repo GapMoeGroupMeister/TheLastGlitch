@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4246505804199009519}
   - component: {fileID: 8810459949653690251}
   - component: {fileID: -7618143426479412890}
+  - component: {fileID: -1293157725708546516}
   m_Layer: 13
   m_Name: sensor
   m_TagString: Item
@@ -54,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ea6eddcc74cf02e4b93c9e2b7afd4c3c, type: 2}
+  - {fileID: -876546973899608171, guid: 685e10b018b32354d94ada63b8171663, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,7 +129,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 8456
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -158,3 +159,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-1293157725708546516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6998462816182122661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e14592c558556c64d86b905636ccaedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 0

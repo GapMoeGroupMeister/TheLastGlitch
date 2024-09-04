@@ -94,8 +94,9 @@ GameObject:
   - component: {fileID: 3473331252551175053}
   - component: {fileID: 2985654324561032922}
   - component: {fileID: 8644807110095547117}
+  - component: {fileID: -6040686132743970745}
   m_Layer: 13
-  m_Name: metal
+  m_Name: Metal
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,7 +138,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 6440a394862d96b4ea054f3e857bc9ff, type: 3}
+  - {fileID: -876546973899608171, guid: 6fb96613b65279741aa559ba9fa4aef5, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -241,3 +242,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-6040686132743970745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6053116263363009150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e14592c558556c64d86b905636ccaedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 3
