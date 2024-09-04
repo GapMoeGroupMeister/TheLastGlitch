@@ -23,9 +23,8 @@ public class TestInventory : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void OnValidate()
     {
-        
         HaveItems = new List<TestItemSO>();
     }
 

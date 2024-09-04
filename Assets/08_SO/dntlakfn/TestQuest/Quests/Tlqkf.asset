@@ -15,7 +15,7 @@ MonoBehaviour:
   questName: "\uAC1C\uC0C8\uB07C\uB4E4"
   questDetail: "\uAF41\uB0E5\uB300\uB294\uAC70 \uC886\uAC19\uB124"
   questType: 0
-  questLevel: 1
+  questLevel: 3
   targetPlace: a1
   isClear: 0
   target: 
