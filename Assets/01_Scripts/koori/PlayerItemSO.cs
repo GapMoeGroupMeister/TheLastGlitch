@@ -19,25 +19,31 @@ public enum RequireItemType
     pcb,
     sensor,
     metal,
+    gear
 }
 
 [CreateAssetMenu(menuName = "SO/Player/Item")]
 public class PlayerItemSO : ScriptableObject
 {
-    public int gatlingDrone;
-    public int selfDestructDrone;
-    public int hackPulse;
-    public int aed;
-    public int portalGun;
-    public int rocketLauncher;
-    public int doping;
-    public int shield;
+    public static PlayerItemSO Instance = new PlayerItemSO();
 
     public Dictionary<RequireItemType, int> requireItemDic = new Dictionary<RequireItemType, int>()
     {
-        {RequireItemType.battery, 0},
-        {RequireItemType.metal, 0 },
-        {RequireItemType.pcb, 0},
-        {RequireItemType.sensor, 0},
+        {RequireItemType.battery, 10},
+        {RequireItemType.metal, 20 },
+        {RequireItemType.pcb, 30},
+        {RequireItemType.sensor, 40},
+        {RequireItemType.gear, 50},
+    };
+    public Dictionary<GadgetType, int> havingGadgetDic = new Dictionary<GadgetType, int>()
+    {
+        { GadgetType.gatlingDrone, 0 },
+        {GadgetType.selfDestructDrone, 0 },
+        {GadgetType.hackPulse, 0},
+        { GadgetType.aed, 0},
+        {GadgetType.portalGun, 0},
+        {GadgetType.rocketLauncher, 0},
+        {GadgetType.doping, 0},
+        {GadgetType.shield, 0},
     };
 }
