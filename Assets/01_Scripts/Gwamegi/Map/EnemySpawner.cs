@@ -43,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
                 enemy.gameObject.transform.position = transform.position;
                 break;
             case SpawnEnemyType.Tanker:
-                enemy = PoolManager.Instance.Pop("TankerEnemy") as Pooling;
+                enemy = PoolManager.Instance.Pop("Tanker") as Pooling;
                 enemy.gameObject.transform.position = transform.position;
                 break;
             default: 

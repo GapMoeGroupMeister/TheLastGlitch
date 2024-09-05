@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f280062d240c7b6439370bf26333cc09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackPassiveFeedback: {fileID: 0}
+  _attackPassiveFeedback: {fileID: 1126490657272496522}
   _input: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
   _gunParent: {fileID: 8594185172805621880}
   _bulletPrefab: {fileID: 8973522370738103791, guid: 32ee18620e19dcc4e917e9dbbf93c0ce, type: 3}

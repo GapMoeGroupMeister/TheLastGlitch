@@ -34,13 +34,22 @@ public abstract class PassiveSO : ScriptableObject
     public float knockbackPower;
     public float time;
     public Vector2 distance;
+    public float radius;
 
+    [Header("Effect")]
+    public bool _isUsePlayerEffect;
     public ParticleSystem effect;
 
     public PATEnum type;
     public PassiveType passiveType;
 
     public LayerMask enemyLayer;
-    public abstract void Skill(Agent owner);
+    public virtual void Skill(Agent owner)
+    {
+        if (_isUsePlayerEffect)
+        {
+            Instantiate(effect,owner.transform);
+        }
+    }
 
 }

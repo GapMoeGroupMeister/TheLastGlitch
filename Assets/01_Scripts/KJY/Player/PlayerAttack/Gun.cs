@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Gun : MonoBehaviour
+public class Gun : PlayerWeaponParent
 {
     [SerializeField] private AttackPassiveFeedBack _attackPassiveFeedback;
 

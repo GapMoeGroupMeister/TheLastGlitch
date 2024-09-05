@@ -57,7 +57,7 @@ public class MGSY : EnemySetting
 
     public void Opening2Opened()
     {
-        if (HealthComponent.GetCurrentHP() > HealthComponent._maxHealth)
+        if (HealthComponent.GetCurrentHP() > HealthComponent.maxHealth)
         {
             StateMachine.ChangeState(BossStateEnum.Opened);
         }

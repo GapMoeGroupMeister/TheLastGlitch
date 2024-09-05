@@ -50,7 +50,7 @@ public class EnemyHPBar : MonoBehaviour
             return;
                 }
 
-        Health = _enemyHealth.GetCurrentHP() / _enemyHealth._maxHealth;
+        Health = _enemyHealth.GetCurrentHP() / _enemyHealth.maxHealth;
         Flip();
 
     }
