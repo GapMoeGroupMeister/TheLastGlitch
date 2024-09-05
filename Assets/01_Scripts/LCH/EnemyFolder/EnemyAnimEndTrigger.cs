@@ -14,6 +14,11 @@ public class EnemyAnimEndTrigger : MonoBehaviour
         Debug.Log("AnimationEnd");
         _enemy.AnimationEndTrigger();
     }
+
+    public void BoomSfx()
+    {
+        SfxEvent?.Invoke();
+    }
     
     public void AnimationAttackTrigger()
     {
