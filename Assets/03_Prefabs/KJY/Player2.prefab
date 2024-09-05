@@ -236,6 +236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _input: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
+  _player1: {fileID: 0}
+  _player2: {fileID: 7867192051387084950}
   _weapon1: {fileID: 8850751305182702950}
   _weapon2: {fileID: 1513884805097410242}
 --- !u!1 &4801433353509794515
@@ -285,7 +287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7315224450517172072
 Transform:
   m_ObjectHideFlags: 0

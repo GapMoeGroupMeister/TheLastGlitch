@@ -8,10 +8,6 @@ public class PlayerItemChecker : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"pcb {_itemEat.requireItemDic[RequireItemType.pcb]}");
-        Debug.Log($"battery {_itemEat.requireItemDic[RequireItemType.battery]}");
-        Debug.Log($"metal {_itemEat.requireItemDic[RequireItemType.metal]}");
-        Debug.Log($"sensor {_itemEat.requireItemDic[RequireItemType.sensor]}");
 
     }
 
