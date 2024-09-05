@@ -19,6 +19,7 @@ public class DisplayQuest : MonoBehaviour
         TestQuestSO[] a = _allQuests.list.ToArray();
         Debug.Log(a.Length);
         _quests.list = a.ToList();
+        _quests.list.Sort((x, y) => x.questLevel.CompareTo(y.questLevel));
         CreatQuest();
     }
 

@@ -9,6 +9,7 @@ public class PlayerInteract : MonoBehaviour
 
     private IInteractive _interactiveObject;
     private GameObject _interactiveIcon;
+    private bool _isInteracting = false;
 
     [SerializeField] InputReader _input;
 
@@ -22,6 +23,16 @@ public class PlayerInteract : MonoBehaviour
     private void Awake()
     {
         _input.OnInteractionEvent += Interact;
+    }
+    private void Update()
+    {
+        if (_isInteracting)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F))
+            {
+                Disconnect();
+            }
+        }
     }
     private void FixedUpdate()
     {
@@ -53,6 +64,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (_interactiveObject != null)
         {
+            _isInteracting = true;
             _interactiveObject.OnInteract();
             _input.playerController.Disable();
             Time.timeScale = 0f;
@@ -64,6 +76,7 @@ public class PlayerInteract : MonoBehaviour
         _interactiveObject.OnDisconnect();
         _input.playerController.Enable();
         Time.timeScale = 1.0f;
+        _isInteracting = false;
     }
 
     private void OnDrawGizmos()

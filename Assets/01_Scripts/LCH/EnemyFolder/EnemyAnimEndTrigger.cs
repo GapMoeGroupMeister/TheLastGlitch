@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyAnimEndTrigger : MonoBehaviour
 {
     [SerializeField] private Enemy _enemy;
     [SerializeField] private ADEnemy _ad;
+    public UnityEvent SfxEvent;
 
     public void AnimationEnd()
     {
         Debug.Log("AnimationEnd");
         _enemy.AnimationEndTrigger();
+    }
+
+    public void BoomSfx()
+    {
+        SfxEvent?.Invoke();
     }
     
     public void AnimationAttackTrigger()
@@ -22,6 +29,7 @@ public class EnemyAnimEndTrigger : MonoBehaviour
     public void AnimationLaserAttackTrigger()
     {
         Debug.Log("attack");
+        SfxEvent?.Invoke();
         _ad.LaserAttack();
     }
 

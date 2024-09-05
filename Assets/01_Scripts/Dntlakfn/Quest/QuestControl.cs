@@ -81,32 +81,16 @@ public class QuestControl : MonoBehaviour
 
     public void AcceptQuest()
     {
-        if(!acceptedQuests.AcceptedList.Contains(_quest))
-        {
-            if(_quest.questType != QuestType.Clear)
-            {
-                acceptedQuests.AcceptedList.Add(_quest);
-                quests.list.Remove(_quest);
-                Destroy(gameObject);
-            }
-            else
-            {
-                foreach (TestQuestSO item in acceptedQuests.AcceptedList)
-                {
-                    if (item.questType == QuestType.Clear)
-                    {
-                        return;
-                    } 
-                }
-                EnterStage.map = _quest.targetPlace;
-                Debug.Log(EnterStage.map);
-                acceptedQuests.AcceptedList.Add(_quest);
-                quests.list.Remove(_quest);
-                Destroy(gameObject);
-            }
-            
-            
-        }
+
+        acceptedQuests.AcceptedList.Add(_quest);
+        quests.list.Remove(_quest);
+
+        EnterStage.map = _quest.targetPlace;
+        Debug.Log(EnterStage.map);
+        acceptedQuests.AcceptedList.Add(_quest);
+        quests.list.Remove(_quest);
+        Destroy(gameObject);
+        
         
     }
 
@@ -134,12 +118,16 @@ public class QuestControl : MonoBehaviour
         if (acceptedQuests.AcceptedList.Contains(_quest))
         {
             OnAccept = RemoveAcceptedQuest;
-            _eb.SetEvent(OnAccept, "퀘스트 취소할꺼임? 병신임? 클릭하나 제대로 못함? 임무를 장난으로 받음? 책임감 없는 새끼");
+            _eb.SetEvent(OnAccept, "퀘스트 취소할꺼임?");
         }
         else
         {
-            OnAccept = AcceptQuest;
-            _eb.SetEvent(OnAccept, "퀘스트 받을꺼임?");
+            if (acceptedQuests.AcceptedList.Count == 0)
+            {
+                OnAccept = AcceptQuest;
+                _eb.SetEvent(OnAccept, "퀘스트 받을꺼임?");
+            }
+            
             
         }
         
