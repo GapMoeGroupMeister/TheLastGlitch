@@ -15,6 +15,7 @@ public class BoomChaseState : EnemyState<EnemyStateEnum>
             _enemy.distance = dir.magnitude;
             _enemy.HandleSpriteFlip(_enemy.targetTrm.position);
             _enemy.MovementComponent.SetMovement(dir.normalized.x);
+             
 
             if (_enemy.distance > _enemy.detectRadius + 3f || _enemy.fainting == true )
             {
