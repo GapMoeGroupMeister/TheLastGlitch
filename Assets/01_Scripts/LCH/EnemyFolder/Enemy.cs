@@ -48,6 +48,10 @@ public class Enemy : EnemySetting
     protected virtual void Update()
     {
         StateMachine.CurrentState.UpdateState();
+        if (GetPlayer())
+        {
+            MovementComponent._xMove = 0F;
+        }
     }
 
     private void LateUpdate()
@@ -67,7 +71,7 @@ public class Enemy : EnemySetting
             {
                 dir = GetRandomVector() - transform.position;
                 yield return new WaitForSeconds(2f);
-                dir = Vector2.zero;
+                MovementComponent._xMove = 0F;
                 yield return new WaitForSeconds(2f);
             }
         }

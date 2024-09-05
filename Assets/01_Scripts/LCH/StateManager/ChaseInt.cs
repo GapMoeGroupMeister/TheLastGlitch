@@ -4,8 +4,12 @@ using UnityEngine;
 
 public abstract class ChaseInt : EnemyState<EnemyStateEnum>
 {
+
+    StateManager state;
+
     protected ChaseInt(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
+        enemyBase = state as StateManager;
     }
 
     public void ChaseUpdate()
