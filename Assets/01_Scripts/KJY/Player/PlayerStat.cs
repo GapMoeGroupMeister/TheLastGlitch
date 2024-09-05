@@ -1,7 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+
+public class Stat
+{
+    public float maxHealth;
+    public float moveSpeed;
+    public float atkPower;
+    public float critDamage;
+    public float scritProbability;
+}
 
 public class PlayerStat : MonoBehaviour
 {
@@ -29,21 +39,12 @@ public class PlayerStat : MonoBehaviour
 
     void Start()
     {
-        _passiveManager.NotifyUsePassiveList.OnValueChanged += SetStat;
-
+        _passiveManager.NotifyUsePassiveList.OnValueChanged += StatAdd;
     }
 
-    private void SetStat(List<PassiveSO> prev, List<PassiveSO> next)
+    private void StatAdd(List<PassiveSO> prev, List<PassiveSO> next)
     {
-        foreach (PassiveSO item in _passiveManager.NotifyUsePassiveList.Value)
-        {
-            _maxHealth += item.addPlayerHealth;
-            _moveSpeed += item.addPlayerMoveSpeed;
-            _atkPower += item.addPlayerAtkPower;
-            _critDamage += item.addPlayerCritDamage;
-            _critProbability += item.addPlayerCritProbability;
-        }
-
+        StatSet(next);
 
         _agentMovement.moveSpeed = _moveSpeed;
         _health.maxHealth = _maxHealth;
@@ -56,5 +57,29 @@ public class PlayerStat : MonoBehaviour
         }
     }
 
-    
+    public void StatSet<T>(T t)
+    {
+        if (typeof(T) == typeof(List<PassiveSO>))
+        {
+            foreach (PassiveSO item in t as List<PassiveSO>)
+            {
+                _maxHealth += item.addPlayerHealth;
+                _moveSpeed += item.addPlayerMoveSpeed;
+                _atkPower += item.addPlayerAtkPower;
+                _critDamage += item.addPlayerCritDamage;
+                _critProbability += item.addPlayerCritProbability;
+            }
+        }
+
+        if (typeof(T) == typeof(Stat))
+        {
+            Stat stat = t as Stat;
+
+                _maxHealth += stat.maxHealth;
+                _moveSpeed += stat.moveSpeed;
+                _atkPower += stat.atkPower;
+                _critDamage += stat.critDamage;
+                _critProbability += stat.scritProbability;
+        }
+    }
 }
