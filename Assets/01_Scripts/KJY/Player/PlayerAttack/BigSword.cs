@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
-public class BigSword : MonoBehaviour
+public class BigSword : PlayerWeaponParent
 {
     public UnityEvent OnAttackEvent;
 
@@ -12,9 +12,6 @@ public class BigSword : MonoBehaviour
     [SerializeField] private GameObject _swordParent;
     [SerializeField] private GameObject _player;
     [SerializeField] private LayerMask _enemyLayer;
-
-    [SerializeField] private float _damage = 30f;
-    [SerializeField] private float _knockBackPower = 10f;
 
     [SerializeField] private float _swordSwingTime = 0.25f;
     [SerializeField] private float _swordReturnTime = 0.4f;
@@ -70,12 +67,26 @@ public class BigSword : MonoBehaviour
             {
                 if (_player.transform.localScale.x > 0)
                 {
-                    collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.right, _knockBackPower);
+                    float rand = Random.Range(0f,101f);
+                    if (rand <= criticalhHitProbability)
+                    {
+                        collision.gameObject.GetComponent<Health>().TakeDamage(damage * criticalHit, Vector2.right, knockBackPower);
+                        return;
+                    }
+
+                    collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.right, knockBackPower);
                 }
 
                 if (_player.transform.localScale.x < 0)
                 {
-                    collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.left, _knockBackPower);
+                    float rand = Random.Range(0f, 101f);
+                    if (rand <= criticalhHitProbability)
+                    {
+                        collision.gameObject.GetComponent<Health>().TakeDamage((damage * criticalHit), Vector2.right, knockBackPower);
+                        return;
+                    }
+
+                    collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.left, knockBackPower);
                 }
                 OnAttackEvent?.Invoke();
             }

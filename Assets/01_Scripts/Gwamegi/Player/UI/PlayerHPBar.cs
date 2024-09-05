@@ -49,7 +49,7 @@ public class PlayerHPBar : MonoBehaviour
             return;
         }
 
-        Health = _playerHealth.GetCurrentHP() / _playerHealth._maxHealth;
+        Health = _playerHealth.GetCurrentHP() / _playerHealth.maxHealth;
 
     }
 }

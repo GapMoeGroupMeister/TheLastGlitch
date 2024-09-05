@@ -6,9 +6,16 @@ public class PoolingEffect : MonoBehaviour, Ipoolable
 {
     [SerializeField] private string _poolName;
 
+    private bool _isStart;
+
     public GameObject ObjectPrefab => gameObject;
 
     public string PoolName => _poolName;
+
+    private void Start()
+    {
+        _isStart = true;
+    }
 
     public void ResetItem()
     {
@@ -17,6 +24,7 @@ public class PoolingEffect : MonoBehaviour, Ipoolable
 
     private void OnDisable()
     {
-        PoolManager.Instance.Push(this);    
+        if (_isStart)
+            PoolManager.Instance.Push(this);
     }
 }

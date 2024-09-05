@@ -13,7 +13,7 @@ public class MgsyAnimEndTrigger : MonoBehaviour
 
     public void OpeningEnd()
     {
-        float standardHealth = _mgsy.HealthComponent._maxHealth * 0.5f;
+        float standardHealth = _mgsy.HealthComponent.maxHealth * 0.5f;
         float currentHealth = _mgsy.HealthComponent.GetCurrentHP();
 
         if (currentHealth >= standardHealth)
