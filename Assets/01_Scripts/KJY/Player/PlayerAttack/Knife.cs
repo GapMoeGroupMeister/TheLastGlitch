@@ -3,7 +3,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
 
-public class Knife : MonoBehaviour
+public class Knife : PlayerWeaponParent
 {
     public UnityEvent OnAttackEvent;
 
@@ -12,8 +12,6 @@ public class Knife : MonoBehaviour
     [SerializeField] private GameObject _knifeParent;
     [SerializeField] private GameObject _player;
 
-    [SerializeField] private float _damage = 20f;
-    [SerializeField] private float _knockBackPower = 20f;
 
     private void Awake()
     {
@@ -48,12 +46,26 @@ public class Knife : MonoBehaviour
             {
                 if (_player.transform.localScale.x > 0)
                 {
-                    collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.right, _knockBackPower);
+                    float rand = Random.Range(0f, 101f);
+                    if (rand <= criticalhHitProbability)
+                    {
+                        collision.gameObject.GetComponent<Health>().TakeDamage(damage * criticalHit, Vector2.right, knockBackPower);
+                        return;
+                    }
+
+                    collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.right, knockBackPower);
                 }
 
                 if (_player.transform.localScale.x < 0)
                 {
-                    collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.left, _knockBackPower);
+                    float rand = Random.Range(0f, 101f);
+                    if (rand <= criticalhHitProbability)
+                    {
+                        collision.gameObject.GetComponent<Health>().TakeDamage(damage * criticalHit, Vector2.right, knockBackPower);
+                        return;
+                    }
+
+                    collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.left, knockBackPower);
                 }
                 OnAttackEvent?.Invoke();
             }

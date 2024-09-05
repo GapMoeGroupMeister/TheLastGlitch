@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aab72b68b49bb84988951db254df921, type: 3}
   m_Name: TimeFainting Passive
   m_EditorClassIdentifier: 
-  addPlayerHealth: 0
-  addPlayerAtkPower: 0
-  addPlayerMoveSpeed: 0
-  addPlayerCritProbability: 0
-  addPlayerCritDamage: 0
+  addPlayerHealth: 10
+  addPlayerAtkPower: 10
+  addPlayerMoveSpeed: 5
+  addPlayerCritProbability: 1
+  addPlayerCritDamage: 6
   damage: 0
   knockbackPower: 0
   time: 0
@@ -27,5 +27,5 @@ MonoBehaviour:
   passiveType: 0
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   enemyEffect: {fileID: 0}

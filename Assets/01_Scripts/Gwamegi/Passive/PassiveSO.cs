@@ -34,6 +34,7 @@ public abstract class PassiveSO : ScriptableObject
     public float knockbackPower;
     public float time;
     public Vector2 distance;
+    public float radius;
 
     [Header("Effect")]
     public bool _isUsePlayerEffect;

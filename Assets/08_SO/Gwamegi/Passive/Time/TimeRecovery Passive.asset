@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c032c53da1343a14dbb8e32556881f36, type: 3}
   m_Name: TimeRecovery Passive
   m_EditorClassIdentifier: 
-  addPlayerHealth: 0
-  addPlayerAtkPower: 0
-  addPlayerMoveSpeed: 0
-  addPlayerCritProbability: 0
-  addPlayerCritDamage: 0
+  addPlayerHealth: 3
+  addPlayerAtkPower: 2
+  addPlayerMoveSpeed: 5
+  addPlayerCritProbability: 6
+  addPlayerCritDamage: 2
   damage: 0
   knockbackPower: 0
   time: 0
@@ -27,5 +27,5 @@ MonoBehaviour:
   passiveType: 0
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   healCount: 0

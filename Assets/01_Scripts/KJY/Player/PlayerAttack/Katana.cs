@@ -3,18 +3,16 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Katana : MonoBehaviour
+public class Katana : PlayerWeaponParent
 {
     public UnityEvent OnAttackEvent;
 
 
     [field: SerializeField] private InputReader _input;
 
-    [SerializeField] private float _damage = 15f;
     [SerializeField] private GameObject _katanaParent;
     [SerializeField] private GameObject _player;
 
-    [SerializeField] private float _knockBackPower = 10f;
     [SerializeField] private float _swordSwingTime = 0.2f;
     [SerializeField] private float _swordReturnTime = 0.2f;
 
@@ -62,12 +60,26 @@ public class Katana : MonoBehaviour
             {
                 if (_player.transform.localScale.x > 0)
                 {
-                    collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.right, _knockBackPower);
+                    float rand = Random.Range(0f, 101f);
+                    if (rand <= criticalhHitProbability)
+                    {
+                        collision.gameObject.GetComponent<Health>().TakeDamage(damage * criticalHit, Vector2.right, knockBackPower);
+                        return;
+                    }
+
+                    collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.right, knockBackPower);
                 }
 
                 if (_player.transform.localScale.x < 0)
                 {
-                    collision.gameObject.GetComponent<Health>().TakeDamage(_damage, Vector2.left, _knockBackPower);
+                    float rand = Random.Range(0f, 101f);
+                    if (rand <= criticalhHitProbability)
+                    {
+                        collision.gameObject.GetComponent<Health>().TakeDamage(damage * criticalHit, Vector2.right, knockBackPower);
+                        return;
+                    }
+
+                    collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.left, knockBackPower);
                 }
                 OnAttackEvent?.Invoke();
             }

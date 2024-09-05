@@ -10,7 +10,7 @@ public class FaintingPassive : PassiveSO
     public override void Skill(Agent owner)
     {
         base.Skill(owner);
-        Collider2D[] enemy = Physics2D.OverlapCircleAll(owner.transform.position, distance.x, enemyLayer);
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(owner.transform.position, radius, enemyLayer);
 
         if (enemy.Length <= 0) return;
 
@@ -25,8 +25,6 @@ public class FaintingPassive : PassiveSO
             enemyCompo.MovementComponent._canMove =false;
             enemyCompo.fainting = true;
             enemyCompo.MovementComponent.StopImmediately();
-            Debug.Log(enemyCompo.MovementComponent._canMove + "밍");
-            Debug.Log(enemyCompo.fainting + "밍");
 
             enemyCompo.CanAttack =false;
             owner.StartCoroutine(AttackCoolTIme(enemyCompo));
@@ -42,8 +40,5 @@ public class FaintingPassive : PassiveSO
         enemyCompo.fainting = false;
 
         enemyCompo.MovementComponent._canMove = true;
-        Debug.Log(enemyCompo.MovementComponent._canMove + "밍");
-        Debug.Log(enemyCompo.fainting + "밍");
-
     }
 }
