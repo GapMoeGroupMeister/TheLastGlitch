@@ -25,7 +25,7 @@ public enum RequireItemType
 [CreateAssetMenu(menuName = "SO/Player/Item")]
 public class PlayerItemSO : ScriptableObject
 {
-    public static PlayerItemSO Instance = new PlayerItemSO();
+    public static PlayerItemSO Instance { get; private set; }
 
     public Dictionary<RequireItemType, int> requireItemDic = new Dictionary<RequireItemType, int>()
     {
@@ -46,4 +46,15 @@ public class PlayerItemSO : ScriptableObject
         {GadgetType.doping, 0},
         {GadgetType.shield, 0},
     };
+    private void OnEnable()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("PlayerItemSO의 인스턴스가 이미 존재합니다.");
+        }
+    }
 }
