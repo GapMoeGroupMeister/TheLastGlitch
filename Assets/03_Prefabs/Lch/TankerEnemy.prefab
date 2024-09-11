@@ -278,6 +278,7 @@ Transform:
   - {fileID: 1367445899583889120}
   - {fileID: 166993113126178375}
   - {fileID: 6989597522689289375}
+  - {fileID: 5401177142543966349}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5381001992659816126
@@ -318,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526ddbf786e2a9443a47d75625108769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  maxHealth: 100
   OnGetHit:
     m_PersistentCalls:
       m_Calls:
@@ -550,6 +551,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particleSystem: {fileID: 1189340810403874827, guid: fb8e03d08228b534bb74ee486dae2664, type: 3}
   _effectName: EnemyHitParticle
+--- !u!1 &6104398943565964218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5401177142543966349}
+  - component: {fileID: 8927226199092712728}
+  m_Layer: 8
+  m_Name: SfxFeedback
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5401177142543966349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6104398943565964218}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4020223228009269660}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8927226199092712728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6104398943565964218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9266932f144ee24b89c37eb812cab4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentClip: {fileID: 8300000, guid: a8cb6601de196c3459177f61f1bf1c3d, type: 3}
 --- !u!1001 &3744123774641101656
 PrefabInstance:
   m_ObjectHideFlags: 0
