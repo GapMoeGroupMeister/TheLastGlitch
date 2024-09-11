@@ -171,37 +171,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3589308455657737191, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
-      propertyPath: damage
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3589308455657737191, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
-      propertyPath: stopRay
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3589308455657737191, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
-      propertyPath: attackRadius
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3589308455657737191, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
-      propertyPath: detectRadius
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3589308455657737191, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
-      propertyPath: attackCooldown
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3589308455657737191, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
-      propertyPath: knockbackPower
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3916682341307116186, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
       propertyPath: m_Name
       value: SoldierEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3916682341307116186, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -224,10 +196,6 @@ PrefabInstance:
     - target: {fileID: 3824209589037874041, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
       propertyPath: m_Name
       value: TankerEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3824209589037874041, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4020223228009269660, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
       propertyPath: m_LocalPosition.x
@@ -894,7 +862,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625de5484750b7341a73eeaafd75430a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cilp: {fileID: 0}
 --- !u!82 &783826614
 AudioSource:
   m_ObjectHideFlags: 0
