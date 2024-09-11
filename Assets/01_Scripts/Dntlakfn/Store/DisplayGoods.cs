@@ -10,15 +10,18 @@ public class DisplayGoods : MonoBehaviour
     [SerializeField] protected GameObject _goods;
     [SerializeField] protected TestItemListSO items;
     [SerializeField] protected TestItemSO item;
+    [SerializeField] protected List<TestItemSO> displayedItems; //진열된 아이탬 리스트
     public EventBox eb;
     
-    public List<GoodsControl> Goods; //진열된 아이탬 리스트
+
+
+    public List<GoodsControl> Goods; 
 
     private void Awake()
     {
-        
+        displayedItems = new List<TestItemSO>();
         Goods = new List<GoodsControl>();
-        for (int i = 0; i < Mathf.Clamp(items.list.Count-1, 0, 6); i++)
+        for (int i = 0; i < Mathf.Clamp(items.list.Count-1, 0, 4); i++)
         {
             item = items.list[i];
             if (!CheckDuplication(item))
@@ -31,6 +34,7 @@ public class DisplayGoods : MonoBehaviour
             good._eb = eb;
             good.UpdateItem();
             Goods.Add(good);
+            displayedItems.Add(good.item);
 
         }
         Debug.Log("상점 세팅됨");
@@ -42,19 +46,20 @@ public class DisplayGoods : MonoBehaviour
     // 상점 새로고침 
     public void UpdateGoods()
     {
-        
 
-        for (int i = 0; i < Mathf.Clamp(items.list.Count-1, 0, 6); i++)
+        displayedItems.Clear();
+        for (int i = 0; i < Mathf.Clamp(items.list.Count-1, 0, 4); i++)
         {
             item = items.list[Random.Range(0, items.list.Count-1)];
-            if (CheckDuplication(item))
-            {
-                return;
-            }
+            CheckDuplication(item);
+            
+            
             Goods[i].item = item;
-            
             Goods[i].UpdateItem();
-            
+            displayedItems.Add(item);
+            Debug.Log(displayedItems.Count);
+            Debug.Log(TestInventory.HaveItems.Count + displayedItems.Count);
+
 
         }
     }
@@ -63,14 +68,21 @@ public class DisplayGoods : MonoBehaviour
     // 중복 탬 체크
     private bool CheckDuplication(TestItemSO item) // 중복 체크
     {
-        if(TestInventory.HaveItems.Count >= items.list.Count)
+        // 이거 고쳐
+        if((items.list.Count - 1 - (TestInventory.HaveItems.Count + displayedItems.Count)) <= 0)
         {
             this.item = items.list.Last();
             return false;
         }
-        while (TestInventory.HaveItems.Contains(item))
+        while (true)
         {
-            item = items.list[Random.Range(0, items.list.Count)];
+
+            item = items.list[Random.Range(0, items.list.Count - 1)];
+            if (!TestInventory.HaveItems.Contains(item) && !displayedItems.Contains(item))
+            {
+                break;
+            }
+            
         }
         this.item = item;
         return true;
