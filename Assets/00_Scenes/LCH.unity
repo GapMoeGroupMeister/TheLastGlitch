@@ -199,6 +199,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoldierEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3916682341307116186, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -220,6 +224,10 @@ PrefabInstance:
     - target: {fileID: 3824209589037874041, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
       propertyPath: m_Name
       value: TankerEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3824209589037874041, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4020223228009269660, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
       propertyPath: m_LocalPosition.x
@@ -625,7 +633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526ddbf786e2a9443a47d75625108769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  maxHealth: 100
   OnGetHit:
     m_PersistentCalls:
       m_Calls:
@@ -886,7 +894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625de5484750b7341a73eeaafd75430a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
+  cilp: {fileID: 0}
 --- !u!82 &783826614
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1847,8 +1855,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3065351043755773162, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8106096941789567924, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
+      propertyPath: CurrentClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a8cb6601de196c3459177f61f1bf1c3d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1902,13 +1914,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5217066765401315627, guid: a2f09a759657ded489b43a17964086e0, type: 3}
+      propertyPath: CurrentClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 11a2b0bf7636e244ba9d6479ce4c87f7, type: 3}
     - target: {fileID: 8313388324781040890, guid: a2f09a759657ded489b43a17964086e0, type: 3}
       propertyPath: m_Name
       value: BoomEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 8313388324781040890, guid: a2f09a759657ded489b43a17964086e0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1963,13 +1979,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4433797707957934313, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
+      propertyPath: CurrentClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a8cb6601de196c3459177f61f1bf1c3d, type: 3}
     - target: {fileID: 7079840489748371561, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
       propertyPath: m_Name
       value: GunEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 7079840489748371561, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
