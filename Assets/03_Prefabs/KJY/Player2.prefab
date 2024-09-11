@@ -724,13 +724,14 @@ GameObject:
   - component: {fileID: 4195452680329989504}
   - component: {fileID: 2093510349151606830}
   - component: {fileID: 4989390872012543687}
+  - component: {fileID: 2017486072774893323}
   m_Layer: 3
   m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &517577890333664687
 Transform:
   m_ObjectHideFlags: 0
@@ -950,6 +951,23 @@ MonoBehaviour:
   _input: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
   _player: {fileID: 7867192051387084950}
   _dashDistance: 1
+--- !u!114 &2017486072774893323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867192051387084950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2c384102adef84fae1b7f0ae3db5dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 0
+  _moveSpeed: 0
+  _atkPower: 0
+  _critDamage: 0
+  _critProbability: 0
 --- !u!1 &8093288717843005025
 GameObject:
   m_ObjectHideFlags: 0
