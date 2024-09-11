@@ -134,6 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f74e472e27ba047b0a18872069d718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 20
+  knockBackPower: 20
+  criticalHit: 0
+  criticalhHitProbability: 0
+  type: 0
   OnAttackEvent:
     m_PersistentCalls:
       m_Calls:
@@ -155,8 +160,6 @@ MonoBehaviour:
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 256
-  _damage: 30
-  _knockBackPower: 10
   _swordSwingTime: 0.25
   _swordReturnTime: 0.4
 --- !u!1 &1513884805097410242
@@ -236,6 +239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _input: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
+  _player1: {fileID: 0}
+  _player2: {fileID: 7867192051387084950}
   _weapon1: {fileID: 8850751305182702950}
   _weapon2: {fileID: 1513884805097410242}
 --- !u!1 &4801433353509794515
@@ -285,7 +290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7315224450517172072
 Transform:
   m_ObjectHideFlags: 0
@@ -591,6 +596,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b79bde8d2a68fc49b0a414a2afd49d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 20
+  knockBackPower: 20
+  criticalHit: 0
+  criticalhHitProbability: 0
+  type: 0
   OnAttackEvent:
     m_PersistentCalls:
       m_Calls:
@@ -607,10 +617,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _input: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
-  _damage: 15
   _katanaParent: {fileID: 1513884805097410242}
-  _player: {fileID: 0}
-  _knockBackPower: 10
+  _player: {fileID: 7867192051387084950}
   _swordSwingTime: 0.2
   _swordReturnTime: 0.3
   _attackSequence1: 60
@@ -813,7 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526ddbf786e2a9443a47d75625108769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  maxHealth: 100
   OnGetHit:
     m_PersistentCalls:
       m_Calls:

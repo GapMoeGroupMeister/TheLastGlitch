@@ -107,6 +107,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 8973522370738103791, guid: 32ee18620e19dcc4e917e9dbbf93c0ce, type: 3}
   _firePos: {fileID: 6273678340627620078}
   _bulletCount: 6
+  _isShootCool: 0
   _isReloading: 0
 --- !u!114 &6134731550107921305
 MonoBehaviour:
@@ -157,7 +158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &522447352765224256
 Transform:
   m_ObjectHideFlags: 0
@@ -238,7 +239,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4610767013878936960
 Transform:
   m_ObjectHideFlags: 0
@@ -926,6 +927,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _input: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
+  _player1: {fileID: 1726755511903038839}
+  _player2: {fileID: 0}
   _weapon1: {fileID: 4475150957195365036}
   _weapon2: {fileID: 8594185172805621880}
 --- !u!1 &7059618727679258652
