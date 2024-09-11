@@ -14,11 +14,6 @@ public class EnemyAnimEndTrigger : MonoBehaviour
         Debug.Log("AnimationEnd");
         _enemy.AnimationEndTrigger();
     }
-
-    public void BoomSfx()
-    {
-        SfxEvent?.Invoke();
-    }
     
     public void AnimationAttackTrigger()
     {
@@ -26,10 +21,14 @@ public class EnemyAnimEndTrigger : MonoBehaviour
         _enemy.Attack();
     }
 
+    public void SfxTrigger()
+    {
+        SfxEvent?.Invoke();
+    }
+
     public void AnimationLaserAttackTrigger()
     {
         Debug.Log("attack");
-        SfxEvent?.Invoke();
         _ad.LaserAttack();
     }
 
