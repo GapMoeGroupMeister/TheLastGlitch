@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,6 +12,7 @@ public class Health : MonoBehaviour
 
 
     public UnityEvent OnGetHit;
+    public UnityEvent<int> OnGetDamageEvent;
     public UnityEvent OnDeadEvent;
 
 
@@ -45,7 +43,7 @@ public class Health : MonoBehaviour
         }
 
 
-        
+
     }
 
     public float GetCurrentHP()
@@ -57,13 +55,14 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float amount, Vector2 dir, float knockbackPower)
     {
-        if(IsHittable)
+        if (IsHittable)
         {
             OnGetHit?.Invoke();
             if (knockbackPower > 0)
                 _onwer.MovementComponent.GetKnockback(dir, knockbackPower);
             _currentHealth -= amount;
-            if (_currentHealth < 0)
+            OnGetDamageEvent?.Invoke((int)amount);
+            if (_currentHealth <= 0)
             {
                 OnDeadEvent?.Invoke();
                 _currentHealth = maxHealth;
