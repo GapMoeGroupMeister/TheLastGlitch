@@ -5,16 +5,17 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] private AudioSource _audioSource;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
+        DontDestroyOnLoad(gameObject);
     }
 
-    public void PlaySfx(AudioClip clip)
+    public void PlaySfx(AudioClip cilp)
     {
-        _audioSource.clip = clip;
+        _audioSource.clip = cilp;
         _audioSource.Play();
     }
 
