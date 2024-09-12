@@ -18,12 +18,20 @@ public class MgsyEnemySpawn : MGSYPattern
     [Header("EnemyList")]
     [SerializeField] private List<Enemy> _enemys = new List<Enemy>();
 
-    public override void Awake()
+    private void Awake()
     {
-        base.Awake();
+        Init(PatternTypeEnum.EnemySpawn, this);
         ResetCount();
-        SetDicKey(this);
-        mgsy.patternDic.Add(_dicKey, this);
+    }
+
+    protected override void PatternStart()
+    {
+        StartEnemySpawn();
+    }
+
+    protected override void PatternEnd()
+    {
+        EndEnemySpawn();
     }
 
     private void SetCool()
@@ -40,32 +48,26 @@ public class MgsyEnemySpawn : MGSYPattern
 
     public void Spawn()
     {
-        IsSpawning = true;
         SpawnEnemies();
     }
 
     private void SpawnEnemies()
     {
-        if (IsSpawning)
+        if (_currentMobCount <= _mobCount)
         {
-            if (_currentMobCount <= _mobCount)
-            {
-                int randIndex = Random.Range(0, _enemys.Count);
-                GameObject enemyGo = _enemys[randIndex].gameObject;
-                _currentMobCount++;
-            }
-            else if (_currentMobCount > _mobCount)
-            {
-                ResetCount();
-            }
-            
-            IsSpawning = false;
+            int randIndex = Random.Range(0, _enemys.Count);
+            GameObject enemyGo = _enemys[randIndex].gameObject;
+            _currentMobCount++;
+        }
+        else if (_currentMobCount > _mobCount)
+        {
+            ResetCount();
         }
     }
 
     private IEnumerator MgsyEnemySpawnRoutine()
     {
-        while (true)
+        while (IsSpawning)
         {
             Spawn();
             yield return new WaitForSeconds(_spawnCoolTime);
@@ -75,11 +77,13 @@ public class MgsyEnemySpawn : MGSYPattern
 
     public void StartEnemySpawn()
     {
+        IsSpawning = true;
         StartCoroutine(MgsyEnemySpawnRoutine());
     }
 
     public void EndEnemySpawn()
     {
+        IsSpawning = false;
         StopCoroutine(MgsyEnemySpawnRoutine());
     }
 }
