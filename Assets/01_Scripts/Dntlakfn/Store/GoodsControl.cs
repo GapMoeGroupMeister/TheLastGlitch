@@ -30,14 +30,14 @@ public class GoodsControl : MonoBehaviour
         _icon.sprite = item._icon;
         _name.text = item._name;
         _toolTip.text = item._toolTip;
-        _price.text = item._price + "";
+        _price.text = item._price + "원";
         
         
     }
 
     public void BuyItem()
     {
-        Money.money -= int.Parse(_price.text);
+        Money.money -= item._price;
         gameObject.SetActive(false);
         Debug.Log(item);
         //인벤토리 리스트에 구매한 아이탬 넣어줌
@@ -47,7 +47,7 @@ public class GoodsControl : MonoBehaviour
 
     public void Click()
     {
-        if(Money.money >= int.Parse(_price.text))
+        if(Money.money >= item._price)
         {
             OnBuy = BuyItem;
             _eb.SetEvent(OnBuy, "구매하시겠습니까?");

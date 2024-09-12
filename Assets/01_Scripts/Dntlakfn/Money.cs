@@ -15,6 +15,10 @@ public class Money : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            money += 1000000;
+        }
         text.text = "¿ÎµÎ : " + money;
 
     }
