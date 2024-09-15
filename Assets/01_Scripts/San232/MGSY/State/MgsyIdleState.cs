@@ -29,7 +29,7 @@ public class MgsyIdleState : MGSYState<BossStateEnum>
         
         if(mgsy.GetPlayerInRange().gameObject.CompareTag("Player"))
         {
-            Change2Closed() ;
+            Change2Closed();
         }
         
     }
