@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9266932f144ee24b89c37eb812cab4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentClip: {fileID: 8300000, guid: a8cb6601de196c3459177f61f1bf1c3d, type: 3}
 --- !u!1 &1546506327826405586
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,6 +379,7 @@ Transform:
   - {fileID: 5725834658135703443}
   - {fileID: 7344164126717079840}
   - {fileID: 5388421176935328088}
+  - {fileID: 1963663527721953210}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3627542931291340576
@@ -445,12 +447,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526ddbf786e2a9443a47d75625108769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  maxHealth: 100
   OnGetHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3379695534772755344}
-        m_TargetAssemblyTypeName: EffectFeedBack, Assembly-CSharp
+      - m_Target: {fileID: 6505332952545737800}
+        m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -464,6 +466,21 @@ MonoBehaviour:
       - m_Target: {fileID: 6519005202214797683}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
         m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnGetDamageEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DamageTextFeedBack, Assembly-CSharp
+        m_MethodName: PlayFeedback
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -715,6 +732,68 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7137554321676590841, guid: 64875039ca75e4340b5ca1f250698bae, type: 3}
   m_PrefabInstance: {fileID: 112793715532597404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1291578277796388856
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 552201136969390560}
+    m_Modifications:
+    - target: {fileID: 769216181602875458, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 769216181602875458, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 769216181602875458, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 769216181602875458, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 769216181602875458, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 769216181602875458, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 769216181602875458, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 769216181602875458, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 769216181602875458, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 769216181602875458, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 870965437660283542, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+      propertyPath: m_Name
+      value: DamageTextFeedBack
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+--- !u!4 &1963663527721953210 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 769216181602875458, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+  m_PrefabInstance: {fileID: 1291578277796388856}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1903976110587335504
 PrefabInstance:
