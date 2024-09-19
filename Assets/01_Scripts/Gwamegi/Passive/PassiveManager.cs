@@ -12,11 +12,6 @@ public class PassiveManager : MonoBehaviour
 
     public Player player;
 
-    private void Awake()
-    {
-        NotifyUsePassiveList.Value = new List<PassiveSO>();
-    }
-
     private void Start()
     {
         player = GameManager.Instance.Player;
