@@ -15,7 +15,7 @@ public class CoreHandler : MGSYPattern
     {
         foreach (Core core in cores)
         {
-            core.Explode();
+            core.CoreExplode();
         }
     }
 }

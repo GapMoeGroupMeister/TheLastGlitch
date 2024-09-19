@@ -363,6 +363,68 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &147674483
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 580136824}
+    m_Modifications:
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6821493246751935600, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_Name
+      value: RocketLauncherEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+--- !u!4 &147674484 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+  m_PrefabInstance: {fileID: 147674483}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &332621168
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,6 +555,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 580136824}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &460345290
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1658122916}
+    m_Modifications:
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6821493246751935600, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+      propertyPath: m_Name
+      value: RocketLauncherEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+--- !u!4 &460345291 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4448541041965034748, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
+  m_PrefabInstance: {fileID: 460345290}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &580136823
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,6 +649,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 332621171}
+  - {fileID: 147674484}
   m_Father: {fileID: 1976350836}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &580136825
@@ -539,13 +664,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526ddbf786e2a9443a47d75625108769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 4
+  maxHealth: 100
   OnGetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGetDamageEvent:
     m_PersistentCalls:
       m_Calls: []
   OnDeadEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 580136826}
+        m_TargetAssemblyTypeName: Core, Assembly-CSharp
+        m_MethodName: Explode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &580136826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,7 +700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coreHealth: {fileID: 0}
   _coreBombDamage: 1
-  _coreBombRadius: 1
+  _coreBombRadius: 2.5
   _mgsy: {fileID: 0}
 --- !u!1 &854546265
 GameObject:
@@ -959,6 +1099,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 110527171}
+  - {fileID: 460345291}
   m_Father: {fileID: 1976350836}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1658122917
@@ -975,7 +1116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coreHealth: {fileID: 0}
   _coreBombDamage: 1
-  _coreBombRadius: 1
+  _coreBombRadius: 2.5
   _mgsy: {fileID: 0}
 --- !u!114 &1658122918
 MonoBehaviour:
@@ -989,8 +1130,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526ddbf786e2a9443a47d75625108769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 4
+  maxHealth: 100
   OnGetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGetDamageEvent:
     m_PersistentCalls:
       m_Calls: []
   OnDeadEvent:
@@ -1120,8 +1264,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526ddbf786e2a9443a47d75625108769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  maxHealth: 1000
   OnGetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGetDamageEvent:
     m_PersistentCalls:
       m_Calls: []
   OnDeadEvent:
@@ -1257,16 +1404,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e34cee3f78606b478aec4d588df80c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mobCount: 15
-  _currentMobCount: 0
-  _minCount: 7
-  _maxCount: 14
   _spawnCoolTime: 0
   _minCoolTime: 2
   _maxCoolTime: 4
   _patternCoolTime: 0
   _maxPatternCool: 6
   _minPatternCool: 12
+  _mobCount: 15
+  _currentMobCount: 0
+  _minCount: 7
+  _maxCount: 14
   _enemys:
   - {fileID: 7079840489748371561, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
   - {fileID: 3916682341307116186, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
@@ -1318,18 +1465,8 @@ MonoBehaviour:
   targetTrm: {fileID: 0}
   lastAttackTime: 0
   _colliders: []
-  testEnemyPrefab: {fileID: 0}
   state: 
   mgsyAnimator: {fileID: 0}
-  ClosedPatterns:
-  - m_PersistentCalls:
-      m_Calls: []
-  OpenedPatterns:
-  - m_PersistentCalls:
-      m_Calls: []
-  AngryOpenedPatterns:
-  - m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1976350842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1485,8 +1622,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526ddbf786e2a9443a47d75625108769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  maxHealth: 100
   OnGetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGetDamageEvent:
     m_PersistentCalls:
       m_Calls: []
   OnDeadEvent:
