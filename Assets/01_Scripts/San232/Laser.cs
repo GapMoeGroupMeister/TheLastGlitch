@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    [SerializeField] private LineRenderer _lineRenderer;
+    [SerializeField] public LineRenderer _lineRenderer;
 
     private void Awake()
     {
