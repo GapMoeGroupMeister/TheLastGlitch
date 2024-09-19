@@ -83,6 +83,7 @@ public class MGSY : EnemySetting
     {
         int count = Physics2D.OverlapCircle(transform.position, detectRadius, contactFilter, _colliders);
         Debug.Log(count);
+        targetTrm = count > 0 ? _colliders[0].gameObject.transform : null;
         return count > 0 ? _colliders[0] : null;
     }
 
