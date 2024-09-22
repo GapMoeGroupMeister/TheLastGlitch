@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 186925170}
   - component: {fileID: 186925169}
   - component: {fileID: 186925168}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Objects-Sheet_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!212 &186925170
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -72993,7 +72993,7 @@ GameObject:
   - component: {fileID: 1234170042}
   - component: {fileID: 1234170041}
   - component: {fileID: 1234170040}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Objects-Sheet_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73009,7 +73009,7 @@ Transform:
   m_GameObject: {fileID: 1234170038}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.16, y: -2.23, z: 0.03733516}
+  m_LocalPosition: {x: -5.03, y: -2.23, z: 0.03733516}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73086,7 +73086,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!212 &1234170042
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -73151,7 +73151,7 @@ GameObject:
   - component: {fileID: 1251477267}
   - component: {fileID: 1251477266}
   - component: {fileID: 1251477265}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Objects-Sheet_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73199,7 +73199,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &1251477266
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -73551,6 +73551,10 @@ PrefabInstance:
       propertyPath: HavePassiveList.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: eecc885dbc9334e429e8cb10205c85a4, type: 2}
+    - target: {fileID: 6506296038356724377, guid: d294a24251bd5ad448914848f1d61fc7, type: 3}
+      propertyPath: _whatIsGround.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 7867192051387084950, guid: d294a24251bd5ad448914848f1d61fc7, type: 3}
       propertyPath: m_Name
       value: Player2
