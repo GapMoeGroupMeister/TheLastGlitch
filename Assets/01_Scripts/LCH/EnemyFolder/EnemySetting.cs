@@ -12,10 +12,14 @@ public abstract class EnemySetting : Agent
     public int attackRadius,knockbackPower,attackCooldown;
     public float stopRay;
     public int damage;
-    public LayerMask _whatIsPlayer;
+    public LayerMask _whatIsPlayer , WhatIsObj;
     public ContactFilter2D contactFilter;
 
     public float minX, maxX;
+
+    public float ObjRay;
+
+    public bool isObj = false;
 
     public GameObject[] DeadItem;
 
@@ -63,6 +67,12 @@ public abstract class EnemySetting : Agent
     {
         isPlayer = Physics2D.Raycast(transform.position,Vector2.right,stopRay,_whatIsPlayer);
         return isPlayer;
+    }
+
+    public bool GetObj()
+    {
+        isObj = Physics2D.Raycast(transform.position, Vector2.right, ObjRay, WhatIsObj);
+        return isObj;
     }
 
     public Vector3 GetRandomVector()

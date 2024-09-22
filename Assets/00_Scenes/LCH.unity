@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 63025858}
     - target: {fileID: 2642503958888725377, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
       propertyPath: OnGetHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayFeedbacks
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2642503958888725377, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
       propertyPath: OnGetHit.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -203,6 +203,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoldierEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3916682341307116186, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -246,39 +250,11 @@ PrefabInstance:
     - target: {fileID: 313470962380873986, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
       propertyPath: OnGetHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 6826621849787226854}
-    - target: {fileID: 313470962380873986, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: OnGetHit.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 120894733}
-    - target: {fileID: 313470962380873986, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: OnGetHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayFeedbacks
-      objectReference: {fileID: 0}
-    - target: {fileID: 313470962380873986, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: OnGetHit.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: GetHit
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6826621849787226855}
     - target: {fileID: 313470962380873986, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
       propertyPath: OnGetDamageEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 63025859}
-    - target: {fileID: 313470962380873986, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: OnGetDamageEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayFeedbacks
-      objectReference: {fileID: 0}
-    - target: {fileID: 313470962380873986, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: OnGetHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayFeedback, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 313470962380873986, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: OnGetHit.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Enemy, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 313470962380873986, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-      propertyPath: OnGetDamageEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayFeedback, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 3824209589037874041, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
       propertyPath: m_Name
       value: TankerEnemy
@@ -328,17 +304,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
---- !u!114 &120894733 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6040475595593215478, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
-  m_PrefabInstance: {fileID: 120894732}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30bf769a142ef7a42b49a9422e0616f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &161606873
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +337,7 @@ RectTransform:
   m_Father: {fileID: 1291471149}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -915,7 +880,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 305593337}
         m_TargetAssemblyTypeName: TestPlayer, Assembly-CSharp
-        m_MethodName: Test
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2264,8 +2229,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 997167921}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 4.2430115, y: 0.000011444092}
   m_SizeDelta: {x: 56.8305, y: 0.000022888}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2401,7 +2366,7 @@ RectTransform:
   m_Father: {fileID: 1936345114}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2475,8 +2440,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1194895360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 4.2430115, y: 0.000011444092}
   m_SizeDelta: {x: 56.8305, y: 0.000022888}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2764,7 +2729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1927999881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3390,10 +3355,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dron
       objectReference: {fileID: 0}
+    - target: {fileID: 3065351043755773162, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4348948770106824971, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
       propertyPath: OnGetHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6826621849787226854}
+    - target: {fileID: 4348948770106824971, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
+      propertyPath: OnGetHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4348948770106824971, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
       propertyPath: OnGetDamageEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4440,12 +4413,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6826621849787226854}
     - target: {fileID: 3399427739390093216, guid: a2f09a759657ded489b43a17964086e0, type: 3}
+      propertyPath: OnGetHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3399427739390093216, guid: a2f09a759657ded489b43a17964086e0, type: 3}
       propertyPath: OnGetDamageEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 63025859}
     - target: {fileID: 8313388324781040890, guid: a2f09a759657ded489b43a17964086e0, type: 3}
       propertyPath: m_Name
       value: BoomEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313388324781040890, guid: a2f09a759657ded489b43a17964086e0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4504,9 +4485,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: GunEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7079840489748371561, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9192426514676359067, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
       propertyPath: OnGetHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayFeedbacks
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9192426514676359067, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
       propertyPath: OnGetHit.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -4538,6 +4523,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cbfa0e705d523744a50d7eb8746e9a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6826621849787226855 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1137381570048296330, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
+  m_PrefabInstance: {fileID: 6826621849787226853}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeec9050a7b544b43bdac22b45d5f4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6847419214900493603
