@@ -192,9 +192,10 @@ GameObject:
   - component: {fileID: 186925170}
   - component: {fileID: 186925169}
   - component: {fileID: 186925168}
+  - component: {fileID: 186925172}
   m_Layer: 31
   m_Name: Objects-Sheet_1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -338,6 +339,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &186925172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186925166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526ddbf786e2a9443a47d75625108769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 40
+  OnGetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGetDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &323610009
 GameObject:
   m_ObjectHideFlags: 0
@@ -72993,9 +73016,10 @@ GameObject:
   - component: {fileID: 1234170042}
   - component: {fileID: 1234170041}
   - component: {fileID: 1234170040}
+  - component: {fileID: 1234170044}
   m_Layer: 31
   m_Name: Objects-Sheet_1 (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73139,6 +73163,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1234170044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234170038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526ddbf786e2a9443a47d75625108769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 40
+  OnGetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGetDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1251477263
 GameObject:
   m_ObjectHideFlags: 0
@@ -73151,9 +73197,10 @@ GameObject:
   - component: {fileID: 1251477267}
   - component: {fileID: 1251477266}
   - component: {fileID: 1251477265}
+  - component: {fileID: 1251477269}
   m_Layer: 31
   m_Name: Objects-Sheet_1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73297,6 +73344,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1251477269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251477263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526ddbf786e2a9443a47d75625108769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 40
+  OnGetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGetDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1276280034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5307257676430532241, guid: 057379706b909dc438cd952aa8371883, type: 3}
