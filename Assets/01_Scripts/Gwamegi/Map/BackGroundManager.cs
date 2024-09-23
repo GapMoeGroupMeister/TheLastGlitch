@@ -1,34 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BackGroundManager : MonoBehaviour
 {
-    [SerializeField] private Transform _backGround1, _backGround2, _backGround3;
-    public float _point2, _point1, _startPosition;
+    [SerializeField] private Transform _backGround;
+    private Player _player;
+    private Vector3 point1, point2;
 
     private void Awake()
     {
-        _point1 = _backGround3.localPosition.x;//세개의 배경중 왼쪽의 배경
-        _point2 = _backGround2.localPosition.x;//세개의 배경중 오른쪽의 배경
-        _startPosition = _backGround1.localPosition.x;//세개의 배경중 중앙의 배경
+        point1 = new Vector3(_backGround.position.x, _backGround.position.y); // 오른쪽
+        point2 = new Vector3(-_backGround.position.x, _backGround.position.y); // 왼쪽
+    }
+
+    private void Start()
+    {
+        _player = GameManager.Instance.Player;
     }
 
     private void Update()
     {
-        if (Mathf.Approximately(_backGround2.localPosition.x, _startPosition))
+        if(PlayerPositionIsRight())
         {
-            _backGround3.localPosition = new Vector3(_point1, _backGround2.localPosition.y, _backGround2.localPosition.z);
-
-            (_backGround3, _backGround1, _backGround2) = (_backGround1, _backGround2, _backGround3);
+            _backGround.position = point1;
         }
-
-        if (Mathf.Approximately(_backGround3.localPosition.x, _startPosition))
+        else
         {
-            _backGround2.localPosition = new Vector3(_point2, _backGround3.localPosition.y, _backGround3.localPosition.z);
-            (_backGround3, _backGround1, _backGround2) = (_backGround2, _backGround3, _backGround1);
+            _backGround.position = point2;
         }
-
     }
 
+    private bool PlayerPositionIsRight()
+    {
+        return transform.position.x < _player.transform.position.x;
+    }
 }
