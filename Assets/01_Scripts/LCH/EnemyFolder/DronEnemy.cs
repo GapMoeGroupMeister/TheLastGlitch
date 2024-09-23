@@ -10,7 +10,7 @@ public class DronEnemy : ADEnemy
 
     [SerializeField] private LayerMask _iGround;
 
-    [SerializeField] private float _ray;
+    [SerializeField] private float _ray = 0.7f;
 
     public bool IsGround()
     {
