@@ -5,7 +5,7 @@ public class Health : MonoBehaviour
 {
     public float maxHealth = 100;
 
-    private float _currentHealth;
+   public float CurrentHealth { get; private set; }
     Agent _onwer;
 
     public bool IsHittable { get; set; } = true;
@@ -15,12 +15,6 @@ public class Health : MonoBehaviour
     public UnityEvent<int> OnGetDamageEvent;
     public UnityEvent OnDeadEvent;
 
-
-    private void Update()
-    {
-        //Debug.Log(_currentHealth);
-    }
-
     public void Initialize(Agent agent)
     {
         _onwer = agent;
@@ -28,18 +22,18 @@ public class Health : MonoBehaviour
     }
     private void ResetHealth()
     {
-        _currentHealth = maxHealth;
+        CurrentHealth = maxHealth;
     }
 
     public void AddCurrentHP(int addHealth)
     {
-        if (addHealth + _currentHealth > maxHealth)
+        if (addHealth + CurrentHealth > maxHealth)
         {
-            _currentHealth = maxHealth;
+            CurrentHealth = maxHealth;
         }
         else
         {
-            _currentHealth += addHealth;
+            CurrentHealth += addHealth;
         }
 
 
@@ -48,24 +42,23 @@ public class Health : MonoBehaviour
 
     public float GetCurrentHP()
     {
-        return _currentHealth;
+        return CurrentHealth;
     }
-
 
 
     public void TakeDamage(float amount, Vector2 dir, float knockbackPower)
     {
         if (IsHittable)
         {
+            CurrentHealth -= amount;
             OnGetHit?.Invoke();
             if (knockbackPower > 0)
                 _onwer.MovementComponent.GetKnockback(dir, knockbackPower);
-            _currentHealth -= amount;
             OnGetDamageEvent?.Invoke((int)amount);
-            if (_currentHealth <= 0)
+            if (CurrentHealth <= 0)
             {
                 OnDeadEvent?.Invoke();
-                _currentHealth = maxHealth;
+                CurrentHealth = maxHealth;
             }
 
         }

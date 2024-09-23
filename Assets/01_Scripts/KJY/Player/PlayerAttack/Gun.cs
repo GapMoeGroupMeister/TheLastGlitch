@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using DG.Tweening;
 
 public class Gun : PlayerWeaponParent
 {
@@ -60,6 +61,8 @@ public class Gun : PlayerWeaponParent
     {
         _bulletCount--;
         GameObject bullet = InstantiateBullet();
+
+
 
         bullet.transform.SetPositionAndRotation(_firePos.position, _firePos.rotation);
         bullet.GetComponent<Bullet>().OnAttackEvent.AddListener(_attackPassiveFeedback.PlayFeedback);
