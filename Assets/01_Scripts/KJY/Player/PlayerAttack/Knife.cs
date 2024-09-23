@@ -43,7 +43,7 @@ public class Knife : PlayerWeaponParent
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!WeaponCoolTime.instance._attack)
+        if (WeaponCoolTime.instance._attack)
         {
             Debug.Log("KAttack");
             if (collision.gameObject.CompareTag("Enemy") && !_isAttacking)
