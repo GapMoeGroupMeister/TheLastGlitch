@@ -44,7 +44,7 @@ public class StateManager : Enemy
 
     public void EnemyStop()
     {
-        if (MovementComponent._xMove == 0)
+        if (MovementComponent._xMove == 0 || GetObj())
         {
            StateMachine.ChangeState(EnemyStateEnum.Idle);
         }

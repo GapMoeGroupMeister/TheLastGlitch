@@ -13,6 +13,11 @@ public class SfxFeedback : Feedback
     {
         _sfxSource = GameObject.Find("AudioManager").GetComponent<AudioSource>();
         _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+
+        if(_audioManager == null)
+        {
+            AudioManager audioManager = new GameObject("AudioManager").AddComponent<AudioManager>();
+        }
     }
 
     public override void PlayFeedback()

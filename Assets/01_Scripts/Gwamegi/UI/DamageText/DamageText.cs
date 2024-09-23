@@ -31,7 +31,7 @@ public class DamageText : MonoBehaviour
 
     private void MoveText()
     {
-        transform.position += Vector3.up * _moveSpeed * Time.deltaTime;
+        transform.position += new Vector3(0f,1,0) * _moveSpeed * Time.deltaTime;
     }
 
     private IEnumerator DestroyGameObject()

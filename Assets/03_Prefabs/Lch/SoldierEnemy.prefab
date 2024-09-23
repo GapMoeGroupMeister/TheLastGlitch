@@ -87,9 +87,9 @@ MonoBehaviour:
   OnGetHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6909155668407297460}
-        m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
-        m_MethodName: PlayFeedbacks
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: EffectFeedBack, Assembly-CSharp
+        m_MethodName: PlayFeedback
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -114,9 +114,9 @@ MonoBehaviour:
   OnGetDamageEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6077688255810515407}
-        m_TargetAssemblyTypeName: DamageTextFeedBack, Assembly-CSharp
-        m_MethodName: PlayFeedback
+      - m_Target: {fileID: 6485046669230194535}
+        m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedbacks
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -191,6 +191,9 @@ MonoBehaviour:
   _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
+  WhatIsObj:
+    serializedVersion: 2
+    m_Bits: 2147483648
   contactFilter:
     useTriggers: 0
     useLayerMask: 1
@@ -207,6 +210,8 @@ MonoBehaviour:
     maxNormalAngle: 0
   minX: 0
   maxX: 0
+  ObjRay: 0
+  isObj: 0
   DeadItem:
   - {fileID: 6473396969644008485, guid: bc058c88cb26be249bdfdca2a620a2f9, type: 3}
   - {fileID: 6053116263363009150, guid: 25e8919e3788e1145903fb9daa8f42bf, type: 3}
@@ -806,14 +811,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 769216181602875458, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
   m_PrefabInstance: {fileID: 5543923480871584575}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6077688255810515407 stripped
+--- !u!114 &6485046669230194535 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1781086022078722800, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1517847895393959000, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
   m_PrefabInstance: {fileID: 5543923480871584575}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2200b818006782046a597ab27c8750f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cbfa0e705d523744a50d7eb8746e9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
