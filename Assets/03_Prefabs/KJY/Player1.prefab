@@ -596,7 +596,7 @@ MonoBehaviour:
   gravityDelay: 0.15
   _whatIsGround:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 2147484160
   _groundCheckerSize: {x: 0.4, y: 0.2}
   isGround:
     _value: 0

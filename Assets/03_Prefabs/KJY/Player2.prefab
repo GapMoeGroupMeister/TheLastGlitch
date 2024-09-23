@@ -481,8 +481,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.015603331, y: 0.026152804}
-  m_Size: {x: 0.6359652, y: 0.18691555}
+  m_Offset: {x: -0.06667141, y: 0.026152791}
+  m_Size: {x: 0.8005213, y: 0.18691665}
   m_Direction: 1
 --- !u!1 &4801433353509794515
 GameObject:
@@ -750,7 +750,7 @@ MonoBehaviour:
   gravityDelay: 0.15
   _whatIsGround:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 2147484160
   _groundCheckerSize: {x: 0.4, y: 0.2}
   isGround:
     _value: 0
