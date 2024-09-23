@@ -15,9 +15,16 @@ public enum BossStateEnum
     Closing
 }
 
+public enum PatternTypeEnum
+{
+    EnemySpawn,
+    CoreBomb,
+    LaserShoot,
+    None
+}
+
 public class MGSY : EnemySetting
 {
-    [SerializeField] private GameObject testEnemyPrefab = null;
     public string state = null;
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
 
@@ -25,7 +32,7 @@ public class MGSY : EnemySetting
 
     public int? isRunningHash = null;
 
-    public Dictionary<string, MGSYPattern> patternDic = new Dictionary<string, MGSYPattern>();
+    public Dictionary<Enum, MGSYPattern> patternDic = new Dictionary<Enum, MGSYPattern>();
 
         
 
@@ -76,6 +83,7 @@ public class MGSY : EnemySetting
     {
         int count = Physics2D.OverlapCircle(transform.position, detectRadius, contactFilter, _colliders);
         Debug.Log(count);
+        targetTrm = count > 0 ? _colliders[0].gameObject.transform : null;
         return count > 0 ? _colliders[0] : null;
     }
 

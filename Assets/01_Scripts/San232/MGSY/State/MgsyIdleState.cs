@@ -21,13 +21,16 @@ public class MgsyIdleState : MGSYState<BossStateEnum>
     {
         base.Enter();
         mgsy.HealthComponent.IsHittable = false;
-        Change2Closed();
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
         
+        if(mgsy.GetPlayerInRange().gameObject.CompareTag("Player"))
+        {
+            Change2Closed();
+        }
         
     }
 
