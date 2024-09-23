@@ -12,17 +12,11 @@ public class Knife : PlayerWeaponParent
     [SerializeField] private GameObject _knifeParent;
     [SerializeField] private GameObject _player;
 
-    private CapsuleCollider2D _collider;
+    private bool _isAttacking = false;
 
     private void Awake()
     {
-        _collider = GetComponent<CapsuleCollider2D>();
         _input.OnAttackEvent += Attack;
-    }
-
-    private void Start()
-    {
-        _collider.enabled = false;
     }
 
     public void Attack()
@@ -31,7 +25,6 @@ public class Knife : PlayerWeaponParent
         {
             if (!WeaponCoolTime.instance._attack)
             {
-                
                 transform.DOLocalMoveX(transform.localPosition.x + 0.5f, 0.1f).SetLoops(2, LoopType.Yoyo);
                 StartCoroutine(AttackCoolTimeKA());
             }
@@ -42,18 +35,20 @@ public class Knife : PlayerWeaponParent
     private IEnumerator AttackCoolTimeKA()
     {
         WeaponCoolTime.instance._attack = true;
-        _collider.enabled = true;
         yield return new WaitForSeconds(0.2f);
         WeaponCoolTime.instance._attack = false;
-        _collider.enabled = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    #region Trigger
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (WeaponCoolTime.instance._attack)
+        if (!WeaponCoolTime.instance._attack)
         {
-            if (collision.gameObject.CompareTag("Enemy"))
+            Debug.Log("KAttack");
+            if (collision.gameObject.CompareTag("Enemy") && !_isAttacking)
             {
+                _isAttacking = true;
                 if (_player.transform.localScale.x > 0)
                 {
                     float rand = Random.Range(0f, 101f);
@@ -81,4 +76,11 @@ public class Knife : PlayerWeaponParent
             }
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        _isAttacking = false;
+    }
+
+#endregion
 }
