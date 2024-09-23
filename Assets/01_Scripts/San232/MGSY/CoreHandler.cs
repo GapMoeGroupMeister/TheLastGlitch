@@ -11,7 +11,7 @@ public class CoreHandler : MGSYPattern
         Init(PatternTypeEnum.CoreBomb, this);
     }
 
-    protected override void PatternStart()
+    public override void PatternStart()
     {
         foreach (Core core in cores)
         {
