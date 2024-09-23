@@ -108,11 +108,10 @@ public class MGSY : EnemySetting
                     patternDic.TryGetValue(pattern, out MGSYPattern patternInstance);
                     patternInstance.PatternStart();
 
-                    break;
+                    yield return new WaitForSeconds(Delay);
                 }
             }
 
-            yield return new WaitForSeconds(Delay);
         }
     }
 
