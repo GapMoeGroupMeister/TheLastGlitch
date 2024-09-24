@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Core : MonoBehaviour
 {
+    [Header("Explode Particle")]
+    [SerializeField] private ParticleSystem _explodeParticle;
+
     [Header("Core Status")]
     [SerializeField] private Health _coreHealth;
     [SerializeField] private int _coreBombDamage;
@@ -20,6 +23,7 @@ public class Core : MonoBehaviour
     {
         CoreDamagerCaster = GetComponentInChildren<DamageCaster>();
         _mgsy = transform.parent.gameObject.GetComponent<MGSY>();
+        _explodeParticle = GetComponentInChildren<ParticleSystem>();
     }
 
     public void DestroyCore()
@@ -28,7 +32,7 @@ public class Core : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void Explode()
+    public void CoreExplode()
     {
         // 폭발 범위 내의 모든 콜라이더 가져오기
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, _coreBombRadius);
@@ -47,9 +51,14 @@ public class Core : MonoBehaviour
                 }
             }
         }
-
+        CoreExplodeParticle();
         // 파 티 클 넣 어
         Debug.Log("Explosion triggered!");
+    }
+
+    private void CoreExplodeParticle()
+    {
+        _explodeParticle.Play();
     }
 
     // 폭발 범위 그리기 (디버그용)

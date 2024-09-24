@@ -28,12 +28,6 @@ public class BigSword : PlayerWeaponParent
         AttackSequence.Restart();
     }
 
-    private void Update()
-    {
-
-    }
-
-
     public void BigSwordAttack()
     {
         if (_swordParent.activeSelf == true)
@@ -41,7 +35,7 @@ public class BigSword : PlayerWeaponParent
             if (!WeaponCoolTime.instance._attack)
             {
                 AttackSequence = DOTween.Sequence();
-                AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -130), _swordSwingTime, RotateMode.FastBeyond360));
+                AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -130), _swordSwingTime, RotateMode.FastBeyond360).SetEase(Ease.InQuad));
                 AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -180), _swordReturnTime));
                 AttackSequence.Play();
                 StartCoroutine(AttackCoolTimeBG());
@@ -58,6 +52,8 @@ public class BigSword : PlayerWeaponParent
         WeaponCoolTime.instance._attack = false;
         gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
     }
+
+    #region Trigger
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -93,4 +89,5 @@ public class BigSword : PlayerWeaponParent
         }
     }
 
+    #endregion
 }

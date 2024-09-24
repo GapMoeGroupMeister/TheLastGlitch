@@ -23,12 +23,12 @@ public class MGSYPattern : MonoBehaviour
         mgsy.patternDic.Add(patternName, pattern);
     }
 
-    protected virtual void PatternStart()
+    public virtual void PatternStart()
     {
         
     }
-    
-    protected virtual void PatternEnd()
+
+    public virtual void PatternEnd()
     {
         
     }

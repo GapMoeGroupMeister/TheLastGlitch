@@ -24,12 +24,12 @@ public class MgsyEnemySpawn : MGSYPattern
         ResetCount();
     }
 
-    protected override void PatternStart()
+    public override void PatternStart()
     {
         StartEnemySpawn();
     }
 
-    protected override void PatternEnd()
+    public override void PatternEnd()
     {
         EndEnemySpawn();
     }

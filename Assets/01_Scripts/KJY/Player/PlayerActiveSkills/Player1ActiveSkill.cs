@@ -33,10 +33,13 @@ public class Player1ActiveSkill : MonoBehaviour
         Time.fixedDeltaTime = Time.timeScale * 0.02f;
         _agentMovement.moveSpeed *= 4;
         _agentMovement.extraGravity *= 4;
+        _agentMovement.rbCompo.gravityScale *= 4;
         yield return new WaitForSeconds(1f);
         _usingActive = false;
         Time.timeScale = 1f;
         _agentMovement.moveSpeed /= 4;
         _agentMovement.extraGravity /= 4;
+        _agentMovement.rbCompo.gravityScale /= 4;
+
     }
 }
