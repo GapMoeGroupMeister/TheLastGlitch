@@ -51,7 +51,7 @@ public class Core : MonoBehaviour
                 }
             }
         }
-        CoreExplodeParticle();
+        //CoreExplodeParticle();
         // 파 티 클 넣 어
         Debug.Log("Explosion triggered!");
     }
