@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public enum BossStateEnum
 {
@@ -90,6 +91,28 @@ public class MGSY : EnemySetting
     public override void AnimationEndTrigger()
     {
         StateMachine.CurrentState.AnimationEndTrigger();
+    }
+
+    public IEnumerator PatternsManager(PatternTypeEnum[] patterns, float Delay)
+    {
+
+        while (true)
+        {
+            foreach (var pattern in patterns)
+            {
+                int randIndex = 0;
+                randIndex = Random.Range(0, 100);
+
+                if (randIndex >= 50)
+                {
+                    patternDic.TryGetValue(pattern, out MGSYPattern patternInstance);
+                    patternInstance.PatternStart();
+
+                    yield return new WaitForSeconds(Delay);
+                }
+            }
+
+        }
     }
 
 }
