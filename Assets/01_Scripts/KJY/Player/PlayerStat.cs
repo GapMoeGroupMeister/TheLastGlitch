@@ -20,7 +20,7 @@ public class PlayerStat : MonoBehaviour
     private AgentMovement _agentMovement;
     private Health _health;
     private PlayerWeaponParent[] _weaponParent;
-
+    
 
 
     [SerializeField] private float _maxHealth;

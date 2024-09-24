@@ -5,15 +5,8 @@ using UnityEngine;
 
 public class BackGroundManager : MonoBehaviour
 {
-    [SerializeField] private Transform _backGround;
+    [SerializeField] private Transform _backGround_Y;
     private Player _player;
-    private Vector3 point1, point2;
-
-    private void Awake()
-    {
-        point1 = new Vector3(_backGround.position.x, _backGround.position.y); // 오른쪽
-        point2 = new Vector3(-_backGround.position.x, _backGround.position.y); // 왼쪽
-    }
 
     private void Start()
     {
@@ -22,13 +15,34 @@ public class BackGroundManager : MonoBehaviour
 
     private void Update()
     {
+
+
         if(PlayerPositionIsRight())
         {
-            _backGround.position = point1;
+            
+            if (transform.position.x > _backGround_Y.position.x) //현재 배경이 다른 배경보다 오른쪽에 있을떄
+            {
+                _backGround_Y.position = new Vector3((transform.position.x * 2) + _backGround_Y.position.x, transform.position.y, transform.position.z); //현재 배경 x값에 자신의 x값 만큼 더함 (오른쪽으로 이동)
+            }
+
+            if (transform.position.x < _backGround_Y.position.x)//현재 배경이 다른 배경보다 왼쪽에 있을떄
+            {
+                _backGround_Y.position = new Vector3(-((transform.position.x * 2) + _backGround_Y.position.x), transform.position.y, transform.position.z);//현재 배경 x값에 자신의 x값 만큼 빼줌 (왼쪽으로 이동)
+
+            }
         }
         else
         {
-            _backGround.position = point2;
+            if (transform.position.x > _backGround_Y.position.x) //현재 배경이 다른 배경보다 오른쪽에 있을떄
+            {
+                _backGround_Y.position = new Vector3((transform.position.x * 2) + _backGround_Y.position.x, transform.position.y, transform.position.z); //현재 배경 x값에 자신의 x값 만큼 더함 (오른쪽으로 이동)
+            }
+
+            if (transform.position.x < _backGround_Y.position.x)//현재 배경이 다른 배경보다 왼쪽에 있을떄
+            {
+                _backGround_Y.position = new Vector3(-((transform.position.x * 2) + _backGround_Y.position.x), transform.position.y, transform.position.z);//현재 배경 x값에 자신의 x값 만큼 빼줌 (왼쪽으로 이동)
+
+            }
         }
     }
 

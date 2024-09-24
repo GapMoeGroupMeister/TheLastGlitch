@@ -801,7 +801,7 @@ MonoBehaviour:
   - {fileID: 314132021}
   - {fileID: 33199399}
   _trm: {fileID: 380002810}
-  _sceneName: MenuScene
+  _sceneName: ChoisePlayerScene
   _isShow: 1
 --- !u!1 &429544171 stripped
 GameObject:
