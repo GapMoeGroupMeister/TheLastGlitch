@@ -1471,7 +1471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &659604842
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4704,6 +4704,7 @@ MonoBehaviour:
   _goods: {fileID: 7039882367464503905, guid: 30cc1545068823e4aa9bc497e92dc590, type: 3}
   items: {fileID: 11400000, guid: a2307e5674a95f945bbae41088435f5a, type: 2}
   item: {fileID: 0}
+  displayedItems: []
   eb: {fileID: 7135589861716024289}
   Goods: []
 --- !u!1 &1997213648
