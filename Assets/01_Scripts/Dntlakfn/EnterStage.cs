@@ -19,7 +19,7 @@ public class EnterStage : MonoBehaviour, IInteractive
     {
         if (map != null)
         {
-            SceneManager.LoadScene(map);
+            LoadingSceneManager.LoadScene(map);
         }
     }
 

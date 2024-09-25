@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beed09b268d07a24e96851929fd632e4, type: 3}
   m_Name: Rhdsidrjflrh
   m_EditorClassIdentifier: 
-  questName: "\uD604\uD0C0\uAC00"
-  questDetail: "\uC874\uB098\uC624\uB124"
+  questName: "\uC2A4\uD14C\uC774\uC9C0 1"
+  questDetail: "\uBC0D"
   questType: 0
-  questLevel: 1
-  targetPlace: "\uC804\uD654"
+  questLevel: 2
+  targetPlace: Stage1
   isClear: 0
   target: 
   targetNumber: 0
