@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/00_Scenes/Gwamegi/Title.unity
     guid: 2216861f298eec7459c7aedc3b79137b
   - enabled: 1
-    path: Assets/00_Scenes/LCH.unity
-    guid: dcf76ac734a35664a8abbe7d1bbc6ed4
-  - enabled: 1
     path: Assets/00_Scenes/Gwamegi/LoadingScene.unity
     guid: bc0e584a4c7a0ec4d876b35147aac27b
   - enabled: 1
@@ -23,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00_Scenes/Gwamegi/MenuScene.unity
     guid: f8b69df09b75e2d4a9eeecfb27a6a79b
+  - enabled: 1
+    path: Assets/00_Scenes/Gwamegi/ChoisePlayerScene.unity
+    guid: 48127535c46f489409a1187076c2ce53
   m_configObjects: {}
