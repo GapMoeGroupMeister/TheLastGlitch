@@ -26,7 +26,7 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
-    private void Awake()
+    public void Initialize()
     {
         Player = FindObjectOfType<Player>();
     }
