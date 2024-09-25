@@ -10,7 +10,7 @@ public class Stat
     public float moveSpeed;
     public float atkPower;
     public float critDamage;
-    public float scritProbability;
+    public float critProbability;
 }
 
 public class PlayerStat : MonoBehaviour
@@ -79,7 +79,7 @@ public class PlayerStat : MonoBehaviour
                 _moveSpeed += stat.moveSpeed;
                 _atkPower += stat.atkPower;
                 _critDamage += stat.critDamage;
-                _critProbability += stat.scritProbability;
+                _critProbability += stat.critProbability;
         }
     }
 }

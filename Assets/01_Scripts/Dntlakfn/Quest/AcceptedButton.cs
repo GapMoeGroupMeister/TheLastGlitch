@@ -5,40 +5,30 @@ using UnityEngine;
 
 public class AcceptedButton : MonoBehaviour
 {
-    [SerializeField] protected GameObject a;
-    [SerializeField] protected GameObject q;
+    
 
-    [SerializeField] protected GameObject aa;
-    [SerializeField] protected GameObject bb;
-
-    [SerializeField] protected TextMeshProUGUI aaa;
-    [SerializeField] protected TextMeshProUGUI bbb;
+    [SerializeField] protected GameObject accepted;
+    [SerializeField] protected GameObject quest;
         
     private void OnEnable()
     {
-        aa = FindAnyObjectByType<AcceptedQuest>().gameObject;
-        bb = FindAnyObjectByType<DisplayQuest>().gameObject;
+        accepted = FindAnyObjectByType<AcceptedQuest>().gameObject;
+        quest = FindAnyObjectByType<DisplayQuest>().gameObject;
     }
     public void PressAccepted()
     {
-        Debug.Log("El");
-
-        bbb.color = new Color(0, 255, 255);
-        aaa.color = new Color(0, 174, 164);
-        aa.gameObject.SetActive(true);
-        bb.gameObject.SetActive(false);
+        Debug.Log("Accepted");
+        accepted.gameObject.SetActive(true);
+        quest.gameObject.SetActive(false);
        
     }
     
     public void PressQuest()
     {
-        Debug.Log("rl");
+        Debug.Log("Quest");
 
-        aaa.color = new Color(0, 255, 255, 255);
-        bbb.color = new Color(0, 174, 164, 255);
-        Debug.Log(aaa.color);
-        aa.gameObject.SetActive(false);
-        bb.gameObject.SetActive(true);
+        accepted.gameObject.SetActive(false);
+        quest.gameObject.SetActive(true);
         
     }
      
