@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526ddbf786e2a9443a47d75625108769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  maxHealth: 100
   OnGetHit:
     m_PersistentCalls:
       m_Calls:
@@ -145,6 +145,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnGetDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls:
@@ -288,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3178cfc6bded74faca0aeb00201319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolName: b
+  poolName: Dron
 --- !u!70 &3784819467153291003
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -532,6 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9266932f144ee24b89c37eb812cab4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentClip: {fileID: 0}
 --- !u!1 &8588259018996720626
 GameObject:
   m_ObjectHideFlags: 0

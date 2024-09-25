@@ -10,12 +10,20 @@ public class DronEnemy : ADEnemy
 
     [SerializeField] private LayerMask _iGround;
 
-    [SerializeField] private float _ray;
+    [SerializeField] private float _ray = 0.7f;
+
+    [SerializeField] private float _ray2 = 1f;
 
     public bool IsGround()
     {
         bool ThisisGround = Physics2D.Raycast(transform.position, Vector2.down, _ray, _iGround);
         return ThisisGround;
+    }
+
+    public bool IsLandSOClose()
+    {
+        bool TisisLand = Physics2D.Raycast(transform.position, Vector2.down,_ray2 , _iGround);
+        return TisisLand;
     }
 
     public Collider2D GetPlayerDron()   
@@ -43,6 +51,10 @@ public class DronEnemy : ADEnemy
         if (!IsGround())
         {
             transform.DOMoveY(transform.position.y - 1, 1.5f);
+        }
+        if(IsLandSOClose())
+        {
+            transform.DOMoveY(transform.position.y + 1, 1.5f);
         }
         base.Update();
     }

@@ -13,20 +13,23 @@ public class MGSYPattern : MonoBehaviour
     [SerializeField] protected float _maxPatternCool = 6;
     [SerializeField] protected float _minPatternCool = 12;
 
-    [Header("DickEy")]
-    [SerializeField] protected string _dicKey = null;
 
     protected MGSY mgsy;
 
-    public virtual void Awake()
-    {   
+
+    protected void Init(PatternTypeEnum patternName, MGSYPattern pattern)
+    {
         mgsy = GetComponent<MGSY>();
+        mgsy.patternDic.Add(patternName, pattern);
+    }
+
+    public virtual void PatternStart()
+    {
         
     }
 
-    protected void SetDicKey(MGSYPattern pattern)
+    public virtual void PatternEnd()
     {
-        Type patternType = pattern.GetType();
-        _dicKey = patternType.Name;
+        
     }
 }

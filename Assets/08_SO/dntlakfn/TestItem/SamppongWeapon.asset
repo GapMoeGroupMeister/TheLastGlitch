@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39eed2cca642cc24388fb3c0c13d0c6c, type: 3}
   m_Name: SamppongWeapon
   m_EditorClassIdentifier: 
-  _icon: {fileID: 21300000, guid: 083d144b26e98034881555ecc126b1ed, type: 3}
+  _icon: {fileID: 21300000, guid: 968f9735446084a4580fea11c7f1a932, type: 3}
   _name: Wakgood
   _toolTip: TahangTty
   _price: 500001

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public enum BossStateEnum
 {
@@ -15,9 +16,16 @@ public enum BossStateEnum
     Closing
 }
 
+public enum PatternTypeEnum
+{
+    EnemySpawn,
+    CoreBomb,
+    LaserShoot,
+    None
+}
+
 public class MGSY : EnemySetting
 {
-    [SerializeField] private GameObject testEnemyPrefab = null;
     public string state = null;
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
 
@@ -25,7 +33,7 @@ public class MGSY : EnemySetting
 
     public int? isRunningHash = null;
 
-    public Dictionary<string, MGSYPattern> patternDic = new Dictionary<string, MGSYPattern>();
+    public Dictionary<Enum, MGSYPattern> patternDic = new Dictionary<Enum, MGSYPattern>();
 
         
 
@@ -76,12 +84,35 @@ public class MGSY : EnemySetting
     {
         int count = Physics2D.OverlapCircle(transform.position, detectRadius, contactFilter, _colliders);
         Debug.Log(count);
+        targetTrm = count > 0 ? _colliders[0].gameObject.transform : null;
         return count > 0 ? _colliders[0] : null;
     }
 
     public override void AnimationEndTrigger()
     {
         StateMachine.CurrentState.AnimationEndTrigger();
+    }
+
+    public IEnumerator PatternsManager(PatternTypeEnum[] patterns, float Delay)
+    {
+
+        while (true)
+        {
+            foreach (var pattern in patterns)
+            {
+                int randIndex = 0;
+                randIndex = Random.Range(0, 100);
+
+                if (randIndex >= 50)
+                {
+                    patternDic.TryGetValue(pattern, out MGSYPattern patternInstance);
+                    patternInstance.PatternStart();
+
+                    yield return new WaitForSeconds(Delay);
+                }
+            }
+
+        }
     }
 
 }

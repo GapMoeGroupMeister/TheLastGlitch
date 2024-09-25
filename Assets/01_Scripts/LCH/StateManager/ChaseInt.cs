@@ -26,6 +26,11 @@ public abstract class ChaseInt : EnemyState<EnemyStateEnum>
             return;
         }
 
+        if(_enemy.distance > _enemy.detectRadius + 3)
+        {
+            _stateMachine.ChangeState(EnemyStateEnum.Walk);
+        }
+
         if (_enemy.FirstAttack && _enemy.distance < _enemy.attackRadius)
         { 
             if (_enemy.CanAttack)
