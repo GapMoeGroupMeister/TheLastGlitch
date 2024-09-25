@@ -19,7 +19,7 @@ public class Doping : GadgetParent
         _dopedStat.moveSpeed = _dopedMoveSpeed;
         _dopedStat.atkPower = _dopedAtkPower;
         _dopedStat.critDamage = _dopedCritDamage;
-        _dopedStat.scritProbability = _dopedScritProbability;
+        _dopedStat.critProbability = _dopedScritProbability;
         _isUse += StatDoping;
     }
 
