@@ -13,7 +13,7 @@ public class DisplayQuest : MonoBehaviour
     [SerializeField] protected EventBox eb;
     [SerializeField] protected GameObject _empty;
     
-    private void OnEnable()
+    private void Awake()
     {
         _quests.list.Clear();
         TestQuestSO[] a = _allQuests.list.ToArray();
@@ -25,6 +25,8 @@ public class DisplayQuest : MonoBehaviour
 
     public void CreatQuest()
     {
+        if (GetComponentsInChildren<QuestControl>().Length > 0)
+            return;
         for(int i = 0; i < _quests.list.Count; i++)
         {
             _quest = _quests.list[i];
