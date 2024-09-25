@@ -745,8 +745,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _groundCheckerTrm: {fileID: 6257727794424603852}
   moveSpeed: 5
-  jumpPower: 7
-  extraGravity: 30
+  jumpPower: 9
+  extraGravity: 15
   gravityDelay: 0.15
   _whatIsGround:
     serializedVersion: 2
