@@ -6,19 +6,35 @@ public class MgsyEnemySpawn : MGSYPattern
 {
     public bool IsSpawning { get; set; } = false;
 
-    [Header("SpawnCount")]
+    [Header("Spawn Settings")]
     [SerializeField] private int _mobCount = 15;
     [SerializeField] private int _currentMobCount = 0;
     [SerializeField] private int _minCount = 7;
     [SerializeField] private int _maxCount = 14;
+    [SerializeField] private List<Transform> spawnPoints;
 
-    [Header("EnemyList")]
+    [Header("Enemy Settings")]
     [SerializeField] private List<Enemy> _enemys = new List<Enemy>();
-
-    private Coroutine enemySpawnRoutine;
+    [SerializeField] private PoolManager poolManager;
 
     private void Awake()
     {
+        poolManager = PoolManager.Instance;
+        if (poolManager == null)
+        {
+            Debug.LogError("PoolManager not found!");
+        }
+
+        if (spawnPoints == null || spawnPoints.Count == 0)
+        {
+            Debug.LogError("Spawn points are not assigned!");
+        }
+
+        if (_enemys == null || _enemys.Count == 0)
+        {
+            Debug.LogError("Enemy list is empty!");
+        }
+
         Init(PatternTypeEnum.EnemySpawn, this);
         ResetCount();
     }
@@ -35,15 +51,7 @@ public class MgsyEnemySpawn : MGSYPattern
 
     private void SetCool()
     {
-        if (_minCoolTime > 0 && _maxCoolTime > _minCoolTime)
-        {
-            _spawnCoolTime = Random.Range(_minCoolTime, _maxCoolTime);
-        }
-        else
-        {
-            Debug.LogError("Cool Time 범위가 잘못되었습니다.");
-            _spawnCoolTime = 1f;  // 기본값 설정
-        }
+        _spawnCoolTime = Random.Range(_minCoolTime, _maxCoolTime);
     }
 
     private void ResetCount()
@@ -52,35 +60,35 @@ public class MgsyEnemySpawn : MGSYPattern
         _mobCount = Random.Range(_minCount, _maxCount);
     }
 
-    public void Spawn()
+    private void Spawn()
     {
-        SpawnEnemies();
-    }
-
-    private void SpawnEnemies()
-    {
-        if (_enemys == null || _enemys.Count == 0)
+        if (_currentMobCount < _mobCount)
         {
-            Debug.LogError("Enemy 리스트가 비어 있습니다!");
-            return;
-        }
+            // 적 선택
+            int randEnemyIndex = Random.Range(0, _enemys.Count);
+            GameObject enemyGo = _enemys[randEnemyIndex].gameObject;
 
-        if (_currentMobCount <= _mobCount)
-        {
-            int randIndex = Random.Range(0, _enemys.Count);  // +1 제거
-            GameObject enemyGo = _enemys[randIndex].gameObject;
+            if (spawnPoints.Count > 0)
+            {
+                int randPointIndex = Random.Range(0, spawnPoints.Count);
+                Transform spawnPoint = spawnPoints[randPointIndex];
 
-            if (enemyGo != null)
-            {
-                Instantiate(enemyGo, transform.position, Quaternion.identity);
-                _currentMobCount++;
+                string enemyPoolName = enemyGo.name;
+                Ipoolable enemy = poolManager.Pop(enemyPoolName);
+                if (enemy != null)
+                {
+                    enemy.ObjectPrefab.transform.position = spawnPoint.position;
+                    enemy.ObjectPrefab.transform.rotation = spawnPoint.rotation;
+                }
+                else
+                {
+                    Debug.LogError($"Failed to spawn enemy from pool: {enemyPoolName}");
+                }
             }
-            else
-            {
-                Debug.LogError($"_enemys[{randIndex}]의 gameObject가 null입니다.");
-            }
+
+            _currentMobCount++;
         }
-        else if (_currentMobCount > _mobCount)
+        else if (_currentMobCount >= _mobCount)
         {
             ResetCount();
         }
@@ -99,19 +107,12 @@ public class MgsyEnemySpawn : MGSYPattern
     public void StartEnemySpawn()
     {
         IsSpawning = true;
-        if (enemySpawnRoutine == null)
-        {
-            enemySpawnRoutine = StartCoroutine(MgsyEnemySpawnRoutine());
-        }
+        StartCoroutine(MgsyEnemySpawnRoutine());
     }
 
     public void EndEnemySpawn()
     {
         IsSpawning = false;
-        if (enemySpawnRoutine != null)
-        {
-            StopCoroutine(enemySpawnRoutine);
-            enemySpawnRoutine = null;
-        }
+        StopCoroutine(MgsyEnemySpawnRoutine());
     }
 }

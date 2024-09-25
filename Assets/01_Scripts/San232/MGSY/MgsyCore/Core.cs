@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class Core : MonoBehaviour
 
     public static int coreCount;
 
+    public Action OnDestroyCore;
+
     public DamageCaster CoreDamagerCaster { get; private set; }
 
     [SerializeField] private MGSY _mgsy;
@@ -31,9 +34,10 @@ public class Core : MonoBehaviour
         coreCount--;
         gameObject.SetActive(false);
         CoreExplode();
+        OnDestroyCore?.Invoke();
     }
 
-    public void CoreExplode()
+    private void CoreExplode()
     {
         // 폭발 범위 내의 모든 콜라이더 가져오기
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, _coreBombRadius);
