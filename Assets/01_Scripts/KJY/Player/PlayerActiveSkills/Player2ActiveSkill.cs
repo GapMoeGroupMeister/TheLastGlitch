@@ -6,13 +6,25 @@ using UnityEngine;
 public class Player2ActiveSkill : MonoBehaviour
 {
     [SerializeField] private InputReader _inputReader;
-    private Health _playerHealth;
 
-    private float _currentHealth;
+    [SerializeField] private float _atkStat;
+    [SerializeField] private float _speedStat;
+    [SerializeField] private float _critDmgStat;
+
+    private Health _playerHealth;
+    private PlayerStat _playerStat;
+
+    Stat _upStat = new Stat();
+    Stat _downStat = new Stat();
+
+    private float _currentHealth = 0;
     private float _activeHp;
+
+    private bool _activeCool;
 
     private void Awake()
     {
+        _playerStat = GetComponent<PlayerStat>();
         _playerHealth = GetComponent<Health>();
 
         _inputReader.OnActiveSkillEvent += UseActive;
@@ -20,18 +32,38 @@ public class Player2ActiveSkill : MonoBehaviour
 
     private void UseActive()
     {
-        Debug.Log("UseSkill");
-        _currentHealth = _playerHealth.GetCurrentHP();
-        Debug.Log(_currentHealth);
-        _playerHealth.TakeDamage(_currentHealth / 2, Vector2.zero, 0);
-        _activeHp = _currentHealth / 2;
+        GetDamage();
+        PowerUp();
 
-        StartCoroutine(returnHp());
+        StartCoroutine(returnStat());
     }
 
-    private IEnumerator returnHp()
+    private void GetDamage()
     {
+        if (!_activeCool)
+        {
+            _currentHealth = _playerHealth.GetCurrentHP() / 2;
+            _playerHealth.TakeDamage(_currentHealth, Vector2.zero, 0);
+            _activeHp = _currentHealth;
+        }
+    }
+
+    private void PowerUp()
+    {
+        _upStat.atkPower += _atkStat;
+        _upStat.moveSpeed += _speedStat;
+        _upStat.critDamage += _critDmgStat;
+        _playerStat.StatSet(_upStat);
+    }
+
+    private IEnumerator returnStat()
+    {
+        _activeCool = true;
+        yield return new WaitForSeconds(15f);
         _playerHealth.AddCurrentHP((int)_activeHp);
-        yield return null;
+        _downStat.atkPower -= _atkStat;
+        _downStat.moveSpeed -= _speedStat;
+        _downStat.critDamage -= _critDmgStat;
+        _playerStat.StatSet(_downStat);
     }
 }

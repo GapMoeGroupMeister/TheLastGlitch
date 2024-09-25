@@ -958,6 +958,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputReader: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
+  _atkStat: 20
+  _speedStat: 5
+  _critDmgStat: 10
 --- !u!1 &8093288717843005025
 GameObject:
   m_ObjectHideFlags: 0

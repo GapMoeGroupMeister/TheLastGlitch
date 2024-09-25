@@ -65,8 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC774 \uC886\uAC19\uC740 \uD0DD\uC2A4\uD2B8 \uC2DC\uC548\uC131 \uBB38\uC81C\uB97C
-    \uD574\uACB0\uD558\uB77C."
+  m_text: "\uD0DD\uC2A4\uD2B8 \uC2DC\uC548\uC131 \uBB38\uC81C\uB97C \uD574\uACB0\uD558\uB77C."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 469cf610883ad644a8eb0f9bad738794, type: 2}
   m_sharedMaterial: {fileID: -3828153460934156249, guid: 469cf610883ad644a8eb0f9bad738794, type: 2}
@@ -275,7 +274,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBCD1\uC2E0\uAC19\uC740 \uC0DD\uAC01 50\uB9C8\uB9AC \uCC98\uCE58 \n0/50"
+  m_text: "\uC0DD\uAC01 50\uB9C8\uB9AC \uCC98\uCE58 \n0/50"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 469cf610883ad644a8eb0f9bad738794, type: 2}
   m_sharedMaterial: {fileID: -3828153460934156249, guid: 469cf610883ad644a8eb0f9bad738794, type: 2}
@@ -628,7 +627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6c0fac28e183f4e8ac950df3d7c6c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eb: {fileID: 6049152871735521446, guid: 3163a3e0a1682a6489a6169378c85748, type: 3}
+  _eb: {fileID: 255414927153678115, guid: 7dd95f3fe3b100b49a3872d88d53f3d9, type: 3}
+  _wb: {fileID: 6926293312856142829, guid: c880d9d3de18990469214c0079092bd3, type: 3}
   quests: {fileID: 11400000, guid: 60100c790cb10cd489b3b616800aa44d, type: 2}
   acceptedQuests: {fileID: 11400000, guid: 234fe13812e2aad40926c3bbb67fd70b, type: 2}
   OnCreat:

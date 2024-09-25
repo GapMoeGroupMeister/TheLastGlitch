@@ -16,7 +16,7 @@ public class QuestControl : MonoBehaviour
     public UnityEvent OnCreat;
     public Action OnAccept;
 
-
+    
     [field:SerializeField]
     public TestQuestSO _quest { get; set; }
 
@@ -81,8 +81,8 @@ public class QuestControl : MonoBehaviour
 
     public void AcceptQuest()
     {
-
-        acceptedQuests.AcceptedList.Add(_quest);
+        
+        
         quests.list.Remove(_quest);
 
         EnterStage.map = _quest.targetPlace;
@@ -118,20 +118,18 @@ public class QuestControl : MonoBehaviour
         if (acceptedQuests.AcceptedList.Contains(_quest))
         {
             OnAccept = RemoveAcceptedQuest;
-            _eb.SetEvent(OnAccept, "퀘스트 취소할꺼임?");
+            _eb.SetEvent(OnAccept, "퀘스트를 취소하시겠습니까?");
         }
         else
         {
             if (acceptedQuests.AcceptedList.Count == 0)
             {
                 OnAccept = AcceptQuest;
-                _eb.SetEvent(OnAccept, "퀘스트 받을꺼임?");
+                _eb.SetEvent(OnAccept, "퀘스트를 받으시겠습니까?");
             }
-            
-            
         }
-        
     }
+
 
     public void CheckComplete()
     {
