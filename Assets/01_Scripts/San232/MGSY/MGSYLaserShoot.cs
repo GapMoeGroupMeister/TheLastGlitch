@@ -11,6 +11,7 @@ public class MGSYLaserShoot : MGSYPattern
 
     private void Awake()
     {
+        Init(PatternTypeEnum.LaserShoot, this);
         _laser = transform.GetComponent<Laser>();
     }
 

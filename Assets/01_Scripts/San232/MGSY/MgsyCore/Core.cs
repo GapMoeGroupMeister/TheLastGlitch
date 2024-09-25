@@ -30,6 +30,7 @@ public class Core : MonoBehaviour
     {
         coreCount--;
         gameObject.SetActive(false);
+        CoreExplode();
     }
 
     public void CoreExplode()
