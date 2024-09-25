@@ -1493,7 +1493,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 23497777}
+        m_TargetAssemblyTypeName: DisplayQuest, Assembly-CSharp
+        m_MethodName: CreatQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   QuestUI: {fileID: 1815231921}
   isEnter: 0
 --- !u!61 &721620141
@@ -3258,6 +3270,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1807689437}
         m_TargetAssemblyTypeName: AcceptedButton, Assembly-CSharp
         m_MethodName: PressAccepted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 899165512}
+        m_TargetAssemblyTypeName: AcceptedQuest, Assembly-CSharp
+        m_MethodName: CreatQuest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
