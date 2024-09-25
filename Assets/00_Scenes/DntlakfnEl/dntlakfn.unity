@@ -318,7 +318,7 @@ MonoBehaviour:
   _quests: {fileID: 11400000, guid: 60100c790cb10cd489b3b616800aa44d, type: 2}
   _allQuests: {fileID: 11400000, guid: 61874f26d9883834da3e60a9e32d6bc9, type: 2}
   _quest: {fileID: 11400000, guid: 5ce139460ad262a4b86dc19ac6b34038, type: 2}
-  eb: {fileID: 0}
+  eb: {fileID: 875428463864597804}
   _empty: {fileID: 8190962209381688882, guid: f40eed553efe41740a92d18b39009ae9, type: 3}
 --- !u!1 &27391583
 GameObject:
@@ -1945,7 +1945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   list: {fileID: 11400000, guid: 234fe13812e2aad40926c3bbb67fd70b, type: 2}
-  eb: {fileID: 0}
+  eb: {fileID: 875428463864597804}
   _empty: {fileID: 8190962209381688882, guid: f40eed553efe41740a92d18b39009ae9, type: 3}
 --- !u!114 &899165513
 MonoBehaviour:
@@ -3716,8 +3716,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5302ceaf7525e8e439dab690e6bc0023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accepted: {fileID: 0}
-  quest: {fileID: 0}
+  accepted: {fileID: 1448041992}
+  quest: {fileID: 1204495244}
 --- !u!1 &1815231921
 GameObject:
   m_ObjectHideFlags: 0
