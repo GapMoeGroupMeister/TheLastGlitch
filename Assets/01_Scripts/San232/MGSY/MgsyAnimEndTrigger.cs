@@ -6,6 +6,7 @@ public class MgsyAnimEndTrigger : MonoBehaviour
 {
     [SerializeField] private MGSY _mgsy;
 
+
     private void Awake()
     {
         _mgsy = gameObject.transform.parent.GetComponent<MGSY>();
@@ -29,5 +30,10 @@ public class MgsyAnimEndTrigger : MonoBehaviour
     public void CloseingEnd()
     {
         _mgsy.StateMachine.ChangeState(BossStateEnum.Closed);
+    }
+
+    public void ShootLaser()
+    {
+        _mgsy.OnShootLaser?.Invoke();
     }
 }

@@ -12,7 +12,22 @@ public class MGSYLaserShoot : MGSYPattern
     private void Awake()
     {
         Init(PatternTypeEnum.LaserShoot, this);
-        _laser = transform.GetComponent<Laser>();
+        _laser = transform.GetComponentInChildren<Laser>();
+    }
+
+    private void OnEnable()
+    {
+        mgsy.OnShootLaser += PatternStart;
+    }
+
+    private void OnDisable()
+    {
+        mgsy.OnShootLaser -= PatternStart;
+    }
+
+    public override void PatternStart()
+    {
+        mgsy.patternRoutine = StartCoroutine(MGSYLaserShootRoutine());
     }
 
     private IEnumerator MGSYLaserShootRoutine()

@@ -14,7 +14,7 @@ public class MgsyEnemySpawn : MGSYPattern
     [SerializeField] private List<Transform> _spawnPoints;
 
     [Header("Enemy Settings")]
-    [SerializeField] private List<Enemy> _enemys = new List<Enemy>();
+    [SerializeField] private List<Enemy> _enemys;
     [SerializeField] private PoolManager poolManager;
 
     private void Awake()

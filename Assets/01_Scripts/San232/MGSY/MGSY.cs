@@ -13,7 +13,8 @@ public enum BossStateEnum
     AngryOpened,
     Dead,
     Opening,
-    Closing
+    Closing,
+    Shooting
 }
 
 public enum PatternTypeEnum
@@ -27,6 +28,8 @@ public enum PatternTypeEnum
 public class MGSY : EnemySetting
 {
     public Coroutine patternRoutine;
+
+    public Action OnShootLaser;
 
     public string state = null;
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
@@ -51,6 +54,7 @@ public class MGSY : EnemySetting
         StateMachine.AddState(BossStateEnum.Dead, new MgsyDeadState(this, StateMachine, "Dead"));
         StateMachine.AddState(BossStateEnum.Opening, new MGSYOpeningState(this, StateMachine, "Opening"));
         StateMachine.AddState(BossStateEnum.Closing, new MGSYClosingState(this, StateMachine, "Closing"));
+        StateMachine.AddState(BossStateEnum.Shooting, new MGSYShootingState(this, StateMachine, "Shooting"));
         StateMachine.InitInitialize(BossStateEnum.Idle, this);
 
     }
