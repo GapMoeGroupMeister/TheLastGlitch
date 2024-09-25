@@ -11,7 +11,7 @@ public class MgsyEnemySpawn : MGSYPattern
     [SerializeField] private int _currentMobCount = 0;
     [SerializeField] private int _minCount = 7;
     [SerializeField] private int _maxCount = 14;
-    [SerializeField] private List<Transform> spawnPoints;
+    [SerializeField] private List<Transform> _spawnPoints;
 
     [Header("Enemy Settings")]
     [SerializeField] private List<Enemy> _enemys = new List<Enemy>();
@@ -25,7 +25,7 @@ public class MgsyEnemySpawn : MGSYPattern
             Debug.LogError("PoolManager not found!");
         }
 
-        if (spawnPoints == null || spawnPoints.Count == 0)
+        if (_spawnPoints == null || _spawnPoints.Count == 0)
         {
             Debug.LogError("Spawn points are not assigned!");
         }
@@ -68,10 +68,10 @@ public class MgsyEnemySpawn : MGSYPattern
             int randEnemyIndex = Random.Range(0, _enemys.Count);
             GameObject enemyGo = _enemys[randEnemyIndex].gameObject;
 
-            if (spawnPoints.Count > 0)
+            if (_spawnPoints.Count > 0)
             {
-                int randPointIndex = Random.Range(0, spawnPoints.Count);
-                Transform spawnPoint = spawnPoints[randPointIndex];
+                int randPointIndex = Random.Range(0, _spawnPoints.Count);
+                Transform spawnPoint = _spawnPoints[randPointIndex];
 
                 string enemyPoolName = enemyGo.name;
                 Ipoolable enemy = poolManager.Pop(enemyPoolName);
