@@ -25,10 +25,6 @@ public class QuestControl : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI _level;
     [SerializeField] protected TextMeshProUGUI _contents;
 
-    private void Awake()
-    {
-        _eb = FindAnyObjectByType<EventBox>();
-    }
 
     private void Update()
     {
@@ -82,9 +78,6 @@ public class QuestControl : MonoBehaviour
     public void AcceptQuest()
     {
         
-        
-        quests.list.Remove(_quest);
-
         EnterStage.map = _quest.targetPlace;
         Debug.Log(EnterStage.map);
         acceptedQuests.AcceptedList.Add(_quest);
