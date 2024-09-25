@@ -3728,8 +3728,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5302ceaf7525e8e439dab690e6bc0023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accepted: {fileID: 0}
-  quest: {fileID: 0}
+  accepted: {fileID: 1448041992}
+  quest: {fileID: 1204495244}
 --- !u!1 &1815231921
 GameObject:
   m_ObjectHideFlags: 0
@@ -3748,7 +3748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1815231922
 RectTransform:
   m_ObjectHideFlags: 0

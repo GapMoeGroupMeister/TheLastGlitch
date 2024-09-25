@@ -120,11 +120,7 @@ public class QuestControl : MonoBehaviour
                 OnAccept = AcceptQuest;
                 _eb.SetEvent(OnAccept, "퀘스트를 받으시겠습니까?");
             }
-           
-            
-            
         }
-        
     }
 
 
