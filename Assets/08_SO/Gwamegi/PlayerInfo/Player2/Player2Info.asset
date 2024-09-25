@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpreite: {fileID: 1652984193, guid: a6ae03dfa5731d847987e75238b61c72, type: 3}
   playerName: Player_2
-  playerStatInfo: ming
-  playerPassiveDesc: Desc
+  playerPassiveDesc: ???
+  playerActiveSkillDesc: "\uC0B0\uB370\uBE44\uC2A4\uD0C4"
   playerType: 2
+  maxHealth: 80
+  moveSpeed: 12
+  atkPower: 23
+  critDamage: 40
+  critProbability: 6
