@@ -1,34 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BackGroundManager : MonoBehaviour
 {
-    [SerializeField] private Transform _backGround1, _backGround2, _backGround3;
-    public float _point2, _point1, _startPosition;
+    [SerializeField] private Transform _backGround_Y;
+    private Player _player;
 
-    private void Awake()
+    private void Start()
     {
-        _point1 = _backGround3.localPosition.x;//세개의 배경중 왼쪽의 배경
-        _point2 = _backGround2.localPosition.x;//세개의 배경중 오른쪽의 배경
-        _startPosition = _backGround1.localPosition.x;//세개의 배경중 중앙의 배경
+        _player = GameManager.Instance.Player;
     }
 
     private void Update()
     {
-        if (Mathf.Approximately(_backGround2.localPosition.x, _startPosition))
+
+
+        if(PlayerPositionIsRight())
         {
-            _backGround3.localPosition = new Vector3(_point1, _backGround2.localPosition.y, _backGround2.localPosition.z);
+            
+            if (transform.position.x > _backGround_Y.position.x) //현재 배경이 다른 배경보다 오른쪽에 있을떄
+            {
+                _backGround_Y.position = new Vector3((transform.position.x * 2) + _backGround_Y.position.x, transform.position.y, transform.position.z); //현재 배경 x값에 자신의 x값 만큼 더함 (오른쪽으로 이동)
+            }
 
-            (_backGround3, _backGround1, _backGround2) = (_backGround1, _backGround2, _backGround3);
+            if (transform.position.x < _backGround_Y.position.x)//현재 배경이 다른 배경보다 왼쪽에 있을떄
+            {
+                _backGround_Y.position = new Vector3(-((transform.position.x * 2) + _backGround_Y.position.x), transform.position.y, transform.position.z);//현재 배경 x값에 자신의 x값 만큼 빼줌 (왼쪽으로 이동)
+
+            }
         }
-
-        if (Mathf.Approximately(_backGround3.localPosition.x, _startPosition))
+        else
         {
-            _backGround2.localPosition = new Vector3(_point2, _backGround3.localPosition.y, _backGround3.localPosition.z);
-            (_backGround3, _backGround1, _backGround2) = (_backGround2, _backGround3, _backGround1);
-        }
+            if (transform.position.x > _backGround_Y.position.x) //현재 배경이 다른 배경보다 오른쪽에 있을떄
+            {
+                _backGround_Y.position = new Vector3((transform.position.x * 2) + _backGround_Y.position.x, transform.position.y, transform.position.z); //현재 배경 x값에 자신의 x값 만큼 더함 (오른쪽으로 이동)
+            }
 
+            if (transform.position.x < _backGround_Y.position.x)//현재 배경이 다른 배경보다 왼쪽에 있을떄
+            {
+                _backGround_Y.position = new Vector3(-((transform.position.x * 2) + _backGround_Y.position.x), transform.position.y, transform.position.z);//현재 배경 x값에 자신의 x값 만큼 빼줌 (왼쪽으로 이동)
+
+            }
+        }
     }
 
+    private bool PlayerPositionIsRight()
+    {
+        return transform.position.x < _player.transform.position.x;
+    }
 }

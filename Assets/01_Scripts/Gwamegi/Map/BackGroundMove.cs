@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BackGround : MonoBehaviour
+public class BackGroundMove : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private InputReader _reader;
