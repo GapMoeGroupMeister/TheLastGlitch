@@ -11,13 +11,9 @@ public class ObjEvent : MonoBehaviour
         _health = GetComponent<Health>();
     }
 
-    private void Update()
-    {
-        Debug.Log(_health.CurrentHealth);
-    }
-
     public void DestroyObj()
     {
+        Debug.Log("사라져라");
         Destroy(gameObject);
     }
 }

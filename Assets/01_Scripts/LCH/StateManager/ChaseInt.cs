@@ -21,7 +21,6 @@ public abstract class ChaseInt : EnemyState<EnemyStateEnum>
 
         if (_enemy.fainting == true)
         {
-            Debug.Log("Idle»óÅÂ");
             _stateMachine.ChangeState(EnemyStateEnum.Idle);
             return;
         }

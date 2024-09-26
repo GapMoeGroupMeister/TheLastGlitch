@@ -17,7 +17,6 @@ public class StateManager : Enemy
     }
     public void EnemyMove()
     {
-        Debug.Log(dir.normalized.x);
         MovementComponent.SetMovement(dir.normalized.x);
     }
 
@@ -37,7 +36,6 @@ public class StateManager : Enemy
     public void EnemyAttack()
     {
         lastAttackTime = Time.time;
-        Debug.Log("공격->추적");
        StateMachine.ChangeState(EnemyStateEnum.Chase);
         MovementComponent._canMove = true;
     }
@@ -53,7 +51,6 @@ public class StateManager : Enemy
     private IEnumerator ChangeToWalk()
     {
         yield return new WaitForSeconds(2f);
-        Debug.Log("I->WALK");
         StateMachine.ChangeState(EnemyStateEnum.Walk);
     }
 }
