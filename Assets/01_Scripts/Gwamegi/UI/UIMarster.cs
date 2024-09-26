@@ -18,6 +18,7 @@ public class UIMarster : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         foreach (var item in cross)
         {
+            if (item == null) return;
             item.SetActive(true);
         }
     }
@@ -26,6 +27,7 @@ public class UIMarster : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         foreach (var item in cross)
         {
+            if (item == null) return;
             item.SetActive(false);
         }
     }
