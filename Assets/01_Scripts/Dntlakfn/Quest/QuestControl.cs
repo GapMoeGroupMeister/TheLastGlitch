@@ -25,10 +25,6 @@ public class QuestControl : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI _level;
     [SerializeField] protected TextMeshProUGUI _contents;
 
-    private void Awake()
-    {
-        _eb = FindAnyObjectByType<EventBox>();
-    }
 
     private void Update()
     {
@@ -82,9 +78,6 @@ public class QuestControl : MonoBehaviour
     public void AcceptQuest()
     {
         
-        
-        quests.list.Remove(_quest);
-
         EnterStage.map = _quest.targetPlace;
         Debug.Log(EnterStage.map);
         acceptedQuests.AcceptedList.Add(_quest);
@@ -118,20 +111,16 @@ public class QuestControl : MonoBehaviour
         if (acceptedQuests.AcceptedList.Contains(_quest))
         {
             OnAccept = RemoveAcceptedQuest;
-            Instantiate(_eb).SetEvent(OnAccept, "퀘스트를 취소하시겠습니까?");
+            _eb.SetEvent(OnAccept, "퀘스트를 취소하시겠습니까?");
         }
         else
         {
             if (acceptedQuests.AcceptedList.Count == 0)
             {
                 OnAccept = AcceptQuest;
-                Instantiate(_eb).SetEvent(OnAccept, "퀘스트를 받으시겠습니까?");
+                _eb.SetEvent(OnAccept, "퀘스트를 받으시겠습니까?");
             }
-           
-            
-            
         }
-        
     }
 
 

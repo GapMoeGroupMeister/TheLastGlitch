@@ -10,10 +10,7 @@ public class AcceptedQuest : MonoBehaviour
     [SerializeField] protected EventBox eb;
     [SerializeField] protected GameObject _empty;
 
-    private void OnEnable()
-    {
-        CreatQuest();
-    }
+    
 
     public void CreatQuest()
     {

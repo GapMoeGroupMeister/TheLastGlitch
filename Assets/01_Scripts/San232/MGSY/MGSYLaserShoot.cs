@@ -11,7 +11,43 @@ public class MGSYLaserShoot : MGSYPattern
 
     private void Awake()
     {
-        _laser = transform.GetComponent<Laser>();
+        Init(PatternTypeEnum.LaserShoot, this);
+        _laser = transform.GetComponentInChildren<Laser>();
+    }
+
+    private void OnEnable()
+    {
+        mgsy.OnShootLaser += BlastLaser;
+    }
+
+    private void OnDisable()
+    {
+        mgsy.OnShootLaser -= BlastLaser;
+    }
+
+    public override void PatternStart()
+    {
+        mgsy.StateMachine.ChangeState(BossStateEnum.Shooting);
+    }
+
+    public override void PatternEnd()
+    {
+        mgsy.StopPatterns();
+
+        if(mgsy.HealthComponent.GetCurrentHP() > mgsy.HealthComponent.maxHealth * 0.5)
+        mgsy.StateMachine.ChangeState(BossStateEnum.Opened);
+        else
+        mgsy.StateMachine.ChangeState(BossStateEnum.AngryOpened);
+    }
+
+    private void BlastLaser()
+    {
+        mgsy.patternRoutine = StartCoroutine(MGSYLaserShootRoutine());
+        _laserCount--;
+        if(_laserCount == 0 )
+        {
+            PatternEnd();
+        }
     }
 
     private IEnumerator MGSYLaserShootRoutine()

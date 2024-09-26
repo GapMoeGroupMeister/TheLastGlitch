@@ -13,19 +13,21 @@ public class DisplayQuest : MonoBehaviour
     [SerializeField] protected EventBox eb;
     [SerializeField] protected GameObject _empty;
     
-    private void OnEnable()
+    private void Awake()
     {
         _quests.list.Clear();
         TestQuestSO[] a = _allQuests.list.ToArray();
         Debug.Log(a.Length);
         _quests.list = a.ToList();
-        _quests.list.Sort((x, y) => x.questLevel.CompareTo(y.questLevel));
         CreatQuest();
     }
 
     public void CreatQuest()
     {
-        for(int i = 0; i < _quests.list.Count; i++)
+        if (GetComponentsInChildren<QuestControl>().Length > 0)
+            return;
+        _quests.list.Sort((x, y) => x.questLevel.CompareTo(y.questLevel));
+        for (int i = 0; i < _quests.list.Count; i++)
         {
             _quest = _quests.list[i];
             QuestControl a = Instantiate(_empty, transform).GetComponent<QuestControl>();

@@ -318,7 +318,7 @@ MonoBehaviour:
   _quests: {fileID: 11400000, guid: 60100c790cb10cd489b3b616800aa44d, type: 2}
   _allQuests: {fileID: 11400000, guid: 61874f26d9883834da3e60a9e32d6bc9, type: 2}
   _quest: {fileID: 11400000, guid: 5ce139460ad262a4b86dc19ac6b34038, type: 2}
-  eb: {fileID: 0}
+  eb: {fileID: 875428463864597804}
   _empty: {fileID: 8190962209381688882, guid: f40eed553efe41740a92d18b39009ae9, type: 3}
 --- !u!1 &27391583
 GameObject:
@@ -1493,7 +1493,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 23497777}
+        m_TargetAssemblyTypeName: DisplayQuest, Assembly-CSharp
+        m_MethodName: CreatQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   QuestUI: {fileID: 1815231921}
   isEnter: 0
 --- !u!61 &721620141
@@ -1945,7 +1957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   list: {fileID: 11400000, guid: 234fe13812e2aad40926c3bbb67fd70b, type: 2}
-  eb: {fileID: 0}
+  eb: {fileID: 875428463864597804}
   _empty: {fileID: 8190962209381688882, guid: f40eed553efe41740a92d18b39009ae9, type: 3}
 --- !u!114 &899165513
 MonoBehaviour:
@@ -2067,7 +2079,7 @@ GameObject:
   - component: {fileID: 1023081073}
   - component: {fileID: 1023081075}
   - component: {fileID: 1023081076}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2199,7 +2211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25cb3edaface6f44851b38092e06ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eb: {fileID: 0}
+  eb: {fileID: 875428463864597804}
 --- !u!1 &1089836323
 GameObject:
   m_ObjectHideFlags: 0
@@ -2811,6 +2823,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 23497777}
+        m_TargetAssemblyTypeName: DisplayQuest, Assembly-CSharp
+        m_MethodName: CreatQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1204495247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2890,7 +2914,7 @@ GameObject:
   - component: {fileID: 1269382957}
   - component: {fileID: 1269382956}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: GameManagerDn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3246,6 +3270,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1807689437}
         m_TargetAssemblyTypeName: AcceptedButton, Assembly-CSharp
         m_MethodName: PressAccepted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 899165512}
+        m_TargetAssemblyTypeName: AcceptedQuest, Assembly-CSharp
+        m_MethodName: CreatQuest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3716,8 +3752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5302ceaf7525e8e439dab690e6bc0023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accepted: {fileID: 0}
-  quest: {fileID: 0}
+  accepted: {fileID: 1448041992}
+  quest: {fileID: 1204495244}
 --- !u!1 &1815231921
 GameObject:
   m_ObjectHideFlags: 0

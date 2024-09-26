@@ -56,6 +56,11 @@ public abstract class Player : Agent
     protected override void Awake()
     {
         base.Awake();
+        
+    }
+
+    private void Start()
+    {
         _input.OnJumpEvent += OnJump;
         _input.OnAttackEvent += OnAttack;
         _input.OnActiveSkillEvent += OnActiveSkill;

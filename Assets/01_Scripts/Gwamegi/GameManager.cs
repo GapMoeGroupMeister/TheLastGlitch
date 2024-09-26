@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     private Player player;
+    private bool isClear;
 
     public Player Player
     {
@@ -26,6 +27,7 @@ public class GameManager : MonoSingleton<GameManager>
             }
         }
     }
+
 
     public void Initialize()
     {

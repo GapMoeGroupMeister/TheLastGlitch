@@ -13,7 +13,8 @@ public enum BossStateEnum
     AngryOpened,
     Dead,
     Opening,
-    Closing
+    Closing,
+    Shooting
 }
 
 public enum PatternTypeEnum
@@ -26,6 +27,10 @@ public enum PatternTypeEnum
 
 public class MGSY : EnemySetting
 {
+    public Coroutine patternRoutine;
+
+    public Action OnShootLaser;
+
     public string state = null;
     public StateMachine<BossStateEnum> StateMachine { get; private set; }
 
@@ -49,6 +54,7 @@ public class MGSY : EnemySetting
         StateMachine.AddState(BossStateEnum.Dead, new MgsyDeadState(this, StateMachine, "Dead"));
         StateMachine.AddState(BossStateEnum.Opening, new MGSYOpeningState(this, StateMachine, "Opening"));
         StateMachine.AddState(BossStateEnum.Closing, new MGSYClosingState(this, StateMachine, "Closing"));
+        StateMachine.AddState(BossStateEnum.Shooting, new MGSYShootingState(this, StateMachine, "Shooting"));
         StateMachine.InitInitialize(BossStateEnum.Idle, this);
 
     }
@@ -56,6 +62,7 @@ public class MGSY : EnemySetting
     private void Update()
     {
         StateMachine.CurrentState.UpdateState();
+        Debug.Log(StateMachine.CurrentState);
     }
 
     public override void SetDeadState()
@@ -93,27 +100,50 @@ public class MGSY : EnemySetting
         StateMachine.CurrentState.AnimationEndTrigger();
     }
 
-    public IEnumerator PatternsManager(PatternTypeEnum[] patterns, float Delay)
+    public void StartPatterns(PatternTypeEnum[] patterns, float delay)
     {
+        patternRoutine = StartCoroutine(PatternsRoutine(patterns, delay));
+    }
 
+    public void StopPatterns()
+    {
+        StopAllCoroutines();
+    }
+
+    private IEnumerator PatternsRoutine(PatternTypeEnum[] patterns, float delay)
+    {
         while (true)
         {
             foreach (var pattern in patterns)
             {
-                int randIndex = 0;
-                randIndex = Random.Range(0, 100);
+                int randIndex = Random.Range(0, 100);
 
                 if (randIndex >= 50)
                 {
-                    patternDic.TryGetValue(pattern, out MGSYPattern patternInstance);
-                    patternInstance.PatternStart();
+                    // 패턴을 딕셔너리에서 가져오기
+                    if (patternDic.TryGetValue(pattern, out MGSYPattern patternInstance))
+                    {
+                        // 패턴 인스턴스가 null이 아닌 경우 실행
+                        if (patternInstance != null)
+                        {
+                            patternInstance.PatternStart();
+                        }
+                        else
+                        {
+                            Debug.LogError($"{pattern}에 해당하는 패턴 인스턴스가 null입니다.");
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogError($"{pattern}에 해당하는 패턴이 patternDic에 존재하지 않습니다.");
+                    }
 
-                    yield return new WaitForSeconds(Delay);
+                    yield return new WaitForSeconds(delay);
                 }
             }
-
         }
     }
+
 
 }
 
