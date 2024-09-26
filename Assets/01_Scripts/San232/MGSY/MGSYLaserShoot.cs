@@ -17,17 +17,37 @@ public class MGSYLaserShoot : MGSYPattern
 
     private void OnEnable()
     {
-        mgsy.OnShootLaser += PatternStart;
+        mgsy.OnShootLaser += BlastLaser;
     }
 
     private void OnDisable()
     {
-        mgsy.OnShootLaser -= PatternStart;
+        mgsy.OnShootLaser -= BlastLaser;
     }
 
     public override void PatternStart()
     {
+        mgsy.StateMachine.ChangeState(BossStateEnum.Shooting);
+    }
+
+    public override void PatternEnd()
+    {
+        mgsy.StopPatterns();
+
+        if(mgsy.HealthComponent.GetCurrentHP() > mgsy.HealthComponent.maxHealth * 0.5)
+        mgsy.StateMachine.ChangeState(BossStateEnum.Opened);
+        else
+        mgsy.StateMachine.ChangeState(BossStateEnum.AngryOpened);
+    }
+
+    private void BlastLaser()
+    {
         mgsy.patternRoutine = StartCoroutine(MGSYLaserShootRoutine());
+        _laserCount--;
+        if(_laserCount == 0 )
+        {
+            PatternEnd();
+        }
     }
 
     private IEnumerator MGSYLaserShootRoutine()
