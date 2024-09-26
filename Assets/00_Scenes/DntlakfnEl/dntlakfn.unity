@@ -2079,7 +2079,7 @@ GameObject:
   - component: {fileID: 1023081073}
   - component: {fileID: 1023081075}
   - component: {fileID: 1023081076}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2211,7 +2211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25cb3edaface6f44851b38092e06ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eb: {fileID: 0}
+  eb: {fileID: 875428463864597804}
 --- !u!1 &1089836323
 GameObject:
   m_ObjectHideFlags: 0
