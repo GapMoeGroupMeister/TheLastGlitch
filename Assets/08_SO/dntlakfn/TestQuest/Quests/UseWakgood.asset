@@ -18,7 +18,7 @@ MonoBehaviour:
     \uC548\uC804\uD558\uAC8C \uACBD\uD638\uD558\uB77C. "
   questType: 0
   questLevel: 10
-  targetPlace: a3
+  targetPlace: Stage1
   isClear: 0
   target: 
   targetNumber: 0
