@@ -19,7 +19,7 @@ public class BluePotalBullet : PotalGunBullet
             PotalManager.Instance._bluePortal.transform.position = transform.position;
             PotalManager.Instance._bluePotalTranform = PotalManager.Instance._bluePortal.transform.position;
             PotalManager.Instance.bluePotal = PotalManager.Instance._bluePortal.GetComponent<Portal>();
-            FindAnyObjectByType<PotalGun>().isBluePortalCreate = true;
+            FindAnyObjectByType<PortalGun>().isBluePortalCreate = true;
             Destroy(gameObject);
         }
     }

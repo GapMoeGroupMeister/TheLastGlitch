@@ -6,6 +6,7 @@ public class GadgetParent : MonoBehaviour
     [SerializeField] protected Player _player;
     protected Action _isUse;
     [field : SerializeField]protected InputReader _input;
+    protected GadgetType _type;
     private void Start()
     {
         Init();
@@ -14,11 +15,11 @@ public class GadgetParent : MonoBehaviour
 
     public void Init()
     {
-        if (_player.ItemSO.CurrentGadget == null)
+        if (DataManager.Instance.SelectedGadget == GadgetType.None)
         {
             this.gameObject.transform.SetParent(_player.transform, false);
             this.gameObject.transform.position = Vector3.zero;
-            ChangeGadget(this);
+            GadgetManager.Instance.GadgetChange(_type);
             this.gameObject.SetActive(false);
         }
         else 
@@ -27,11 +28,7 @@ public class GadgetParent : MonoBehaviour
     public void UseGadget()
     {
         this.gameObject.SetActive(true);
-        _player.ItemSO.CurrentGadget = null;
+        DataManager.Instance.SelectedGadget = GadgetType.None;
         _isUse.Invoke();
-    }
-    public void ChangeGadget(GadgetParent target)
-    {
-        _player.ItemSO.CurrentGadget = target;
     }
 }

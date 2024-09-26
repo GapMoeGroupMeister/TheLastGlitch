@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum GadgetType
 {
+    None,
     gatlingDrone,
     selfDestructDrone,
     hackPulse,
@@ -26,7 +27,6 @@ public enum RequireItemType
 public class PlayerItemSO : ScriptableObject
 {
     public static PlayerItemSO Instance { get; private set; }
-    public GadgetParent CurrentGadget { get; set; }
 
     public Dictionary<RequireItemType, int> requireItemDic = new Dictionary<RequireItemType, int>()
     {

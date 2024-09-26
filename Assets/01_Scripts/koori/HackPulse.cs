@@ -3,30 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HackPulse : MonoBehaviour
+public class HackPulse : GadgetParent
 {
     [SerializeField] private List<AgentMovement> _hackableEnemy;
     [SerializeField] private float _hackRange;
     [SerializeField] private float _hackingTime;
-    [SerializeField] private LayerMask _enemyLayer; 
+    [SerializeField] private LayerMask _enemyLayer;
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.F)) 
-        {
-            Hack();
-        }
+        _type = GadgetType.hackPulse; // HackPulse의 타입 설정
+        _isUse += Hack; // UseGadget() 함수 호출 시 Hack() 함수 실행
     }
 
     private void Hack()
     {
-        
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _hackRange, _enemyLayer);
 
-       
         _hackableEnemy.Clear();
 
-        
         foreach (Collider2D collider in colliders)
         {
             AgentMovement agentMovement = collider.GetComponent<AgentMovement>();
@@ -36,33 +31,32 @@ public class HackPulse : MonoBehaviour
             }
         }
 
-     
         StartCoroutine(HackEnemies(_hackingTime));
     }
 
     private IEnumerator HackEnemies(float duration)
     {
-      
         foreach (AgentMovement enemy in _hackableEnemy)
         {
             enemy.StopImmediately(true);
-            enemy._canMove = false; 
+            enemy._canMove = false;
         }
 
         yield return new WaitForSeconds(duration);
 
-        
         foreach (AgentMovement enemy in _hackableEnemy)
         {
             enemy._canMove = true;
         }
     }
-    
-#if UNITY_EDITOR    
+
+#if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, _hackRange);
     }
 #endif
+
+    // UseGadget() 함수는 GadgetParent에서 상속받아 사용
 }
