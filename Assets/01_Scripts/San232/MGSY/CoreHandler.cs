@@ -46,7 +46,6 @@ public class CoreHandler : MGSYPattern
 
     private void CoreCheck()
     {
-        Debug.Log("Check");
         if(Core.coreCount == 0)
         {
             mgsy.StateMachine.ChangeState(BossStateEnum.Opening);

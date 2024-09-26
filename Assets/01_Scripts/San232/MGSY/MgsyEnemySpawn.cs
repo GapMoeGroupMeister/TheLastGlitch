@@ -84,6 +84,15 @@ public class MgsyEnemySpawn : MGSYPattern
                 Transform spawnPoint = _spawnPoints[randPointIndex];
 
                 string enemyPoolName = enemyGo.name;
+
+                if(enemyPoolName != "Dron")
+                {
+                    string FullName = enemyPoolName;
+                    string enemyTag = "Enemy";
+                    string enemyCode = FullName.Replace(enemyTag, "");
+                    enemyPoolName = FullName;
+                }
+
                 Ipoolable enemy = poolManager.Pop(enemyPoolName);
                 if (enemy != null)
                 {

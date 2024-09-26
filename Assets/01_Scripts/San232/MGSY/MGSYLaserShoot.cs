@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MGSYLaserShoot : MGSYPattern
 {
-    [SerializeField] private Laser _laser;
     [SerializeField] private int _laserCount = 3;
+    [SerializeField] private Laser _laser;
     [SerializeField] private float _laserDelay = 0.03f;
     [SerializeField] private float _laserDamage = 5f;
 
@@ -13,7 +13,8 @@ public class MGSYLaserShoot : MGSYPattern
     {
         base.Awake();
         Init(PatternTypeEnum.LaserShoot);
-        _laser = transform.GetComponentInChildren<Laser>();
+
+        _laser = GetComponentInChildren<Laser>();
     }
 
     private void OnEnable()

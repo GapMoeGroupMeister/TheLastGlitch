@@ -45,7 +45,6 @@ public class Core : MonoBehaviour
     {
         CoreExplode();
         --coreCount;
-        Debug.Log(coreCount + "개");
         gameObject.SetActive(false);
         OnDestroyCore?.Invoke();
     }
@@ -71,7 +70,6 @@ public class Core : MonoBehaviour
         }
         //CoreExplodeParticle();
         // 파 티 클 넣 어
-        Debug.Log("Explosion triggered!");
     }
 
     private void CoreExplodeParticle()

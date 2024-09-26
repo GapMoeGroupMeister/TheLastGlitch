@@ -33,7 +33,11 @@ public class MgsyIdleState : MGSYState<BossStateEnum>
                 Change2Closed();
             }
         }
-        
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            mgsy.StartPatterns(new PatternTypeEnum[] { PatternTypeEnum.LaserShoot }, 10);
+        }
         
     }
 
