@@ -9,9 +9,10 @@ public class MGSYLaserShoot : MGSYPattern
     [SerializeField] private float _laserDelay = 0.03f;
     [SerializeField] private float _laserDamage = 5f;
 
-    private void Awake()
+    protected override void Awake()
     {
-        Init(PatternTypeEnum.LaserShoot, this);
+        base.Awake();
+        Init(PatternTypeEnum.LaserShoot);
         _laser = transform.GetComponentInChildren<Laser>();
     }
 

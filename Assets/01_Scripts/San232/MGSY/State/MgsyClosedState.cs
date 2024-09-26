@@ -16,6 +16,7 @@ public class MgsyClosedState : MGSYState<BossStateEnum>
     public override void Enter()
     {
         base.Enter();
+        mgsy.HealthComponent.IsHittable = false;
         mgsy.StartPatterns(_closedPatterns, 15f);
     }
 

@@ -5,6 +5,18 @@ using UnityEngine;
 
 public class Core : MonoBehaviour
 {
+    public Health CoreHealthCompo
+    {
+        get
+        {
+            return _coreHealth;
+        }
+        set
+        {
+            _coreHealth = value;
+        }
+    }
+
     [Header("Explode Particle")]
     [SerializeField] private ParticleSystem _explodeParticle;
 
@@ -14,7 +26,7 @@ public class Core : MonoBehaviour
     [SerializeField] private float _coreBombRadius;
 
 
-    public static int coreCount;
+    public static int coreCount = 2;
 
     public Action OnDestroyCore;
 
@@ -31,9 +43,10 @@ public class Core : MonoBehaviour
 
     public void DestroyCore()
     {
-        coreCount--;
-        gameObject.SetActive(false);
         CoreExplode();
+        --coreCount;
+        Debug.Log(coreCount + "개");
+        gameObject.SetActive(false);
         OnDestroyCore?.Invoke();
     }
 
@@ -65,6 +78,8 @@ public class Core : MonoBehaviour
     {
         _explodeParticle.Play();
     }
+
+    
 
     // 폭발 범위 그리기 (디버그용)
     private void OnDrawGizmosSelected()
