@@ -11,6 +11,7 @@ public class TestItemSO : ScriptableObject
     public string _toolTip;
 
     [Header("ItemStat")]
+    public PassiveSO passiveSO;
     public int _price;
     
 

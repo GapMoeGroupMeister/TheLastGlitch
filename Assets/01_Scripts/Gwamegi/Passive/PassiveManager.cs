@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class PassiveManager : MonoBehaviour
+public class PassiveManager : MonoSingleton<PassiveManager>
 {
     public List<PassiveSO> HavePassiveList = new List<PassiveSO>();
 
