@@ -4,22 +4,37 @@ using UnityEngine;
 
 public class MgsyEnemySpawn : MGSYPattern
 {
-    
     public bool IsSpawning { get; set; } = false;
 
-    [Header("SpawnCount")]
+    [Header("Spawn Settings")]
     [SerializeField] private int _mobCount = 15;
     [SerializeField] private int _currentMobCount = 0;
     [SerializeField] private int _minCount = 7;
     [SerializeField] private int _maxCount = 14;
+    [SerializeField] private List<Transform> _spawnPoints;
 
-    
-
-    [Header("EnemyList")]
-    [SerializeField] private List<Enemy> _enemys = new List<Enemy>();
+    [Header("Enemy Settings")]
+    [SerializeField] private List<Enemy> _enemys;
+    [SerializeField] private PoolManager poolManager;
 
     private void Awake()
     {
+        poolManager = PoolManager.Instance;
+        if (poolManager == null)
+        {
+            Debug.LogError("PoolManager not found!");
+        }
+
+        if (_spawnPoints == null || _spawnPoints.Count == 0)
+        {
+            Debug.LogError("Spawn points are not assigned!");
+        }
+
+        if (_enemys == null || _enemys.Count == 0)
+        {
+            Debug.LogError("Enemy list is empty!");
+        }
+
         Init(PatternTypeEnum.EnemySpawn, this);
         ResetCount();
     }
@@ -36,7 +51,6 @@ public class MgsyEnemySpawn : MGSYPattern
 
     private void SetCool()
     {
-        _spawnCoolTime = 0;
         _spawnCoolTime = Random.Range(_minCoolTime, _maxCoolTime);
     }
 
@@ -46,20 +60,35 @@ public class MgsyEnemySpawn : MGSYPattern
         _mobCount = Random.Range(_minCount, _maxCount);
     }
 
-    public void Spawn()
+    private void Spawn()
     {
-        SpawnEnemies();
-    }
-
-    private void SpawnEnemies()
-    {
-        if (_currentMobCount <= _mobCount)
+        if (_currentMobCount < _mobCount)
         {
-            int randIndex = Random.Range(0, _enemys.Count);
-            GameObject enemyGo = _enemys[randIndex].gameObject;
+            // Àû ¼±ÅÃ
+            int randEnemyIndex = Random.Range(0, _enemys.Count);
+            GameObject enemyGo = _enemys[randEnemyIndex].gameObject;
+
+            if (_spawnPoints.Count > 0)
+            {
+                int randPointIndex = Random.Range(0, _spawnPoints.Count);
+                Transform spawnPoint = _spawnPoints[randPointIndex];
+
+                string enemyPoolName = enemyGo.name;
+                Ipoolable enemy = poolManager.Pop(enemyPoolName);
+                if (enemy != null)
+                {
+                    enemy.ObjectPrefab.transform.position = spawnPoint.position;
+                    enemy.ObjectPrefab.transform.rotation = spawnPoint.rotation;
+                }
+                else
+                {
+                    Debug.LogError($"Failed to spawn enemy from pool: {enemyPoolName}");
+                }
+            }
+
             _currentMobCount++;
         }
-        else if (_currentMobCount > _mobCount)
+        else if (_currentMobCount >= _mobCount)
         {
             ResetCount();
         }
