@@ -25,7 +25,8 @@ public class EnterStage : MonoBehaviour
             OnEnter += Exit;
             Time.timeScale = 0;
             eb.SetEvent(OnEnter, "이동하시겠습니까?");
-            
+            Time.timeScale = 1;
+
 
         }
         else
