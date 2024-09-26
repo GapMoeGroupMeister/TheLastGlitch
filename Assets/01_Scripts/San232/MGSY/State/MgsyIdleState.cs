@@ -26,13 +26,13 @@ public class MgsyIdleState : MGSYState<BossStateEnum>
     public override void UpdateState()
     {
         base.UpdateState();
-        if(mgsy.GetPlayerInRange() != null)
-        {
-            if (mgsy.GetPlayerInRange().gameObject.CompareTag("Player"))
-            {
-                Change2Closed();
-            }
-        }
+        //if(mgsy.GetPlayerInRange() != null)
+        //{
+        //    if (mgsy.GetPlayerInRange().gameObject.CompareTag("Player"))
+        //    {
+        //        Change2Closed();
+        //    }
+        //}
 
         if (Input.GetMouseButtonDown(0))
         {

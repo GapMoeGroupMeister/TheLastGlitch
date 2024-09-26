@@ -13,8 +13,8 @@ public class MGSYLaserShoot : MGSYPattern
     {
         base.Awake();
         Init(PatternTypeEnum.LaserShoot);
-
-        _laser = GetComponentInChildren<Laser>();
+        _laser.SetLaserPositions(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position);
+        //_laser = GetComponentInChildren<Laser>();
     }
 
     private void OnEnable()
@@ -45,11 +45,7 @@ public class MGSYLaserShoot : MGSYPattern
     private void BlastLaser()
     {
         mgsy.patternRoutine = StartCoroutine(MGSYLaserShootRoutine());
-        _laserCount--;
-        if(_laserCount == 0 )
-        {
-            PatternEnd();
-        }
+        
     }
 
     private IEnumerator MGSYLaserShootRoutine()
@@ -60,7 +56,9 @@ public class MGSYLaserShoot : MGSYPattern
             MGSYLaserDamage(_laserDamage);
             yield return new WaitForSeconds(_laserDelay);
         }
-        
+
+        PatternEnd();
+
     }
 
 

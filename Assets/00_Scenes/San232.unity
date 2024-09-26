@@ -6698,8 +6698,8 @@ MonoBehaviour:
   _patternCoolTime: 0
   _maxPatternCool: 6
   _minPatternCool: 12
-  _laser: {fileID: 1493130190}
   _laserCount: 3
+  _laser: {fileID: 1493130190}
   _laserDelay: 0.03
   _laserDamage: 5
 --- !u!198 &2007879930 stripped
@@ -6820,7 +6820,7 @@ Transform:
   m_GameObject: {fileID: 2147331282}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.13, y: 0.11, z: 0}
+  m_LocalPosition: {x: 3.95, y: -1.88, z: 0}
   m_LocalScale: {x: 0.3136, y: 0.741, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
