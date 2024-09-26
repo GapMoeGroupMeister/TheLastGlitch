@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0279ce22012dee944bc930a8f9ecc2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTypeEnum: 1
+  playerTypeEnum: 0
   playerList:
   - {fileID: 7867192051387084950, guid: d294a24251bd5ad448914848f1d61fc7, type: 3}
   - {fileID: 1726755511903038839, guid: bbe868ce7c08cec45b3fe978f500a482, type: 3}
