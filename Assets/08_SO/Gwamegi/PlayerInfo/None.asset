@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: None
   m_EditorClassIdentifier: 
   playerSpreite: {fileID: -405947236, guid: 51acd8dcca28e2b418d8ee539e90fb54, type: 3}
-  playerName: "\uD50C\uB808\uC774\uC5B4 \uC774\uB984 :  OOO"
-  playerStatInfo: 
+  playerName: 
   playerPassiveDesc: 
+  playerActiveSkillDesc: 
   playerType: 0
+  maxHealth: 0
+  moveSpeed: 0
+  atkPower: 0
+  critDamage: 0
+  critProbability: 0

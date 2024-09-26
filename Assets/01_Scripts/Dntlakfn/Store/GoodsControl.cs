@@ -20,8 +20,6 @@ public class GoodsControl : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI _price;
     public EventBox _eb;
 
-   
-
 
     public void UpdateItem()
     {
@@ -31,8 +29,8 @@ public class GoodsControl : MonoBehaviour
         _name.text = item._name;
         _toolTip.text = item._toolTip;
         _price.text = item._price + "원";
-        
-        
+
+        PassiveManager.Instance.HavePassiveList.Add(item.passiveSO);
     }
 
     public void BuyItem()
@@ -42,7 +40,6 @@ public class GoodsControl : MonoBehaviour
         Debug.Log(item);
         //인벤토리 리스트에 구매한 아이탬 넣어줌
         TestInventory.HaveItems.Add(item);
-
     }
 
     public void Click()
@@ -52,9 +49,5 @@ public class GoodsControl : MonoBehaviour
             OnBuy = BuyItem;
             _eb.SetEvent(OnBuy, "구매하시겠습니까?");
         }
-        
     }
-
-    
-
 }

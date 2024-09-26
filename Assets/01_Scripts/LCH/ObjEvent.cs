@@ -4,20 +4,31 @@ using UnityEngine;
 
 public class ObjEvent : MonoBehaviour
 {
-    private Health _health;
+    [SerializeField] private float _objHp = 40;
 
-    private void Awake()
-    {
-        _health = GetComponent<Health>();
-    }
+    [SerializeField] private LayerMask _layer;
+    [SerializeField] private Vector2 _size;
 
     private void Update()
     {
-        Debug.Log(_health.CurrentHealth);
+       bool isWeapon = Physics2D.OverlapBox(transform.position, _size, 0, _layer);
+
+        if (isWeapon)
+        {
+            DestroyObj();
+        }
     }
 
     public void DestroyObj()
     {
         Destroy(gameObject);
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, _size);
+    }
+
+
 }
