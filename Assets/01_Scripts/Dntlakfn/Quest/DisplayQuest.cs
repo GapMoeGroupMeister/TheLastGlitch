@@ -26,6 +26,7 @@ public class DisplayQuest : MonoBehaviour
     {
         if (GetComponentsInChildren<QuestControl>().Length > 0)
             return;
+        GetComponent<RectTransform>().sizeDelta = new Vector2(0, 723);
         _quests.list.Sort((x, y) => x.questLevel.CompareTo(y.questLevel));
         for (int i = 0; i < _quests.list.Count; i++)
         {
@@ -34,6 +35,8 @@ public class DisplayQuest : MonoBehaviour
             a._quest = _quest;
             a._eb = eb;
             a.OnCreat?.Invoke();
+            
+            GetComponent<RectTransform>().sizeDelta += new Vector2(400, 0);
         }
         
         
