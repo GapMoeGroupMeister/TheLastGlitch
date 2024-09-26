@@ -11,13 +11,11 @@ public class EnemyAnimEndTrigger : MonoBehaviour
 
     public void AnimationEnd()
     {
-        Debug.Log("AnimationEnd");
         _enemy.AnimationEndTrigger();
     }
     
     public void AnimationAttackTrigger()
     {
-        Debug.Log("attack");
         _enemy.Attack();
     }
 
@@ -28,7 +26,6 @@ public class EnemyAnimEndTrigger : MonoBehaviour
 
     public void AnimationLaserAttackTrigger()
     {
-        Debug.Log("attack");
         _ad.LaserAttack();
     }
 
