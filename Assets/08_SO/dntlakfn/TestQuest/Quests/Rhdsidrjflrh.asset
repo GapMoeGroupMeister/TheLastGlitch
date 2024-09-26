@@ -16,7 +16,7 @@ MonoBehaviour:
   questDetail: "\uBC0D"
   questType: 0
   questLevel: 2
-  targetPlace: Stage1
+  targetPlace: Stage2
   isClear: 0
   target: 
   targetNumber: 0
