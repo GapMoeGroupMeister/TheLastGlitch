@@ -6,15 +6,20 @@ public class MGSYLaserShoot : MGSYPattern
 {
     [SerializeField] private int _laserCount = 3;
     [SerializeField] private Laser _laser;
-    [SerializeField] private float _laserDelay = 0.03f;
+    [SerializeField] private float _laserDelay = 0.5f;
     [SerializeField] private float _laserDamage = 5f;
+    [SerializeField] Transform _playerTrm;
+    [SerializeField] private Transform _firePos;
 
     protected override void Awake()
     {
         base.Awake();
         Init(PatternTypeEnum.LaserShoot);
-        _laser.SetLaserPositions(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position);
-        //_laser = GetComponentInChildren<Laser>();
+
+        // Player 객체를 Find하고 Transform을 캐싱
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        _playerTrm = player.transform;
+        _laser.SetLaserPositions(transform.position, _playerTrm.position);
     }
 
     private void OnEnable()
@@ -52,9 +57,10 @@ public class MGSYLaserShoot : MGSYPattern
     {
         for (int i = 0; i < _laserCount; i++)
         {
-            _laser.ActivateLaser(_laserDelay);
-            MGSYLaserDamage(_laserDamage);
-            yield return new WaitForSeconds(_laserDelay);
+            _laser.SetLaserPositions(transform.position, _playerTrm.position); // 레이저 위치 설정
+            _laser.ActivateLaser(_laserDelay); // 레이저 활성화
+            MGSYLaserDamage(_laserDamage); // 데미지 계산
+            yield return new WaitForSeconds(_laserDelay); // 딜레이 후 다시 반복
         }
 
         PatternEnd();
