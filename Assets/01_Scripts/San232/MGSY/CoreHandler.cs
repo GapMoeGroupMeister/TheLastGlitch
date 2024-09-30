@@ -6,9 +6,10 @@ public class CoreHandler : MGSYPattern
 {
     [SerializeField] private List<Core> cores = new List<Core>();
 
-    private void Awake()
+    protected override void Awake()
     {
-        Init(PatternTypeEnum.CoreBomb, this);
+        base.Awake();
+        Init(PatternTypeEnum.CoreBomb);
         
     }
 
@@ -26,15 +27,25 @@ public class CoreHandler : MGSYPattern
 
     public override void PatternStart()
     {
+        
         foreach (Core core in cores)
         {
             core.DestroyCore();
         }
     }
 
+    public void CoreRepair()
+    {
+        foreach(Core core in cores)
+        {
+            core.gameObject.SetActive(true);
+            core.CoreHealthCompo.TakeDamage(core.CoreHealthCompo.maxHealth * -1, Vector2.zero, 0f);
+            mgsy.StateMachine.ChangeState(BossStateEnum.Closed);
+        }
+    }
+
     private void CoreCheck()
     {
-        Debug.Log("Check");
         if(Core.coreCount == 0)
         {
             mgsy.StateMachine.ChangeState(BossStateEnum.Opening);

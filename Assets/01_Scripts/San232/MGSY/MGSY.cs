@@ -84,7 +84,7 @@ public class MGSY : EnemySetting
 
     public void Coroutine(IEnumerator coroutine)
     {
-        StartCoroutine(coroutine.ToString());
+        StartCoroutine(coroutine);
     }
 
     public Collider2D GetPlayerInRange()

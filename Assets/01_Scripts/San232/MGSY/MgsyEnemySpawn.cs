@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.TerrainTools;
 using UnityEngine;
 
 public class MgsyEnemySpawn : MGSYPattern
@@ -17,8 +18,9 @@ public class MgsyEnemySpawn : MGSYPattern
     [SerializeField] private List<Enemy> _enemys;
     [SerializeField] private PoolManager poolManager;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         poolManager = PoolManager.Instance;
         if (poolManager == null)
         {
@@ -32,12 +34,20 @@ public class MgsyEnemySpawn : MGSYPattern
 
         if (_enemys == null || _enemys.Count == 0)
         {
-            Debug.LogError("Enemy list is empty!");
+            Debug.LogError("Enemy list is empty or not assigned in Inspector.");
+        }
+        else
+        {
+            foreach (var enemy in _enemys)
+            {
+                Debug.Log($"Enemy: {enemy?.name}");
+            }
         }
 
-        Init(PatternTypeEnum.EnemySpawn, this);
+        Init(PatternTypeEnum.EnemySpawn);
         ResetCount();
     }
+
 
     public override void PatternStart()
     {
@@ -74,6 +84,15 @@ public class MgsyEnemySpawn : MGSYPattern
                 Transform spawnPoint = _spawnPoints[randPointIndex];
 
                 string enemyPoolName = enemyGo.name;
+
+                if (enemyPoolName != "Dron")
+                {
+                    string FullName = enemyPoolName;
+                    string enemyTag = "Enemy";
+                    string enemyCode = FullName.Replace(enemyTag, "");
+                    enemyPoolName = FullName;
+                }
+
                 Ipoolable enemy = poolManager.Pop(enemyPoolName);
                 if (enemy != null)
                 {
