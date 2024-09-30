@@ -1,35 +1,37 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MGSYLaserShoot : MGSYPattern
 {
-    [SerializeField] private int _laserCount = 3;
+    [SerializeField] private int _laserCount = 3; // 발사할 레이저 수
     [SerializeField] private Laser _laser;
-    [SerializeField] private float _laserDelay = 0.5f;
+    [SerializeField] private float _laserDelay = 2f; // 레이저 사이의 딜레이
     [SerializeField] private float _laserDamage = 5f;
-    [SerializeField] Transform _playerTrm;
+    [SerializeField] private Transform _playerTrm;
     [SerializeField] private Transform _firePos;
+
+    [Header("Laser Settings")]
+    [SerializeField] private float _laserDuration = 0.3f; // 레이저가 타겟에 도달하는 시간
+    [SerializeField] private float _laserLifetime = 1f; // 레이저가 유지되는 시간
 
     protected override void Awake()
     {
         base.Awake();
         Init(PatternTypeEnum.LaserShoot);
 
-        // Player 객체를 Find하고 Transform을 캐싱
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         _playerTrm = player.transform;
-        _laser.SetLaserPositions(transform.position, _playerTrm.position);
+        _laser.SetLaserPositions(_firePos.position, _playerTrm.position);
     }
 
     private void OnEnable()
     {
-        mgsy.OnShootLaser += BlastLaser;
+        mgsy.OnShootLaser += BlastLaserOnce;
     }
 
     private void OnDisable()
     {
-        mgsy.OnShootLaser -= BlastLaser;
+        mgsy.OnShootLaser -= BlastLaserOnce;
     }
 
     public override void PatternStart()
@@ -40,33 +42,35 @@ public class MGSYLaserShoot : MGSYPattern
     public override void PatternEnd()
     {
         mgsy.StopPatterns();
-
-        if(mgsy.HealthComponent.GetCurrentHP() > mgsy.HealthComponent.maxHealth * 0.5)
-        mgsy.StateMachine.ChangeState(BossStateEnum.Opened);
-        else
-        mgsy.StateMachine.ChangeState(BossStateEnum.AngryOpened);
+        if (_laserCount == 0)
+        {
+            mgsy.StateMachine.ChangeState(BossStateEnum.Closing);
+        }
     }
 
-    private void BlastLaser()
+    private void BlastLaserOnce()
     {
-        mgsy.patternRoutine = StartCoroutine(MGSYLaserShootRoutine());
-        
+        if (_laserCount > 0)
+        {
+            mgsy.patternRoutine = StartCoroutine(MGSYLaserShootRoutine());
+        }
     }
 
     private IEnumerator MGSYLaserShootRoutine()
     {
-        for (int i = 0; i < _laserCount; i++)
+        // 레이저 발사
+        _laser.SetLaserPositions(_firePos.position, _playerTrm.position);
+        _laser.ActivateLaser(_firePos.position, _playerTrm.position, _laserDuration, _laserLifetime);
+        MGSYLaserDamage(_laserDamage);
+
+        yield return new WaitForSeconds(_laserDelay); // 딜레이 설정
+
+        _laserCount--; // 레이저 카운트 감소
+        if (_laserCount == 0)
         {
-            _laser.SetLaserPositions(transform.position, _playerTrm.position); // 레이저 위치 설정
-            _laser.ActivateLaser(_laserDelay); // 레이저 활성화
-            MGSYLaserDamage(_laserDamage); // 데미지 계산
-            yield return new WaitForSeconds(_laserDelay); // 딜레이 후 다시 반복
+            PatternEnd(); // 레이저 카운트가 0일 때 패턴 종료
         }
-
-        PatternEnd();
-
     }
-
 
     private void MGSYLaserDamage(float damage)
     {
@@ -77,18 +81,14 @@ public class MGSYLaserShoot : MGSYPattern
 
             RaycastHit2D hit = Physics2D.Linecast(start, end);
 
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.CompareTag("Player"))
             {
-                if (hit.collider.CompareTag("Player"))
+                Health health = hit.collider.GetComponent<Health>();
+                if (health != null)
                 {
-                    Health health = hit.collider.GetComponent<Health>();
-                    if (health != null)
-                    {
-                        health.TakeDamage(damage, Vector2.zero, 0);
-                    }
+                    health.TakeDamage(damage, Vector2.zero, 0);
                 }
             }
         }
     }
-
 }

@@ -26,18 +26,19 @@ public class MgsyIdleState : MGSYState<BossStateEnum>
     public override void UpdateState()
     {
         base.UpdateState();
-        //if(mgsy.GetPlayerInRange() != null)
-        //{
-        //    if (mgsy.GetPlayerInRange().gameObject.CompareTag("Player"))
-        //    {
-        //        Change2Closed();
-        //    }
-        //}
-
-        if (Input.GetMouseButtonDown(0))
+        if (mgsy.GetPlayerInRange() != null)
         {
-            mgsy.StartPatterns(new PatternTypeEnum[] { PatternTypeEnum.LaserShoot }, 10);
+            if (mgsy.GetPlayerInRange().gameObject.CompareTag("Player"))
+            {
+                Change2Closed();
+            }
         }
+
+        //테스트용 코드
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    mgsy.StartPatterns(new PatternTypeEnum[] { PatternTypeEnum.LaserShoot }, 10);
+        //}
         
     }
 

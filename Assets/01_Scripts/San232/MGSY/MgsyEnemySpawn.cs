@@ -45,93 +45,93 @@ public class MgsyEnemySpawn : MGSYPattern
         }
 
         Init(PatternTypeEnum.EnemySpawn);
-        //ResetCount();
+        ResetCount();
     }
 
 
-    //public override void PatternStart()
-    //{
-    //    StartEnemySpawn();
-    //}
+    public override void PatternStart()
+    {
+        StartEnemySpawn();
+    }
 
-    //public override void PatternEnd()
-    //{
-    //    EndEnemySpawn();
-    //}
+    public override void PatternEnd()
+    {
+        EndEnemySpawn();
+    }
 
-    //private void SetCool()
-    //{
-    //    _spawnCoolTime = Random.Range(_minCoolTime, _maxCoolTime);
-    //}
+    private void SetCool()
+    {
+        _spawnCoolTime = Random.Range(_minCoolTime, _maxCoolTime);
+    }
 
-    //private void ResetCount()
-    //{
-    //    _currentMobCount = 0;
-    //    _mobCount = Random.Range(_minCount, _maxCount);
-    //}
+    private void ResetCount()
+    {
+        _currentMobCount = 0;
+        _mobCount = Random.Range(_minCount, _maxCount);
+    }
 
-    //private void Spawn()
-    //{
-    //    if (_currentMobCount < _mobCount)
-    //    {
-    //        // 적 선택
-    //        int randEnemyIndex = Random.Range(0, _enemys.Count);
-    //        GameObject enemyGo = _enemys[randEnemyIndex].gameObject;
+    private void Spawn()
+    {
+        if (_currentMobCount < _mobCount)
+        {
+            // 적 선택
+            int randEnemyIndex = Random.Range(0, _enemys.Count);
+            GameObject enemyGo = _enemys[randEnemyIndex].gameObject;
 
-    //        if (_spawnPoints.Count > 0)
-    //        {
-    //            int randPointIndex = Random.Range(0, _spawnPoints.Count);
-    //            Transform spawnPoint = _spawnPoints[randPointIndex];
+            if (_spawnPoints.Count > 0)
+            {
+                int randPointIndex = Random.Range(0, _spawnPoints.Count);
+                Transform spawnPoint = _spawnPoints[randPointIndex];
 
-    //            string enemyPoolName = enemyGo.name;
+                string enemyPoolName = enemyGo.name;
 
-    //            if(enemyPoolName != "Dron")
-    //            {
-    //                string FullName = enemyPoolName;
-    //                string enemyTag = "Enemy";
-    //                string enemyCode = FullName.Replace(enemyTag, "");
-    //                enemyPoolName = FullName;
-    //            }
+                if (enemyPoolName != "Dron")
+                {
+                    string FullName = enemyPoolName;
+                    string enemyTag = "Enemy";
+                    string enemyCode = FullName.Replace(enemyTag, "");
+                    enemyPoolName = FullName;
+                }
 
-    //            Ipoolable enemy = poolManager.Pop(enemyPoolName);
-    //            if (enemy != null)
-    //            {
-    //                enemy.ObjectPrefab.transform.position = spawnPoint.position;
-    //                enemy.ObjectPrefab.transform.rotation = spawnPoint.rotation;
-    //            }
-    //            else
-    //            {
-    //                Debug.LogError($"Failed to spawn enemy from pool: {enemyPoolName}");
-    //            }
-    //        }
+                Ipoolable enemy = poolManager.Pop(enemyPoolName);
+                if (enemy != null)
+                {
+                    enemy.ObjectPrefab.transform.position = spawnPoint.position;
+                    enemy.ObjectPrefab.transform.rotation = spawnPoint.rotation;
+                }
+                else
+                {
+                    Debug.LogError($"Failed to spawn enemy from pool: {enemyPoolName}");
+                }
+            }
 
-    //        _currentMobCount++;
-    //    }
-    //    else if (_currentMobCount >= _mobCount)
-    //    {
-    //        ResetCount();
-    //    }
-    //}
+            _currentMobCount++;
+        }
+        else if (_currentMobCount >= _mobCount)
+        {
+            ResetCount();
+        }
+    }
 
-    //private IEnumerator MgsyEnemySpawnRoutine()
-    //{
-    //    while (IsSpawning)
-    //    {
-    //        Spawn();
-    //        yield return new WaitForSeconds(_spawnCoolTime);
-    //        SetCool();
-    //    }
-    //}
+    private IEnumerator MgsyEnemySpawnRoutine()
+    {
+        while (IsSpawning)
+        {
+            Spawn();
+            yield return new WaitForSeconds(_spawnCoolTime);
+            SetCool();
+        }
+    }
 
-    //public void StartEnemySpawn()
-    //{
-    //    IsSpawning = true;
-    //    StartCoroutine(MgsyEnemySpawnRoutine());
-    //}
+    public void StartEnemySpawn()
+    {
+        IsSpawning = true;
+        StartCoroutine(MgsyEnemySpawnRoutine());
+    }
 
-    //public void EndEnemySpawn()
-    //{
-    //    IsSpawning = false;
-    //    StopCoroutine(MgsyEnemySpawnRoutine());
-    //}
+    public void EndEnemySpawn()
+    {
+        IsSpawning = false;
+        StopCoroutine(MgsyEnemySpawnRoutine());
+    }
 }
