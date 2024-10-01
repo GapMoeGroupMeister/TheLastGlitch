@@ -15,39 +15,17 @@ public class MgsyEnemySpawn : MGSYPattern
     [SerializeField] private List<Transform> _spawnPoints;
 
     [Header("Enemy Settings")]
-    [SerializeField] private List<Enemy> _enemys;
+    [SerializeField] private List<string> _enemyTypes = new List<string> { "Gun", "Soldier", "Tanker", "Boom" };
     [SerializeField] private PoolManager poolManager;
 
     protected override void Awake()
     {
         base.Awake();
         poolManager = PoolManager.Instance;
-        if (poolManager == null)
-        {
-            Debug.LogError("PoolManager not found!");
-        }
-
-        if (_spawnPoints == null || _spawnPoints.Count == 0)
-        {
-            Debug.LogError("Spawn points are not assigned!");
-        }
-
-        if (_enemys == null || _enemys.Count == 0)
-        {
-            Debug.LogError("Enemy list is empty or not assigned in Inspector.");
-        }
-        else
-        {
-            foreach (var enemy in _enemys)
-            {
-                Debug.Log($"Enemy: {enemy?.name}");
-            }
-        }
 
         Init(PatternTypeEnum.EnemySpawn);
         ResetCount();
     }
-
 
     public override void PatternStart()
     {
@@ -75,24 +53,15 @@ public class MgsyEnemySpawn : MGSYPattern
         if (_currentMobCount < _mobCount)
         {
             // 적 선택
-            int randEnemyIndex = Random.Range(0, _enemys.Count);
-            GameObject enemyGo = _enemys[randEnemyIndex].gameObject;
+            int randEnemyIndex = Random.Range(0, _enemyTypes.Count);
+            string enemyPoolName = _enemyTypes[randEnemyIndex];  // 적 타입에 맞게 이름 선택
 
             if (_spawnPoints.Count > 0)
             {
                 int randPointIndex = Random.Range(0, _spawnPoints.Count);
                 Transform spawnPoint = _spawnPoints[randPointIndex];
 
-                string enemyPoolName = enemyGo.name;
-
-                if (enemyPoolName != "Dron")
-                {
-                    string FullName = enemyPoolName;
-                    string enemyTag = "Enemy";
-                    string enemyCode = FullName.Replace(enemyTag, "");
-                    enemyPoolName = FullName;
-                }
-
+                // PoolManager에서 적 가져오기
                 Ipoolable enemy = poolManager.Pop(enemyPoolName);
                 if (enemy != null)
                 {
