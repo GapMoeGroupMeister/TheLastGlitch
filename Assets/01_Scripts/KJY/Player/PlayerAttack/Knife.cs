@@ -19,6 +19,16 @@ public class Knife : PlayerWeaponParent
         _input.OnAttackEvent += Attack;
     }
 
+    private void OnEnable()
+    {
+        _input.OnAttackEvent += Attack;
+    }
+
+    private void OnDisable()
+    {
+        _input.OnAttackEvent -= Attack;
+    }
+
     public void Attack()
     {
         if (_knifeParent.activeSelf == true)

@@ -45,12 +45,12 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject)
         {
-            Destroy(gameObject);
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 Vector2 attackDir = new Vector2(Mathf.Clamp(Vector3.Cross(collision.gameObject.transform.position, transform.position).z, -1, 1), 0);
                 collision.gameObject.GetComponent<Health>().TakeDamage(_damage, -attackDir, _knockBackPower);
                 OnAttackEvent?.Invoke();
+                Destroy(gameObject);
             }
         }
     }

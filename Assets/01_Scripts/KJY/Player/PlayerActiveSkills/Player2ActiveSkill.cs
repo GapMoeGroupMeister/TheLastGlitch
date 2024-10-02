@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class Player2ActiveSkill : MonoBehaviour
 {
@@ -28,6 +29,11 @@ public class Player2ActiveSkill : MonoBehaviour
         _playerHealth = GetComponent<Health>();
 
         _inputReader.OnActiveSkillEvent += UseActive;
+    }
+
+    private void OnDisable()
+    {
+        _inputReader.OnActiveSkillEvent -= UseActive;
     }
 
     private void UseActive()
