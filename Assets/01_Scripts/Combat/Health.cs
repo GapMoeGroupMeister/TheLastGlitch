@@ -48,7 +48,6 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float amount, Vector2 dir, float knockbackPower)
     {
-        Debug.Log(IsHittable);
         if (IsHittable)
         {
             CurrentHealth -= amount;
