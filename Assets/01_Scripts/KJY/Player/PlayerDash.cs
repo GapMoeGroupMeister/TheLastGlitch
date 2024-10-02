@@ -17,6 +17,11 @@ public class PlayerDash : MonoBehaviour
         _input.OnDashEvent += Dash;
     }
 
+    private void OnDisable()
+    {
+        _input.OnDashEvent -= Dash;
+    }
+
     private void Dash()
     {
         if (!WeaponCoolTime.instance._attack)

@@ -28,6 +28,16 @@ public class BigSword : PlayerWeaponParent
         AttackSequence.Restart();
     }
 
+    private void OnEnable()
+    {
+        _input.OnAttackEvent += BigSwordAttack;
+    }
+
+    private void OnDisable()
+    {
+        _input.OnAttackEvent -= BigSwordAttack;
+    }
+
     public void BigSwordAttack()
     {
         if (_swordParent.activeSelf == true)
