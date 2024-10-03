@@ -55,8 +55,8 @@ public abstract class Player : Agent
 
     protected override void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         base.Awake();
-        
     }
 
     private void Start()

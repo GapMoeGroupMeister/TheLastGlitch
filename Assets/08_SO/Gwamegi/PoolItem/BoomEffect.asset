@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfe366c365232a04c8dd66f4d2896519, type: 3}
-  m_Name: TankEnemy
+  m_Name: BoomEffect
   m_EditorClassIdentifier: 
-  poolName: TankEnemy
-  prefab: {fileID: 0}
-  count: 0
+  poolName: BoomEffect
+  prefab: {fileID: 1551918312311490276, guid: acb9800a0fc7c944eb50caa0249c1f4f, type: 3}
+  count: 10

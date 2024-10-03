@@ -40,6 +40,18 @@ public class Katana : PlayerWeaponParent
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
     }
 
+    private void OnEnable()
+    {
+        _input.OnAttackEvent += KatanaAttack;
+        _input.OnSwapingEvent += SwapAnim;
+    }
+
+    private void OnDisable()
+    {
+        _input.OnAttackEvent -= KatanaAttack;
+        _input.OnSwapingEvent -= SwapAnim;
+    }
+
     private void SwapAnim()
     {
         if (_katanaParent.activeSelf == true)

@@ -48,6 +48,12 @@ public class Enemy : EnemySetting
     protected virtual void Update()
     {
         StateMachine.CurrentState.UpdateState();
+
+        if (GetObj())
+        {
+            StateMachine.ChangeState(EnemyStateEnum.Idle);
+        }
+
         if (GetPlayer())
         {
             MovementComponent._xMove = 0F;
