@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ObjEvent : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class ObjEvent : MonoBehaviour
 
     [SerializeField] private LayerMask _layer;
     [SerializeField] private Vector2 _size;
+
+    public UnityEvent _OnDeadBoomEvent;
 
     private void Update()
     {
@@ -22,6 +25,7 @@ public class ObjEvent : MonoBehaviour
     public void DestroyObj()
     {
         Destroy(gameObject);
+        _OnDeadBoomEvent?.Invoke();
     }
 
     private void OnDrawGizmos()

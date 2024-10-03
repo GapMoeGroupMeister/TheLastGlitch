@@ -16,11 +16,14 @@ public class MGSYPattern : MonoBehaviour
 
     protected MGSY mgsy;
 
-
-    protected void Init(PatternTypeEnum patternName, MGSYPattern pattern)
+    protected virtual void Awake()
     {
         mgsy = GetComponent<MGSY>();
-        mgsy.patternDic.Add(patternName, pattern);
+    }
+
+    protected void Init(PatternTypeEnum patternName)
+    {
+        mgsy.patternDic.Add(patternName, this);
     }
 
     public virtual void PatternStart()

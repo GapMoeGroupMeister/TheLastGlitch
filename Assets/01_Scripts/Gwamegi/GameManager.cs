@@ -8,6 +8,11 @@ public class GameManager : MonoSingleton<GameManager>
     private Player player;
     private bool isClear;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     public Player Player
     {
 

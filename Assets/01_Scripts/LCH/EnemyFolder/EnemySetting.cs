@@ -17,7 +17,9 @@ public abstract class EnemySetting : Agent
 
     public float minX, maxX;
 
-    public float ObjRay;
+    public float ObjRay = 0.7f;
+
+    public float x;
 
     public bool isObj = false;
 
@@ -77,7 +79,7 @@ public abstract class EnemySetting : Agent
 
     public Vector3 GetRandomVector()
     {
-        float x = Random.Range(minX,maxX);
+        x = Random.Range(minX,maxX);
         Vector3 vec = new Vector3(x, transform.position.y);
         return vec;
     }
@@ -96,6 +98,9 @@ public abstract class EnemySetting : Agent
 
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, Vector2.right);
+
+        Gizmos.color = Color.white;
+        Gizmos.DrawRay(transform.position, new Vector2(ObjRay,0));
     }
 
     public abstract void AnimationEndTrigger();
