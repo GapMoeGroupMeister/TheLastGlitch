@@ -16,7 +16,7 @@ public class ObjEvent : MonoBehaviour
     {
        bool isWeapon = Physics2D.OverlapBox(transform.position, _size, 0, _layer);
 
-        if (isWeapon)
+        if (isWeapon && WeaponCoolTime.instance._attack)
         {
             DestroyObj();
         }

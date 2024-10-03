@@ -51,10 +51,8 @@ public class Enemy : EnemySetting
 
         if (GetObj())
         {
-            x *= -1;
+            StateMachine.ChangeState(EnemyStateEnum.Idle);
         }
-
-        Debug.Log($"Object Collder : {GetObj()}");
 
         if (GetPlayer())
         {

@@ -123,7 +123,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: PlayFeedbacks
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -135,7 +135,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 3856152975751186313}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: GetHit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -147,7 +147,19 @@ MonoBehaviour:
         m_CallState: 2
   OnGetDamageEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedbacks
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls:
@@ -232,12 +244,12 @@ MonoBehaviour:
     maxNormalAngle: 0
   minX: 2
   maxX: 3
-  ObjRay: 0.7
   x: 0
   isObj: 0
   DeadItem:
   - {fileID: 2716918810560444823, guid: 945047ab8572a8544b6380f8949e4950, type: 3}
   - {fileID: 5151407446827430101, guid: 15a5c681b0f8ed049be7ad5cd94f46ad, type: 3}
+  vec: {x: 0, y: 0, z: 0}
   _enemyStats: {fileID: 11400000, guid: 0f79060300063d94481daa4450b962f5, type: 2}
   targetTrm: {fileID: 0}
   lastAttackTime: 0
