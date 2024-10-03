@@ -404,10 +404,12 @@ MonoBehaviour:
     maxNormalAngle: 0
   minX: 0
   maxX: 0
-  ObjRay: 0
+  ObjRay: 0.7
   isObj: 0
   DeadItem:
   - {fileID: 2716918810560444823, guid: 945047ab8572a8544b6380f8949e4950, type: 3}
+  - {fileID: 6473396969644008485, guid: bc058c88cb26be249bdfdca2a620a2f9, type: 3}
+  vec: {x: 0, y: 0, z: 0}
   _enemyStats: {fileID: 11400000, guid: 6cdb8fcc3ecf9e84eab21b9926f19362, type: 2}
   targetTrm: {fileID: 0}
   lastAttackTime: 0

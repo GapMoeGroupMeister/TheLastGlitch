@@ -14,14 +14,10 @@ public class StateManager : Enemy
     {
         MovementComponent._canMove = false;
         FirstAttack = false;
-    }
+    }   
     public void EnemyMove()
     {
         MovementComponent.SetMovement(dir.normalized.x);
-        if (GetObj())
-        {
-            x *= -1;
-        }
     }
 
     public void EnemyFlips()
