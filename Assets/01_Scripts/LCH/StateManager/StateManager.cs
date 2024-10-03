@@ -18,10 +18,6 @@ public class StateManager : Enemy
     public void EnemyMove()
     {
         MovementComponent.SetMovement(dir.normalized.x);
-        if (GetObj())
-        {
-            x *= -1;
-        }
     }
 
     public void EnemyFlips()

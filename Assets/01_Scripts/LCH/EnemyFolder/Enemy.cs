@@ -48,6 +48,14 @@ public class Enemy : EnemySetting
     protected virtual void Update()
     {
         StateMachine.CurrentState.UpdateState();
+
+        if (GetObj())
+        {
+            x *= -1;
+        }
+
+        Debug.Log($"Object Collder : {GetObj()}");
+
         if (GetPlayer())
         {
             MovementComponent._xMove = 0F;
