@@ -3947,10 +3947,6 @@ PrefabInstance:
       propertyPath: OnGetHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6826621849787226854}
-    - target: {fileID: 4348948770106824971, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
-      propertyPath: OnGetDamageEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 63025859}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5052,10 +5048,6 @@ PrefabInstance:
     - target: {fileID: 552201136969390560, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6519005202214797683, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
-      propertyPath: ObjRay
-      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7079840489748371561, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
       propertyPath: m_Name
