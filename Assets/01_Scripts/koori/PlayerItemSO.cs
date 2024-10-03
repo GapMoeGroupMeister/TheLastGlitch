@@ -27,6 +27,7 @@ public enum RequireItemType
 public class PlayerItemSO : ScriptableObject
 {
     public static PlayerItemSO Instance { get; private set; }
+    public GadgetParent CurrentGadget { get; set; } = null;
 
     public Dictionary<RequireItemType, int> requireItemDic = new Dictionary<RequireItemType, int>()
     {

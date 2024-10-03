@@ -3,14 +3,20 @@ using UnityEngine;
 
 public class GadgetParent : MonoBehaviour
 {
-    [SerializeField] protected Player _player;
+    [SerializeField]protected Player _player;
     protected Action _isUse;
     [field : SerializeField]protected InputReader _input;
-    protected GadgetType _type;
-    private void Start()
+    private void Awake()
     {
         Init();
+    }
+    private void Start()
+    {
+    }
+    private void OnEnable()
+    {
         _input.OnUseGadgetEvent += UseGadget;
+        
     }
 
     public void Init()
@@ -27,8 +33,10 @@ public class GadgetParent : MonoBehaviour
     }
     public void UseGadget()
     {
+        Debug.Log("¾Ó ³ª´Â ¹Î¼ö°¡ ÁÁ¾Æ~");
         this.gameObject.SetActive(true);
         DataManager.Instance.SelectedGadget = GadgetType.None;
         _isUse.Invoke();
+
     }
 }

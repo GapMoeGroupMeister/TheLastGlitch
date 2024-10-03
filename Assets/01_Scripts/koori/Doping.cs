@@ -26,5 +26,6 @@ public class Doping : GadgetParent
     private void StatDoping()
     {
         _stat.StatSet(_dopedStat);
+        Destroy(gameObject);
     }
 }
