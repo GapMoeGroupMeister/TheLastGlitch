@@ -42,6 +42,11 @@ public class Player2WeaponSwap : MonoBehaviour
         _weapon2.gameObject.SetActive(false);
     }
 
+    private void OnDisable()
+    {
+        _input.OnSwapingEvent -= WeaponSwaping;
+    }
+
     private void WeaponSwaping()
     {
         if (!WeaponCoolTime.instance._attack)

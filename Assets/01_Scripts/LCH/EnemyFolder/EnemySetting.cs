@@ -17,11 +17,15 @@ public abstract class EnemySetting : Agent
 
     public float minX, maxX;
 
-    public float ObjRay;
+    public float x;
+
+    private float _ObjRay = 1f;
 
     public bool isObj = false;
 
     public GameObject[] DeadItem;
+
+    public Vector3 vec;
 
     int count;
     bool isPlayer;
@@ -71,14 +75,14 @@ public abstract class EnemySetting : Agent
 
     public bool GetObj()
     {
-        isObj = Physics2D.Raycast(transform.position, Vector2.right, ObjRay, WhatIsObj);
+        isObj = Physics2D.Raycast(transform.position, Vector2.right, _ObjRay, WhatIsObj);
         return isObj;
     }
 
     public Vector3 GetRandomVector()
     {
-        float x = Random.Range(minX,maxX);
-        Vector3 vec = new Vector3(x, transform.position.y);
+        x = Random.Range(minX,maxX);
+        vec = new Vector3(x, transform.position.y);
         return vec;
     }
 
@@ -96,6 +100,9 @@ public abstract class EnemySetting : Agent
 
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, Vector2.right);
+
+        Gizmos.color = Color.white;
+        Gizmos.DrawRay(transform.position, new Vector2(_ObjRay,0));
     }
 
     public abstract void AnimationEndTrigger();

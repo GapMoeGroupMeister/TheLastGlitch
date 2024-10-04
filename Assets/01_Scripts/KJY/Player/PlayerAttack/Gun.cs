@@ -33,6 +33,11 @@ public class Gun : PlayerWeaponParent
         _isReloading = false;
     }
 
+    private void OnDisable()
+    {
+        _input.OnAttackEvent -= TryFire;
+    }
+
     private void TryFire()
     {
         if (_gunParent.activeSelf == true)

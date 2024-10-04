@@ -14,7 +14,7 @@ public class StateManager : Enemy
     {
         MovementComponent._canMove = false;
         FirstAttack = false;
-    }
+    }   
     public void EnemyMove()
     {
         MovementComponent.SetMovement(dir.normalized.x);
