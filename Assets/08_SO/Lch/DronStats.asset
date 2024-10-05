@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63429e9abd493a240a5f4eb012e714fb, type: 3}
   m_Name: DronStats
   m_EditorClassIdentifier: 
-  EnemyHeath: 0
+  EnemyHeath: 100
   EnemydetectRadius: 0
-  EnemyattackRadius: 0
-  Enemydamge: 0
-  EnemyknockbackPower: 0
-  EnemyattackCooldown: 0
+  EnemyattackRadius: 6
+  Enemydamge: 5
+  EnemyknockbackPower: 4
+  EnemyattackCooldown: 3
   EnemystopRay: 0
