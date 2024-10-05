@@ -123,7 +123,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
-        m_MethodName: PlayFeedbacks
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -227,7 +227,7 @@ MonoBehaviour:
     m_Bits: 8
   WhatIsObj:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2147483648
   contactFilter:
     useTriggers: 0
     useLayerMask: 1
@@ -282,6 +282,9 @@ MonoBehaviour:
   _iGround:
     serializedVersion: 2
     m_Bits: 512
+  _isObj:
+    serializedVersion: 2
+    m_Bits: 2147483648
   _ray: 3
   _ray2: 1
 --- !u!114 &8605155596378037593

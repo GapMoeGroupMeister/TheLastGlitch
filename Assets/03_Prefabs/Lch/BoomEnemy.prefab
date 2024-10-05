@@ -404,7 +404,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   minX: 0
   maxX: 0
-  ObjRay: 0.7
+  x: 0
   isObj: 0
   DeadItem:
   - {fileID: 2716918810560444823, guid: 945047ab8572a8544b6380f8949e4950, type: 3}

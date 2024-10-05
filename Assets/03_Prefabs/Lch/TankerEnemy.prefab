@@ -326,7 +326,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BlickFeadback, Assembly-CSharp
-        m_MethodName: PlayFeedback
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -421,12 +421,12 @@ MonoBehaviour:
     maxNormalAngle: 0
   minX: 0
   maxX: 0
-  ObjRay: 0
   x: 0
   isObj: 0
   DeadItem:
   - {fileID: 6473396969644008485, guid: bc058c88cb26be249bdfdca2a620a2f9, type: 3}
   - {fileID: 6473396969644008485, guid: 76065cdfb3505f34e827ad5b99a5ee9f, type: 3}
+  vec: {x: 0, y: 0, z: 0}
   _enemyStats: {fileID: 11400000, guid: 2ce710fe5c904dc40ba0f490635dd7fc, type: 2}
   targetTrm: {fileID: 0}
   lastAttackTime: 0
