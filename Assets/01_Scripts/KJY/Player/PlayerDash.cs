@@ -6,8 +6,8 @@ using DG.Tweening;
 public class PlayerDash : MonoBehaviour
 {
     [field: SerializeField] private InputReader _input;
+    [SerializeField] private AgentMovement _player;
 
-    [SerializeField] private GameObject _player;
     [SerializeField] private float _dashDistance = 1f;
 
     private bool _isDash = false;
@@ -28,13 +28,14 @@ public class PlayerDash : MonoBehaviour
         {
             if(!_isDash)
             {
-                if (_player.transform.localScale.x < 0)
+                Debug.Log("Dash");
+                if (_player._xMove < 0)
                 {
                     transform.DOMoveX(transform.position.x - _dashDistance, 0.1f);
                     StartCoroutine(DashCoolTime());
                 }
 
-                if (_player.transform.localScale.x > 0)
+                if (_player._xMove > 0)
                 {
                     transform.DOMoveX(transform.position.x + _dashDistance, 0.1f);
                     StartCoroutine(DashCoolTime());
