@@ -5,14 +5,14 @@ public class MGSYLaserShoot : MGSYPattern
 {
     [SerializeField] private int _laserCount = 3; // 발사할 레이저 수
     [SerializeField] private Laser _laser;
-    [SerializeField] private float _laserDelay = 2f; // 레이저 사이의 딜레이
+    [SerializeField] private float _laserDelay = 1f; // 레이저 사이의 딜레이
     [SerializeField] private float _laserDamage = 5f;
     [SerializeField] private Transform _playerTrm;
     [SerializeField] private Transform _firePos;
 
     [Header("Laser Settings")]
-    [SerializeField] private float _laserDuration = 0.3f; // 레이저가 타겟에 도달하는 시간
-    [SerializeField] private float _laserLifetime = 1f; // 레이저가 유지되는 시간
+    [SerializeField] private float _laserDuration = 0.2f; // 레이저가 타겟에 도달하는 시간 (더 빠르게)
+    [SerializeField] private float _laserLifetime = 0.3f;  // 레이저가 유지되는 시간 (더 짧게)
 
     protected override void Awake()
     {
@@ -44,9 +44,12 @@ public class MGSYLaserShoot : MGSYPattern
         mgsy.StopPatterns();
         if (_laserCount == 0)
         {
+            // _laserCount를 초기화
+            _laserCount = 3; // 또는 필요한 초기값으로 설정
             mgsy.StateMachine.ChangeState(BossStateEnum.Closing);
         }
     }
+
 
     private void BlastLaserOnce()
     {
@@ -58,9 +61,9 @@ public class MGSYLaserShoot : MGSYPattern
 
     private IEnumerator MGSYLaserShootRoutine()
     {
-        // 레이저 발사
-        _laser.SetLaserPositions(_firePos.position, _playerTrm.position);
-        _laser.ActivateLaser(_firePos.position, _playerTrm.position, _laserDuration, _laserLifetime);
+        Vector3 direction = (_playerTrm.position - _firePos.position).normalized; // 플레이어 방향으로 설정
+        _laser.SetLaserPositions(_firePos.position, direction); // 방향을 설정합니다.
+        _laser.ActivateLaser(_firePos.position, direction, _laserDuration, _laserLifetime);
         MGSYLaserDamage(_laserDamage);
 
         yield return new WaitForSeconds(_laserDelay); // 딜레이 설정
@@ -71,6 +74,7 @@ public class MGSYLaserShoot : MGSYPattern
             PatternEnd(); // 레이저 카운트가 0일 때 패턴 종료
         }
     }
+
 
     private void MGSYLaserDamage(float damage)
     {
