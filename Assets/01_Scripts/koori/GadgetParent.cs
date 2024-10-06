@@ -5,6 +5,7 @@ public class GadgetParent : MonoBehaviour
 {
     [SerializeField]protected Player _player;
     protected Action _isUse;
+    protected GadgetType _type;
     [field : SerializeField]protected InputReader _input;
     private void Awake()
     {

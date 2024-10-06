@@ -7,7 +7,6 @@ public class HackPulse : GadgetParent
 {
     [SerializeField] private List<AgentMovement> _hackableEnemy;
     [SerializeField] private float _hackRange;
-    [SerializeField] private float _hackingTime;
     [SerializeField] private LayerMask _enemyLayer;
 
     private void Start()
@@ -31,24 +30,13 @@ public class HackPulse : GadgetParent
             }
         }
 
-        StartCoroutine(HackEnemies(_hackingTime));
-    }
-
-    private IEnumerator HackEnemies(float duration)
-    {
         foreach (AgentMovement enemy in _hackableEnemy)
         {
             enemy.StopImmediately(true);
-            enemy._canMove = false;
-        }
-
-        yield return new WaitForSeconds(duration);
-
-        foreach (AgentMovement enemy in _hackableEnemy)
-        {
-            enemy._canMove = true;
+            enemy._xMove = 0;
         }
     }
+
 
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
