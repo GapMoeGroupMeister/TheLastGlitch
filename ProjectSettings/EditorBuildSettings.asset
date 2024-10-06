@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00_Scenes/Gwamegi/ChoisePlayerScene.unity
     guid: 48127535c46f489409a1187076c2ce53
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Scenes/StageFolder/Stage2.unity
     guid: b4ec18f43931a7740890fe114e3190f0
   m_configObjects: {}
