@@ -6,7 +6,7 @@ public class PlayerHPBar : MonoBehaviour
 {
     [SerializeField] private RectTransform _hpBar;
 
-    private Player _player; 
+    public Player _player; 
     private Health _playerHealth;
 
     private float _health;
@@ -35,7 +35,6 @@ public class PlayerHPBar : MonoBehaviour
 
     private void Start()
     {
-        _player = GameManager.Instance.Player;
         _playerHealth = _player.GetComponent<Health>();
     }
 

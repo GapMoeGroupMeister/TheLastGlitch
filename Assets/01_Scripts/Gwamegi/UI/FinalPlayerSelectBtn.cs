@@ -20,7 +20,7 @@ public class FinalPlayerSelectBtn : MonoBehaviour
     {
         DataManager.Instance.PlayerType = _playerType;
         DataManager.Instance.PlayerInfo = _playerInfo;
-        LoadingSceneManager.LoadScene("MenuScene");
+        LoadingSceneManager.LoadScene("Stage1");
     }
 
     public void BtnNo()

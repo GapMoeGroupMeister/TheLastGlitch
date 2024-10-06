@@ -21,6 +21,7 @@ MonoBehaviour:
   knockbackPower: 0
   time: 0
   distance: {x: 0, y: 0}
+  radius: 0
   _isUsePlayerEffect: 0
   effect: {fileID: 0}
   type: 0
@@ -28,4 +29,4 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
-  healCount: 0
+  healCount: 2
