@@ -24,6 +24,12 @@ public class PlayerInteract : MonoBehaviour
     {
         _input.OnInteractionEvent += Interact;
     }
+
+    private void OnDisable()
+    {
+        _input.OnInteractionEvent -= Interact;
+    }
+
     private void Update()
     {
         if (_isInteracting)

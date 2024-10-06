@@ -12,7 +12,7 @@ public class ShockWaveSO : PassiveSO
         Debug.Log(enemy);
         foreach (Collider2D item in enemy)
         {
-            item.GetComponent<Health>().TakeDamage(damage, item.transform.position.normalized, knockbackPower);
+            item.GetComponent<Health>().TakeDamage(damage, (item.transform.position - owner.transform.position).normalized, knockbackPower);
         }
 
 
