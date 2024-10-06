@@ -453,7 +453,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6505332952545737800}
         m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
-        m_MethodName: PlayFeedbacks
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -521,11 +521,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   detectRadius: 0
-  attackRadius: 7
-  knockbackPower: 4
-  attackCooldown: 5
+  attackRadius: 0
+  knockbackPower: 0
+  attackCooldown: 0
   stopRay: 0
-  damage: 5
+  damage: 0
   _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
