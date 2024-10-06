@@ -167,6 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e71b9f1693bcc48962834e15eb533e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _input: {fileID: 0}
   _shieldHP: 0
   _shieldMaxHP: 50
   _shieldPrefab: {fileID: 3931847799895033001, guid: d2830d0e13f8c7444b72aa220b296850, type: 3}
@@ -857,8 +859,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526ddbf786e2a9443a47d75625108769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  maxHealth: 100
   OnGetHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGetDamageEvent:
     m_PersistentCalls:
       m_Calls: []
   OnDeadEvent:
@@ -939,6 +944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _input: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
+  ItemSO: {fileID: 0}
   _isAttack: 0
   _isDoubleAttack: 0
   _isActiveSkill: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shield : MonoBehaviour
+public class Shield : GadgetParent
 {
     [SerializeField] private float _shieldHP;
     [SerializeField] private float _shieldMaxHP;
@@ -16,57 +16,49 @@ public class Shield : MonoBehaviour
 
     private void Awake()
     {
-        // 미리 프리팹에서 콜라이더를 가져와 놓습니다.
         if (_shieldPrefab != null)
         {
             _shieldCollider = _shieldPrefab.GetComponent<CircleCollider2D>();
-            _shieldCollider.enabled = false; // 비활성화 상태로 시작
+            _shieldCollider.enabled = false;
         }
     }
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Use();
-        }
+        _type = GadgetType.shield; // Shield의 타입 설정
+        _isUse += UseShield; // UseGadget() 함수 호출 시 UseShield() 함수 실행
     }
 
-    private void Use()
+    private void UseShield()
     {
-        // 활성화된 실드가 이미 있다면 비활성화합니다.
         if (_activeShield != null)
         {
             _activeShield.SetActive(false);
-            return; // 이미 활성화된 실드가 있다면 함수를 종료합니다.
+            return;
         }
 
-        // 실드 프리팹을 생성하고 활성화합니다.
         _activeShield = Instantiate(_shieldPrefab, transform.position, Quaternion.identity);
         _activeShield.SetActive(true);
 
-        // 실드 크기를 초기화합니다.
         _activeShield.transform.localScale = Vector3.zero;
 
-        // 실드 커지는 코루틴을 시작합니다.
         StartCoroutine(GrowShield());
     }
 
     private IEnumerator GrowShield()
     {
-        if(_shieldCollider == null) 
+        if (_shieldCollider == null)
         {
             Debug.LogError("Shield Collider is not assigned!");
-            yield break; // 콜라이더가 없으면 코루틴 종료
+            yield break;
         }
-        
-        _shieldCollider.enabled = true; // 콜라이더 활성화
+
+        _shieldCollider.enabled = true;
 
         while (_activeShield.transform.localScale.x < _targetScale)
         {
             _activeShield.transform.localScale = Vector3.Lerp(_activeShield.transform.localScale, Vector3.one * _targetScale, Time.deltaTime * _growSpeed);
 
-            // 콜라이더 크기를 실드 크기에 맞춥니다.
             _shieldCollider.radius = _activeShield.transform.localScale.x * 0.5f;
 
             PushBackEnemies();
