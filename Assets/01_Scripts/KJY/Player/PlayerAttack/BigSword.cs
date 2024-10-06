@@ -16,16 +16,19 @@ public class BigSword : PlayerWeaponParent
     [SerializeField] private float _swordSwingTime = 0.25f;
     [SerializeField] private float _swordReturnTime = 0.4f;
 
+    private TrailRenderer _trail;
+
     private DG.Tweening.Sequence AttackSequence;
 
     private void Awake()
     {
-        
+        _trail = GetComponent<TrailRenderer>();
     }
 
     private void Start()
     {
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+        _trail.enabled = false;
         AttackSequence.Restart();
     }
 
@@ -47,8 +50,10 @@ public class BigSword : PlayerWeaponParent
             {
                 AttackSequence = DOTween.Sequence();
                 AttackSequence.AppendCallback(() => gameObject.GetComponent<CapsuleCollider2D>().enabled = true);
+                AttackSequence.AppendCallback(() => _trail.enabled = true);
                 AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -130), _swordSwingTime, RotateMode.FastBeyond360).SetEase(Ease.InQuad));
                 AttackSequence.AppendCallback(() => gameObject.GetComponent<CapsuleCollider2D>().enabled = false);
+                AttackSequence.AppendCallback(() => _trail.enabled = false);
                 AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -180), _swordReturnTime));
                 AttackSequence.Play();
                 StartCoroutine(AttackCoolTimeBG());

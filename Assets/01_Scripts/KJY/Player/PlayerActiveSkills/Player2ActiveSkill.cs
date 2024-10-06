@@ -49,6 +49,10 @@ public class Player2ActiveSkill : MonoBehaviour
         if (!_activeCool)
         {
             _currentHealth = _playerHealth.GetCurrentHP() / 2;
+            if (_currentHealth <= 0)
+            {
+                //_playerHealth.CurrentHealth
+            }
             _playerHealth.TakeDamage(_currentHealth, Vector2.zero, 0);
             _activeHp = _currentHealth;
         }
