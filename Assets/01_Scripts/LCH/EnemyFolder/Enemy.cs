@@ -42,17 +42,12 @@ public class Enemy : EnemySetting
     protected virtual void Start()
     {
         StateMachine.InitInitialize(EnemyStateEnum.Idle, this);
-        StartCoroutine(Delaytime());
+        dir = GameObject.Find("EnemyLastPos").transform.position -transform.position;
     }
 
     protected virtual void Update()
     {
         StateMachine.CurrentState.UpdateState();
-
-        if (GetObj())
-        {
-            StateMachine.ChangeState(EnemyStateEnum.Idle);
-        }
 
         if (GetPlayer())
         {
@@ -68,20 +63,4 @@ public class Enemy : EnemySetting
     {
         StateMachine.CurrentState.AnimationEndTrigger();
     }
-
-    protected IEnumerator Delaytime()
-    {
-        if (!IsDie)
-        {
-            while (true)
-            {
-                dir = GetRandomVector() - transform.position;
-                yield return new WaitForSeconds(2f);
-                MovementComponent._xMove = 0F;
-                yield return new WaitForSeconds(2f);
-            }
-        }
-
-    }
-
 }

@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 18727821593629828, guid: 5af0d5612683401409ea1c17f94fc485, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.1126084
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 18727821593629828, guid: 5af0d5612683401409ea1c17f94fc485, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1113,7 +1113,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 18727821593629828, guid: 5af0d5612683401409ea1c17f94fc485, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.7726088
+      value: -0.6399994
       objectReference: {fileID: 0}
     - target: {fileID: 18727821593629828, guid: 5af0d5612683401409ea1c17f94fc485, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1523,7 +1523,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 18727821593629828, guid: 5af0d5612683401409ea1c17f94fc485, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.46
+      value: -1.9526081
       objectReference: {fileID: 0}
     - target: {fileID: 18727821593629828, guid: 5af0d5612683401409ea1c17f94fc485, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1831,7 +1831,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 18727821593629828, guid: 5af0d5612683401409ea1c17f94fc485, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3026085
+      value: -1.1099997
       objectReference: {fileID: 0}
     - target: {fileID: 18727821593629828, guid: 5af0d5612683401409ea1c17f94fc485, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2760,7 +2760,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 18727821593629828, guid: 5af0d5612683401409ea1c17f94fc485, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.9200964
+      value: -1.4925117
       objectReference: {fileID: 0}
     - target: {fileID: 18727821593629828, guid: 5af0d5612683401409ea1c17f94fc485, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3251,7 +3251,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 18727821593629828, guid: 5af0d5612683401409ea1c17f94fc485, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.9126086
+      value: -1.4999995
       objectReference: {fileID: 0}
     - target: {fileID: 18727821593629828, guid: 5af0d5612683401409ea1c17f94fc485, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3942,10 +3942,6 @@ PrefabInstance:
     - target: {fileID: 3065351043755773162, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
       propertyPath: m_Name
       value: Dron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3856152975751186313, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
-      propertyPath: WhatIsObj.m_Bits
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4348948770106824971, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
       propertyPath: OnGetHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target

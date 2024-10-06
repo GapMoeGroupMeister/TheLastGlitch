@@ -404,7 +404,7 @@ MonoBehaviour:
     m_Bits: 8
   WhatIsObj:
     serializedVersion: 2
-    m_Bits: 2147483648
+    m_Bits: 0
   contactFilter:
     useTriggers: 0
     useLayerMask: 1
