@@ -22,6 +22,7 @@ public abstract class Agent : MonoBehaviour
         HealthComponent = GetComponent<Health>();
         HealthComponent.Initialize(this);
     }
+
     public abstract void SetDeadState();
     #region Flip
     public bool IsFacingRight()
@@ -31,13 +32,28 @@ public abstract class Agent : MonoBehaviour
     }
     public void HandleSpriteFlip(Vector3 targerPosition)
     {
-        if (targerPosition.x < transform.position.x)
+        if (!WeaponCoolTime.instance._attack)
         {
-            transform.eulerAngles = new Vector3(0, -180f, 0);
+            if (targerPosition.x < transform.position.x)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (targerPosition.x > transform.position.x)
+            {
+                transform.localScale = Vector3.one;
+            }
         }
-        else if (targerPosition.x > transform.position.x)
+    }
+
+    public void PlayerFlip(float xFlip)
+    {
+        if (xFlip > 0)
         {
             transform.eulerAngles = Vector3.zero;
+        }
+        else if (xFlip < 0)
+        {
+            transform.eulerAngles = new Vector3(0, -180f, 0);
         }
     }
     #endregion

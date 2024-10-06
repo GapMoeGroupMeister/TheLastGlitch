@@ -1,0 +1,89 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Core : MonoBehaviour
+{
+    public Health CoreHealthCompo
+    {
+        get
+        {
+            return _coreHealth;
+        }
+        set
+        {
+            _coreHealth = value;
+        }
+    }
+
+    [Header("Explode Particle")]
+    [SerializeField] private ParticleSystem _explodeParticle;
+
+    [Header("Core Status")]
+    [SerializeField] private Health _coreHealth;
+    [SerializeField] private int _coreBombDamage;
+    [SerializeField] private float _coreBombRadius;
+
+
+    public static int coreCount = 2;
+
+    public Action OnDestroyCore;
+
+    public DamageCaster CoreDamagerCaster { get; private set; }
+
+    [SerializeField] private MGSY _mgsy;
+
+    private void Awake()
+    {
+        CoreDamagerCaster = GetComponentInChildren<DamageCaster>();
+        _mgsy = transform.parent.gameObject.GetComponent<MGSY>();
+        _explodeParticle = GetComponentInChildren<ParticleSystem>();
+    }
+
+    public void DestroyCore()
+    {
+        CoreExplode();
+        --coreCount;
+        gameObject.SetActive(false);
+        OnDestroyCore?.Invoke();
+    }
+
+    private void CoreExplode()
+    {
+        // 폭발 범위 내의 모든 콜라이더 가져오기
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, _coreBombRadius);
+
+        // 각 콜라이더에 대해 반복문 실행
+        foreach (Collider2D hitCollider in hitColliders)
+        {
+            // 적 객체인지 확인
+            if (hitCollider.CompareTag("Player"))
+            {
+                // 적에게 데미지 주기
+                Player player = hitCollider.GetComponent<Player>();
+                if (player != null)
+                {
+                    player.HealthComponent.TakeDamage(_coreBombDamage, Vector3.zero, 0);
+                }
+            }
+        }
+        //CoreExplodeParticle();
+        // 파 티 클 넣 어
+    }
+
+    private void CoreExplodeParticle()
+    {
+        _explodeParticle.Play();
+    }
+
+    
+
+    // 폭발 범위 그리기 (디버그용)
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, _coreBombRadius);
+    }
+
+}

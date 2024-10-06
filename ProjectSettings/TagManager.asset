@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags: []
+=======
+  tags:
+  - Enemy
+  - DeadEnemyTag
+  - Item
+  - Object
+>>>>>>> origin/Develop
   layers:
   - Default
   - TransparentFX
@@ -13,6 +21,17 @@ TagManager:
   - UI
   - Factory
   - Shop
+<<<<<<< HEAD
+  - 
+  - 
+=======
+  - Enemy
+  - Ground
+  - DeadEnemy
+  - Weapon
+  - InteractiveObject
+  - Item
+>>>>>>> origin/Develop
   - 
   - 
   - 
@@ -21,23 +40,20 @@ TagManager:
   - 
   - 
   - 
+  - PotalBullet
+  - 
+  - NotLightingUI
+  - RocketLauncher
   - 
   - 
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - obj
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 917985015
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
