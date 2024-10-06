@@ -48,6 +48,7 @@ public abstract class Player : Agent
     public bool _isHit;
     public bool _isDead;
 
+
     public bool _isCanAttack = true;
 
     public float _xMove;
