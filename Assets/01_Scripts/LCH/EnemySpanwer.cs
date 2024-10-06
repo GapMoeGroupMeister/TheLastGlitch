@@ -64,7 +64,7 @@ public class EnemySpanwer : MonoBehaviour
 
         Debug.Log(timerSpanwer);
 
-        if (timerSpanwer > 15f)
+        if (timerSpanwer > 12f)
         {
             StartCoroutine(EnemySpawnCoolTime());
             timerSpanwer = 0f;
