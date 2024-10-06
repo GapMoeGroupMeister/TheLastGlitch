@@ -62,15 +62,15 @@ public class Player2WeaponSwap : MonoBehaviour
                     {
                         _weapon1.SetActive(false);
                         _weapon2.SetActive(true);
-                        _weapon2.transform.rotation = Quaternion.Euler(0, 0, 180);
-                        _weapon2.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
+                        _weapon2.transform.rotation = Quaternion.Euler(0, 0, 0);
+                        _weapon2.transform.DOLocalRotate(new Vector3(0, 0, 260), 0.2f);
                         _isSwaping = false;
                     }
 
                     else if (_weapon2.activeSelf == true)
                     {
                         _swapSequence = DOTween.Sequence();
-                        _swapSequence.Append(_weapon2.transform.DOLocalRotate(new Vector3(0, 0, -140), 0.2f));
+                        _swapSequence.Append(_weapon2.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f));
                         _swapSequence.AppendCallback(() =>
                         {
                             _weapon2.SetActive(false);

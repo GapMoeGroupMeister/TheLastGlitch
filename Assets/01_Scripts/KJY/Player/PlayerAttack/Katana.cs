@@ -44,6 +44,7 @@ public class Katana : PlayerWeaponParent
     {
         _input.OnAttackEvent += KatanaAttack;
         _input.OnSwapingEvent += SwapAnim;
+        AttackSequence.Restart();
     }
 
     private void OnDisable()
@@ -78,7 +79,9 @@ public class Katana : PlayerWeaponParent
             if (!WeaponCoolTime.instance._attack)
             {
                 AttackSequence = DOTween.Sequence();
+                AttackSequence.AppendCallback(() => gameObject.GetComponent<CapsuleCollider2D>().enabled = true);
                 AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence1), _swordSwingTime, RotateMode.FastBeyond360));
+                AttackSequence.AppendCallback(() => gameObject.GetComponent<CapsuleCollider2D>().enabled = false);
                 AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence2), _swordReturnTime));
                 AttackSequence.Play();
                 StartCoroutine(AttackCoolTimeKA());
@@ -89,9 +92,7 @@ public class Katana : PlayerWeaponParent
     private IEnumerator AttackCoolTimeKA()
     {
         WeaponCoolTime.instance._attack = true;
-        gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
         yield return new WaitForSeconds(_swordSwingTime);
-        gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         yield return new WaitForSeconds(_swordReturnTime);
         WeaponCoolTime.instance._attack = false;
     }
@@ -106,39 +107,36 @@ public class Katana : PlayerWeaponParent
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!Player1WeaponSwap.Instance._isSwaping || !Player2WeaponSwap.Instance._isSwaping)
+        if (WeaponCoolTime.instance._attack)
         {
-            if (WeaponCoolTime.instance._attack)
+            Debug.Log("KnifeAttack");
+            if (collision.gameObject.CompareTag("Enemy") && !_isAttacking)
             {
-                Debug.Log("KnifeAttack");
-                if (collision.gameObject.CompareTag("Enemy") && !_isAttacking)
+                _isAttacking = true;
+                if (_player.transform.localScale.x > 0)
                 {
-                    _isAttacking = true;
-                    if (_player.transform.localScale.x > 0)
+                    float rand = Random.Range(0f, 101f);
+                    if (rand <= criticalhHitProbability)
                     {
-                        float rand = Random.Range(0f, 101f);
-                        if (rand <= criticalhHitProbability)
-                        {
-                            collision.gameObject.GetComponent<Health>().TakeDamage(damage * criticalHit, Vector2.right, knockBackPower);
-                            return;
-                        }
-
-                        collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.right, knockBackPower);
+                        collision.gameObject.GetComponent<Health>().TakeDamage(damage * criticalHit, Vector2.right, knockBackPower);
+                        return;
                     }
 
-                    if (_player.transform.localScale.x < 0)
-                    {
-                        float rand = Random.Range(0f, 101f);
-                        if (rand <= criticalhHitProbability)
-                        {
-                            collision.gameObject.GetComponent<Health>().TakeDamage(damage * criticalHit, Vector2.right, knockBackPower);
-                            return;
-                        }
-
-                        collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.left, knockBackPower);
-                    }
-                    OnAttackEvent?.Invoke();
+                    collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.right, knockBackPower);
                 }
+
+                if (_player.transform.localScale.x < 0)
+                {
+                    float rand = Random.Range(0f, 101f);
+                    if (rand <= criticalhHitProbability)
+                    {
+                        collision.gameObject.GetComponent<Health>().TakeDamage(damage * criticalHit, Vector2.right, knockBackPower);
+                        return;
+                    }
+
+                    collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.left, knockBackPower);
+                }
+                OnAttackEvent?.Invoke();
             }
         }
     }
