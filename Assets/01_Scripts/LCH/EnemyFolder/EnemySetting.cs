@@ -12,16 +12,8 @@ public abstract class EnemySetting : Agent
     public int attackRadius,knockbackPower,attackCooldown;
     public float stopRay;
     public int damage;
-    public LayerMask _whatIsPlayer , WhatIsObj;
+    public LayerMask _whatIsPlayer;
     public ContactFilter2D contactFilter;
-
-    public float minX, maxX;
-
-    public float x;
-
-    private float _ObjRay = 1f;
-
-    public bool isObj = false;
 
     public GameObject[] DeadItem;
 
@@ -73,19 +65,6 @@ public abstract class EnemySetting : Agent
         return isPlayer;
     }
 
-    public bool GetObj()
-    {
-        isObj = Physics2D.Raycast(transform.position, Vector2.right, _ObjRay, WhatIsObj);
-        return isObj;
-    }
-
-    public Vector3 GetRandomVector()
-    {
-        x = Random.Range(minX,maxX);
-        vec = new Vector3(x, transform.position.y);
-        return vec;
-    }
-
     public virtual void Attack()
     {
         DamageCasterCompo.CastDamge(damage, knockbackPower);                                                                                                                                                                                                                          
@@ -100,9 +79,6 @@ public abstract class EnemySetting : Agent
 
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, Vector2.right);
-
-        Gizmos.color = Color.white;
-        Gizmos.DrawRay(transform.position, new Vector2(_ObjRay,0));
     }
 
     public abstract void AnimationEndTrigger();

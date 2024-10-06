@@ -217,17 +217,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   detectRadius: 0
-  attackRadius: 6
-  knockbackPower: 4
-  attackCooldown: 3
+  attackRadius: 0
+  knockbackPower: 0
+  attackCooldown: 0
   stopRay: 0
-  damage: 5
+  damage: 0
   _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
   WhatIsObj:
     serializedVersion: 2
-    m_Bits: 2147483648
+    m_Bits: 0
   contactFilter:
     useTriggers: 0
     useLayerMask: 1
@@ -284,7 +284,7 @@ MonoBehaviour:
     m_Bits: 512
   _isObj:
     serializedVersion: 2
-    m_Bits: 2147483648
+    m_Bits: 0
   _ray: 3
   _ray2: 1
 --- !u!114 &8605155596378037593

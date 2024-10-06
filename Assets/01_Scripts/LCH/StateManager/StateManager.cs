@@ -42,7 +42,7 @@ public class StateManager : Enemy
 
     public void EnemyStop()
     {
-        if (MovementComponent._xMove == 0 || GetObj())
+        if (MovementComponent._xMove == 0)
         {
            StateMachine.ChangeState(EnemyStateEnum.Idle);
         }
