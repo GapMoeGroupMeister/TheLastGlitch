@@ -17,7 +17,7 @@ public class PlayerSpawner : MonoBehaviour
     {
         playerTypeEnum = DataManager.Instance.PlayerType;
 
-
+        
         switch (playerTypeEnum)
         {
             case PlayerTypeEnum.PowerPlayer:
