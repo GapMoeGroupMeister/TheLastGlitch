@@ -304,6 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  CurrentHealth: 0
   OnGetHit:
     m_PersistentCalls:
       m_Calls:
@@ -361,6 +362,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  pool: {fileID: 5969781746478416666}
 --- !u!114 &342303367121405578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,9 +387,6 @@ MonoBehaviour:
   _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
-  WhatIsObj:
-    serializedVersion: 2
-    m_Bits: 0
   contactFilter:
     useTriggers: 0
     useLayerMask: 1
@@ -402,10 +401,6 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  minX: 0
-  maxX: 0
-  x: 0
-  isObj: 0
   DeadItem:
   - {fileID: 2716918810560444823, guid: 945047ab8572a8544b6380f8949e4950, type: 3}
   - {fileID: 6473396969644008485, guid: bc058c88cb26be249bdfdca2a620a2f9, type: 3}

@@ -44,7 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435ff9997d89c3248b414c008f2a3932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  _enemyPrefabs:
+  - {fileID: 342303367121405578, guid: a2f09a759657ded489b43a17964086e0, type: 3}
+  - {fileID: 3856152975751186313, guid: c187b437d1f45ef479203b15c6a44b01, type: 3}
+  - {fileID: 3589308455657737191, guid: 847040baa3ff9424cb752f2bced228c9, type: 3}
+  - {fileID: 6519005202214797683, guid: bf4f98bfd3501ae4b8e99656a340c29f, type: 3}
+  - {fileID: 6040475595593215478, guid: 987e06091a8dfc74f8a130485cd28174, type: 3}
 --- !u!1 &7458862633723524333
 GameObject:
   m_ObjectHideFlags: 0

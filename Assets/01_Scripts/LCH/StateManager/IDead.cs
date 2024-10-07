@@ -24,16 +24,7 @@ public abstract class DeadInt : EnemyState<EnemyStateEnum>
     {
         if (_enemy.IsDie)
         {
-            _enemy.FinalDeadEvent?.Invoke();
-            Ipoolable ipoolable = _enemyPush.GetComponent<Ipoolable>();
-            if (ipoolable != null)
-            {
-                PoolManager.Instance.Push(ipoolable);
-            }
-            else
-            {
                 GameObject.Destroy(_enemy.gameObject);
-            }
         }
     }
 

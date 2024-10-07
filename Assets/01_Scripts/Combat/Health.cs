@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 public class Health : MonoBehaviour
 {
@@ -14,6 +16,17 @@ public class Health : MonoBehaviour
     public UnityEvent OnGetHit;
     public UnityEvent<int> OnGetDamageEvent;
     public UnityEvent OnDeadEvent;
+    public Pooling pool;
+    private void Awake()
+    {
+        pool = GetComponent<Pooling>();
+        pool.OnReset += ResetHealth;
+    }
+
+    private void OnDestroy()
+    {
+        pool.OnReset -= ResetHealth;
+    }
 
     public void Initialize(Agent agent)
     {
@@ -22,7 +35,16 @@ public class Health : MonoBehaviour
     }
     private void ResetHealth()
     {
-        CurrentHealth = maxHealth;
+        StartCoroutine(ResetHealthCoroutine());
+    }
+
+    private IEnumerator ResetHealthCoroutine()
+    {
+        while (CurrentHealth <= 0)
+        {
+            CurrentHealth = maxHealth;
+            yield return null;
+        }
     }
 
     public void AddCurrentHP(int addHealth)
@@ -59,8 +81,7 @@ public class Health : MonoBehaviour
             if (CurrentHealth <= 0)
             {
                 OnDeadEvent?.Invoke();
-                CurrentHealth = 0;
-                CurrentHealth += maxHealth;
+                //ResetHealth();
             }
 
         }
