@@ -20,6 +20,12 @@ public class DronEnemy : ADEnemy
         return ThisisGround;
     }
 
+    public bool IsGroundRightRay()
+    {
+        bool thisisGround = Physics2D.Raycast(transform.position, Vector2.right, _ray, _iGround);
+        return thisisGround;
+    }
+
     public bool IsLandSOClose()
     {
         bool TisisLand = Physics2D.Raycast(transform.position, Vector2.down,_ray2 , _iGround);
@@ -48,7 +54,7 @@ public class DronEnemy : ADEnemy
 
     protected override void Update()
     {
-        if (!IsGround())
+        if (!IsGround() || IsGroundRightRay())
         {
             transform.DOMoveY(transform.position.y - 1, 1.5f);
         }
