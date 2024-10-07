@@ -10,6 +10,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Awake()
     {
+        Player = FindObjectOfType<Player>();
         DontDestroyOnLoad(gameObject);
     }
 
@@ -34,8 +35,4 @@ public class GameManager : MonoSingleton<GameManager>
     }
 
 
-    public void Initialize()
-    {
-        Player = FindObjectOfType<Player>();
-    }
 }
