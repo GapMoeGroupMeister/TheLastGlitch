@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63429e9abd493a240a5f4eb012e714fb, type: 3}
   m_Name: MGSY
   m_EditorClassIdentifier: 
-  EnemyHeath: 1000
+  EnemyHeath: 4000
   EnemydetectRadius: 3
   EnemyattackRadius: 2
   Enemydamge: 5

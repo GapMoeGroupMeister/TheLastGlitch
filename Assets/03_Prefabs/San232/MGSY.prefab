@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526ddbf786e2a9443a47d75625108769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 4000
   OnGetHit:
     m_PersistentCalls:
       m_Calls: []
@@ -6069,6 +6069,7 @@ MonoBehaviour:
   _coreHealth: {fileID: 0}
   _coreBombDamage: 1
   _coreBombRadius: 2.5
+  _coreCount: 2
   _mgsy: {fileID: 0}
 --- !u!114 &3920884792190827825
 MonoBehaviour:
@@ -6085,7 +6086,19 @@ MonoBehaviour:
   maxHealth: 100
   OnGetHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1826281473135020084}
+        m_TargetAssemblyTypeName: Core, Assembly-CSharp
+        m_MethodName: CoreHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnGetDamageEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -16186,6 +16199,7 @@ MonoBehaviour:
   _coreHealth: {fileID: 0}
   _coreBombDamage: 1
   _coreBombRadius: 2.5
+  _coreCount: 2
   _mgsy: {fileID: 0}
 --- !u!114 &7777657380658945864
 MonoBehaviour:
@@ -16202,7 +16216,19 @@ MonoBehaviour:
   maxHealth: 100
   OnGetHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3680020563852730457}
+        m_TargetAssemblyTypeName: Core, Assembly-CSharp
+        m_MethodName: CoreHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnGetDamageEvent:
     m_PersistentCalls:
       m_Calls: []
