@@ -9,6 +9,8 @@ public class FinalPlayerSelectBtn : MonoBehaviour
     private PlayerTypeEnum _playerType;
     private PlayerInfoSO _playerInfo;
 
+    public string sceneName;
+
     public void Initialize(PlayerTypeEnum playerType, PlayerInfoSO sO)
     {
         _playerType = playerType;
@@ -20,7 +22,7 @@ public class FinalPlayerSelectBtn : MonoBehaviour
     {
         DataManager.Instance.PlayerType = _playerType;
         DataManager.Instance.PlayerInfo = _playerInfo;
-        LoadingSceneManager.LoadScene("Stage1");
+        LoadingSceneManager.LoadScene(sceneName);
     }
 
     public void BtnNo()

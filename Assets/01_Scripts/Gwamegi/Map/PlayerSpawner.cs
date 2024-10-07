@@ -28,6 +28,5 @@ public class PlayerSpawner : MonoBehaviour
                 break;
         }
 
-        GameManager.Instance.Initialize();
     }
 }
