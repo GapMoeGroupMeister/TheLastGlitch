@@ -32,7 +32,7 @@ public class Katana : PlayerWeaponParent
     private void Awake()
     {
         _anim = GetComponentInChildren<Animator>();
-        _trail = GetComponent<TrailRenderer>();
+        _trail = GetComponentInChildren<TrailRenderer>();
 
         _input.OnAttackEvent += KatanaAttack;
         _input.OnSwapingEvent += SwapAnim;

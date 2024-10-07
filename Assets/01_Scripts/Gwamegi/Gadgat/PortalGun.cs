@@ -3,47 +3,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotalGun : MonoBehaviour
+public class PortalGun : GadgetParent
 {
-    protected Vector2 _redPotalTransform;
-    protected Vector2 _bluePotalTransform;
+    protected Vector2 _redPortalTransform;
+    protected Vector2 _bluePortalTransform;
 
     [SerializeField] private GameObject _bluePrefab;
     [SerializeField] private GameObject _redPrefab;
 
     private Vector2 _mousePos;
 
-    public bool _isBluePotalFire = true;
+    public bool _isBluePortalFire = false; // 초기에는 비활성화
     public bool isBluePortalCreate;
+
+    private void Start()
+    {
+        _type = GadgetType.portalGun; // PortalGun의 타입 설정
+        _isUse += UsePortalGun; // UseGadget() 함수 호출 시 UsePortalGun() 함수 실행
+    }
+
+    private void UsePortalGun()
+    {
+        _isBluePortalFire = true; // 가젯 사용 시 포탈 발사 활성화
+    }
 
     private void Update()
     {
-
-        _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        if (_isBluePotalFire)
-            GunWate();
+        if (_isBluePortalFire)
+        {
+            _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            GunWait();
+        }
     }
 
-    private void GunWate()
+    private void GunWait()
     {
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("블루 포탈 발사");
 
-            StartCoroutine(BluePotalShat());
-
+            StartCoroutine(BluePortalShot());
         }
-
     }
 
-    private IEnumerator BluePotalShat()
+    private IEnumerator BluePortalShot()
     {
         GameObject bullet = Instantiate(_bluePrefab);
         bullet.transform.position = transform.position;
 
-        _isBluePotalFire = false;
-
+        _isBluePortalFire = false; // 블루 포탈 발사 후 비활성화
 
         while (true)
         {
@@ -52,20 +60,17 @@ public class PotalGun : MonoBehaviour
             {
                 Debug.Log("레드 포탈 발사");
 
-                RedPotalShat();
+                RedPortalShot();
                 break;
             }
         }
-
     }
 
-    private void RedPotalShat()
+    private void RedPortalShot()
     {
         GameObject bullet = Instantiate(_redPrefab);
         bullet.transform.position = transform.position;
 
         Destroy(gameObject);
-        // 쫌더 깔롱하게 없어지는거 구현
-
     }
 }

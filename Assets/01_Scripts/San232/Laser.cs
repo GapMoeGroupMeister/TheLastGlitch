@@ -57,6 +57,7 @@ public class Laser : MonoBehaviour
 
     private IEnumerator LaserRoutine(Vector3 startPosition, Vector3 direction, float laserDuration, float laserLifetime)
     {
+        
         // 서서히 그리기
         yield return StartCoroutine(DrawLaser(startPosition, direction, laserDuration));
 
