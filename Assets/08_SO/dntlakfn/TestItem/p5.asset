@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39eed2cca642cc24388fb3c0c13d0c6c, type: 3}
-  m_Name: a1
+  m_Name: p5
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 968f9735446084a4580fea11c7f1a932, type: 3}
-  _name: "\uBCD1"
-  _toolTip: "\uD615\uC2E0\uC774\uC57C?"
-  _price: 1
+  _name: "\uC811\uADFC \uBC29\uC9C0 \uC2DC\uC2A4\uD15C"
+  _toolTip: "\uC77C\uC815 \uC2DC\uAC04 \uB9C8\uB2E4 \uC801\uC744 \uBC00\uCCD0\uB0B4\uB294
+    \uCDA9\uACA9\uD30C\uB97C \uBC1C\uC0B0\uD569\uB2C8\uB2E4."
+  passiveSO: {fileID: 0}
+  _price: 500

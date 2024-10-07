@@ -42,7 +42,7 @@ public class Enemy : EnemySetting
     protected virtual void Start()
     {
         StateMachine.InitInitialize(EnemyStateEnum.Idle, this);
-        dir = GameObject.Find("EnemyLastPos").transform.position -transform.position;
+        dir = GameObject.Find("EnemyLastPos").transform.position - transform.position;
     }
 
     protected virtual void Update()
