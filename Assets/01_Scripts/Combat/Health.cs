@@ -5,7 +5,7 @@ public class Health : MonoBehaviour
 {
     public float maxHealth = 100;
 
-   public float CurrentHealth { get; private set; }
+    public float CurrentHealth;
     Agent _onwer;
 
     public bool IsHittable { get; set; } = true;
@@ -59,7 +59,8 @@ public class Health : MonoBehaviour
             if (CurrentHealth <= 0)
             {
                 OnDeadEvent?.Invoke();
-                CurrentHealth = maxHealth;
+                CurrentHealth = 0;
+                CurrentHealth += maxHealth;
             }
 
         }
