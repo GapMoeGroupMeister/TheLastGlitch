@@ -1,9 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserShooter : MonoBehaviour
+public class ShortLaserShooter : MonoBehaviour
 {
-    private Laser _laser;
-
+    private ShortLaser _laser;
 
     [Header("Laser Settings")]
     [SerializeField] private float _laserDuration = 0.2f; // 레이저가 타겟에 도달하는 시간
@@ -11,7 +12,7 @@ public class LaserShooter : MonoBehaviour
 
     private void Awake()
     {
-        _laser = GetComponentInChildren<Laser>();
+        _laser = GetComponentInChildren<ShortLaser>();
     }
 
     public void FireLaser(Transform firePos, Transform target)
