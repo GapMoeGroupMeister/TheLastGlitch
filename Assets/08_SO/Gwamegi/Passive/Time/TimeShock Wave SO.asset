@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f5514015753f94690ea405e6019cad, type: 3}
   m_Name: TimeShock Wave SO
   m_EditorClassIdentifier: 
-  addPlayerHealth: 2
+  addPlayerHealth: 0
   addPlayerAtkPower: 13
-  addPlayerMoveSpeed: 5
+  addPlayerMoveSpeed: 0
   addPlayerCritProbability: 7
-  addPlayerCritDamage: 3
+  addPlayerCritDamage: 0
   damage: 0
   knockbackPower: 0
   time: 0
   distance: {x: 0, y: 0}
+  radius: 0
   _isUsePlayerEffect: 0
   effect: {fileID: 0}
   type: 0
