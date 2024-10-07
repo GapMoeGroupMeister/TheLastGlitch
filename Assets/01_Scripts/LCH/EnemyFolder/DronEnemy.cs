@@ -52,7 +52,7 @@ public class DronEnemy : ADEnemy
         {
             transform.DOMoveY(transform.position.y - 1, 1.5f);
         }
-        if(IsLandSOClose() || IsObj())
+        if(IsLandSOClose())
         {
             transform.DOMoveY(transform.position.y + 1, 1.5f);
         }
