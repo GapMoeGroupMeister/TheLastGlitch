@@ -26,9 +26,10 @@ public class PlayerDeathChecker : MonoBehaviour
 
     public void Die()
     {
+        DataManager.Instance.money += (int)_playTimer._timer * 10;
         _playTimer.isGameOver = true;
         _gameOver.playTime = _playTimer._timer;
-        _gameOver.haveCoin = (int)_playTimer._timer;
+        _gameOver.haveCoin = (int)_playTimer._timer * 10;
         _inputReader.playerController.Disable();
         _gameOver.gameObject.SetActive(true);
         gameObject.SetActive(false);
