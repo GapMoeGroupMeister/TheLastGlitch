@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Doping : GadgetParent
+public class Doping : MonoBehaviour
 {
     [SerializeField] private  PlayerStat _stat;
     [SerializeField] private float _dopedHealth;
@@ -20,7 +17,6 @@ public class Doping : GadgetParent
         _dopedStat.atkPower = _dopedAtkPower;
         _dopedStat.critDamage = _dopedCritDamage;
         _dopedStat.critProbability = _dopedScritProbability;
-        _isUse += StatDoping;
     }
 
     private void StatDoping()

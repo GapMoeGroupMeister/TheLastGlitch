@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RocketLauncher : GadgetParent
+public class RocketLauncher : MonoBehaviour
 {
     public GameObject rocketPrefab;
     public Transform launchPoint;
@@ -19,8 +19,7 @@ public class RocketLauncher : GadgetParent
 
     private void Start()
     {
-        _type = GadgetType.rocketLauncher; // RocketLauncher의 타입 설정
-        _isUse += UseRocketLauncher; // UseGadget() 함수 호출 시 UseRocketLauncher() 함수 실행
+        
     }
 
     private void UseRocketLauncher()

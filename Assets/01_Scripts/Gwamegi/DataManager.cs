@@ -11,5 +11,4 @@ public class DataManager : MonoSingleton<DataManager>
 
     public PlayerTypeEnum PlayerType;
     public PlayerInfoSO PlayerInfo;
-    public GadgetType SelectedGadget = GadgetType.None;
 }

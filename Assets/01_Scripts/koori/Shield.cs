@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shield : GadgetParent
+public class Shield : MonoBehaviour
 {
     [SerializeField] private float _shieldHP;
     [SerializeField] private float _shieldMaxHP;
@@ -25,8 +25,7 @@ public class Shield : GadgetParent
 
     private void Start()
     {
-        _type = GadgetType.shield; // Shield의 타입 설정
-        _isUse += UseShield; // UseGadget() 함수 호출 시 UseShield() 함수 실행
+        
     }
 
     private void UseShield()
