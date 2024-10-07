@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +55,7 @@ public class DisplayGoods : MonoBehaviour
         displayedItems.Clear();
         for (int i = 0; i < Mathf.Clamp(items.list.Count-1, 0, 4); i++)
         {
-            item = items.list[Random.Range(0, items.list.Count-1)];
+            item = items.list[UnityEngine.Random.Range(0, items.list.Count-1)];
             CheckDuplication(item);
             
             
@@ -72,15 +73,24 @@ public class DisplayGoods : MonoBehaviour
     // Áßº¹ ÅÆ Ã¼Å©
     private bool CheckDuplication(TestItemSO item)
     {
+        int a;
+        try
+        {
+            a = PassiveManager.Instance.HavePassiveList.Count;
+        }
+        catch(NullReferenceException)
+        {
+            a = 0;
+        }
         
-        if((items.list.Count - (PassiveManager.Instance.HavePassiveList.Count + displayedItems.Count)) <= 0)
+        if ((items.list.Count - (a + displayedItems.Count)) <= 0)
         {
             this.item = items.list.Last();
             return false;
         }
         while (true)
         {
-            int rand = Random.Range(0, items.list.Count - 1);
+            int rand = UnityEngine.Random.Range(0, items.list.Count - 1);
             item = items.list[rand];
             item.passiveSO = passives.passiveSOList[rand];
             if (!displayedItems.Contains(item))
