@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 3002719727416510403}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.01, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.415
+  m_FalloffIntensity: 0.826
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.4
   m_LightVolumeIntensity: 1
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 0
-  m_ShadowIntensity: 0.75
+  m_ShadowIntensityEnabled: 1
+  m_ShadowIntensity: 0.8
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
@@ -101,8 +101,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.3
-  m_PointLightOuterRadius: 2.05
+  m_PointLightInnerRadius: 0.14
+  m_PointLightOuterRadius: 2.19
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 8372963509870727408}
   - component: {fileID: -1529366851759833517}
   - component: {fileID: 7292048682174783524}
+  - component: {fileID: 9215777545091079580}
   m_Layer: 8
   m_Name: TankerEnemy
   m_TagString: Enemy
@@ -351,10 +352,10 @@ MonoBehaviour:
   OnGetDamageEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
+      - m_Target: {fileID: 8911374426334474120}
+        m_TargetAssemblyTypeName: DamageTextFeedBack, Assembly-CSharp
         m_MethodName: PlayFeedbacks
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -402,9 +403,6 @@ MonoBehaviour:
   _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
-  WhatIsObj:
-    serializedVersion: 2
-    m_Bits: 0
   contactFilter:
     useTriggers: 0
     useLayerMask: 1
@@ -419,10 +417,6 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  minX: 0
-  maxX: 0
-  x: 0
-  isObj: 0
   DeadItem:
   - {fileID: 6473396969644008485, guid: bc058c88cb26be249bdfdca2a620a2f9, type: 3}
   - {fileID: 6473396969644008485, guid: 76065cdfb3505f34e827ad5b99a5ee9f, type: 3}
@@ -514,6 +508,49 @@ CapsuleCollider2D:
   m_Offset: {x: 0.025224924, y: -0.05094111}
   m_Size: {x: 0.7650218, y: 1.1801732}
   m_Direction: 0
+--- !u!114 &9215777545091079580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3824209589037874041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: f756b736000000009f1b27e1
+  m_ShapePath:
+  - {x: -0.2782898, y: -0.592235, z: 0}
+  - {x: -0.18011475, y: -0.380498, z: 0}
+  - {x: -0.36135864, y: -0.10168266, z: 0}
+  - {x: -0.45895386, y: 0.016813785, z: 0}
+  - {x: -0.32650757, y: 0.14925101, z: 0}
+  - {x: -0.2852478, y: 0.46479473, z: 0}
+  - {x: -0.2010498, y: 0.50241697, z: 0}
+  - {x: 0.1428833, y: 0.52985156, z: 0}
+  - {x: 0.3078003, y: 0.3699797, z: 0}
+  - {x: 0.6121826, y: 0.23289552, z: 0}
+  - {x: 0.6121826, y: -0.3619102, z: 0}
+  - {x: 0.484375, y: -0.51990557, z: 0}
+  - {x: 0.29388428, y: -0.48767933, z: 0}
+  - {x: 0.16375732, y: -0.6035502, z: 0}
+  - {x: 0.017364502, y: -0.6035502, z: 0}
+  - {x: 0.0010986328, y: -0.46878934, z: 0}
+  - {x: -0.08950806, y: -0.59890306, z: 0}
+  m_ShapePathHash: -1216613445
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 81478
+  m_LocalBounds:
+    m_Center: {x: 0.07661438, y: -0.03684932, z: 0}
+    m_Extent: {x: 0.53556824, y: 0.5667009, z: 0}
 --- !u!1 &4322047243523738322
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +803,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 769216181602875458, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
   m_PrefabInstance: {fileID: 7141653063017749880}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8911374426334474120 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1781086022078722800, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+  m_PrefabInstance: {fileID: 7141653063017749880}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2200b818006782046a597ab27c8750f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7655775664036610449
 PrefabInstance:
   m_ObjectHideFlags: 0
