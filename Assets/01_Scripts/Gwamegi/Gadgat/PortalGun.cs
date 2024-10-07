@@ -18,7 +18,7 @@ public class PortalGun : GadgetParent
 
     private void Start()
     {
-        _type = GadgetType.portalGun; // PortalGun의 타입 설정
+        //_type = GadgetType.portalGun; // PortalGun의 타입 설정
         _isUse += UsePortalGun; // UseGadget() 함수 호출 시 UsePortalGun() 함수 실행
     }
 
