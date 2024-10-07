@@ -10,8 +10,18 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Awake()
     {
+        var obj = FindObjectsOfType<GameManager>();
+        if (obj.Length == 1)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         Player = FindObjectOfType<Player>();
-        DontDestroyOnLoad(gameObject);
+        Player.gameObject.SetActive(false);
     }
 
     public Player Player
