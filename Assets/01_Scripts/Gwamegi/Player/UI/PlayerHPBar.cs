@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerHPBar : MonoBehaviour
 {
     [SerializeField] private RectTransform _hpBar;
 
-    public Player _player; 
+    private Player _player; 
     private Health _playerHealth;
 
     private float _health;
@@ -35,6 +36,7 @@ public class PlayerHPBar : MonoBehaviour
 
     private void Start()
     {
+        _player = GameManager.Instance.Player;
         _playerHealth = _player.GetComponent<Health>();
     }
 

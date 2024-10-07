@@ -143,7 +143,7 @@ Transform:
   m_GameObject: {fileID: 4510369710698227257}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.07, z: 0}
+  m_LocalPosition: {x: 0.113, y: -0.058, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.415
+  m_FalloffIntensity: 0.822
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.4
   m_LightVolumeIntensity: 1
@@ -178,8 +178,8 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 0
-  m_ShadowIntensity: 0.75
+  m_ShadowIntensityEnabled: 1
+  m_ShadowIntensity: 0.751
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
@@ -187,8 +187,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.3
-  m_PointLightOuterRadius: 2.05
+  m_PointLightInnerRadius: 0.03
+  m_PointLightOuterRadius: 3.26
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: -4489918238698287537}
   - component: {fileID: 8560450164311203252}
   - component: {fileID: 7150121356543960015}
+  - component: {fileID: 637951747636204325}
   m_Layer: 8
   m_Name: GunEnemy
   m_TagString: Enemy
@@ -478,10 +479,10 @@ MonoBehaviour:
   OnGetDamageEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
+      - m_Target: {fileID: 674180764455169288}
+        m_TargetAssemblyTypeName: DamageTextFeedBack, Assembly-CSharp
         m_MethodName: PlayFeedbacks
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -623,6 +624,49 @@ CapsuleCollider2D:
   m_Offset: {x: 0.018663406, y: -0.19596735}
   m_Size: {x: 0.4413414, y: 0.7200466}
   m_Direction: 0
+--- !u!114 &637951747636204325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079840489748371561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: f756b736000000009f1b27e1
+  m_ShapePath:
+  - {x: -0.18588257, y: -0.56001306, z: 0}
+  - {x: -0.17462158, y: -0.47815514, z: 0}
+  - {x: -0.26513672, y: -0.45201015, z: 0}
+  - {x: -0.2892456, y: -0.21268034, z: 0}
+  - {x: -0.2470398, y: -0.18653512, z: 0}
+  - {x: -0.25027466, y: 0.14997768, z: 0}
+  - {x: 0.024475098, y: 0.16944265, z: 0}
+  - {x: 0.04660034, y: 0.20564389, z: 0}
+  - {x: 0.2815857, y: 0.20629048, z: 0}
+  - {x: 0.35229492, y: 0.115140915, z: 0}
+  - {x: 0.34225464, y: -0.20463562, z: 0}
+  - {x: 0.24972534, y: -0.2167027, z: 0}
+  - {x: 0.22528076, y: -0.5720804, z: 0}
+  - {x: 0.121032715, y: -0.5726805, z: 0}
+  - {x: 0.114990234, y: -0.51636744, z: 0}
+  - {x: -0.049926758, y: -0.5123453, z: 0}
+  - {x: -0.07809448, y: -0.5726805, z: 0}
+  m_ShapePathHash: 275706495
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 81678
+  m_LocalBounds:
+    m_Center: {x: 0.03152466, y: -0.183195, z: 0}
+    m_Extent: {x: 0.32077026, y: 0.38948548, z: 0}
 --- !u!1 &8414723766709375596
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,6 +833,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+--- !u!114 &674180764455169288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1781086022078722800, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+  m_PrefabInstance: {fileID: 1291578277796388856}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2200b818006782046a597ab27c8750f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1963663527721953210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 769216181602875458, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}

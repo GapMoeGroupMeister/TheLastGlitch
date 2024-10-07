@@ -18,7 +18,7 @@ public class EnemySpanwer : MonoBehaviour
     {
         while (Count < 10)
         {
-            SpawnNumber = Random.Range(1, 5);
+            SpawnNumber = Random.Range(1, 6);
             float randX = Random.Range(0.1f, 1.5f);
             float randY = Random.Range(0.1f, 1f);
             switch (SpawnNumber)
