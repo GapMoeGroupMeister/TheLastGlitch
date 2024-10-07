@@ -20,6 +20,6 @@ public class UIOnTheMouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _scale.DOScale(new Vector3(1.3f, 1.3f, 1), 0.5f);
+        _scale.DOScale(new Vector3(1.1f, 1.1f, 1), 0.5f);
     }
 }
