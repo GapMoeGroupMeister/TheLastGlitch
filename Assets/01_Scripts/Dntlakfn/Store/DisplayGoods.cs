@@ -22,6 +22,7 @@ public class DisplayGoods : MonoBehaviour
     {
         displayedItems = new List<TestItemSO>();
         Goods = new List<GoodsControl>();
+        eb = FindAnyObjectByType<EventBox>();
         for (int i = 0; i < Mathf.Clamp(items.list.Count-1, 0, 4); i++)
         {
             
@@ -72,7 +73,7 @@ public class DisplayGoods : MonoBehaviour
     private bool CheckDuplication(TestItemSO item)
     {
         
-        if((items.list.Count - 1 - (displayedItems.Count)) <= 0)
+        if((items.list.Count - (PassiveManager.Instance.HavePassiveList.Count + displayedItems.Count)) <= 0)
         {
             this.item = items.list.Last();
             return false;
@@ -82,7 +83,7 @@ public class DisplayGoods : MonoBehaviour
             int rand = Random.Range(0, items.list.Count - 1);
             item = items.list[rand];
             item.passiveSO = passives.passiveSOList[rand];
-            if ( !displayedItems.Contains(item)) // !PassiveManager.Instance.HavePassiveList.Contains(item.passiveSO) &&
+            if (!displayedItems.Contains(item))
             {
                 break;
             }

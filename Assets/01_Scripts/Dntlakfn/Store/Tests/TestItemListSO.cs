@@ -7,4 +7,6 @@ using UnityEngine;
 public class TestItemListSO : ScriptableObject
 {
     public List<TestItemSO> list;
+
+    
 }
