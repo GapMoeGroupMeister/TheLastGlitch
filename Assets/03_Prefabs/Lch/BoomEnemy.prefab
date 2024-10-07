@@ -309,9 +309,9 @@ MonoBehaviour:
   OnGetHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: EffectFeedBack, Assembly-CSharp
-        m_MethodName: PlayFeedback
+      - m_Target: {fileID: 1203280009961793315}
+        m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedbacks
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -506,7 +506,7 @@ MonoBehaviour:
   - {x: -0.14195442, y: -0.5593184, z: 0}
   m_ShapePathHash: -1360188297
   m_Mesh: {fileID: 0}
-  m_InstanceId: 81576
+  m_InstanceId: 102064
   m_LocalBounds:
     m_Center: {x: 0.016390562, y: -0.0946984, z: 0}
     m_Extent: {x: 0.3679611, y: 0.47626224, z: 0}
