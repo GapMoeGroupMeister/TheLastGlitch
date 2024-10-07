@@ -5,9 +5,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class EnterStage : MonoBehaviour
+public class EnterStage : MonoBehaviour, IInteractive
 {
     public static string map;
+
+
     [SerializeField] protected EventBox eb;
     public Action OnEnter;
     
@@ -18,31 +20,34 @@ public class EnterStage : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void Exit()
+    {
+        LoadingSceneManager.LoadScene(map);
+
+    }
+
+    public void OnInteract()
     {
         if (map != null)
         {
             OnEnter += Exit;
-            Time.timeScale = 0;
+            
             eb.SetEvent(OnEnter, "이동하시겠습니까?");
-            Time.timeScale = 1;
+
 
 
         }
         else
         {
-            OnEnter -= Exit;
-            Time.timeScale = 0;
+            OnEnter = OnDisconnect;
             eb.SetEvent(OnEnter, "수락한 임무가 없습니다.");
-            Time.timeScale = 1;
 
+            
         }
     }
 
-    public void Exit()
+    public void OnDisconnect()
     {
-        Time.timeScale = 1;
-        LoadingSceneManager.LoadScene(map);
-
+        
     }
 }

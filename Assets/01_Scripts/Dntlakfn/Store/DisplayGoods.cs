@@ -9,6 +9,7 @@ public class DisplayGoods : MonoBehaviour
     
     [SerializeField] protected GameObject _goods;
     [SerializeField] protected TestItemListSO items;
+    [SerializeField] protected PassiveListSO passives;
     [SerializeField] protected TestItemSO item;
     [SerializeField] protected List<TestItemSO> displayedItems; //진열된 아이탬 리스트
     public EventBox eb;
@@ -23,7 +24,9 @@ public class DisplayGoods : MonoBehaviour
         Goods = new List<GoodsControl>();
         for (int i = 0; i < Mathf.Clamp(items.list.Count-1, 0, 4); i++)
         {
+            
             item = items.list[i];
+            item.passiveSO = passives.passiveSOList[i];
             if (!CheckDuplication(item))
             {
                 break;
@@ -58,7 +61,7 @@ public class DisplayGoods : MonoBehaviour
             Goods[i].UpdateItem();
             displayedItems.Add(item);
             Debug.Log(displayedItems.Count);
-            Debug.Log(TestInventory.HaveItems.Count + displayedItems.Count);
+            Debug.Log(PassiveManager.Instance.HavePassiveList.Count + displayedItems.Count);
 
 
         }
@@ -66,19 +69,20 @@ public class DisplayGoods : MonoBehaviour
 
 
     // 중복 탬 체크
-    private bool CheckDuplication(TestItemSO item) // 중복 체크
+    private bool CheckDuplication(TestItemSO item)
     {
-        // 이거 고쳐
-        if((items.list.Count - 1 - (TestInventory.HaveItems.Count + displayedItems.Count)) <= 0)
+        
+        if((items.list.Count - 1 - (PassiveManager.Instance.HavePassiveList.Count + displayedItems.Count)) <= 0)
         {
             this.item = items.list.Last();
             return false;
         }
         while (true)
         {
-
-            item = items.list[Random.Range(0, items.list.Count - 1)];
-            if (!TestInventory.HaveItems.Contains(item) && !displayedItems.Contains(item))
+            int rand = Random.Range(0, items.list.Count - 1);
+            item = items.list[rand];
+            item.passiveSO = passives.passiveSOList[rand];
+            if (!PassiveManager.Instance.HavePassiveList.Contains(item.passiveSO) && !displayedItems.Contains(item))
             {
                 break;
             }
