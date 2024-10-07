@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c032c53da1343a14dbb8e32556881f36, type: 3}
   m_Name: HitRecovery Passive
   m_EditorClassIdentifier: 
-  addPlayerHealth: 0
+  addPlayerHealth: 20
   addPlayerAtkPower: 0
   addPlayerMoveSpeed: 0
   addPlayerCritProbability: 0

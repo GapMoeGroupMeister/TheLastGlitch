@@ -10,8 +10,7 @@ public class TestGM : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
-            inventory.gameObject.SetActive(inventory.Trigger);
+        
 
         if (Input.GetKeyDown(KeyCode.F1))
         {

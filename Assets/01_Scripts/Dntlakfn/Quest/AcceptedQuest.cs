@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
@@ -14,15 +15,18 @@ public class AcceptedQuest : MonoBehaviour
 
     public void CreatQuest()
     {
-        foreach (TestQuestSO item in list.AcceptedList)
+        if (GetComponentsInChildren<QuestControl>().Count() == 0)
         {
-            QuestControl a = Instantiate(_empty, transform).GetComponent<QuestControl>();
-            a._quest = item;
-            a._eb = eb;
-            a.OnCreat?.Invoke();
+            foreach (TestQuestSO item in list.AcceptedList)
+            {
 
-
+                QuestControl a = Instantiate(_empty, transform).GetComponent<QuestControl>();
+                a._quest = item;
+                a._eb = eb;
+                a.OnCreat?.Invoke();
+            }
         }
+           
     }
 
 
