@@ -644,6 +644,7 @@ MonoBehaviour:
   _gameOverPanel: {fileID: 3121959247107187092}
   _haveCoinText: {fileID: 4492800312184014396}
   _playTimeText: {fileID: 7109174920931836526}
+  _playTimer: {fileID: 0}
   haveCoin: 0
   playTime: 0
 --- !u!1 &8055375349671710404

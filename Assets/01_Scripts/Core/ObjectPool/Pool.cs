@@ -43,6 +43,7 @@ public class Pool
             item = _pool.Pop();
             item.ObjectPrefab.SetActive(true);
         }
+        item.ResetItem();
 
         return item;
     }

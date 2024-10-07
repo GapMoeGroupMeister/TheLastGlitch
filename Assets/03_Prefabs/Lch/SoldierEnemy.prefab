@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3589308455657737191}
   - component: {fileID: -4351799922616541886}
   - component: {fileID: 9080263310016695630}
+  - component: {fileID: 5567722087442557324}
   m_Layer: 8
   m_Name: SoldierEnemy
   m_TagString: Enemy
@@ -39,7 +40,6 @@ Transform:
   - {fileID: 2616832863107037520}
   - {fileID: 219575009881170269}
   - {fileID: 8205726529911721661}
-  - {fileID: 6677013533306206964}
   - {fileID: 3953606550021092738}
   - {fileID: 5062950891056249725}
   m_Father: {fileID: 0}
@@ -84,10 +84,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  CurrentHealth: 0
   OnGetHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6909155668407297460}
         m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
         m_MethodName: PlayFeedbacks
         m_Mode: 1
@@ -114,10 +115,10 @@ MonoBehaviour:
   OnGetDamageEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6485046669230194535}
-        m_TargetAssemblyTypeName: PlayFeedback, Assembly-CSharp
+      - m_Target: {fileID: 6077688255810515407}
+        m_TargetAssemblyTypeName: DamageTextFeedBack, Assembly-CSharp
         m_MethodName: PlayFeedbacks
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -141,6 +142,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  pool: {fileID: 0}
 --- !u!114 &2918568570046843929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,9 +193,6 @@ MonoBehaviour:
   _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
-  WhatIsObj:
-    serializedVersion: 2
-    m_Bits: 0
   contactFilter:
     useTriggers: 0
     useLayerMask: 1
@@ -208,10 +207,6 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  minX: 0
-  maxX: 0
-  x: 0
-  isObj: 0
   DeadItem:
   - {fileID: 6473396969644008485, guid: bc058c88cb26be249bdfdca2a620a2f9, type: 3}
   - {fileID: 6053116263363009150, guid: 25e8919e3788e1145903fb9daa8f42bf, type: 3}
@@ -276,6 +271,57 @@ CapsuleCollider2D:
   m_Offset: {x: -0.021439433, y: -0.0035731941}
   m_Size: {x: 0.69533753, y: 1.0071464}
   m_Direction: 0
+--- !u!114 &5567722087442557324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3916682341307116186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: f756b736000000009f1b27e1
+  m_ShapePath:
+  - {x: -0.31834885, y: -0.3410249, z: 0}
+  - {x: -0.34739944, y: -0.19273782, z: 0}
+  - {x: -0.35432118, y: -0.05430329, z: 0}
+  - {x: -0.22280836, y: 0.028757438, z: 0}
+  - {x: -0.3022461, y: 0.10356252, z: 0}
+  - {x: -0.29664007, y: 0.36100036, z: 0}
+  - {x: -0.18819973, y: 0.45098278, z: 0}
+  - {x: 0.049446218, y: 0.45098278, z: 0}
+  - {x: 0.097898304, y: 0.4855914, z: 0}
+  - {x: 0.24871826, y: 0.33709824, z: 0}
+  - {x: 0.31247184, y: 0.25948167, z: 0}
+  - {x: 0.3101646, y: 0.09105298, z: 0}
+  - {x: 0.25479084, y: 0.007992253, z: 0}
+  - {x: 0.33092976, y: -0.02661638, z: 0}
+  - {x: 0.34246597, y: -0.15351486, z: 0}
+  - {x: 0.4970512, y: -0.21581039, z: 0}
+  - {x: 0.47859326, y: -0.4142331, z: 0}
+  - {x: 0.21548176, y: -0.3733263, z: 0}
+  - {x: 0.14635055, y: -0.460378, z: 0}
+  - {x: 0.05404663, y: -0.47406575, z: 0}
+  - {x: 0.0332956, y: -0.43499827, z: 0}
+  - {x: -0.022078287, y: -0.44191998, z: 0}
+  - {x: -0.08668107, y: -0.49960107, z: 0}
+  - {x: -0.14666936, y: -0.49729383, z: 0}
+  - {x: -0.18589248, y: -0.41884756, z: 0}
+  m_ShapePathHash: 1794077091
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 102408
+  m_LocalBounds:
+    m_Center: {x: 0.071365, y: -0.0070048273, z: 0}
+    m_Extent: {x: 0.42568618, y: 0.49259624, z: 0}
 --- !u!1 &5092450715677355001
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,88 +505,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particleSystem: {fileID: 1189340810403874827, guid: fb8e03d08228b534bb74ee486dae2664, type: 3}
   _effectName: EnemyHitParticle
---- !u!1 &8096307278853272953
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6677013533306206964}
-  - component: {fileID: 801884328456994604}
-  m_Layer: 0
-  m_Name: PlayerLight (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6677013533306206964
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8096307278853272953}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3135521774869302223}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &801884328456994604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8096307278853272953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ComponentVersion: 1
-  m_LightType: 3
-  m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.415
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.6
-  m_LightVolumeIntensity: 1
-  m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: f756b736000000009f1b27e1
-  m_LightCookieSprite: {fileID: 0}
-  m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
-  m_OverlapOperation: 0
-  m_NormalMapDistance: 3
-  m_NormalMapQuality: 2
-  m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 0
-  m_ShadowIntensity: 0.75
-  m_ShadowVolumeIntensityEnabled: 0
-  m_ShadowVolumeIntensity: 0.75
-  m_LocalBounds:
-    m_Center: {x: 0, y: -0.00000011920929, z: 0}
-    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.3
-  m_PointLightOuterRadius: 2.05
-  m_ShapeLightParametricSides: 5
-  m_ShapeLightParametricAngleOffset: 0
-  m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
-  m_ShapeLightFalloffOffset: {x: 0, y: 0}
-  m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &8117916060919377615
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,14 +776,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 769216181602875458, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
   m_PrefabInstance: {fileID: 5543923480871584575}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6485046669230194535 stripped
+--- !u!114 &6077688255810515407 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1517847895393959000, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1781086022078722800, guid: ab76df6718ee1964f856ab83d04ed798, type: 3}
   m_PrefabInstance: {fileID: 5543923480871584575}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cbfa0e705d523744a50d7eb8746e9a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 2200b818006782046a597ab27c8750f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
