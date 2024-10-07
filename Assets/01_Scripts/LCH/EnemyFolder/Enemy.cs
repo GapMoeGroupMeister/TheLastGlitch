@@ -41,8 +41,14 @@ public class Enemy : EnemySetting
 
     protected virtual void Start()
     {
-        StateMachine.InitInitialize(EnemyStateEnum.Idle, this);
+        
         dir = GameObject.Find("EnemyLastPos").transform.position - transform.position;
+    }
+
+    private void OnEnable()
+    {
+        StateMachine.InitInitialize(EnemyStateEnum.Idle, this);
+        HealthComponent.Initialize(this);
     }
 
     protected virtual void Update()
