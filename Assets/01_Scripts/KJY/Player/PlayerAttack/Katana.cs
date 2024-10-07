@@ -19,8 +19,6 @@ public class Katana : PlayerWeaponParent
     [SerializeField] private int _attackSequence2;
     [SerializeField] private Ease _ease;
 
-    private TrailRenderer _trail;
-
     private Animator _anim;
 
     private DG.Tweening.Sequence AttackSequence;
@@ -32,7 +30,6 @@ public class Katana : PlayerWeaponParent
     private void Awake()
     {
         _anim = GetComponentInChildren<Animator>();
-        _trail = GetComponentInChildren<TrailRenderer>();
 
         _input.OnAttackEvent += KatanaAttack;
         _input.OnSwapingEvent += SwapAnim;
@@ -41,7 +38,6 @@ public class Katana : PlayerWeaponParent
     private void Start()
     {
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
-        _trail.emitting = false;
     }
 
     private void OnEnable()
@@ -84,10 +80,8 @@ public class Katana : PlayerWeaponParent
             {
                 AttackSequence = DOTween.Sequence();
                 AttackSequence.AppendCallback(() => gameObject.GetComponent<CapsuleCollider2D>().enabled = true);
-                AttackSequence.AppendCallback(() => _trail.emitting = true);
                 AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence1), _swordSwingTime, RotateMode.FastBeyond360));
                 AttackSequence.AppendCallback(() => gameObject.GetComponent<CapsuleCollider2D>().enabled = false);
-                AttackSequence.AppendCallback(() => _trail.emitting = false);
                 AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence2), _swordReturnTime));
                 AttackSequence.Play();
                 StartCoroutine(AttackCoolTimeKA());
