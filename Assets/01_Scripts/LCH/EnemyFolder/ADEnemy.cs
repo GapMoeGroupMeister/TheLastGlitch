@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ADEnemy : StateManager
 {
-    [SerializeField] private LaserShooter _laserShooter;
+    [SerializeField] private ShortLaserShooter _laserShooter;
     [SerializeField] private Transform _firePos;
     protected override void Awake()
     {
         base.Awake();
-        _laserShooter = GetComponent<LaserShooter>();
+        _laserShooter = GetComponent<ShortLaserShooter>();
     }
 
     public virtual void LaserAttack()
