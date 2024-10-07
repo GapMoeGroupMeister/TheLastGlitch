@@ -9,19 +9,15 @@ public class GameOver : MonoBehaviour
     [SerializeField] private RectTransform _gameOverPanel;
     [SerializeField] private TextMeshProUGUI _haveCoinText;
     [SerializeField] private TextMeshProUGUI _playTimeText;
-    [SerializeField] private Timer _playTimer;
 
     public int haveCoin;
     public float playTime;
 
-    private void Update()
+    private void OnEnable()
     {
-        if (GameManager.Instance.Player.IsDie)
-        {
-            _gameOverPanel.gameObject.SetActive(true);
-            _playTimeText.SetText($"살아남은 시간 : {playTime.ToString("F1")}");
-            _haveCoinText.SetText($"얻은 코인 : {haveCoin}");
-        }
+        _playTimeText.SetText($"살아남은 시간 : {playTime.ToString("F1")}");
+        _haveCoinText.SetText($"얻은 코인 : {haveCoin}");
+        StartCoroutine(ClickWating());
     }
 
     public IEnumerator ClickWating()
@@ -31,7 +27,7 @@ public class GameOver : MonoBehaviour
             yield return null;
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
-                LoadingSceneManager.LoadScene("Title");
+                LoadingSceneManager.LoadScene("MenuScene");
                 break;
             }
         }

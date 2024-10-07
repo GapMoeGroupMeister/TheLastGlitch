@@ -8,6 +8,8 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _textTmp;
     [SerializeField] private GameObject _timerUi;
+
+    public bool isGameOver;
     public float _timer { get; set; }
 
     private void Start()
@@ -22,6 +24,7 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
+        if (isGameOver) return;
         _timer += Time.deltaTime;
         _textTmp.text = $"{Mathf.FloorToInt(_timer)}";
     }
