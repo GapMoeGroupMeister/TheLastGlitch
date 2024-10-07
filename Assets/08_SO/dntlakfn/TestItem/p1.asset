@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39eed2cca642cc24388fb3c0c13d0c6c, type: 3}
-  m_Name: SamppongWeapon
+  m_Name: p1
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 968f9735446084a4580fea11c7f1a932, type: 3}
-  _name: Wakgood
-  _toolTip: TahangTty
-  _price: 500001
+  _name: "\uBC88\uAC1C \uC9C8\uC8FC"
+  _toolTip: "\uBC88\uAC1C\uCC98\uB7FC \uBE60\uB974\uAC8C \uB3CC\uC9C4\uD569\uB2C8\uB2E4.
+    \uC5B4\uB5A4 \uC791\uC740 \uB2CC\uC790\uAC00 \uC0AC\uC6A9\uD588\uB358 \uAE30\uC220\uC785\uB2C8\uB2E4."
+  passiveSO: {fileID: 0}
+  _price: 1000
