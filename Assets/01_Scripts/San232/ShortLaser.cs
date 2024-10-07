@@ -1,7 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Laser : MonoBehaviour
+public class ShortLaser : MonoBehaviour
 {
     public LineRenderer _lineRenderer;
 
@@ -10,23 +11,19 @@ public class Laser : MonoBehaviour
         _lineRenderer = GetComponent<LineRenderer>();
     }
 
-    public void SetLaserPositions(Vector3 startPosition, Vector3 direction)
+    public void SetLaserPositions(Vector3 startPosition, Vector3 endPosition)
     {
         _lineRenderer.positionCount = 2;
         _lineRenderer.SetPosition(0, startPosition);
 
-        // 방향 벡터를 정규화하고, 길이를 설정하여 끝 위치를 계산
-        Vector3 endPosition = startPosition + direction.normalized * 1000f; // 1000은 레이저의 최대 거리.
-        _lineRenderer.SetPosition(1, endPosition); // 목표 지점 대신 방향으로 길게 설정
+        _lineRenderer.SetPosition(1, endPosition); // 목표 지점 대신 방향으로 길게 설정합니다.
     }
 
     // 레이저가 서서히 그려지는 함수
-    public IEnumerator DrawLaser(Vector3 startPosition, Vector3 direction, float duration)
+    public IEnumerator DrawLaser(Vector3 startPosition, Vector3 endPosition, float duration)
     {
 
         float elapsedTime = 0f;
-        Vector3 endPosition = startPosition + direction.normalized * 1000f; // 방향으로 끝 위치 설정
-
         // 시작 위치 설정
         _lineRenderer.SetPosition(0, startPosition);
         _lineRenderer.SetPosition(1, startPosition); // 끝 위치 초기화
@@ -55,7 +52,7 @@ public class Laser : MonoBehaviour
 
     private IEnumerator LaserRoutine(Vector3 startPosition, Vector3 direction, float laserDuration, float laserLifetime)
     {
-        
+
         // 서서히 그리기
         yield return StartCoroutine(DrawLaser(startPosition, direction, laserDuration));
 
