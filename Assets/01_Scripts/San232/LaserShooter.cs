@@ -2,11 +2,17 @@ using UnityEngine;
 
 public class LaserShooter : MonoBehaviour
 {
-    [SerializeField] private Laser _laser;
+    private Laser _laser;
+
 
     [Header("Laser Settings")]
     [SerializeField] private float _laserDuration = 0.2f; // 레이저가 타겟에 도달하는 시간
     [SerializeField] private float _laserLifetime = 0.3f; // 레이저가 유지되는 시간
+
+    private void Awake()
+    {
+        _laser = GetComponentInChildren<Laser>();
+    }
 
     public void FireLaser(Transform firePos, Transform target)
     {

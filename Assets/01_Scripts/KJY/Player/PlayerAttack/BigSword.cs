@@ -22,7 +22,7 @@ public class BigSword : PlayerWeaponParent
 
     private void Awake()
     {
-        _trail = GetComponent<TrailRenderer>();
+        _trail = GetComponentInChildren<TrailRenderer>();
     }
 
     private void Start()

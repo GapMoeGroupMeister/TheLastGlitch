@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: KillMinSuGay
   m_EditorClassIdentifier: 
   questName: Kill MGSY
-  questDetail: "\uC2DC\uBC1C \uCEE4\uD50C \uB2E4 \uB4A4\uC84C\uC73C\uBA74"
+  questDetail: "\uC774\uAC70\uBCF4\uC5EC\uC8FC\uB824\uACE0 \uC5B4\uADF8\uB85C \uB04C\uC5C8\uB2E4."
   questType: 1
   questLevel: 99
-  targetPlace: GayBar
+  targetPlace: 
   isClear: 0
   target: MinGaSuY
   targetNumber: 1
