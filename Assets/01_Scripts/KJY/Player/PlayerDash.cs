@@ -8,13 +8,23 @@ public class PlayerDash : MonoBehaviour
     [field: SerializeField] private InputReader _input;
     [SerializeField] private AgentMovement _player;
 
+    private TrailRenderer _trail;
+
     [SerializeField] private float _dashDistance = 1f;
 
     private bool _isDash = false;
 
+    private DG.Tweening.Sequence dashSequence;
+
     private void Awake()
     {
+        _trail = GetComponent<TrailRenderer>();
         _input.OnDashEvent += Dash;
+    }
+
+    private void Start()
+    {
+        _trail.emitting = false;
     }
 
     private void OnDisable()
@@ -28,16 +38,21 @@ public class PlayerDash : MonoBehaviour
         {
             if(!_isDash)
             {
-                Debug.Log("Dash");
                 if (_player._xMove < 0)
                 {
-                    transform.DOMoveX(transform.position.x - _dashDistance, 0.1f);
+                    dashSequence = DOTween.Sequence();
+                    dashSequence.AppendCallback(() => _trail.emitting = true);
+                    dashSequence.Append(transform.DOMoveX(transform.position.x - _dashDistance, 0.1f));
+                    dashSequence.AppendCallback(() => _trail.emitting = false);
                     StartCoroutine(DashCoolTime());
                 }
 
                 if (_player._xMove > 0)
                 {
-                    transform.DOMoveX(transform.position.x + _dashDistance, 0.1f);
+                    dashSequence = DOTween.Sequence();
+                    dashSequence.AppendCallback(() => _trail.emitting = true);
+                    dashSequence.Append(transform.DOMoveX(transform.position.x + _dashDistance, 0.1f));
+                    dashSequence.AppendCallback(() => _trail.emitting = false);
                     StartCoroutine(DashCoolTime());
                 }
             }
