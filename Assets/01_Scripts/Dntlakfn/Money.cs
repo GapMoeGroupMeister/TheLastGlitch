@@ -19,7 +19,7 @@ public class Money : MonoBehaviour
         {
             money += 1000000;
         }
-        text.text = "¿ÎµÎ : " + money;
+        text.text = money.ToString() + "¿ø";
 
     }
 }
