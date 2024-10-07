@@ -823,6 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerImage: {fileID: 1365617075}
+  sceneName: MenuScene
 --- !u!1 &697132136
 GameObject:
   m_ObjectHideFlags: 0
