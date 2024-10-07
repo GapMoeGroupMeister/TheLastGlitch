@@ -1257,7 +1257,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -1313,7 +1313,7 @@ MonoBehaviour:
   - {x: -0.29956055, y: -0.16120288, z: 0}
   m_ShapePathHash: -1505536165
   m_Mesh: {fileID: 0}
-  m_InstanceId: -167460
+  m_InstanceId: 38610
   m_LocalBounds:
     m_Center: {x: -0.0113220215, y: -0.04161966, z: 0}
     m_Extent: {x: 0.36367798, y: 0.48256487, z: 0}

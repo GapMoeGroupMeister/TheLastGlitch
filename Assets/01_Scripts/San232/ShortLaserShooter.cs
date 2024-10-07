@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShortLaserShooter : MonoBehaviour
 {
-    private ShortLaser _laser;
+    [SerializeField] private ShortLaser _laser;
 
     [Header("Laser Settings")]
     [SerializeField] private float _laserDuration = 0.2f; // 레이저가 타겟에 도달하는 시간
