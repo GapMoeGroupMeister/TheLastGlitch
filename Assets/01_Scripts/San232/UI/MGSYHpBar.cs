@@ -23,13 +23,14 @@ public class MGSYHpBar : MonoBehaviour
     {
         // 매 프레임 체력 바 업데이트
         UpdateHealthBar();
+        
     }
 
     private void UpdateHealthBar()
     {
         // 현재 체력 비율 계산
         float healthPercent = mgsy.HealthComponent.GetCurrentHP() / mgsy.HealthComponent.maxHealth;
-
+        Debug.Log("MGSY HealthPercent is " + healthPercent.ToString());
         // 체력 바의 fillAmount로 적용 (0 ~ 1 사이 비율)
         healthBar.fillAmount = healthPercent;
     }
