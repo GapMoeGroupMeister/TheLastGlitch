@@ -345,10 +345,10 @@ GameObject:
   m_Component:
   - component: {fileID: 552201136969390560}
   - component: {fileID: 3627542931291340576}
+  - component: {fileID: 1532802546698157175}
   - component: {fileID: 3569530223340005636}
   - component: {fileID: 9192426514676359067}
   - component: {fileID: 6519005202214797683}
-  - component: {fileID: -4489918238698287537}
   - component: {fileID: 8560450164311203252}
   - component: {fileID: 7150121356543960015}
   m_Layer: 8
@@ -409,6 +409,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1532802546698157175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079840489748371561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55e62179c68d16c41a38e439873b4ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _laser: {fileID: 2831781989318549168}
+  _laserDuration: 0.2
+  _laserLifetime: 0.3
 --- !u!114 &3569530223340005636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,22 +574,8 @@ MonoBehaviour:
   FirstWake: 1
   fainting: 0
   _enemyPooling: {fileID: 0}
-  _laserShooter: {fileID: 0}
+  _laserShooter: {fileID: 1532802546698157175}
   _firePos: {fileID: 2540853020489956635}
---- !u!114 &-4489918238698287537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7079840489748371561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55e62179c68d16c41a38e439873b4ab9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _laserDuration: 0.2
-  _laserLifetime: 0.3
 --- !u!114 &8560450164311203252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,7 +919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8821110044368842687, guid: 38a7206a56bb8844a9a05fb15b915456, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -930,3 +931,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5699247436802633484, guid: 38a7206a56bb8844a9a05fb15b915456, type: 3}
   m_PrefabInstance: {fileID: 5216055755063458995}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2831781989318549168 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8011804392545985027, guid: 38a7206a56bb8844a9a05fb15b915456, type: 3}
+  m_PrefabInstance: {fileID: 5216055755063458995}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27b67a4cdda183f478e8df7769e1dbda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
