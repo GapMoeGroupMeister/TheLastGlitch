@@ -22,6 +22,7 @@ public class FinalPlayerSelectBtn : MonoBehaviour
     {
         DataManager.Instance.PlayerType = _playerType;
         DataManager.Instance.PlayerInfo = _playerInfo;
+
         LoadingSceneManager.LoadScene(sceneName);
     }
 
