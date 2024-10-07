@@ -63,9 +63,6 @@ public class EnemySpanwer : MonoBehaviour
     {
         
         timerSpanwer += Time.deltaTime;
-       
-
-        Debug.Log(timerSpanwer);
 
         if (timerSpanwer > 12f)
         {

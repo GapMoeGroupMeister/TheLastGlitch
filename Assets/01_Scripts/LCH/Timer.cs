@@ -1,21 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Timer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _textTmp;
-    private float _timer = Time.time;
+    [SerializeField] private GameObject _timerUi;
+    public float _timer { get; set; }
 
-    public float TimeerSet
+    private void Start()
     {
-        get => _timer;
-        set => _timer += value;
+        _timerUi.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        _timer = 0F;
     }
 
     private void Update()
     {
-        _textTmp.text = $"Timer : {Mathf.FloorToInt(_timer)}";
+        _timer += Time.deltaTime;
+        _textTmp.text = $"{Mathf.FloorToInt(_timer)}";
     }
 }
