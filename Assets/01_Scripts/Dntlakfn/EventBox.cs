@@ -32,11 +32,17 @@ public class EventBox : MonoBehaviour
         _warningText.text = message;
     }
 
+    public void SetMessage(string message)
+    {
+        gameObject.SetActive(true);
+        action = null;
+        _warningText.text = message;
+    }
+
     public void Accept()
     {
         action?.Invoke();
         action = null;
-        interact.Disconnect();
 
         gameObject.SetActive(false);
     }
@@ -44,7 +50,6 @@ public class EventBox : MonoBehaviour
     public void Cancel()
     {
         action = null;
-        interact.Disconnect();
 
         gameObject.SetActive(false);
     }

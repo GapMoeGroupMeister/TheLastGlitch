@@ -182,7 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hpBar: {fileID: 6791670809041272971}
-  _player: {fileID: 0}
 --- !u!1 &1878661628448587749
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,7 +840,6 @@ GameObject:
   - component: {fileID: 8724029173757206784}
   - component: {fileID: 4476915835272674686}
   - component: {fileID: 8361756125262998020}
-  - component: {fileID: 6220276919608825564}
   m_Layer: 5
   m_Name: PlayerImage4
   m_TagString: Untagged
@@ -906,15 +904,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6220276919608825564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9165057405149506490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feb0dd0cb6bc0b247bbec880f09ce9a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

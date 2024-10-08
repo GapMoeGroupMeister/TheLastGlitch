@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShortLaserShooter : MonoBehaviour
 {
-    private ShortLaser _laser;
+    [SerializeField] private ShortLaser _laser;
 
     [Header("Laser Settings")]
     [SerializeField] private float _laserDuration = 0.2f; // 레이저가 타겟에 도달하는 시간
@@ -13,17 +13,16 @@ public class ShortLaserShooter : MonoBehaviour
     private void Awake()
     {
         _laser = GetComponentInChildren<ShortLaser>();
+        _laser.gameObject.SetActive(false);
     }
 
     public void FireLaser(Transform firePos, Transform target)
     {
         _laser.gameObject.SetActive(true);
 
-        // 목표 방향을 계산합니다.
-        Vector3 direction = (target.position - firePos.position).normalized;
 
         // 레이저 위치 설정
-        _laser.SetLaserPositions(firePos.position, direction);
-        _laser.ActivateLaser(firePos.position, direction, _laserDuration, _laserLifetime); // 레이저 발사
+        _laser.SetLaserPositions(firePos.position, target.position);
+        _laser.ActivateLaser(firePos.position, target.position, _laserDuration, _laserLifetime); // 레이저 발사
     }
 }

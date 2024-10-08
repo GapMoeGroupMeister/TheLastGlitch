@@ -480,6 +480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _input: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
+  ItemSO: {fileID: 0}
   _isAttack: 0
   _isDoubleAttack: 0
   _isActiveSkill: 0
@@ -662,7 +663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _input: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
-  _player: {fileID: 3914829520808169757}
+  _player: {fileID: 1275463942354266696}
   _dashDistance: 1
 --- !u!114 &7440151502022018145
 MonoBehaviour:

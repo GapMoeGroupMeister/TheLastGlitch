@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.TerrainTools;
 using UnityEngine;
 
 public class MgsyEnemySpawn : MGSYPattern
@@ -54,7 +53,7 @@ public class MgsyEnemySpawn : MGSYPattern
         {
             // 적 선택
             int randEnemyIndex = Random.Range(0, _enemyTypes.Count);
-            string enemyPoolName = _enemyTypes[1];  // 적 타입에 맞게 이름 선택
+            string enemyPoolName = _enemyTypes[randEnemyIndex];  // 적 타입에 맞게 이름 선택
 
             if (_spawnPoints.Count > 0)
             {

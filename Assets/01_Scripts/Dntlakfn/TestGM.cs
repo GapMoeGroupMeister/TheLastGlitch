@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class TestGM : MonoBehaviour
@@ -10,7 +7,7 @@ public class TestGM : MonoBehaviour
 
     private void Update()
     {
-        
+
 
         if (Input.GetKeyDown(KeyCode.F1))
         {

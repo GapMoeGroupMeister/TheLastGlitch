@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LaserShooter : MonoBehaviour
 {
-    private Laser _laser;
+    [SerializeField] private Laser _laser;
 
 
     [Header("Laser Settings")]

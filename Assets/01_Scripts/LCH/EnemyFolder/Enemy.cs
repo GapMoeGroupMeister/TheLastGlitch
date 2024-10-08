@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using System.Linq;
+using System;
 
 public enum EnemyStateEnum
 {
@@ -23,6 +25,8 @@ public class Enemy : EnemySetting
     public Pooling _enemyPooling;
     public StateMachine<EnemyStateEnum> StateMachine { get; set; }
 
+    [SerializeField] private Transform[] wayPoint;
+
     public void GetHit()
     {
         StateMachine.ChangeState(EnemyStateEnum.Hit);
@@ -34,15 +38,31 @@ public class Enemy : EnemySetting
     }
     protected override void Awake()
     {
-        if(!IsDie)
-        StateMachine = new StateMachine<EnemyStateEnum>();
+        if (!IsDie)
+            StateMachine = new StateMachine<EnemyStateEnum>();
         base.Awake();
     }
 
-    protected virtual void Start()
+    private void Start()
+    {
+        StartCoroutine(MoveDealyCorotine());
+    }
+
+    private IEnumerator MoveDealyCorotine()
+    {
+        while (true)
+        {
+            dir = RandomVetcer() - transform.position;
+            yield return new WaitForSeconds(2F);
+            MovementComponent._xMove = 0f;
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    private void OnEnable()
     {
         StateMachine.InitInitialize(EnemyStateEnum.Idle, this);
-        dir = GameObject.Find("EnemyLastPos").transform.position - transform.position;
+        HealthComponent.Initialize(this);
     }
 
     protected virtual void Update()

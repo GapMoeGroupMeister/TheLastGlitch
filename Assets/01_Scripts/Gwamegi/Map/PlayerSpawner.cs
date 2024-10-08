@@ -17,7 +17,7 @@ public class PlayerSpawner : MonoBehaviour
     {
         playerTypeEnum = DataManager.Instance.PlayerType;
 
-
+        
         switch (playerTypeEnum)
         {
             case PlayerTypeEnum.PowerPlayer:
@@ -28,6 +28,5 @@ public class PlayerSpawner : MonoBehaviour
                 break;
         }
 
-        GameManager.Instance.Initialize();
     }
 }

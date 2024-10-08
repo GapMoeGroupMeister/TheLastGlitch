@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Core : MonoBehaviour
+public class Core : MonoSingleton<Core>
 {
     public Health CoreHealthCompo
     {
@@ -25,28 +23,37 @@ public class Core : MonoBehaviour
     [SerializeField] private int _coreBombDamage;
     [SerializeField] private float _coreBombRadius;
 
+    // coreCount를 MonoSingleton을 통해 관리
+    public int CoreCount
+    {
+        get { return Instance._coreCount; }
+        set { Instance._coreCount = value; }
+    }
 
-    public static int coreCount = 2;
+    [SerializeField] private int _coreCount = 2; // 초기값 설정
 
     public Action OnDestroyCore;
 
-    public DamageCaster CoreDamagerCaster { get; private set; }
+    public DamageCaster CoreDamageCaster { get; private set; }
 
     [SerializeField] private MGSY _mgsy;
 
     private void Awake()
     {
-        CoreDamagerCaster = GetComponentInChildren<DamageCaster>();
+        CoreDamageCaster = GetComponentInChildren<DamageCaster>();
         _mgsy = transform.parent.gameObject.GetComponent<MGSY>();
         _explodeParticle = GetComponentInChildren<ParticleSystem>();
+        _coreHealth = GetComponent<Health>();
+        _coreHealth.IsHittable = false;
     }
 
     public void DestroyCore()
     {
         CoreExplode();
-        --coreCount;
-        gameObject.SetActive(false);
+        CoreCount--; // 싱글턴을 통해 coreCount를 감소시킴
         OnDestroyCore?.Invoke();
+        gameObject.SetActive(false);
+        
     }
 
     private void CoreExplode()
@@ -60,16 +67,9 @@ public class Core : MonoBehaviour
             // 적 객체인지 확인
             if (hitCollider.CompareTag("Player"))
             {
-                // 적에게 데미지 주기
-                Player player = hitCollider.GetComponent<Player>();
-                if (player != null)
-                {
-                    player.HealthComponent.TakeDamage(_coreBombDamage, Vector3.zero, 0);
-                }
+                CoreDamageCaster.CastDamge(_coreBombDamage, 0);
             }
         }
-        //CoreExplodeParticle();
-        // 파 티 클 넣 어
     }
 
     private void CoreExplodeParticle()
@@ -77,7 +77,10 @@ public class Core : MonoBehaviour
         _explodeParticle.Play();
     }
 
-    
+    public void CoreHit()
+    {
+        CoreHealthCompo.AddCurrentHP(-20);
+    }
 
     // 폭발 범위 그리기 (디버그용)
     private void OnDrawGizmosSelected()
@@ -85,5 +88,4 @@ public class Core : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _coreBombRadius);
     }
-
 }

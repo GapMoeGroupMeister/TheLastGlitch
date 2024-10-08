@@ -19,9 +19,9 @@ public class Katana : PlayerWeaponParent
     [SerializeField] private int _attackSequence2;
     [SerializeField] private Ease _ease;
 
-    private TrailRenderer _trail;
-
     private Animator _anim;
+
+    private Player2ActiveSkill _player2Active;
 
     private DG.Tweening.Sequence AttackSequence;
 
@@ -31,8 +31,9 @@ public class Katana : PlayerWeaponParent
 
     private void Awake()
     {
+        _player2Active = GetComponentInParent<Player2ActiveSkill>();
+
         _anim = GetComponentInChildren<Animator>();
-        _trail = GetComponentInChildren<TrailRenderer>();
 
         _input.OnAttackEvent += KatanaAttack;
         _input.OnSwapingEvent += SwapAnim;
@@ -41,7 +42,6 @@ public class Katana : PlayerWeaponParent
     private void Start()
     {
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
-        _trail.enabled = false;
     }
 
     private void OnEnable()
@@ -84,10 +84,8 @@ public class Katana : PlayerWeaponParent
             {
                 AttackSequence = DOTween.Sequence();
                 AttackSequence.AppendCallback(() => gameObject.GetComponent<CapsuleCollider2D>().enabled = true);
-                AttackSequence.AppendCallback(() => _trail.enabled = true);
                 AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence1), _swordSwingTime, RotateMode.FastBeyond360));
                 AttackSequence.AppendCallback(() => gameObject.GetComponent<CapsuleCollider2D>().enabled = false);
-                AttackSequence.AppendCallback(() => _trail.enabled = false);
                 AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence2), _swordReturnTime));
                 AttackSequence.Play();
                 StartCoroutine(AttackCoolTimeKA());
@@ -129,6 +127,7 @@ public class Katana : PlayerWeaponParent
                     }
 
                     collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.right, knockBackPower);
+                    WeaponCoolTime.instance._attack = false;
                 }
 
                 if (_player.transform.localScale.x < 0)
@@ -141,6 +140,7 @@ public class Katana : PlayerWeaponParent
                     }
 
                     collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.left, knockBackPower);
+                    WeaponCoolTime.instance._attack = false;
                 }
                 OnAttackEvent?.Invoke();
             }
