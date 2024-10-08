@@ -45,16 +45,6 @@ public class PlayerStat : MonoBehaviour
     private void StatAdd(List<PassiveSO> prev, List<PassiveSO> next)
     {
         StatSet(next);
-
-        _agentMovement.moveSpeed = _moveSpeed;
-        _health.maxHealth = _maxHealth;
-
-        foreach (PlayerWeaponParent item in _weaponParent)
-        {
-            item.damage += _atkPower;
-            item.criticalHit += _critDamage;
-            item.criticalhHitProbability += _critProbability;
-        }
     }
 
     public void StatSet<T>(T t)
@@ -80,6 +70,16 @@ public class PlayerStat : MonoBehaviour
                 _atkPower += stat.atkPower;
                 _critDamage += stat.critDamage;
                 _critProbability += stat.critProbability;
+        }
+
+        _agentMovement.moveSpeed = _moveSpeed;
+        _health.maxHealth = _maxHealth;
+
+        foreach (PlayerWeaponParent item in _weaponParent)
+        {
+            item.damage += _atkPower;
+            item.criticalHit += _critDamage;
+            item.criticalhHitProbability += _critProbability;
         }
     }
 }

@@ -20,7 +20,7 @@ public class Reroll : MonoBehaviour
 
     public void Click()
     {
-        if (Money.money >= 15)
+        if (Money.money >= 50)
         {
             OnReroll = reroll.Invoke;
             _eb.SetEvent(OnReroll, "상품을 새로고침 하시겠습니까?");
