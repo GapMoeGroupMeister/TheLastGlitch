@@ -21,9 +21,21 @@ public class EnemySpanwer : MonoBehaviour
         {
             while (Count < 10)
             {
-                SpawnNumber = Random.Range(0, 4);
                 randX = Random.Range(0.1f, 1.5f);
                 randY = Random.Range(0.1f, 1f);
+                float rand = Random.Range(1.0f, 10.1f);
+                if (rand > 9.5f)
+                    SpawnNumber = 0;
+                else if(rand > 9f)
+                    SpawnNumber = 1;
+                else if(rand > 6)
+                    SpawnNumber = 2;
+                else if(rand > 3)
+                    SpawnNumber = 3;
+                else
+                    SpawnNumber = 4;
+
+
                 SpawnEnemy(SpawnNumber);
                 yield return new WaitForSeconds(0.75F);
             }

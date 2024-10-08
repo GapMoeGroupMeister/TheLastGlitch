@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerItemChecker : MonoBehaviour
 {
-    [SerializeField] private PlayerItemSO _itemEat;
+    [SerializeField] private PlayerItemData _itemEat;
 
     private void Update()
     {

@@ -1,9 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHPBar : MonoBehaviour
 {
-    [SerializeField] private RectTransform _hpBar;
-
+    [SerializeField] private Image _hpImage;
     private Player _player;
     private Health _playerHealth;
 
@@ -39,8 +39,7 @@ public class PlayerHPBar : MonoBehaviour
 
     private void Update()
     {
-
-        _hpBar.localScale = new Vector3(Health, 1, 1);
+        _hpImage.fillAmount = Health;
         if (_player.IsDie)
         {
             Health = 0;
