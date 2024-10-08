@@ -5,7 +5,7 @@ using UnityEngine;
 public class MgsyAngryOpenedState : MGSYState<BossStateEnum>
 {
 
-    private PatternTypeEnum[] _angryOpenedPatterns = { PatternTypeEnum.EnemySpawn , PatternTypeEnum.LaserShoot };
+    private PatternTypeEnum[] _angryOpenedPatterns = { PatternTypeEnum.EnemySpawn , PatternTypeEnum.LaserShoot , PatternTypeEnum.Core};
     public MgsyAngryOpenedState(MGSY enemyBase, StateMachine<BossStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
 

@@ -17,7 +17,7 @@ public abstract class EnemySetting : Agent
 
     public GameObject[] DeadItem;
 
-    public Vector3 vec;
+    public Vector2 vec;
 
     int count;
     bool isPlayer;
@@ -79,6 +79,13 @@ public abstract class EnemySetting : Agent
 
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, Vector2.right);
+    }
+
+    public Vector3 RandomVetcer()
+    {
+        float Rand = Random.Range(37.5f, -42f);
+        Vector3 vec = new Vector2(Rand, transform.position.y);
+        return vec;
     }
 
     public abstract void AnimationEndTrigger();
