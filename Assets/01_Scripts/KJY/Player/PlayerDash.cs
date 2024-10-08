@@ -29,7 +29,7 @@ public class PlayerDash : MonoBehaviour
 
     private void OnDisable()
     {
-        _input.OnDashEvent -= Dash;
+        //_input.OnDashEvent -= Dash;
     }
 
     private void Dash()

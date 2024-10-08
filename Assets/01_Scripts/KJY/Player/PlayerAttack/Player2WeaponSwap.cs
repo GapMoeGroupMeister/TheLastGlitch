@@ -44,7 +44,7 @@ public class Player2WeaponSwap : MonoBehaviour
 
     private void OnDisable()
     {
-        _input.OnSwapingEvent -= WeaponSwaping;
+        //_input.OnSwapingEvent -= WeaponSwaping;
     }
 
     private void WeaponSwaping()
