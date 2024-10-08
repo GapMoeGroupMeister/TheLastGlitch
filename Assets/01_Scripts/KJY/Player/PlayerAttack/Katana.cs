@@ -109,14 +109,12 @@ public class Katana : PlayerWeaponParent
     }
     #region Trigger
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (WeaponCoolTime.instance._attack)
         {
-            Debug.Log("KnifeAttack");
-            if (collision.gameObject.CompareTag("Enemy") && !_isAttacking)
+            if (collision.gameObject.CompareTag("Enemy"))
             {
-                _isAttacking = true;
                 if (_player.transform.localScale.x > 0)
                 {
                     float rand = Random.Range(0f, 101f);
@@ -127,7 +125,6 @@ public class Katana : PlayerWeaponParent
                     }
 
                     collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.right, knockBackPower);
-                    WeaponCoolTime.instance._attack = false;
                 }
 
                 if (_player.transform.localScale.x < 0)
@@ -135,21 +132,15 @@ public class Katana : PlayerWeaponParent
                     float rand = Random.Range(0f, 101f);
                     if (rand <= criticalhHitProbability)
                     {
-                        collision.gameObject.GetComponent<Health>().TakeDamage(damage * criticalHit, Vector2.right, knockBackPower);
+                        collision.gameObject.GetComponent<Health>().TakeDamage(damage * criticalHit, Vector2.left, knockBackPower);
                         return;
                     }
 
                     collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.left, knockBackPower);
-                    WeaponCoolTime.instance._attack = false;
                 }
                 OnAttackEvent?.Invoke();
             }
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        _isAttacking = false;
     }
 
     #endregion

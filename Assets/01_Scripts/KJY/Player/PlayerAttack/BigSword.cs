@@ -46,7 +46,7 @@ public class BigSword : PlayerWeaponParent
             {
                 AttackSequence = DOTween.Sequence();
                 AttackSequence.AppendCallback(() => gameObject.GetComponent<CapsuleCollider2D>().enabled = true);
-                AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -130), _swordSwingTime, RotateMode.FastBeyond360).SetEase(Ease.InQuad));
+                AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -110), _swordSwingTime, RotateMode.FastBeyond360).SetEase(Ease.InQuad));
                 AttackSequence.AppendCallback(() => gameObject.GetComponent<CapsuleCollider2D>().enabled = false);
                 AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -180), _swordReturnTime));
                 AttackSequence.Play();
@@ -81,7 +81,6 @@ public class BigSword : PlayerWeaponParent
                     }
 
                     collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.right, knockBackPower);
-                    WeaponCoolTime.instance._attack = false;
                 }
 
                 if (_player.transform.localScale.x < 0)
@@ -89,12 +88,11 @@ public class BigSword : PlayerWeaponParent
                     float rand = Random.Range(0f, 101f);
                     if (rand <= criticalhHitProbability)
                     {
-                        collision.gameObject.GetComponent<Health>().TakeDamage((damage * criticalHit), Vector2.right, knockBackPower);
+                        collision.gameObject.GetComponent<Health>().TakeDamage((damage * criticalHit), Vector2.left, knockBackPower);
                         return;
                     }
 
                     collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.left, knockBackPower);
-                    WeaponCoolTime.instance._attack = false;
                 }
                 OnAttackEvent?.Invoke();
             }

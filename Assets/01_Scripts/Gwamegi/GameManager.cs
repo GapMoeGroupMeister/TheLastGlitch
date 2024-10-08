@@ -5,10 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    private Player player;
+    public Player player;
     private bool isClear;
-
-    [SerializeField] private GameObject _playerObject;
 
     private void Awake()
     {
@@ -22,7 +20,7 @@ public class GameManager : MonoSingleton<GameManager>
             Destroy(gameObject);
         }
 
-        Player = _playerObject.GetComponent<Player>();
+        
 
         //if(Player != null) return;
         //Player = FindObjectOfType<Player>();
