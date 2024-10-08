@@ -44,7 +44,7 @@ public class Player2ActiveSkill : MonoBehaviour
 
     private void OnDisable()
     {
-        _inputReader.OnActiveSkillEvent -= UseActive;
+        //_inputReader.OnActiveSkillEvent -= UseActive;
     }
 
     private void UseActive()
