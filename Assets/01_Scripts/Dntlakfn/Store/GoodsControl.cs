@@ -1,20 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.VersionControl;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class GoodsControl : MonoBehaviour
 {
     public Action OnBuy;
-    
+
     [SerializeField] protected Button buyBtn;
-    public TestItemSO item {  get; set; }
+    public TestItemSO item { get; set; }
     [SerializeField] protected PassiveSO passive;
     [SerializeField] protected Image _icon;
     [SerializeField] protected TextMeshProUGUI _name;
@@ -24,7 +18,7 @@ public class GoodsControl : MonoBehaviour
 
 
 
-    
+
     public void UpdateItem()
     {
         buyBtn.
@@ -32,7 +26,7 @@ public class GoodsControl : MonoBehaviour
         // 아이탬 셋팅
         _icon.sprite = item._icon;
         _name.text = item._name;
-        if(_name.text != "매진")
+        if (_name.text != "매진")
         {
             passive = item.passiveSO;
             _toolTip.text = (passive.addPlayerAtkPower != 0 ? $"공격력  +{passive.addPlayerAtkPower}\n" : "") + (passive.addPlayerCritDamage != 0f ? $"치명타 피해  +{passive.addPlayerCritDamage}\n" : "") + (passive.addPlayerCritProbability != 0f ? $"치명타 확률  +{passive.addPlayerCritProbability}%\n" : "") + (passive.addPlayerHealth != 0f ? $"채력  +{passive.addPlayerHealth}\n" : "") + (passive.addPlayerMoveSpeed != 0f ? $"이동속도  +{passive.addPlayerMoveSpeed}\n" : "") + $"\n{item._toolTip}";
@@ -42,9 +36,9 @@ public class GoodsControl : MonoBehaviour
             _toolTip.text = item._toolTip;
         }
         _price.text = item._price + "원";
-        
-        
-        
+
+
+
     }
 
     public void BuyItem()
@@ -58,9 +52,9 @@ public class GoodsControl : MonoBehaviour
 
     public void Click()
     {
-        if(Money.money >= item._price)
+        if (Money.money >= item._price)
         {
-            if(_name.text == "매진")
+            if (_name.text == "매진")
             {
                 _eb.SetMessage("뭐 간판이라도 가져가게?");
             }
@@ -73,5 +67,5 @@ public class GoodsControl : MonoBehaviour
         }
     }
 
-   
+
 }

@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
 public class AcceptedQuest : MonoBehaviour
@@ -11,7 +7,7 @@ public class AcceptedQuest : MonoBehaviour
     [SerializeField] protected EventBox eb;
     [SerializeField] protected GameObject _empty;
 
-    
+
 
     public void CreatQuest()
     {
@@ -26,9 +22,9 @@ public class AcceptedQuest : MonoBehaviour
                 a.OnCreat?.Invoke();
             }
         }
-           
+
     }
 
 
-    
+
 }
