@@ -70,15 +70,15 @@ public abstract class Player : Agent
         _input.OnUseGadgetEvent += OnUseGadget;
     }
 
-    private void OnDisable()
-    {
-        _input.OnJumpEvent -= OnJump;
-        _input.OnAttackEvent -= OnAttack;
-        _input.OnActiveSkillEvent -= OnActiveSkill;
-        _input.OnInteractionEvent -= OnInteraction;
-        _input.OnSwapingEvent -= OnSwaping;
-        _input.OnUseGadgetEvent -= OnUseGadget;
-    }
+    //private void OnDisable()
+    //{
+    //    _input.OnJumpEvent -= OnJump;
+    //    _input.OnAttackEvent -= OnAttack;
+    //    _input.OnActiveSkillEvent -= OnActiveSkill;
+    //    _input.OnInteractionEvent -= OnInteraction;
+    //    _input.OnSwapingEvent -= OnSwaping;
+    //    _input.OnUseGadgetEvent -= OnUseGadget;
+    //}
 
     protected virtual void Update()
     {
