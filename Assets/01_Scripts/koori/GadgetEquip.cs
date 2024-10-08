@@ -49,7 +49,7 @@ public class GadgetEquip : MonoBehaviour
 
             if (button != null)
             {
-                int count = PlayerItemSO.Instance.havingGadgetDic[gadgetType];
+                int count = PlayerItemData.Instance.havingGadgetDic[gadgetType];
                 countText.text = $"{count} 보유";
 
                 if (count == 0)
@@ -64,9 +64,9 @@ public class GadgetEquip : MonoBehaviour
                 }
             }
 
-            if (PlayerItemSO.Instance.CurrentGadget != GadgetType.None)
+            if (PlayerItemData.Instance.CurrentGadget != GadgetType.None)
             {
-                Button currentButton = GetGadgetButton(PlayerItemSO.Instance.CurrentGadget); // 변수 이름 변경
+                Button currentButton = GetGadgetButton(PlayerItemData.Instance.CurrentGadget); 
                 if (currentButton != null)
                 {
                     currentButton.interactable = false;
@@ -75,7 +75,7 @@ public class GadgetEquip : MonoBehaviour
             }
         }
 
-        Button currentGadgetButton = GetGadgetButton(PlayerItemSO.Instance.CurrentGadget);
+        Button currentGadgetButton = GetGadgetButton(PlayerItemData.Instance.CurrentGadget);
         if (currentGadgetButton != null)
         {
             currentGadgetButton.interactable = false;
@@ -89,15 +89,25 @@ public class GadgetEquip : MonoBehaviour
 
         if (selectedGadgetType == GadgetType.None) return;
 
-        PlayerItemSO.Instance.CurrentGadget = selectedGadgetType;
+        PlayerItemData.Instance.CurrentGadget = selectedGadgetType;
 
         foreach (GadgetType gadgetType in Enum.GetValues(typeof(GadgetType)))
         {
             Button button = GetGadgetButton(gadgetType);
             if (button != null)
             {
-                button.interactable = true;
-                button.GetComponentInChildren<TMP_Text>().text = "장착";
+                int count = PlayerItemData.Instance.havingGadgetDic[gadgetType];
+
+                if (count == 0)
+                {
+                    button.interactable = false;
+                    button.GetComponentInChildren<TMP_Text>().text = "없음";
+                }
+                else
+                {
+                    button.interactable = true;
+                    button.GetComponentInChildren<TMP_Text>().text = "장착";
+                }
             }
         }
 

@@ -40,11 +40,11 @@ public class CraftButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnClicked()
     {
-        if (_price1 <= PlayerItemSO.Instance.requireItemDic[_item1Type] && _price2 <= PlayerItemSO.Instance.requireItemDic[_item2Type])
+        if (_price1 <= PlayerItemData.Instance.requireItemDic[_item1Type] && _price2 <= PlayerItemData.Instance.requireItemDic[_item2Type])
         {
-            PlayerItemSO.Instance.requireItemDic[_item1Type] -= _price1;
-            PlayerItemSO.Instance.requireItemDic[_item2Type] -= _price2;
-            PlayerItemSO.Instance.havingGadgetDic[_type] += 1;
+            PlayerItemData.Instance.requireItemDic[_item1Type] -= _price1;
+            PlayerItemData.Instance.requireItemDic[_item2Type] -= _price2;
+            PlayerItemData.Instance.havingGadgetDic[_type] += 1;
             ReloadHaveCnt();
             _craftUI.ReloadItemCount();
         }
@@ -52,6 +52,6 @@ public class CraftButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void ReloadHaveCnt()
     {
-        _cnt.text = $"{PlayerItemSO.Instance.havingGadgetDic[_type]} 보유";
+        _cnt.text = $"{PlayerItemData.Instance.havingGadgetDic[_type]} 보유";
     }
 }

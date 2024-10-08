@@ -8,7 +8,7 @@ public class GadgetManager : MonoSingleton<GadgetManager>
     [SerializeField] private  GameObject _dopingPre, _hackPulsePre, _aedPre, _shieldPre, _rocketPre;
     internal void GadgetChange(GadgetType newGadget)
     {
-        PlayerItemSO.Instance.CurrentGadget = newGadget;
+        PlayerItemData.Instance.CurrentGadget = newGadget;
     }
 
     private void Start()
@@ -18,7 +18,7 @@ public class GadgetManager : MonoSingleton<GadgetManager>
 
     private void InitGadget()
     {
-        switch (PlayerItemSO.Instance.CurrentGadget)
+        switch (PlayerItemData.Instance.CurrentGadget)
         {
             case GadgetType.None:break;
             case GadgetType.doping:   break;

@@ -36,7 +36,7 @@ public enum PlayerStateEnum
 public abstract class Player : Agent
 {
     [field: SerializeField] private InputReader _input;
-    public PlayerItemSO ItemSO;
+    public PlayerItemData ItemSO;
 
     [Header("Input bool")]
     public bool _isAttack;

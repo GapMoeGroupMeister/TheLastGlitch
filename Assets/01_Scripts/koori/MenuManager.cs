@@ -42,6 +42,7 @@ public class MenuManager : MonoBehaviour
 
     public void CraftExit()
     {
+        PlayerItemData.Instance.SaveGadgetDataToJson();
         _craftUI.GetComponent<RectTransform>().DOMoveY(_ori.y, 0.5f);
         _mainUI.GetComponent<RectTransform>().DOMoveY(_moveY, 0.5f);
     }
@@ -54,6 +55,7 @@ public class MenuManager : MonoBehaviour
 
     public void GadgetEquipExit()
     {
+        PlayerItemData.Instance.SaveGadgetDataToJson();
         _gadgetEquipUI.GetComponent<RectTransform>().DOMoveY(_ori.y, 0.5f);
         _mainUI.GetComponent<RectTransform>().DOMoveY(_moveY, 0.5f);
     }
