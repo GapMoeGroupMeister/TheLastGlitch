@@ -21,6 +21,8 @@ public class Katana : PlayerWeaponParent
 
     private Animator _anim;
 
+    private Player2ActiveSkill _player2Active;
+
     private DG.Tweening.Sequence AttackSequence;
 
     private bool _isAttacking = false;
@@ -29,6 +31,8 @@ public class Katana : PlayerWeaponParent
 
     private void Awake()
     {
+        _player2Active = GetComponentInParent<Player2ActiveSkill>();
+
         _anim = GetComponentInChildren<Animator>();
 
         _input.OnAttackEvent += KatanaAttack;
