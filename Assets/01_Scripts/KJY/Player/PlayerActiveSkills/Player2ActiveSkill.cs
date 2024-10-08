@@ -50,7 +50,6 @@ public class Player2ActiveSkill : MonoBehaviour
     private void UseActive()
     {
         GetDamage();
-        PowerUp();
 
         StartCoroutine(returnStat());
     }
@@ -62,6 +61,7 @@ public class Player2ActiveSkill : MonoBehaviour
             _currentHealth = _playerHealth.CurrentHealth / 2;
             _activeHp = _currentHealth;
             _playerHealth.TakeDamage(_currentHealth, Vector2.zero, 0);
+            PowerUp();
         }
     }
 
