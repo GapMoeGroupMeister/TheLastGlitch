@@ -127,6 +127,7 @@ public class Katana : PlayerWeaponParent
                     }
 
                     collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.right, knockBackPower);
+                    WeaponCoolTime.instance._attack = false;
                 }
 
                 if (_player.transform.localScale.x < 0)
@@ -139,6 +140,7 @@ public class Katana : PlayerWeaponParent
                     }
 
                     collision.gameObject.GetComponent<Health>().TakeDamage(damage, Vector2.left, knockBackPower);
+                    WeaponCoolTime.instance._attack = false;
                 }
                 OnAttackEvent?.Invoke();
             }
