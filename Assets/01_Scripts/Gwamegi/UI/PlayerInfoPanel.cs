@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
-
+    
 public class PlayerInfoPanel : MonoBehaviour
 {
     public RectTransform createPlayerInfoPanel;
@@ -42,7 +41,7 @@ public class PlayerInfoPanel : MonoBehaviour
         penal.gameObject.SetActive(true);
         sprite.sprite = playerInfo.playerSpreite;
         playerNameTMP.text = $"플레이어 이름 : {playerInfo.playerName}";
-        playerStatInfoTMP.text = StatText(playerInfo).Replace("\\n", "\n").Replace("\\t", "\t"); 
+        playerStatInfoTMP.text = StatText(playerInfo).Replace("\\n", "\n").Replace("\\t", "\t");
         playerPassiveDescTMP.text = $"고유 패시브 : {playerInfo.playerPassiveDesc}";
         playerActiveSkillDescTMP.text = $"액티브 스킬 : {playerInfo.playerActiveSkillDesc}";
 
@@ -60,7 +59,7 @@ public class PlayerInfoPanel : MonoBehaviour
         penal.gameObject.SetActive(false);
         sprite.sprite = default;
         playerNameTMP.text = default;
-        playerStatInfoTMP.text = default;   
+        playerStatInfoTMP.text = default;
         playerPassiveDescTMP.text = default;
         playerActiveSkillDescTMP.text = default;
     }

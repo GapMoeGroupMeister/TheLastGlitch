@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerHPBar : MonoBehaviour
 {
     [SerializeField] private RectTransform _hpBar;
 
-    private Player _player; 
+    private Player _player;
     private Health _playerHealth;
 
     private float _health;
@@ -21,7 +18,7 @@ public class PlayerHPBar : MonoBehaviour
         set
         {
             if (value >= 0 && value <= 1)
-                _health = value;    
+                _health = value;
             else if (value >= 1)
             {
                 _health = 1;
