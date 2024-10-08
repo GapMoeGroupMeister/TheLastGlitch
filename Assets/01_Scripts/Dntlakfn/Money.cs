@@ -13,6 +13,11 @@ public class Money : MonoBehaviour
         text = GetComponentInChildren<TextMeshProUGUI>();
     }
 
+    private void Start()
+    {
+        money = DataManager.Instance.money;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.M))
@@ -20,6 +25,5 @@ public class Money : MonoBehaviour
             money += 1000000;
         }
         text.text = money.ToString() + "¿ø";
-
     }
 }
