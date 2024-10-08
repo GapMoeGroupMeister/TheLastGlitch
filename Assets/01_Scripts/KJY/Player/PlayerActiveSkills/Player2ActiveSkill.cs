@@ -6,6 +6,8 @@ using UnityEngine.Windows;
 
 public class Player2ActiveSkill : MonoBehaviour
 {
+    public static Player2ActiveSkill Instance;
+
     [SerializeField] private InputReader _inputReader;
 
     [SerializeField] private float _atkStat;
@@ -25,6 +27,15 @@ public class Player2ActiveSkill : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(Instance);
+        }
+
         _playerStat = GetComponent<PlayerStat>();
         _playerHealth = GetComponent<Health>();
 
@@ -49,12 +60,8 @@ public class Player2ActiveSkill : MonoBehaviour
         if (!_activeCool)
         {
             _currentHealth = _playerHealth.CurrentHealth / 2;
-            if (_currentHealth <= 0)
-            {
-                _playerHealth.CurrentHealth = 10;
-            }
-            _playerHealth.TakeDamage(_currentHealth, Vector2.zero, 0);
             _activeHp = _currentHealth;
+            _playerHealth.TakeDamage(_currentHealth, Vector2.zero, 0);
         }
     }
 
@@ -70,7 +77,7 @@ public class Player2ActiveSkill : MonoBehaviour
     {
         _activeCool = true;
         yield return new WaitForSeconds(15f);
-        _playerHealth.AddCurrentHP((int)_activeHp);
+        _playerHealth.CurrentHealth += ((int)_activeHp);
         _downStat.atkPower -= _atkStat;
         _downStat.moveSpeed -= _speedStat;
         _downStat.critDamage -= _critDmgStat;

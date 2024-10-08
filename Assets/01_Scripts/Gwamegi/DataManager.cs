@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class DataManager : MonoSingleton<DataManager>
 {
+    public PlayerTypeEnum PlayerType;
+    public PlayerInfoSO PlayerInfo;
+    public GadgetType SelectedGadget = GadgetType.None;
+
+    public int money;
     private void Awake()
     {
         var obj = FindObjectsOfType<DataManager>();
@@ -18,7 +23,4 @@ public class DataManager : MonoSingleton<DataManager>
 
     }
 
-    public PlayerTypeEnum PlayerType;
-    public PlayerInfoSO PlayerInfo;
-    public GadgetType SelectedGadget = GadgetType.None;
 }

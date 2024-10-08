@@ -26,6 +26,6 @@ public class Timer : MonoBehaviour
     {
         if (isGameOver) return;
         _timer += Time.deltaTime;
-        _textTmp.text = $"{Mathf.FloorToInt(_timer)}";
+        _textTmp.text = $"{_timer.ToString("F1")}";
     }
 }
