@@ -6,6 +6,7 @@ public class BoomDeadState : DeadInt
 {
     public BoomDeadState(Enemy enemyBase, StateMachine<EnemyStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {
+
     }
 
     public override void Enter()
