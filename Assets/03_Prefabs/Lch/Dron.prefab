@@ -197,8 +197,8 @@ MonoBehaviour:
   gravityDelay: 0
   _whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
-  _groundCheckerSize: {x: 0, y: 0}
+    m_Bits: 512
+  _groundCheckerSize: {x: 10, y: 0}
   isGround:
     _value: 0
   _xMove: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
   DeadItem:
   - {fileID: 2716918810560444823, guid: 945047ab8572a8544b6380f8949e4950, type: 3}
   - {fileID: 5151407446827430101, guid: 15a5c681b0f8ed049be7ad5cd94f46ad, type: 3}
-  vec: {x: 0, y: 0, z: 0}
+  vec: {x: 0, y: 0}
   _enemyStats: {fileID: 11400000, guid: 0f79060300063d94481daa4450b962f5, type: 2}
   targetTrm: {fileID: 0}
   lastAttackTime: 0
@@ -258,6 +258,9 @@ MonoBehaviour:
   FirstWake: 1
   fainting: 0
   _enemyPooling: {fileID: 0}
+  wayPoint:
+  - {fileID: 0}
+  - {fileID: 0}
   _laserShooter: {fileID: 0}
   _firePos: {fileID: 7676224124510093892}
   _collider: {fileID: 3442106468549865575}
@@ -278,9 +281,6 @@ MonoBehaviour:
   _iGround:
     serializedVersion: 2
     m_Bits: 512
-  _isObj:
-    serializedVersion: 2
-    m_Bits: 0
   _ray: 3
   _ray2: 1
 --- !u!114 &8605155596378037593
@@ -385,7 +385,7 @@ MonoBehaviour:
   - {x: -0.14700317, y: 0.21808457, z: 0}
   m_ShapePathHash: 1036198019
   m_Mesh: {fileID: 0}
-  m_InstanceId: 102272
+  m_InstanceId: 46944
   m_LocalBounds:
     m_Center: {x: 0.023147583, y: 0.24372794, z: 0}
     m_Extent: {x: 0.48542786, y: 0.23732342, z: 0}

@@ -17,16 +17,6 @@ public class Health : MonoBehaviour
     public UnityEvent<int> OnGetDamageEvent;
     public UnityEvent OnDeadEvent;
     public Pooling pool;
-    private void Awake()
-    {
-        pool = GetComponent<Pooling>();
-        pool.OnReset += ResetHealth;
-    }
-
-    private void OnDestroy()
-    {
-        pool.OnReset -= ResetHealth;
-    }
 
     public void Initialize(Agent agent)
     {
