@@ -12,18 +12,12 @@ public class DronEnemy : ADEnemy
 
     [SerializeField] private float _ray = 0.7f;
 
-    [SerializeField] private float _ray2 = 1f;
+    [SerializeField] private float _ray2 = 0.8f;
 
     public bool IsGround()
     {
         bool ThisisGround = Physics2D.Raycast(transform.position, Vector2.down, _ray, _iGround);
         return ThisisGround;
-    }
-
-    public bool IsGroundRightRay()
-    {
-        bool thisisGround = Physics2D.Raycast(transform.position, Vector2.right, _ray, _iGround);
-        return thisisGround;
     }
 
     public bool IsLandSOClose()
@@ -54,7 +48,7 @@ public class DronEnemy : ADEnemy
 
     protected override void Update()
     {
-        if (!IsGround() || IsGroundRightRay())
+        if (!IsGround())
         {
             transform.DOMoveY(transform.position.y - 1, 1.5f);
         }

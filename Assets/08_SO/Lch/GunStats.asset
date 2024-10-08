@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GunStats
   m_EditorClassIdentifier: 
   EnemyHeath: 100
-  EnemydetectRadius: 0
+  EnemydetectRadius: 7
   EnemyattackRadius: 7
   Enemydamge: 5
   EnemyknockbackPower: 4
