@@ -72,8 +72,8 @@ public class PlayerStat : MonoBehaviour
                 _critProbability += stat.critProbability;
         }
 
-        _agentMovement.moveSpeed = _moveSpeed;
-        _health.maxHealth = _maxHealth;
+        _agentMovement.moveSpeed += _moveSpeed;
+        _health.maxHealth += _maxHealth;
 
         foreach (PlayerWeaponParent item in _weaponParent)
         {
