@@ -35,16 +35,11 @@ public class Player2ActiveSkill : MonoBehaviour
         {
             Destroy(Instance);
         }
+        _inputReader.OnActiveSkillEvent += UseActive;
 
         _playerStat = GetComponent<PlayerStat>();
         _playerHealth = GetComponent<Health>();
 
-        _inputReader.OnActiveSkillEvent += UseActive;
-    }
-
-    private void OnDisable()
-    {
-        //_inputReader.OnActiveSkillEvent -= UseActive;
     }
 
     private void UseActive()
@@ -76,7 +71,7 @@ public class Player2ActiveSkill : MonoBehaviour
     private IEnumerator returnStat()
     {
         _activeCool = true;
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(5f);
         _playerHealth.CurrentHealth += ((int)_activeHp);
         _downStat.atkPower -= _atkStat;
         _downStat.moveSpeed -= _speedStat;
