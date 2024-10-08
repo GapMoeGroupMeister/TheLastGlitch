@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PortalGun : GadgetParent
+public class PortalGun : MonoBehaviour 
 {
     protected Vector2 _redPortalTransform;
     protected Vector2 _bluePortalTransform;
@@ -18,8 +18,6 @@ public class PortalGun : GadgetParent
 
     private void Start()
     {
-        //_type = GadgetType.portalGun; // PortalGun의 타입 설정
-        _isUse += UsePortalGun; // UseGadget() 함수 호출 시 UsePortalGun() 함수 실행
     }
 
     private void UsePortalGun()

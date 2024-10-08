@@ -24,6 +24,6 @@ public class Money : MonoBehaviour
         {
             money += 1000000;
         }
-        text.text = money.ToString() + "¿ø";
+        text.text = money.ToString() + " Coin";
     }
 }
