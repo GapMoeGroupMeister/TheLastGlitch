@@ -1,8 +1,7 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -58,5 +57,17 @@ public class MenuManager : MonoBehaviour
         PlayerItemData.Instance.SaveGadgetDataToJson();
         _gadgetEquipUI.GetComponent<RectTransform>().DOMoveY(_ori.y, 0.5f);
         _mainUI.GetComponent<RectTransform>().DOMoveY(_moveY, 0.5f);
+    }
+
+    public void GoToTitle()
+    {
+        PlayerItemData.Instance.SaveGadgetDataToJson();
+        LoadingSceneManager.LoadScene("Title");
+    }
+
+    public void GoToBattle()
+    {
+        PlayerItemData.Instance.SaveGadgetDataToJson();
+        LoadingSceneManager.LoadScene("Stage1");
     }
 }

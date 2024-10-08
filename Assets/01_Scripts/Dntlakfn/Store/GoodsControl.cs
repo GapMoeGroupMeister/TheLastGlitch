@@ -35,7 +35,7 @@ public class GoodsControl : MonoBehaviour
         {
             _toolTip.text = item._toolTip;
         }
-        _price.text = item._price + "¿ø";
+        _price.text = item._price + " Coin";
 
 
 
