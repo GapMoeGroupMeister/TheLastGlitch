@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class MgsyClosedState : MGSYState<BossStateEnum>
 {
-    private PatternTypeEnum[] _closedPatterns = {PatternTypeEnum.EnemySpawn, PatternTypeEnum.CoreBomb};
+    private PatternTypeEnum[] _closedPatterns = {PatternTypeEnum.EnemySpawn, PatternTypeEnum.Core};
 
     public MgsyClosedState(MGSY enemyBase, StateMachine<BossStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
     {

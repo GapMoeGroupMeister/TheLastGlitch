@@ -20,7 +20,7 @@ public enum BossStateEnum
 public enum PatternTypeEnum
 {
     EnemySpawn,
-    CoreBomb,
+    Core,
     LaserShoot,
     None
 }
