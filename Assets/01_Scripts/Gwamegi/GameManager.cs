@@ -8,6 +8,8 @@ public class GameManager : MonoSingleton<GameManager>
     private Player player;
     private bool isClear;
 
+    [SerializeField] private GameObject _playerObject;
+
     private void Awake()
     {
         var obj = FindObjectsOfType<GameManager>();
@@ -20,8 +22,11 @@ public class GameManager : MonoSingleton<GameManager>
             Destroy(gameObject);
         }
 
-        Player = FindObjectOfType<Player>();
-        Player.gameObject.SetActive(false);
+        Player = _playerObject.GetComponent<Player>();
+
+        //if(Player != null) return;
+        //Player = FindObjectOfType<Player>();
+        //Player.gameObject.SetActive(false);
     }
 
     public Player Player
