@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -489692277, guid: b67d26ac11ed69647983f2b6d4365c0c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,9 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034830a7f8f2836418d5c3f186b32a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stat: {fileID: 0}
-  _dopedHealth: 25
-  _dopedMoveSpeed: 25
-  _dopedAtkPower: 25
-  _dopedCritDamage: 25
-  _dopedScritProbability: 25
+  _dopedMoveSpeed: 1
+  _dopedAtkPower: 10
+  _dopedCritDamage: 3
+  _dopedCritProbability: 20
+  _moveNuff: 0.5
+  _atkNuff: 5
+  _critNuff: 0.4
+  _critProbabilityNuff: 10
+  _dopeTime: 20

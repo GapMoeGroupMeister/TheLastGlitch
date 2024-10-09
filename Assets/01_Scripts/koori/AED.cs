@@ -13,5 +13,6 @@ public class AED : MonoBehaviour
     private void Heal()
     {
         GameManager.Instance.Player.HealthComponent.CurrentHealth = GameManager.Instance.Player.HealthComponent.maxHealth;
+        Destroy(gameObject);
     }
 }
