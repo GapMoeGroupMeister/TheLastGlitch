@@ -23,7 +23,7 @@ public class Money : MonoBehaviour
         money = DataManager.Instance.money;
         if (Input.GetKeyDown(KeyCode.M))
         {
-            money += 1000000;
+            DataManager.Instance.money += 1000000;
         }
         text.text = money.ToString() + " Coin";
     }

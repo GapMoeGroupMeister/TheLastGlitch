@@ -16,5 +16,5 @@ MonoBehaviour:
   _name: "\uC811\uADFC \uBC29\uC9C0 \uC2DC\uC2A4\uD15C"
   _toolTip: "\uC77C\uC815 \uC2DC\uAC04 \uB9C8\uB2E4 \uC801\uC744 \uBC00\uCCD0\uB0B4\uB294
     \uCDA9\uACA9\uD30C\uB97C \uBC1C\uC0B0\uD569\uB2C8\uB2E4."
-  passiveSO: {fileID: 0}
-  _price: 500
+  passiveSO: {fileID: 11400000, guid: e520264746ff4f3479362d15b738ba1e, type: 2}
+  _price: 1500
