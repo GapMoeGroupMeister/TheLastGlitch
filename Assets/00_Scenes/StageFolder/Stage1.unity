@@ -92619,6 +92619,8 @@ GameObject:
   - component: {fileID: 1237357366}
   - component: {fileID: 1237357368}
   - component: {fileID: 1237357367}
+  - component: {fileID: 1237357370}
+  - component: {fileID: 1237357369}
   m_Layer: 5
   m_Name: CraftUI
   m_TagString: Untagged
@@ -92687,6 +92689,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237357365}
   m_CullTransparentMesh: 1
+--- !u!114 &1237357369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237357365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027af7a3580769646bad5782e9206bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1237357370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237357365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757ea1fb51565784e912a3d8342b8f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFile: {fileID: 1237357369}
+  BGM: {fileID: 0}
+  SFX: {fileID: 0}
+  BGMSlider: {fileID: 522950426}
+  SFXSlider: {fileID: 926176943}
 --- !u!1 &1301850862
 GameObject:
   m_ObjectHideFlags: 0
