@@ -49,4 +49,5 @@ MonoBehaviour:
   _shieldPrefab: {fileID: 3931847799895033001, guid: d2830d0e13f8c7444b72aa220b296850, type: 3}
   _growSpeed: 5
   _targetScale: 4
-  _pushForce: 4.67
+  _pushForce: 4.5
+  _shieldTime: 30

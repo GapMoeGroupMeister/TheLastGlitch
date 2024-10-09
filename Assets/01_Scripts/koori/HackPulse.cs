@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +9,8 @@ public class HackPulse : MonoBehaviour
 
     private void Start()
     {
-        
+        transform.position = GameManager.Instance.Player.transform.position;
+        Hack();
     }
 
     private void Hack()
@@ -32,18 +31,12 @@ public class HackPulse : MonoBehaviour
         foreach (AgentMovement enemy in _hackableEnemy)
         {
             enemy.StopImmediately(true);
-            enemy._xMove = 0;
+            enemy._canMove = false;
         }
     }
-
-
-#if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, _hackRange);
     }
-#endif
-
-    // UseGadget() 함수는 GadgetParent에서 상속받아 사용
 }
