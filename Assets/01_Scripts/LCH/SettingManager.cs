@@ -18,12 +18,22 @@ public class SettingManager : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
+        if(GameObject.Find(gameObject.name) != null)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
     }
 
 
     public void SettingPanelClose()
     {
         gameObject.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void ExitGame()
