@@ -137,9 +137,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 40
   knockBackPower: 10
-  criticalHit: 0
-  criticalhHitProbability: 0
-  type: 0
+  criticalHit: 2
+  criticalhHitProbability: 8
+  type: 3
   OnAttackEvent:
     m_PersistentCalls:
       m_Calls:
@@ -371,8 +371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   knockBackPower: 10
-  criticalHit: 0
-  criticalhHitProbability: 0
+  criticalHit: 2
+  criticalhHitProbability: 8
   type: 1
   OnAttackEvent:
     m_PersistentCalls:
@@ -921,18 +921,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2093510349151606830}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: SetDeadState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   pool: {fileID: 0}
 --- !u!70 &-7624474669247304932
 CapsuleCollider2D:
@@ -1052,7 +1040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputReader: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
   _atkStat: 20
-  _speedStat: 5
+  _speedStat: 3
   _critDmgStat: 10
 --- !u!114 &7669418293878154364
 MonoBehaviour:
@@ -1061,7 +1049,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7867192051387084950}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e8922a965aa51c499b98a0d1202b138, type: 3}
   m_Name: 
@@ -1227,7 +1215,7 @@ MonoBehaviour:
   - {x: -0.29956055, y: -0.16120288, z: 0}
   m_ShapePathHash: -1505536165
   m_Mesh: {fileID: 0}
-  m_InstanceId: -149678
+  m_InstanceId: -962002
   m_LocalBounds:
     m_Center: {x: -0.0113220215, y: -0.04161966, z: 0}
     m_Extent: {x: 0.36367798, y: 0.48256487, z: 0}
@@ -1442,7 +1430,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -1454168513, guid: 51acd8dcca28e2b418d8ee539e90fb54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
