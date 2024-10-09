@@ -61,7 +61,7 @@ public class GoodsControl : MonoBehaviour
             {
                 MessageBox m = Instantiate(mb, canvas);
 
-                m.SetMessage("뭐 간판이라도 가져가게?");
+                m.SetMessage("매진이라고 임마 뭐 간판이라도 가져가게?");
             }
             OnBuy = BuyItem;
             EventBox e = Instantiate(_eb, canvas);
