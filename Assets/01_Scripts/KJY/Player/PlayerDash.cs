@@ -27,6 +27,11 @@ public class PlayerDash : MonoBehaviour
         _trail.emitting = false;
     }
 
+    public void DashBool()
+    {
+        _isDash = false;
+    }
+
     private void Dash()
     {
         if (!WeaponCoolTime.instance._attack)

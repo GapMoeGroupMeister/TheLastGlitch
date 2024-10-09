@@ -26,6 +26,8 @@ public class Player2ActiveSkill : MonoBehaviour
 
     private bool _activeCool;
 
+    private bool _isbool;
+
     private void Awake()
     {
         if (Instance == null)
@@ -63,6 +65,7 @@ public class Player2ActiveSkill : MonoBehaviour
 
     private void PowerUp()
     {
+        if (_isbool) return;
         Debug.Log("UpStat");
         _upStat.atkPower += _atkStat;
         _upStat.moveSpeed += _speedStat;
@@ -73,32 +76,42 @@ public class Player2ActiveSkill : MonoBehaviour
     public void ErrorActive()
     {
         if (_activeCool)
+        {
+            _isbool = true;
             ReturnPower();
+        _activeCool = false;
+            _isbool = false;
+        }
     }
 
     private void ReturnPower()
     {
         Debug.Log("DownStat");
 
-        Stat downStat = new Stat();
-        downStat.atkPower += -_atkStat;
-        downStat.moveSpeed += -_speedStat;
-        downStat.critDamage += -_critDmgStat;
+        
+        
 
-        _playerStat._moveSpeed = 0;
-        _playerStat._critDamage = 0;
-        _playerStat._atkPower = 0;
+        Stat downStat = new Stat();
+        downStat.atkPower -= _atkStat;
+        downStat.moveSpeed -= _speedStat;
+        downStat.critDamage -= _critDmgStat;
+
+        _upStat.atkPower -= _atkStat;
+        _upStat.moveSpeed -= _speedStat;
+        _upStat.critDamage -= _critDmgStat;
 
         _playerStat.StatSet(downStat);
-        _activeCool = false;
+
 
     }
 
     private IEnumerator returnStat()
     {
         _activeCool = true;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(8f);
         _playerHealth.CurrentHealth += ((int)_activeHp);
         ReturnPower();
+        yield return new WaitForSeconds(10f);
+        _activeCool = false;
     }
 }

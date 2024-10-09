@@ -10,6 +10,8 @@ public class EnemySpanwer : MonoBehaviour
     int Count = 0;
     private int SpawnNumber;
 
+    private int _enemyCount = 5;
+
     private void Start()
     {
          StartCoroutine(EnemySpawnCoolTime());
@@ -19,7 +21,7 @@ public class EnemySpanwer : MonoBehaviour
     {
         while (true)
         {
-            while (Count < 10)
+            while (Count < _enemyCount)
             {
                 randX = Random.Range(0.1f, 1.5f);
                 randY = Random.Range(0.1f, 1f);
@@ -37,10 +39,11 @@ public class EnemySpanwer : MonoBehaviour
 
 
                 SpawnEnemy(SpawnNumber);
-                yield return new WaitForSeconds(0.75F);
+                yield return new WaitForSeconds(0.5F);
             }
 
             Count = 0;
+            _enemyCount += 5;
             yield return new WaitForSeconds(12f);
         }
         
