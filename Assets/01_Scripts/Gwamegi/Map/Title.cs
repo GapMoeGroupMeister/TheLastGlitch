@@ -7,5 +7,6 @@ public class Title : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.Player.gameObject.SetActive(false);
+        WeaponCoolTime.instance._attack = true;
     }
 }
