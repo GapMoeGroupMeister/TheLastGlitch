@@ -339,7 +339,7 @@ MonoBehaviour:
   DeadItem:
   - {fileID: 6473396969644008485, guid: bc058c88cb26be249bdfdca2a620a2f9, type: 3}
   - {fileID: 6473396969644008485, guid: 76065cdfb3505f34e827ad5b99a5ee9f, type: 3}
-  vec: {x: 0, y: 0, z: 0}
+  vec: {x: 0, y: 0}
   _enemyStats: {fileID: 11400000, guid: 2ce710fe5c904dc40ba0f490635dd7fc, type: 2}
   targetTrm: {fileID: 0}
   lastAttackTime: 0
@@ -352,6 +352,7 @@ MonoBehaviour:
   FirstWake: 1
   fainting: 0
   _enemyPooling: {fileID: 0}
+  wayPoint: []
 --- !u!50 &8372963509870727408
 Rigidbody2D:
   serializedVersion: 4
@@ -368,7 +369,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e3bf99a556c742c44a0f46132733d1b2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

@@ -56,17 +56,21 @@ public abstract class Player : Agent
 
     protected override void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         base.Awake();
+        var obj = FindObjectsOfType<Player>();
+        if (obj.Length == 1)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
     {
         _input.OnJumpEvent += OnJump;
-        _input.OnActiveSkillEvent += OnActiveSkill;
-        _input.OnInteractionEvent += OnInteraction;
-        _input.OnSwapingEvent += OnSwaping;
-        _input.OnUseGadgetEvent += OnUseGadget;
     }
 
     //private void OnDisable()
@@ -117,6 +121,31 @@ public abstract class Player : Agent
     private void OnMovement()
     {
         _xMove = _input.Movement.x;
+    }
+
+    private void OnAttack()
+    {
+        if (!_isAttack)
+        {
+            _isDoubleAttack = false;
+            _isAttack = true;
+        }
+        else if (_isAttack)
+        {
+            _isDoubleAttack = true;
+            _isAttack = false;
+        }
+    }
+
+    public void Attack1Disable()
+    {
+        StartCoroutine(Atttack1DisableCO());
+    }
+
+    private IEnumerator Atttack1DisableCO()
+    {
+        yield return new WaitForSeconds(1f);
+        _isAttack = false;
     }
 
     public void MousePos(Vector3 mousePos)

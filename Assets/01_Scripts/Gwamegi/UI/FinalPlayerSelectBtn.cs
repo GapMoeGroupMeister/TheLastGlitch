@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,34 +6,17 @@ using UnityEngine.UI;
 
 public class FinalPlayerSelectBtn : MonoBehaviour
 {
-    [SerializeField] private Image playerImage;
-    private PlayerTypeEnum _playerType;
-    private PlayerInfoSO _playerInfo;
 
-    public string sceneName;
-
-    public void Initialize(PlayerTypeEnum playerType, PlayerInfoSO sO)
-    {
-        _playerType = playerType;
-        _playerInfo = sO;
-        playerImage.sprite = sO.playerSpreite;
-    }
+    [SerializeField] private RectTransform _selectPanel;
 
     public void BtnYes()
     {
-        DataManager.Instance.PlayerType = _playerType;
-        DataManager.Instance.PlayerInfo = _playerInfo;
 
-        LoadingSceneManager.LoadScene(sceneName);
+        LoadingSceneManager.LoadScene("MenuScene");
     }
 
     public void BtnNo()
     {
-        gameObject.SetActive(false);
-
-        foreach (PlayerChoiseBtn item in PlayerChoiseBtn._btnList)
-        {
-            item.GetComponent<Button>().interactable = true;
-        }
+        _selectPanel.DOScaleY(0, 0.2f);
     }
 }

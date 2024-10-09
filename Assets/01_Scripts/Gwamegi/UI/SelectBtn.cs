@@ -13,10 +13,6 @@ public class SelectBtn : MonoBehaviour
 
     [SerializeField] private FinalPlayerSelectBtn _finalConfirmation;
 
-    private void Start()
-    {
-        _playerInfoPanel.OnPlayerSelectEvent += OnPlayerSelect;
-    }
 
     private void OnPlayerSelect(PlayerTypeEnum playerType, PlayerInfoSO sO)
     {
@@ -33,11 +29,6 @@ public class SelectBtn : MonoBehaviour
     public void SelectPlayer()
     {
         _finalConfirmation.gameObject.SetActive(true);
-        _finalConfirmation.Initialize(playerTypeEnum, _playerInfoSO);
 
-        foreach (PlayerChoiseBtn item in PlayerChoiseBtn._btnList)
-        {
-            item.GetComponent<Button>().interactable = false;
-        }
     }
 }
