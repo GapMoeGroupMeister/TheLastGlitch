@@ -12642,6 +12642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625de5484750b7341a73eeaafd75430a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sfxPlayer: {fileID: 0}
+  _bgmPlayer: {fileID: 0}
 --- !u!4 &685267405
 Transform:
   m_ObjectHideFlags: 0
@@ -132154,6 +132156,10 @@ PrefabInstance:
     - target: {fileID: 1927133935044681624, guid: 2f5e608a463b9f54e93df56d44d8a917, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -6.632
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790743713956090575, guid: 2f5e608a463b9f54e93df56d44d8a917, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -15,15 +15,15 @@ public class Money : MonoBehaviour
 
     private void Start()
     {
-        money = DataManager.Instance.money;
+        money = PlayerItemData.Instance.gadgetData.Gold;
     }
 
     private void Update()
     {
-        money = DataManager.Instance.money;
+        money = PlayerItemData.Instance.gadgetData.Gold;
         if (Input.GetKeyDown(KeyCode.Equals))
         {
-            DataManager.Instance.money += 1000000;
+            PlayerItemData.Instance.gadgetData.Gold += 1000000;
         }
         text.text = money.ToString() + " Coin";
     }

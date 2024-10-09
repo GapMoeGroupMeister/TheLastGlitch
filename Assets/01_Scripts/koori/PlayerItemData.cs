@@ -136,6 +136,7 @@ public class PlayerItemData : MonoSingleton<PlayerItemData>
         public int RocketLauncher = 0;
         public int Doping = 0;
         public int HackPulse = 0;
+        public int Gold = 0;   
     }
 
     public void GadgetInit(GadgetType type)

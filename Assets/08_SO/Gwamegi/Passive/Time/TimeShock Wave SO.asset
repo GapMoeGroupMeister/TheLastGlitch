@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addPlayerHealth: 10
   addPlayerAtkPower: 20
-  addPlayerMoveSpeed: 1
+  addPlayerMoveSpeed: 0
   addPlayerCritProbability: 7
   addPlayerCritDamage: 1
   damage: 30

@@ -34,7 +34,6 @@ public class PlayerItemChecker : MonoBehaviour
                 case RequireItemType.gear:
                     PlayerItemData.Instance.requireItemDic[RequireItemType.gear] += 1;
                     break;
-
                 default:
                     break;
             }
