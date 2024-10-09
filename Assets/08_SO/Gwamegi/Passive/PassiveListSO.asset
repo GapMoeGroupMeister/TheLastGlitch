@@ -14,7 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   passiveSOList:
   - {fileID: 11400000, guid: 7ae503f5e739f4843bc516e52f1c7b6a, type: 2}
-  - {fileID: 11400000, guid: 9ce939e2ef82e8e4eb7ccd961413e0f9, type: 2}
   - {fileID: 11400000, guid: b5a6cb113e11a6c428e2424705b22ade, type: 2}
-  - {fileID: 11400000, guid: 70ea640d7fd15e2479c922ff6b51fab2, type: 2}
   - {fileID: 11400000, guid: e520264746ff4f3479362d15b738ba1e, type: 2}
