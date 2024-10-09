@@ -46,16 +46,9 @@ public class Katana : PlayerWeaponParent
 
     private void OnEnable()
     {
-        _input.OnAttackEvent += KatanaAttack;
-        _input.OnSwapingEvent += SwapAnim;
         AttackSequence.Restart();
     }
 
-    private void OnDisable()
-    {
-        _input.OnAttackEvent -= KatanaAttack;
-        _input.OnSwapingEvent -= SwapAnim;
-    }
 
     private void SwapAnim()
     {

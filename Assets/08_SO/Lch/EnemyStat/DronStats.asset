@@ -16,6 +16,6 @@ MonoBehaviour:
   EnemydetectRadius: 6
   EnemyattackRadius: 6
   Enemydamge: 5
-  EnemyknockbackPower: 4
+  EnemyknockbackPower: 0
   EnemyattackCooldown: 5
   EnemystopRay: 0
