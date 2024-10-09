@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: AttackLightning Dash
   m_EditorClassIdentifier: 
   addPlayerHealth: 0
-  addPlayerAtkPower: 10
-  addPlayerMoveSpeed: 5
+  addPlayerAtkPower: 5
+  addPlayerMoveSpeed: 3
   addPlayerCritProbability: 0
   addPlayerCritDamage: 0
-  damage: 10
+  damage: 5
   knockbackPower: 0
   time: 0.1
   distance: {x: 0, y: 0}
