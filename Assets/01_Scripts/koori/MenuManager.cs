@@ -58,10 +58,10 @@ public class MenuManager : MonoBehaviour
         _mainUI.GetComponent<RectTransform>().DOAnchorPosY(0, 0.5f);
     }
 
-    public void GoToTitle()
+    public void GoToBossScene()
     {
         PlayerItemData.Instance.SaveGadgetDataToJson();
-        LoadingSceneManager.LoadScene("Title");
+        LoadingSceneManager.LoadScene("BossScene");
     }
 
     public void GoToBattle()
