@@ -50,12 +50,15 @@ public class Enemy : EnemySetting
 
     private IEnumerator MoveDealyCorotine()
     {
-        while (true)
+        if(MovementComponent.rbCompo.velocity.y > -5)
         {
-            dir = RandomVetcer() - transform.position;
-            yield return new WaitForSeconds(2F);
-            MovementComponent._xMove = 0f;
-            yield return new WaitForSeconds(1f);
+            while (true)
+            {
+                dir = RandomVetcer() - transform.position;
+                yield return new WaitForSeconds(2F);
+                MovementComponent._xMove = 0f;
+                yield return new WaitForSeconds(2f);
+            }
         }
     }
 
