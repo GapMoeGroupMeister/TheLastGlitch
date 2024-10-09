@@ -11,10 +11,10 @@ public class EventBox : MonoBehaviour
     public Action action;
     private PlayerInteract interact;
 
-    private void Start()
+    private void OnEnable()
     {
         interact = FindAnyObjectByType<PlayerInteract>();
-        gameObject.SetActive(false);
+
     }
 
 
@@ -27,15 +27,8 @@ public class EventBox : MonoBehaviour
     }
     public void SetEvent(Action action, string message)
     {
-        gameObject.SetActive(true);
+        
         this.action = action;
-        _warningText.text = message;
-    }
-
-    public void SetMessage(string message)
-    {
-        gameObject.SetActive(true);
-        action = null;
         _warningText.text = message;
     }
 
@@ -44,14 +37,15 @@ public class EventBox : MonoBehaviour
         action?.Invoke();
         action = null;
 
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     public void Cancel()
     {
         action = null;
 
-        gameObject.SetActive(false);
+        Destroy(gameObject);
+
     }
 
 }

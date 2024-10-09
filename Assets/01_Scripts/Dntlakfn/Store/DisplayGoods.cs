@@ -12,6 +12,8 @@ public class DisplayGoods : MonoBehaviour
     [SerializeField] protected TestItemSO item;
     [SerializeField] protected List<TestItemSO> displayedItems; //진열된 아이탬 리스트
     public EventBox eb;
+    public MessageBox mb;
+    public RectTransform canvas;
 
 
 
@@ -21,7 +23,6 @@ public class DisplayGoods : MonoBehaviour
     {
         displayedItems = new List<TestItemSO>();
         Goods = new List<GoodsControl>();
-        eb = FindAnyObjectByType<EventBox>();
         for (int i = 0; i < Mathf.Clamp(items.list.Count - 1, 0, 4); i++)
         {
 
@@ -35,6 +36,8 @@ public class DisplayGoods : MonoBehaviour
             GoodsControl good = Instantiate(_goods, transform).GetComponent<GoodsControl>();
             good.item = item;
             good._eb = eb;
+            good.mb = mb;
+            good.canvas = canvas;
             good.UpdateItem();
             Goods.Add(good);
             displayedItems.Add(good.item);
