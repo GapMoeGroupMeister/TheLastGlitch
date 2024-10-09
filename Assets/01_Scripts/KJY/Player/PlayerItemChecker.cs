@@ -20,16 +20,16 @@ public class PlayerItemChecker : MonoBehaviour
             switch (collision.gameObject.GetComponent<Item>().itemType)
             {
                 case RequireItemType.pcb:
-                    _itemEat.requireItemDic[RequireItemType.pcb] += 1;
+                    PlayerItemData.Instance.requireItemDic[RequireItemType.pcb] += 1;
                     break;
                 case RequireItemType.battery:
-                    _itemEat.requireItemDic[RequireItemType.battery] += 1;
+                    PlayerItemData.Instance.requireItemDic[RequireItemType.battery] += 1;
                     break;
                 case RequireItemType.sensor:
-                    _itemEat.requireItemDic[RequireItemType.sensor] += 1;
+                    PlayerItemData.Instance.requireItemDic[RequireItemType.sensor] += 1;
                     break;
                 case RequireItemType.metal:
-                    _itemEat.requireItemDic[RequireItemType.metal] += 1;
+                    PlayerItemData.Instance.requireItemDic[RequireItemType.metal] += 1;
                     break;
                 default:
                     break;
