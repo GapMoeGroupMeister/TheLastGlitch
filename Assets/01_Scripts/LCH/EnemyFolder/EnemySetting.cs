@@ -46,6 +46,7 @@ public abstract class EnemySetting : Agent
         attackCooldown += _enemyStats.EnemyattackCooldown;
         stopRay += _enemyStats.EnemystopRay;
         damage += _enemyStats.Enemydamge;
+        HealthComponent.CurrentHealth = _enemyStats.EnemyHeath;
         HealthComponent.maxHealth = _enemyStats.EnemyHeath;
         DamageCasterCompo = transform.Find("DamgeCaster").GetComponent<DamageCaster>();
         _enemyLayers = LayerMask.NameToLayer("Enemy");

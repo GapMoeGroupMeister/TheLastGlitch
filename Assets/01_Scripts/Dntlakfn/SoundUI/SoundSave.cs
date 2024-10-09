@@ -15,7 +15,8 @@ public class SoundSave : MonoBehaviour
 
     private void Awake()
     {
-        //FindAnyObjectByType<AudioManager>().;
+        BGM = FindAnyObjectByType<AudioManager>()._bgmPlayer;
+        SFX = FindAnyObjectByType<AudioManager>()._sfxPlayer;
 
 
 

@@ -18,19 +18,23 @@ public class LightningDash : PassiveSO
 
         foreach (Collider2D item in enemyArray)
         {
-            Enemy enemy = item.GetComponent<Enemy>();
-
-            if (targetEnemy == null)
+            if (item != null)
             {
-                targetTrm = enemy.transform;
-                targetEnemy = enemy;
+                Enemy enemy = item.GetComponent<Enemy>();
 
+                if (targetEnemy == null)
+                {
+                    targetTrm = enemy.transform;
+                    targetEnemy = enemy;
+
+                }
+                else if (Vector3.Distance(targetEnemy.transform.position, owner.transform.position) > Vector3.Distance(owner.transform.position, enemy.transform.position))
+                {
+                    targetEnemy = enemy;
+                    targetTrm = enemy.transform;
+                }
             }
-            else if (Vector3.Distance(targetEnemy.transform.position, owner.transform.position) > Vector3.Distance(owner.transform.position, enemy.transform.position))
-            {
-                targetEnemy = enemy;
-                targetTrm = enemy.transform;
-            }
+            
         }
 
         if (targetEnemy.transform.position.x > owner.transform.position.x)
