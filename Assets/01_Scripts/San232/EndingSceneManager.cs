@@ -29,7 +29,7 @@ public class EndingSceneManager : MonoBehaviour
         Time.timeScale = 0f;
 
         // 페이드 아웃 트윈: 알파값을 1로 (불투명 상태)로 바꾸기
-        _fadeImage.DOFade(1f, _fadeDuration).SetUpdate(true).OnComplete(() =>
+        _fadeImage.DOFade(0f, _fadeDuration).SetUpdate(true).OnComplete(() =>
         {
             // 페이드 아웃 완료 후 원하는 추가 행동
             Debug.Log("Fade out complete");
