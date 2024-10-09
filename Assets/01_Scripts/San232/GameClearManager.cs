@@ -8,7 +8,6 @@ public class GameClearManager : MonoBehaviour
 {
     [SerializeField] private Image _fadeImage; // 하얀색 이미지
     [SerializeField] private float _fadeDuration = 1f; // 페이드 아웃 시간
-    public UnityEvent OnPlaySFX;
 
     private void Start()
     {
