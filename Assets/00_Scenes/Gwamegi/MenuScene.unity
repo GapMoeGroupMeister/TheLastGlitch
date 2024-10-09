@@ -32048,11 +32048,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gadgetData:
     EquipGadget: 0
-    Battery: 0
-    Metal: 0
-    Pcb: 0
-    Sensor: 0
-    Gear: 0
+    Battery: 47
+    Metal: 39
+    Pcb: 25
+    Sensor: 21
+    Gear: 36
     Shield: 0
     Aed: 0
     RocketLauncher: 0

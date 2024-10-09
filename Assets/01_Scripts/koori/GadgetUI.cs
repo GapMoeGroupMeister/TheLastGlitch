@@ -17,6 +17,7 @@ public class GadgetUI : MonoBehaviour
 
     private void Reset()
     {
+        Debug.Log(PlayerItemData.Instance.CurrentGadget);
         _image.sprite = GetCurrentType(PlayerItemData.Instance.CurrentGadget);
     }
 
