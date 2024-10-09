@@ -33,6 +33,14 @@ public class PlayerItemData : MonoSingleton<PlayerItemData>
     }
 
     [ContextMenu("To Json Data")]
+    public void SaveGadgetData()
+    {
+        OverwritingData(true);
+
+        EasyToJson.ToJson(gadgetData, "ItemData", true);
+
+        LoadItemData();
+    }
     public void SaveGadgetDataToJson()
     {
         OverwritingData(false);

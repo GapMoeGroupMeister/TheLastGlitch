@@ -31993,7 +31993,6 @@ GameObject:
   - component: {fileID: 1941913937}
   - component: {fileID: 1941913936}
   - component: {fileID: 1941913938}
-  - component: {fileID: 1941913939}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -32059,22 +32058,6 @@ MonoBehaviour:
     RocketLauncher: 0
     Doping: 0
     HackPulse: 0
---- !u!114 &1941913939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941913935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70406595104a37442a7ef74ffd0c604f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerType: 1
-  PlayerInfo: {fileID: 0}
-  SelectedGadget: 0
-  money: 0
 --- !u!1001 &2000056563
 PrefabInstance:
   m_ObjectHideFlags: 0
