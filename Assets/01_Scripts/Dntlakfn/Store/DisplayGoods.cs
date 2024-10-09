@@ -84,7 +84,7 @@ public class DisplayGoods : MonoBehaviour
             a = 0;
         }
 
-        if ((items.list.Count - (a + displayedItems.Count)) <= 0)
+        if ((items.list.Count - (a + displayedItems.Count)) <= 1)
         {
             this.item = items.list.Last();
             return false;
