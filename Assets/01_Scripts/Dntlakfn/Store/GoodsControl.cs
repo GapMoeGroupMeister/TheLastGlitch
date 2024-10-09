@@ -50,7 +50,9 @@ public class GoodsControl : MonoBehaviour
         gameObject.SetActive(false);
         Debug.Log(item);
         //인벤토리 리스트에 구매한 아이탬 넣어줌
-        PassiveManager.Instance.HavePassiveList.Add(item.passiveSO);
+        GameManager.Instance.Player.GetComponentInChildren<PassiveManager>().HavePassiveList.Add(item.passiveSO);
+        GameManager.Instance.Player.GetComponentInChildren<PassiveManager>().AddPassive();
+        GameManager.Instance.Player.GetComponent<PlayerStat>().StatSet(item.passiveSO);
     }
 
     public void Click()
