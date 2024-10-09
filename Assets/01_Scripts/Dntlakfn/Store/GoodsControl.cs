@@ -15,6 +15,9 @@ public class GoodsControl : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI _toolTip;
     [SerializeField] protected TextMeshProUGUI _price;
     public EventBox _eb;
+    public MessageBox mb;
+    public RectTransform canvas;
+    
 
 
 
@@ -56,14 +59,19 @@ public class GoodsControl : MonoBehaviour
         {
             if (_name.text == "매진")
             {
-                _eb.SetMessage("뭐 간판이라도 가져가게?");
+                MessageBox m = Instantiate(mb, canvas);
+
+                m.SetMessage("뭐 간판이라도 가져가게?");
             }
             OnBuy = BuyItem;
-            _eb.SetEvent(OnBuy, "구매하시겠습니까?");
+            EventBox e = Instantiate(_eb, canvas);
+            e.SetEvent(OnBuy, "구매하시겠습니까?");
         }
         else
         {
-            _eb.SetMessage("돈이 부족합니다.");
+            MessageBox m = Instantiate(mb, canvas);
+
+            m.SetMessage("돈이 부족합니다.");
         }
     }
 
