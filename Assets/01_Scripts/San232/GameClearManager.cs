@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class GameClearManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameClearManager : MonoBehaviour
 
     private void Start()
     {
+        DOTween.Init();
         // FadeOut 초기화: 알파값을 0으로 설정 (투명 상태)
         _fadeImage.color = new Color(1, 1, 1, 0);
     }
@@ -23,7 +25,7 @@ public class GameClearManager : MonoBehaviour
         {
             // 페이드 아웃 완료 후 원하는 추가 행동
             Debug.Log("Fade out complete");
-            LoadingSceneManager.LoadScene("EndingScene");
+            SceneManager.LoadScene("EndingScene");
         });
     }
 }

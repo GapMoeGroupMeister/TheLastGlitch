@@ -9,26 +9,26 @@ public class EndingSceneManager : MonoBehaviour
     private string _endingTitleText;
     [SerializeField] private TMP_Text _targetText;
     [SerializeField] private float _delay = 0.125f;
-    [SerializeField] private Image _fadeImage; // 하얀색 이미지
+    [SerializeField] private Image _fadeImage; // 하얀색 Panel
     [SerializeField] private float _fadeDuration = 0.5f; // 페이드 인 시간
+
+    private float waitingTime = 5f;
 
     private void Awake()
     {
+        DOTween.Init();
         _fadeImage.color = new Color(1, 1, 1, 1);
 
         // 원본 텍스트 저장 후 초기 출력은 빈 문자열로 설정
         _endingTitleText = _targetText.text.ToString();
         _targetText.text = "";
 
-        
+        EnterEndingScene();
     }
 
-    public void EnterEndingScene()
+    private void EnterEndingScene()
     {
-        // 게임 시간 멈추기
-        Time.timeScale = 0f;
-
-        // 페이드 아웃 트윈: 알파값을 1로 (불투명 상태)로 바꾸기
+        // 페이드 아웃 트윈: 알파값을 0으로 (투명 상태)로 바꾸기
         _fadeImage.DOFade(0f, _fadeDuration).SetUpdate(true).OnComplete(() =>
         {
             // 페이드 아웃 완료 후 원하는 추가 행동
@@ -60,5 +60,9 @@ public class EndingSceneManager : MonoBehaviour
             // 설정한 딜레이 동안 대기
             yield return new WaitForSeconds(_delay);
         }
+
+        yield return new WaitForSeconds(waitingTime);
+
+        LoadingSceneManager.LoadScene("Title");
     }
 }
