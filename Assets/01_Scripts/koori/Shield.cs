@@ -10,11 +10,12 @@ public class Shield : MonoBehaviour
     [SerializeField] private float _growSpeed = 5f;
     [SerializeField] private float _targetScale = 4f;
     [SerializeField] private float _pushForce = 10f;
+    [SerializeField] private float _shieldTime = 30f;
 
     private GameObject _activeShield;
     private CircleCollider2D _shieldCollider;
 
-    private void Awake()
+    private void OnEnable()
     {
         if (_shieldPrefab != null)
         {
@@ -25,7 +26,8 @@ public class Shield : MonoBehaviour
 
     private void Start()
     {
-        
+        transform.position = GameManager.Instance.Player.transform.position;
+        UseShield();
     }
 
     private void UseShield()
@@ -61,8 +63,10 @@ public class Shield : MonoBehaviour
             _shieldCollider.radius = _activeShield.transform.localScale.x * 0.5f;
 
             PushBackEnemies();
-            yield return null;
+
         }
+        yield return new WaitForSeconds(_shieldTime);
+        Destroy(gameObject);
     }
 
     private void PushBackEnemies()

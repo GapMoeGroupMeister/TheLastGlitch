@@ -24,7 +24,7 @@ MonoBehaviour:
   radius: 2
   _isUsePlayerEffect: 0
   effect: {fileID: 2000792778140916008, guid: 836a1f149c11525479fa49dafea6fa57, type: 3}
-  type: 0
+  type: 1
   passiveType: 0
   enemyLayer:
     serializedVersion: 2

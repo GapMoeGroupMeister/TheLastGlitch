@@ -606,7 +606,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -13
   m_Sprite: {fileID: 21300000, guid: e2a1b586d4a4a624db30467381ce8b1b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -901,7 +901,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 2901f610359bfd24b94f44df3bf8d447, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -15822,7 +15822,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
   m_Origin: {x: -12, y: -12, z: 0}
   m_Size: {x: 333, y: 32, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -16139,7 +16139,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: d3cbe7ccae036dc438af9cbc550e7561, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -30165,7 +30165,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
   m_Origin: {x: -14, y: -12, z: 0}
   m_Size: {x: 346, y: 27, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -30246,7 +30246,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -4
   m_Sprite: {fileID: 21300000, guid: d415418a8c975d54782650b204557e43, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -31743,13 +31743,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1581852939229039284, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_text
-      value: "\uACE0\uAC15\uB3C4 \uD640\uB85C\uADF8\uB7A8\uC744 \uD3BC\uCCD0 \uC77C\uC815\uC2DC\uAC04
-        \uC801\uC758 \uACF5\uACA9\uC744 \uBB34\uD6A8\uD654\uD55C\uB2E4."
+      value: "\uC774 \uAC00\uC82F\uC740 \uB2F9\uC2E0\uC744 \uAC8C\uC784\uC73C\uB85C\uBD80\uD130
+        \uBCF4\uD638\uD569\uB2C8\uB2E4!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581852939229039284, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_fontSize
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1581852939229039284, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: cbe735148b649f642b743956d27b9a50, type: 2}
+    - target: {fileID: 1581852939229039284, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1581852939229039284, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_sharedMaterial
       value: 
@@ -32372,6 +32380,14 @@ PrefabInstance:
       propertyPath: _type
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5724262574700728491, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: _price1
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724262574700728491, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: _price2
+      value: 65
+      objectReference: {fileID: 0}
     - target: {fileID: 5848314814100060282, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -32464,6 +32480,10 @@ PrefabInstance:
     - target: {fileID: 6160421760328540151, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366831882090745917, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_text
+      value: "\uBCF4\uD638\uB9C9"
       objectReference: {fileID: 0}
     - target: {fileID: 6366831882090745917, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_fontSize
@@ -32708,7 +32728,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -7
   m_Sprite: {fileID: 21300000, guid: 74cd46281468d5e439462b9b13f8d2b3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -36022,8 +36042,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uACE0\uAC15\uB3C4 \uD640\uB85C\uADF8\uB7A8\uC744 \uD3BC\uCCD0 \uC77C\uC815\uC2DC\uAC04
-    \uC801\uC758 \uACF5\uACA9\uC744 \uBB34\uD6A8\uD654\uD55C\uB2E4."
+  m_text: "\uC774 \uAC00\uC82F\uC740 \uB2F9\uC2E0\uC744 \uAC8C\uC784\uC73C\uB85C\uBD80\uD130
+    \uBCF4\uD638\uD569\uB2C8\uB2E4!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cbe735148b649f642b743956d27b9a50, type: 2}
   m_sharedMaterial: {fileID: 1389153976163133014, guid: cbe735148b649f642b743956d27b9a50, type: 2}
