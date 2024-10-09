@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class BigSword : PlayerWeaponParent
 {
     public UnityEvent OnAttackEvent;
+    public UnityEvent OnSoundEvent;
 
     [field: SerializeField] private InputReader _input;
 
@@ -21,6 +22,7 @@ public class BigSword : PlayerWeaponParent
     private void Start()
     {
         _input.OnAttackEvent += BigSwordAttack;
+        
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         AttackSequence.Restart();
     }
@@ -31,9 +33,10 @@ public class BigSword : PlayerWeaponParent
         {
             if (!WeaponCoolTime.instance._attack)
             {
+                OnSoundEvent.Invoke();
                 AttackSequence = DOTween.Sequence();
                 AttackSequence.AppendCallback(() => gameObject.GetComponent<CapsuleCollider2D>().enabled = true);
-                AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -110), _swordSwingTime, RotateMode.FastBeyond360).SetEase(Ease.InQuad));
+                AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -130), _swordSwingTime, RotateMode.FastBeyond360).SetEase(Ease.InQuad));
                 AttackSequence.AppendCallback(() => gameObject.GetComponent<CapsuleCollider2D>().enabled = false);
                 AttackSequence.Append(_swordParent.transform.DOLocalRotate(new Vector3(0, 0, -180), _swordReturnTime));
                 AttackSequence.Play();

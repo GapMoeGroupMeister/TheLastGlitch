@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class Katana : PlayerWeaponParent
 {
     public UnityEvent OnAttackEvent;
+    public UnityEvent OnSoundEvent;
 
     [field: SerializeField] private InputReader _input;
 
@@ -75,6 +76,7 @@ public class Katana : PlayerWeaponParent
         {
             if (!WeaponCoolTime.instance._attack)
             {
+                OnSoundEvent.Invoke();
                 AttackSequence = DOTween.Sequence();
                 AttackSequence.AppendCallback(() => gameObject.GetComponent<CapsuleCollider2D>().enabled = true);
                 AttackSequence.Append(_katanaParent.transform.DOLocalRotate(new Vector3(0, 0, _attackSequence1), _swordSwingTime, RotateMode.FastBeyond360));
