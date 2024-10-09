@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Core : MonoSingleton<Core>
 {
@@ -15,8 +16,6 @@ public class Core : MonoSingleton<Core>
         }
     }
 
-    [Header("Explode Particle")]
-    [SerializeField] private ParticleSystem _explodeParticle;
 
     [Header("Core Status")]
     [SerializeField] private Health _coreHealth;
@@ -42,7 +41,6 @@ public class Core : MonoSingleton<Core>
     {
         CoreDamageCaster = GetComponentInChildren<DamageCaster>();
         _mgsy = transform.parent.gameObject.GetComponent<MGSY>();
-        _explodeParticle = GetComponentInChildren<ParticleSystem>();
         _coreHealth = GetComponent<Health>();
         _coreHealth.IsHittable = false;
     }
@@ -70,11 +68,6 @@ public class Core : MonoSingleton<Core>
                 CoreDamageCaster.CastDamge(_coreBombDamage, 0);
             }
         }
-    }
-
-    private void CoreExplodeParticle()
-    {
-        _explodeParticle.Play();
     }
 
     public void CoreHit()
