@@ -15,5 +15,5 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 968f9735446084a4580fea11c7f1a932, type: 3}
   _name: "\uC758\uB8CC\uC6A9 \uB098\uB178\uBD07"
   _toolTip: "\uCC44\uB825\uC744 \uCC9C\uCC9C\uD788 \uD68C\uBCF5\uD569\uB2C8\uB2E4. "
-  passiveSO: {fileID: 0}
+  passiveSO: {fileID: 11400000, guid: 70ea640d7fd15e2479c922ff6b51fab2, type: 2}
   _price: 2500
