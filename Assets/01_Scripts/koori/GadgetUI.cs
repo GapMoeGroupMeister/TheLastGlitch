@@ -11,10 +11,14 @@ public class GadgetUI : MonoBehaviour
     [SerializeField] Sprite _doping, _hack, _aed, _shield, _rocket, _non;
     [SerializeField] InputReader _reader;
 
+    private void Awake()
+    {
+        _reader.OnUseGadgetEvent += UseGadget;
+        
+    }
     private void Start()
     {
         Reset();
-        _reader.OnUseGadgetEvent += UseGadget;
         if (PlayerItemData.Instance.CurrentGadget == GadgetType.aed)
         {
             PlayerItemData.Instance.GadgetInit(GadgetType.aed);
@@ -25,11 +29,15 @@ public class GadgetUI : MonoBehaviour
 
     private void UseGadget()
     {
-        if(PlayerItemData.Instance.CurrentGadget != GadgetType.None&&PlayerItemData.Instance.CurrentGadget == GadgetType.aed)
+        Debug.Log("가젯 키 눌림");
+        if(PlayerItemData.Instance.CurrentGadget != GadgetType.None&&PlayerItemData.Instance.CurrentGadget != GadgetType.aed)
         {
+            Debug.Log("가젯 소환 시작");
             PlayerItemData.Instance.GadgetInit(PlayerItemData.Instance.CurrentGadget);
             PlayerItemData.Instance.GadgetMinus(PlayerItemData.Instance.CurrentGadget);
             PlayerItemData.Instance.CurrentGadget = GadgetType.None;
+
+            Reset();
         }
     }
 

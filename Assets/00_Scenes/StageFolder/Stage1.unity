@@ -12870,6 +12870,11 @@ MonoBehaviour:
     RocketLauncher: 0
     Doping: 0
     HackPulse: 0
+  Hack: {fileID: 0}
+  Doping: {fileID: 0}
+  AED: {fileID: 0}
+  Shield: {fileID: 0}
+  Rocket: {fileID: 0}
 --- !u!1001 &886928099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132192,6 +132197,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8195854257308291305, guid: 2f5e608a463b9f54e93df56d44d8a917, type: 3}
+      propertyPath: _reader
+      value: 
+      objectReference: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
