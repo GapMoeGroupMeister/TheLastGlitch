@@ -77,7 +77,7 @@ public class DisplayGoods : MonoBehaviour
         int a;
         try
         {
-            a = PassiveManager.Instance.HavePassiveList.Count;
+            a = GameManager.Instance.Player.GetComponentInChildren<PassiveManager>().HavePassiveList.Count;
         }
         catch (NullReferenceException)
         {
