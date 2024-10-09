@@ -74,6 +74,7 @@ public class Player2ActiveSkill : MonoBehaviour
     {
         if (_activeCool)
             ReturnPower();
+        _activeCool = false;
     }
 
     private void ReturnPower()
@@ -81,24 +82,34 @@ public class Player2ActiveSkill : MonoBehaviour
         Debug.Log("DownStat");
 
         Stat downStat = new Stat();
-        downStat.atkPower += -_atkStat;
-        downStat.moveSpeed += -_speedStat;
-        downStat.critDamage += -_critDmgStat;
+        downStat.atkPower -= _atkStat;
+        downStat.moveSpeed -= _speedStat;
+        downStat.critDamage -= _critDmgStat;
+
+        _upStat.atkPower -= _atkStat;
+        _upStat.moveSpeed -= _speedStat;
+        _upStat.critDamage -= _critDmgStat;
 
         _playerStat._moveSpeed = 0;
         _playerStat._critDamage = 0;
         _playerStat._atkPower = 0;
 
         _playerStat.StatSet(downStat);
-        _activeCool = false;
+
+        _playerStat._moveSpeed = 0;
+        _playerStat._critDamage = 0;
+        _playerStat._atkPower = 0;
+
 
     }
 
     private IEnumerator returnStat()
     {
         _activeCool = true;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(8f);
         _playerHealth.CurrentHealth += ((int)_activeHp);
         ReturnPower();
+        yield return new WaitForSeconds(10f);
+        _activeCool = false;
     }
 }
