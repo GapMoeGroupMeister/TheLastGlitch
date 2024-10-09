@@ -42,7 +42,7 @@ public class StateManager : Enemy
 
     public void EnemyStop()
     {
-        if (MovementComponent._xMove == 0 || MovementComponent._canMove)
+        if (MovementComponent._xMove == 0)
         {
            StateMachine.ChangeState(EnemyStateEnum.Idle);
         }
@@ -50,7 +50,8 @@ public class StateManager : Enemy
 
     private IEnumerator ChangeToWalk()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
+         MovementComponent._canMove = true;
         StateMachine.ChangeState(EnemyStateEnum.Walk);
     }
 }

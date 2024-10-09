@@ -21,7 +21,7 @@ public class Money : MonoBehaviour
     private void Update()
     {
         money = DataManager.Instance.money;
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.Equals))
         {
             DataManager.Instance.money += 1000000;
         }

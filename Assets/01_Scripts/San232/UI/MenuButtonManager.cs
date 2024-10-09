@@ -46,7 +46,7 @@ public class MenuButtonManager : MonoBehaviour
     {
         foreach (var data in _playerItemData.havingGadgetDic)
         {
-            if (data.Key != GadgetType.None)
+            if (data.Key != GadgetType.None || data.Key == GadgetType.shield)
             {
                 if (data.Value == 0)
                 {
