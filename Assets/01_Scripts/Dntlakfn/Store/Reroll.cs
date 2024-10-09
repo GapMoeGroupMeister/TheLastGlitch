@@ -13,7 +13,8 @@ public class Reroll : MonoBehaviour
     {
         if (Money.money >= 50)
         {
-            OnReroll = reroll.Invoke;
+            OnReroll = mm;
+            OnReroll += reroll.Invoke;
             EventBox e = Instantiate(_eb, canvas);
             e.SetEvent(OnReroll, "상품을 새로고침 하시겠습니까?");
         }
@@ -22,6 +23,13 @@ public class Reroll : MonoBehaviour
             MessageBox m = Instantiate(mb, canvas);
             m.SetMessage("돈이 부족합니다.");
         }
+
+
+    }
+
+    public void mm()
+    {
+        DataManager.Instance.money -= 50;
     }
 
 
