@@ -873,3 +873,4 @@ MonoBehaviour:
   _shield: {fileID: -332477659, guid: b67d26ac11ed69647983f2b6d4365c0c, type: 3}
   _rocket: {fileID: 896428860, guid: b67d26ac11ed69647983f2b6d4365c0c, type: 3}
   _non: {fileID: 21300000, guid: 00fb9cf2de8a35e48a66210829d97001, type: 3}
+  _reader: {fileID: 11400000, guid: e63a522f8ca439447b00d68c2a0323e8, type: 2}
