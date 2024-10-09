@@ -46,12 +46,13 @@ public class GoodsControl : MonoBehaviour
 
     public void BuyItem()
     {
-        Money.money -= item._price;
+        DataManager.Instance.money -= item._price;
         gameObject.SetActive(false);
         Debug.Log(item);
         //인벤토리 리스트에 구매한 아이탬 넣어줌
-        GameManager.Instance.Player.GetComponentInChildren<PassiveManager>().HavePassiveList.Add(item.passiveSO);
-        GameManager.Instance.Player.GetComponentInChildren<PassiveManager>().AddPassive();
+        PassiveManager passiveManager = GameManager.Instance.Player.GetComponentInChildren<PassiveManager>();
+        passiveManager.HavePassiveList.Add(item.passiveSO);
+        passiveManager.AddPassive();
         GameManager.Instance.Player.GetComponent<PlayerStat>().StatSet(item.passiveSO);
     }
 
@@ -63,7 +64,7 @@ public class GoodsControl : MonoBehaviour
             {
                 MessageBox m = Instantiate(mb, canvas);
 
-                m.SetMessage("뭐 간판이라도 가져가게?");
+                m.SetMessage("매진이라고 임마 뭐 간판이라도 가져가게?");
             }
             OnBuy = BuyItem;
             EventBox e = Instantiate(_eb, canvas);

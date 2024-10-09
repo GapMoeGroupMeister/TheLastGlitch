@@ -1,13 +1,13 @@
 {
-    "EquipGadget": 1,
-    "Battery": 45,
-    "Metal": 42,
-    "Pcb": 11,
-    "Sensor": 5,
-    "Gear": 40,
-    "Shield": 48,
+    "EquipGadget": 0,
+    "Battery": 25,
+    "Metal": 177,
+    "Pcb": 74,
+    "Sensor": 74,
+    "Gear": 0,
+    "Shield": 0,
     "Aed": 0,
-    "RocketLauncher": 1,
+    "RocketLauncher": 0,
     "Doping": 0,
-    "HackPulse": -2
+    "HackPulse": 0
 }

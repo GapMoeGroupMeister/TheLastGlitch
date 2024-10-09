@@ -5,8 +5,8 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] private AudioSource _sfxPlayer;
-    [SerializeField] private AudioSource _bgmPlayer;
+    public AudioSource _sfxPlayer;
+    public AudioSource _bgmPlayer;
 
     private void Awake()
     {
