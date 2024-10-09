@@ -1,6 +1,8 @@
 using EasySave.Json;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public enum GadgetType
 {
@@ -22,6 +24,7 @@ public enum RequireItemType
 public class PlayerItemData : MonoSingleton<PlayerItemData>
 {
     public ItemData gadgetData;
+    public GameObject Hack, Doping, AED, Shield, Rocket;
 
     public GadgetType CurrentGadget { get; set; } = GadgetType.None;
 
@@ -33,6 +36,14 @@ public class PlayerItemData : MonoSingleton<PlayerItemData>
     }
 
     [ContextMenu("To Json Data")]
+    public void SaveGadgetData()
+    {
+        OverwritingData(true);
+
+        EasyToJson.ToJson(gadgetData, "ItemData", true);
+
+        LoadItemData();
+    }
     public void SaveGadgetDataToJson()
     {
         OverwritingData(false);
@@ -125,5 +136,24 @@ public class PlayerItemData : MonoSingleton<PlayerItemData>
         public int RocketLauncher = 0;
         public int Doping = 0;
         public int HackPulse = 0;
+    }
+
+    public void GadgetInit(GadgetType type)
+    {
+        switch (type)
+        {
+            case GadgetType.aed:Instantiate(AED); break;
+            case GadgetType.hackPulse: Instantiate(Hack); break;
+            case GadgetType.doping:Instantiate(Doping); break;
+            case GadgetType.shield:Instantiate(Shield); break;
+            case GadgetType.rocketLauncher: Instantiate(Rocket); break;
+
+            default: break;
+        }
+    }
+    public void GadgetMinus(GadgetType type)
+    {
+        havingGadgetDic[type]--;
+        SaveGadgetDataToJson();
     }
 }
