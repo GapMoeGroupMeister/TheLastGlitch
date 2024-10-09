@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class PassiveManager : MonoSingleton<PassiveManager>
 {
@@ -15,7 +16,7 @@ public class PassiveManager : MonoSingleton<PassiveManager>
     private void Start()
     {
         player = GameManager.Instance.Player;
-        UseTimePassiveSkill();
+        StartCoroutine(PassiveTimer(2));
     }
 
     public void Update()
@@ -42,18 +43,18 @@ public class PassiveManager : MonoSingleton<PassiveManager>
         {
             if (item.type == PATEnum.Time)
             {
-                StartCoroutine(PassiveTimer(item.time, item));
+                item.Skill(player);
             }
         }
     }
 
-    private IEnumerator PassiveTimer(float time, PassiveSO item)
+    private IEnumerator PassiveTimer(float time)
     {
         while (true)
         {
-            yield return new WaitForSeconds(time);
-            item.Skill(player);
+            UseTimePassiveSkill();
             Debug.Log("타임 패시브 실행");
+            yield return new WaitForSeconds(time);
         }
     }
 
