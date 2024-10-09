@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +9,8 @@ public class HackPulse : MonoBehaviour
 
     private void Start()
     {
-        
+        Hack();
+        Destroy(gameObject);
     }
 
     private void Hack()
@@ -35,15 +34,9 @@ public class HackPulse : MonoBehaviour
             enemy._xMove = 0;
         }
     }
-
-
-#if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, _hackRange);
     }
-#endif
-
-    // UseGadget() 함수는 GadgetParent에서 상속받아 사용
 }
