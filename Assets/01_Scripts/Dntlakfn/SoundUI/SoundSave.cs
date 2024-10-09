@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SoundSave : MonoBehaviour
 {
     public SoundFile soundFile;
+    
     public AudioSource BGM;
     public AudioSource SFX;
     public Slider BGMSlider;
@@ -14,8 +15,17 @@ public class SoundSave : MonoBehaviour
 
     private void Awake()
     {
+        //FindAnyObjectByType<AudioManager>().;
+
+
+
         LoadVolum();
     }
+
+
+
+
+
     public void SaveVolum()
     {
         BGM.volume = BGMSlider.value;

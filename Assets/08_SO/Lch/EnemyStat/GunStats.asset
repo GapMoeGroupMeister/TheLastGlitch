@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63429e9abd493a240a5f4eb012e714fb, type: 3}
   m_Name: GunStats
   m_EditorClassIdentifier: 
-  EnemyHeath: 100
+  EnemyHeath: 60
   EnemydetectRadius: 7
   EnemyattackRadius: 7
   Enemydamge: 5
