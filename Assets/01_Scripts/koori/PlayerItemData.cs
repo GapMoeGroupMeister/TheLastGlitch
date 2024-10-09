@@ -30,16 +30,6 @@ public class PlayerItemData : MonoSingleton<PlayerItemData>
         gadgetData = new ItemData();
 
         LoadItemData();
-
-        var obj = FindObjectsOfType<PlayerItemData>();
-        if (obj.Length == 1)
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     [ContextMenu("To Json Data")]
