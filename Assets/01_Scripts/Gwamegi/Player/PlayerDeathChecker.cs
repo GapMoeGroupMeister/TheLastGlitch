@@ -8,11 +8,6 @@ public class PlayerDeathChecker : MonoBehaviour
     private GameOver _gameOver;
     private Timer _playTimer;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this);
-    }
-
     private void OnEnable()
     {
         _inputReader.playerController.Enable();
@@ -27,11 +22,13 @@ public class PlayerDeathChecker : MonoBehaviour
     public void Die()
     {
         DataManager.Instance.money += (int)_playTimer._timer * 10;
+        PlayerItemData.Instance.SaveGadgetDataToJson();
         _playTimer.isGameOver = true;
         _gameOver.playTime = _playTimer._timer;
         _gameOver.haveCoin = (int)_playTimer._timer * 10;
         _inputReader.playerController.Disable();
         _gameOver.gameObject.SetActive(true);
+        gameObject.GetComponent<Health>().ResetHealth();
         gameObject.SetActive(false);
     }
 }

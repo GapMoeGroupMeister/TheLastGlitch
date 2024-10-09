@@ -10,7 +10,7 @@ public abstract class Agent : MonoBehaviour
     public Health HealthComponent { get; protected set; }
     #endregion
 
-    public bool IsDie { get; protected set; }
+    public bool IsDie { get; set; }
     protected float _timeInTheAir;
     protected virtual void Awake()
     {

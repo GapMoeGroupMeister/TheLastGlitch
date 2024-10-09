@@ -23,7 +23,7 @@ public class Health : MonoBehaviour
         _onwer = agent;
         ResetHealth();
     }
-    private void ResetHealth()
+    public void ResetHealth()
     {
         StartCoroutine(ResetHealthCoroutine());
     }

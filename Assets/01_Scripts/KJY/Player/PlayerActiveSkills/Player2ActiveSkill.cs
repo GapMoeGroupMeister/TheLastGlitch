@@ -70,6 +70,12 @@ public class Player2ActiveSkill : MonoBehaviour
         _playerStat.StatSet(_upStat);
     }
 
+    public void ErrorActive()
+    {
+        if (_activeCool)
+            ReturnPower();
+    }
+
     private void ReturnPower()
     {
         Debug.Log("DownStat");

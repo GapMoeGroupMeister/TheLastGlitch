@@ -68,6 +68,8 @@ public class MenuManager : MonoBehaviour
     public void GoToBattle()
     {
         PlayerItemData.Instance.SaveGadgetDataToJson();
+        GameManager.Instance.Player.IsDie = false;
+        GameManager.Instance.Player._isDead = false;
         LoadingSceneManager.LoadScene("Stage1");
     }
 }

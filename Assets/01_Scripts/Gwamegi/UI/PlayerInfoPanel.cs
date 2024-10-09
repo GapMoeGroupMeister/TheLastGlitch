@@ -6,47 +6,26 @@ using UnityEngine.UI;
     
 public class PlayerInfoPanel : MonoBehaviour
 {
-    public RectTransform createPlayerInfoPanel;
-    public RectTransform createPlayerIcon;
-    public List<PlayerInfoSO> playerInfoSOList = new List<PlayerInfoSO>();
-
-    public RectTransform penal;
     public Image sprite;
     public TextMeshProUGUI playerNameTMP;
     public TextMeshProUGUI playerStatInfoTMP;
     public TextMeshProUGUI playerPassiveDescTMP;
     public TextMeshProUGUI playerActiveSkillDescTMP;
 
-    public PlayerTypeEnum currentPlayer;
-    public Action<PlayerTypeEnum, PlayerInfoSO> OnPlayerSelectEvent;
-
-    private void Start()
-    {
-        createPlayerIcon.gameObject.SetActive(false);
-
-        foreach (PlayerInfoSO item in playerInfoSOList)
-        {
-            RectTransform icon = Instantiate(createPlayerIcon, createPlayerInfoPanel);
-            icon.gameObject.SetActive(true);
-
-            icon.GetComponent<PlayerChoiseBtn>()._playerInfoSO = item;
-            icon.GetComponent<PlayerChoiseBtn>()._playerImage.sprite = item.playerSpreite;
-            PlayerChoiseBtn._btnList.Add(icon.GetComponent<PlayerChoiseBtn>());
-        }
-    }
-
-
+    public Button SelectBtn;
+    public PlayerInfoSO nonePlayerInfo;
     public void Initalize(PlayerInfoSO playerInfo)
     {
-        penal.gameObject.SetActive(true);
         sprite.sprite = playerInfo.playerSpreite;
         playerNameTMP.text = $"플레이어 이름 : {playerInfo.playerName}";
         playerStatInfoTMP.text = StatText(playerInfo).Replace("\\n", "\n").Replace("\\t", "\t");
         playerPassiveDescTMP.text = $"고유 패시브 : {playerInfo.playerPassiveDesc}";
         playerActiveSkillDescTMP.text = $"액티브 스킬 : {playerInfo.playerActiveSkillDesc}";
 
-        currentPlayer = playerInfo.playerType;
-        OnPlayerSelectEvent?.Invoke(currentPlayer, playerInfo);
+        if(nonePlayerInfo == playerInfo)
+            SelectBtn.interactable = false;
+        else
+            SelectBtn.interactable = true;
     }
 
     public string StatText(PlayerInfoSO playerInfo)
@@ -56,7 +35,6 @@ public class PlayerInfoPanel : MonoBehaviour
 
     public void Hide()
     {
-        penal.gameObject.SetActive(false);
         sprite.sprite = default;
         playerNameTMP.text = default;
         playerStatInfoTMP.text = default;

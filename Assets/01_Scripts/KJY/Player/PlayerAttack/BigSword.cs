@@ -18,24 +18,11 @@ public class BigSword : PlayerWeaponParent
 
     private DG.Tweening.Sequence AttackSequence;
 
-    private void Awake()
-    {
-    }
-
     private void Start()
     {
+        _input.OnAttackEvent += BigSwordAttack;
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         AttackSequence.Restart();
-    }
-
-    private void OnEnable()
-    {
-        _input.OnAttackEvent += BigSwordAttack;
-    }
-
-    private void OnDisable()
-    {
-        _input.OnAttackEvent -= BigSwordAttack;
     }
 
     public void BigSwordAttack()
