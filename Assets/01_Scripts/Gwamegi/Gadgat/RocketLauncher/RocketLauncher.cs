@@ -2,6 +2,7 @@ using Cinemachine;
 using DG.Tweening.Plugins.Core.PathCore;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class RocketLauncher : MonoBehaviour
@@ -15,11 +16,17 @@ public class RocketLauncher : MonoBehaviour
 
     private bool isFirstAttack = true;
 
-    [SerializeField] private int whileCount;
+    [SerializeField] private int whileCount = 1;
 
-    private void Start()
+    private void OnEnable()
     {
-        
+        UseRocketLauncher();
+    }
+
+    private void LateUpdate()
+    {
+        transform.position = GameManager.Instance.player.transform.position;
+        GetComponentInChildren<Transform>().position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void UseRocketLauncher()

@@ -142,11 +142,11 @@ public class PlayerItemData : MonoSingleton<PlayerItemData>
     {
         switch (type)
         {
-            case GadgetType.aed: GameObject aed = new GameObject(); aed = Instantiate(AED); break;
-            case GadgetType.hackPulse: GameObject hack = new GameObject(); hack = Instantiate(Hack); break;
-            case GadgetType.doping:GameObject doping = new GameObject();  doping = Instantiate(Doping); break;
-            case GadgetType.shield:GameObject shield = new GameObject(); shield = Instantiate(Shield); break;
-            case GadgetType.rocketLauncher: GameObject rocket = new GameObject(); rocket = Instantiate(Rocket); break;
+            case GadgetType.aed:Instantiate(AED); break;
+            case GadgetType.hackPulse: Instantiate(Hack); break;
+            case GadgetType.doping:Instantiate(Doping); break;
+            case GadgetType.shield:Instantiate(Shield); break;
+            case GadgetType.rocketLauncher: Instantiate(Rocket); break;
 
             default: break;
         }

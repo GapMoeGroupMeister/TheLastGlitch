@@ -19,18 +19,12 @@ public class GadgetUI : MonoBehaviour
     private void Start()
     {
         Reset();
-        if (PlayerItemData.Instance.CurrentGadget == GadgetType.aed)
-        {
-            PlayerItemData.Instance.GadgetInit(GadgetType.aed);
-            PlayerItemData.Instance.GadgetMinus(GadgetType.aed);
-            PlayerItemData.Instance.CurrentGadget = GadgetType.None;
-        }
     }
 
     private void UseGadget()
     {
         Debug.Log("가젯 키 눌림");
-        if(PlayerItemData.Instance.CurrentGadget != GadgetType.None&&PlayerItemData.Instance.CurrentGadget != GadgetType.aed)
+        if(PlayerItemData.Instance.CurrentGadget != GadgetType.None)
         {
             Debug.Log("가젯 소환 시작");
             PlayerItemData.Instance.GadgetInit(PlayerItemData.Instance.CurrentGadget);
