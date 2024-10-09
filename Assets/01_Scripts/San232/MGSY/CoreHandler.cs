@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CoreHandler : MGSYPattern
 {
     [SerializeField] private List<Core> cores = new List<Core>();
-
+    public UnityEvent explosionEffect;
     private int maxCoreCount = 2;
     private bool _isThereCore = true;
 
@@ -32,6 +33,7 @@ public class CoreHandler : MGSYPattern
     {
         if(_isThereCore)
         {
+            explosionEffect?.Invoke();
             foreach (Core core in cores)
             {
                 core.DestroyCore();
