@@ -63,7 +63,6 @@ public abstract class Player : Agent
     private void Start()
     {
         _input.OnJumpEvent += OnJump;
-        _input.OnAttackEvent += OnAttack;
         _input.OnActiveSkillEvent += OnActiveSkill;
         _input.OnInteractionEvent += OnInteraction;
         _input.OnSwapingEvent += OnSwaping;
@@ -118,31 +117,6 @@ public abstract class Player : Agent
     private void OnMovement()
     {
         _xMove = _input.Movement.x;
-    }
-
-    private void OnAttack()
-    {
-        if (!_isAttack)
-        {
-            _isDoubleAttack = false;
-            _isAttack = true;
-        }
-        else if (_isAttack)
-        {
-            _isDoubleAttack = true;
-            _isAttack = false;
-        }
-    }
-
-    public void Attack1Disable()
-    {
-        StartCoroutine(Atttack1DisableCO());
-    }
-
-    private IEnumerator Atttack1DisableCO()
-    {
-        yield return new WaitForSeconds(1f);
-        _isAttack = false;
     }
 
     public void MousePos(Vector3 mousePos)
