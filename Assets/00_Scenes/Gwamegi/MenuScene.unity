@@ -16760,6 +16760,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621646838}
   m_CullTransparentMesh: 1
+--- !u!1 &648640890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 648640892}
+  - component: {fileID: 648640891}
+  m_Layer: 0
+  m_Name: PlayerItemManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &648640891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648640890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a0e80d998513f4aacdda60ade0a908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gadgetData:
+    EquipGadget: 0
+    Battery: 0
+    Metal: 0
+    Pcb: 0
+    Sensor: 0
+    Gear: 0
+    Shield: 0
+    Aed: 0
+    RocketLauncher: 0
+    Doping: 0
+    HackPulse: 0
+--- !u!4 &648640892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648640890}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.54709613, y: -1.6906866, z: -0.14545275}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &655634560
 GameObject:
   m_ObjectHideFlags: 0
@@ -17043,7 +17099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 825babeeb53238747825cf33da6afcf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerObject: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &816472215
 GameObject:
   m_ObjectHideFlags: 0
@@ -31992,7 +32048,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1941913937}
   - component: {fileID: 1941913936}
-  - component: {fileID: 1941913938}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -32034,30 +32089,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1941913938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941913935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a0e80d998513f4aacdda60ade0a908, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gadgetData:
-    EquipGadget: 0
-    Battery: 0
-    Metal: 0
-    Pcb: 0
-    Sensor: 0
-    Gear: 0
-    Shield: 0
-    Aed: 0
-    RocketLauncher: 0
-    Doping: 0
-    HackPulse: 0
 --- !u!1001 &2000056563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38772,6 +38803,7 @@ SceneRoots:
   - {fileID: 767996582}
   - {fileID: 1867248385}
   - {fileID: 1941913937}
+  - {fileID: 648640892}
   - {fileID: 988373179}
   - {fileID: 521800338}
   - {fileID: 508501096}

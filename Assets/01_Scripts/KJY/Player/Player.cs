@@ -56,18 +56,21 @@ public abstract class Player : Agent
 
     protected override void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         base.Awake();
+        var obj = FindObjectsOfType<Player>();
+        if (obj.Length == 1)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
     {
         _input.OnJumpEvent += OnJump;
-        _input.OnAttackEvent += OnAttack;
-        _input.OnActiveSkillEvent += OnActiveSkill;
-        _input.OnInteractionEvent += OnInteraction;
-        _input.OnSwapingEvent += OnSwaping;
-        _input.OnUseGadgetEvent += OnUseGadget;
     }
 
     //private void OnDisable()

@@ -316,7 +316,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e3bf99a556c742c44a0f46132733d1b2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -481,7 +481,7 @@ MonoBehaviour:
   DeadItem:
   - {fileID: 6053116263363009150, guid: 25e8919e3788e1145903fb9daa8f42bf, type: 3}
   - {fileID: 5151407446827430101, guid: 15a5c681b0f8ed049be7ad5cd94f46ad, type: 3}
-  vec: {x: 0, y: 0, z: 0}
+  vec: {x: 0, y: 0}
   _enemyStats: {fileID: 11400000, guid: f71f41806dc48434395ed959ae4baa4a, type: 2}
   targetTrm: {fileID: 0}
   lastAttackTime: 0
@@ -494,6 +494,7 @@ MonoBehaviour:
   FirstWake: 1
   fainting: 0
   _enemyPooling: {fileID: 0}
+  wayPoint: []
   _laserShooter: {fileID: 1532802546698157175}
   _firePos: {fileID: 2540853020489956635}
 --- !u!114 &8560450164311203252
