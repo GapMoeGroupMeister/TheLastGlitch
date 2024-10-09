@@ -16316,6 +16316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _goToBossButton: {fileID: 965400595}
   _playerItemData: {fileID: 1857925193}
+  _buttonText: {fileID: 2137675325}
 --- !u!1 &521800335
 GameObject:
   m_ObjectHideFlags: 0
