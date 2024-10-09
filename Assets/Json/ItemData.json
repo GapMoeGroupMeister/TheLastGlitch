@@ -5,9 +5,9 @@
     "Pcb": 11,
     "Sensor": 5,
     "Gear": 40,
-    "Shield": 50,
+    "Shield": 48,
     "Aed": 0,
     "RocketLauncher": 1,
     "Doping": 0,
-    "HackPulse": -1
+    "HackPulse": -2
 }
