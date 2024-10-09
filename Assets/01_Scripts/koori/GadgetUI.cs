@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +10,7 @@ public class GadgetUI : MonoBehaviour
     private void Awake()
     {
         _reader.OnUseGadgetEvent += UseGadget;
-        
+
     }
     private void Start()
     {
@@ -24,7 +20,7 @@ public class GadgetUI : MonoBehaviour
     private void UseGadget()
     {
         Debug.Log("가젯 키 눌림");
-        if(PlayerItemData.Instance.CurrentGadget != GadgetType.None)
+        if (PlayerItemData.Instance.CurrentGadget != GadgetType.None)
         {
             Debug.Log("가젯 소환 시작");
             PlayerItemData.Instance.GadgetInit(PlayerItemData.Instance.CurrentGadget);
@@ -47,11 +43,11 @@ public class GadgetUI : MonoBehaviour
         {
             case GadgetType.doping: return _doping;
             case GadgetType.aed: return _aed;
-            case GadgetType .shield: return _shield;
+            case GadgetType.shield: return _shield;
             case GadgetType.rocketLauncher: return _rocket;
             case GadgetType.hackPulse: return _hack;
 
-            default : return _non;
+            default: return _non;
         }
     }
 }

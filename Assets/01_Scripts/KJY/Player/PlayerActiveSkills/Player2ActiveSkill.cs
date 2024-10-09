@@ -38,11 +38,16 @@ public class Player2ActiveSkill : MonoBehaviour
         {
             Destroy(Instance);
         }
-        _inputReader.OnActiveSkillEvent += UseActive;
+        
 
         _playerStat = GetComponent<PlayerStat>();
         _playerHealth = GetComponent<Health>();
 
+    }
+
+    private void Start()
+    {
+        _inputReader.OnActiveSkillEvent += UseActive;
     }
 
     private void UseActive()
@@ -65,7 +70,6 @@ public class Player2ActiveSkill : MonoBehaviour
 
     private void PowerUp()
     {
-        if (_isbool) return;
         Debug.Log("UpStat");
         _upStat.atkPower += _atkStat;
         _upStat.moveSpeed += _speedStat;
@@ -75,11 +79,11 @@ public class Player2ActiveSkill : MonoBehaviour
 
     public void ErrorActive()
     {
-        if (_activeCool)
+        if (_isbool)
         {
-            _isbool = true;
+            _playerStat.StatSet(_downStat);
             ReturnPower();
-        _activeCool = false;
+            _activeCool = false;
             _isbool = false;
         }
     }
@@ -108,9 +112,11 @@ public class Player2ActiveSkill : MonoBehaviour
     private IEnumerator returnStat()
     {
         _activeCool = true;
+        _isbool = true;
         yield return new WaitForSeconds(8f);
         _playerHealth.CurrentHealth += ((int)_activeHp);
         ReturnPower();
+        _isbool = false;
         yield return new WaitForSeconds(10f);
         _activeCool = false;
     }
