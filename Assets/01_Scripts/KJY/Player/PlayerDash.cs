@@ -18,18 +18,13 @@ public class PlayerDash : MonoBehaviour
 
     private void Awake()
     {
-        _trail = GetComponent<TrailRenderer>();
         _input.OnDashEvent += Dash;
+        _trail = GetComponent<TrailRenderer>();
     }
 
     private void Start()
     {
         _trail.emitting = false;
-    }
-
-    private void OnDisable()
-    {
-        //_input.OnDashEvent -= Dash;
     }
 
     private void Dash()

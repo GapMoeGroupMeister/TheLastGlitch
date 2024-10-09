@@ -21,13 +21,11 @@ public class PlayerStat : MonoBehaviour
     private Health _health;
     private PlayerWeaponParent[] _weaponParent;
     
-
-
-    [SerializeField] private float _maxHealth;
-    [SerializeField] private float _moveSpeed;
-    [SerializeField] private float _atkPower;
-    [SerializeField] private float _critDamage;
-    [SerializeField] private float _critProbability;
+    public float _maxHealth;
+    public float _moveSpeed;
+    public float _atkPower;
+    public float _critDamage;
+    public float _critProbability;
 
     private void Awake()
     {
