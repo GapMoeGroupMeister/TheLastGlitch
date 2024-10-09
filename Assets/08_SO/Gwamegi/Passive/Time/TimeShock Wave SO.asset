@@ -22,7 +22,7 @@ MonoBehaviour:
   time: 0
   distance: {x: 0, y: 0}
   radius: 2
-  _isUsePlayerEffect: 0
+  _isUsePlayerEffect: 1
   effect: {fileID: 2000792778140916008, guid: 836a1f149c11525479fa49dafea6fa57, type: 3}
   type: 1
   passiveType: 0

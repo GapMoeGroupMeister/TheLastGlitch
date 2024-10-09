@@ -45,7 +45,18 @@ public class Enemy : EnemySetting
 
     private void Start()
     {
-        dir = RandomVetcer() - transform.position;
+        StartCoroutine(WalKStopCoroutine());
+    }
+
+    private IEnumerator WalKStopCoroutine()
+    {
+        while (true)
+        {
+            dir = RandomVetcer() - transform.position;
+            yield return new WaitForSeconds(2f);
+            MovementComponent._xMove = 0f;
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
     private void OnEnable()

@@ -18,4 +18,4 @@ MonoBehaviour:
   Enemydamge: 10
   EnemyknockbackPower: 5
   EnemyattackCooldown: 0
-  EnemystopRay: 0.4
+  EnemystopRay: 0.7
