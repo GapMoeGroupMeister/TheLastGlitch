@@ -219,6 +219,7 @@ MonoBehaviour:
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 256
+  _boomParticle: {fileID: 1679787267828109451, guid: 6dfdc021899ad9d45b910a65f5c9c945, type: 3}
 --- !u!1 &9058335271548953374
 GameObject:
   m_ObjectHideFlags: 0
