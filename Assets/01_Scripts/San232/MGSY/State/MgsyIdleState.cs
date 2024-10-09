@@ -21,6 +21,7 @@ public class MgsyIdleState : MGSYState<BossStateEnum>
     {
         base.Enter();
         mgsy.HealthComponent.IsHittable = false;
+        mgsy.targetTrm.position = new Vector3(-9, -1.3f, 0);
     }
 
     public override void UpdateState()
