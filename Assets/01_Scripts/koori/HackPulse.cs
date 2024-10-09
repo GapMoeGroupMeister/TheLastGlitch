@@ -9,8 +9,8 @@ public class HackPulse : MonoBehaviour
 
     private void Start()
     {
+        transform.position = GameManager.Instance.Player.transform.position;
         Hack();
-        Destroy(gameObject);
     }
 
     private void Hack()
@@ -31,7 +31,7 @@ public class HackPulse : MonoBehaviour
         foreach (AgentMovement enemy in _hackableEnemy)
         {
             enemy.StopImmediately(true);
-            enemy._xMove = 0;
+            enemy._canMove = false;
         }
     }
     private void OnDrawGizmosSelected()
