@@ -2,21 +2,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class GameClearManager : MonoBehaviour
 {
     [SerializeField] private Image _fadeImage; // 하얀색 이미지
     [SerializeField] private float _fadeDuration = 1f; // 페이드 아웃 시간
+    public UnityEvent OnPlaySFX;
 
     private void Start()
     {
         DOTween.Init();
         // FadeOut 초기화: 알파값을 0으로 설정 (투명 상태)
-        _fadeImage.color = new Color(1, 1, 1, 0);
+        
     }
 
     public void GameClear()
     {
+        //이미지 설정
+        _fadeImage.gameObject.SetActive(true);
+        _fadeImage.color = new Color(1, 1, 1, 0);
+
         // 게임 시간 멈추기
         Time.timeScale = 0f;
 
