@@ -247,6 +247,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1941913938}
+        m_TargetAssemblyTypeName: SfxFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1352950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1114,6 +1126,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1941913936}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: GadgetEquipBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1941913938}
+        m_TargetAssemblyTypeName: SfxFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedback
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16041,6 +16065,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1941913938}
+        m_TargetAssemblyTypeName: SfxFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &433249326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16314,6 +16350,7 @@ GameObject:
   - component: {fileID: 521800337}
   - component: {fileID: 521800339}
   - component: {fileID: 521800341}
+  - component: {fileID: 521800342}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -16455,6 +16492,14 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!81 &521800342
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521800335}
+  m_Enabled: 1
 --- !u!1 &575001372
 GameObject:
   m_ObjectHideFlags: 0
@@ -16579,6 +16624,18 @@ MonoBehaviour:
       - m_Target: {fileID: 309119178}
         m_TargetAssemblyTypeName: EventBox, Assembly-CSharp
         m_MethodName: Cancel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1941913938}
+        m_TargetAssemblyTypeName: SfxFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedback
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17209,6 +17266,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1941913938}
+        m_TargetAssemblyTypeName: SfxFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &828418661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17366,6 +17435,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1941913938}
+        m_TargetAssemblyTypeName: SfxFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &915777241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17508,6 +17589,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1941913936}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: GoToTitle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1941913938}
+        m_TargetAssemblyTypeName: SfxFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedback
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17674,6 +17767,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1941913936}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: CraftBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1941913938}
+        m_TargetAssemblyTypeName: SfxFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedback
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -30795,6 +30900,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1941913938}
+        m_TargetAssemblyTypeName: SfxFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1272813179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31933,6 +32050,11 @@ MonoBehaviour:
     RocketLauncher: 0
     Doping: 0
     HackPulse: 0
+  Hack: {fileID: 2840178749352525910, guid: 0f78c74672c82c849bdd8508016067f4, type: 3}
+  Doping: {fileID: 8967258885874078841, guid: d46673435f48947478b9e361fb937eec, type: 3}
+  AED: {fileID: 6369094201005926967, guid: b6149caef72e9f1429f4e2ddda411b17, type: 3}
+  Shield: {fileID: 5855655147341017998, guid: 7896cac0d0d517742b431b0e7b1de91a, type: 3}
+  Rocket: {fileID: 7808598780841450638, guid: d947b2da484b14e459ea3f5b4b367c50, type: 3}
 --- !u!4 &1857925194
 Transform:
   m_ObjectHideFlags: 0
@@ -32065,6 +32187,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1941913937}
   - component: {fileID: 1941913936}
+  - component: {fileID: 1941913938}
+  - component: {fileID: 1941913939}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -32106,6 +32230,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1941913938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941913935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9266932f144ee24b89c37eb812cab4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentClip: {fileID: 8300000, guid: b44db1274b50ecb41a1cc5f9092e61b2, type: 3}
+--- !u!114 &1941913939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941913935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbfa0e705d523744a50d7eb8746e9a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2000056563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32243,16 +32392,44 @@ PrefabInstance:
       value: 5.14
       objectReference: {fileID: 0}
     - target: {fileID: 864445891257587972, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 864445891257587972, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 864445891257587972, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1941913936}
+    - target: {fileID: 864445891257587972, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1941913938}
+    - target: {fileID: 864445891257587972, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 864445891257587972, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CraftExit
       objectReference: {fileID: 0}
     - target: {fileID: 864445891257587972, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayFeedback
+      objectReference: {fileID: 0}
+    - target: {fileID: 864445891257587972, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: MenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 864445891257587972, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SfxFeedback, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 864445891257587972, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 881208664096713257, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_Spacing
@@ -32406,6 +32583,34 @@ PrefabInstance:
     - target: {fileID: 2598896201048038513, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620396688960716916, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620396688960716916, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620396688960716916, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1941913938}
+    - target: {fileID: 2620396688960716916, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620396688960716916, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayFeedback
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620396688960716916, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SfxFeedback, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620396688960716916, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2732802452778734617, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_text
@@ -33086,6 +33291,34 @@ PrefabInstance:
       propertyPath: m_PixelsPerUnitMultiplier
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7097059621571340200, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7097059621571340200, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7097059621571340200, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1941913938}
+    - target: {fileID: 7097059621571340200, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7097059621571340200, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayFeedback
+      objectReference: {fileID: 0}
+    - target: {fileID: 7097059621571340200, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SfxFeedback, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7097059621571340200, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7146085027173979727, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
       value: 1.5
@@ -33121,6 +33354,34 @@ PrefabInstance:
     - target: {fileID: 7915841831716387511, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242929567762447854, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242929567762447854, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242929567762447854, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1941913938}
+    - target: {fileID: 8242929567762447854, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242929567762447854, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayFeedback
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242929567762447854, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SfxFeedback, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242929567762447854, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8510920981473686132, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_text
@@ -33209,6 +33470,62 @@ PrefabInstance:
     - target: {fileID: 8942922517996845339, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981606359749778823, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981606359749778823, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981606359749778823, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1941913938}
+    - target: {fileID: 8981606359749778823, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981606359749778823, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayFeedback
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981606359749778823, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SfxFeedback, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981606359749778823, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204603290080728111, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204603290080728111, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204603290080728111, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1941913938}
+    - target: {fileID: 9204603290080728111, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204603290080728111, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayFeedback
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204603290080728111, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SfxFeedback, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204603290080728111, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -35572,6 +35889,18 @@ MonoBehaviour:
           m_StringArgument: aed
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1941913938}
+        m_TargetAssemblyTypeName: SfxFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &2684631601652136964
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -35662,6 +35991,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: rocketLauncher
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1941913938}
+        m_TargetAssemblyTypeName: SfxFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2878250896280258712
@@ -35797,6 +36138,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: doping
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1941913938}
+        m_TargetAssemblyTypeName: SfxFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &3177457516796201754
@@ -36320,6 +36673,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: shield
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1941913938}
+        m_TargetAssemblyTypeName: SfxFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!224 &4356842314669966476
@@ -36983,6 +37348,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1941913936}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: GadgetEquipExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1941913938}
+        m_TargetAssemblyTypeName: SfxFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedback
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -39197,6 +39574,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: hackPulse
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1941913938}
+        m_TargetAssemblyTypeName: SfxFeedback, Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &9167928894042954186

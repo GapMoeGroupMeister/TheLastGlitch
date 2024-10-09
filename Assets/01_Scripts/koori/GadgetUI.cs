@@ -9,10 +9,28 @@ public class GadgetUI : MonoBehaviour
 {
     [SerializeField] private Image _image;
     [SerializeField] Sprite _doping, _hack, _aed, _shield, _rocket, _non;
+    [SerializeField] InputReader _reader;
 
     private void Start()
     {
         Reset();
+        _reader.OnUseGadgetEvent += UseGadget;
+        if (PlayerItemData.Instance.CurrentGadget == GadgetType.aed)
+        {
+            PlayerItemData.Instance.GadgetInit(GadgetType.aed);
+            PlayerItemData.Instance.GadgetMinus(GadgetType.aed);
+            PlayerItemData.Instance.CurrentGadget = GadgetType.None;
+        }
+    }
+
+    private void UseGadget()
+    {
+        if(PlayerItemData.Instance.CurrentGadget != GadgetType.None&&PlayerItemData.Instance.CurrentGadget == GadgetType.aed)
+        {
+            PlayerItemData.Instance.GadgetInit(PlayerItemData.Instance.CurrentGadget);
+            PlayerItemData.Instance.GadgetMinus(PlayerItemData.Instance.CurrentGadget);
+            PlayerItemData.Instance.CurrentGadget = GadgetType.None;
+        }
     }
 
     private void Reset()
