@@ -45,21 +45,7 @@ public class Enemy : EnemySetting
 
     private void Start()
     {
-        StartCoroutine(MoveDealyCorotine());
-    }
-
-    private IEnumerator MoveDealyCorotine()
-    {
-        if(MovementComponent.rbCompo.velocity.y > -5)
-        {
-            while (true)
-            {
-                dir = RandomVetcer() - transform.position;
-                yield return new WaitForSeconds(2F);
-                MovementComponent._xMove = 0f;
-                yield return new WaitForSeconds(0.5f);
-            }
-        }
+        dir = RandomVetcer() - transform.position;
     }
 
     private void OnEnable()
