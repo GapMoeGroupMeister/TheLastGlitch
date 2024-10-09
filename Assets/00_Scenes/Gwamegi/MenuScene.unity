@@ -16270,6 +16270,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &510546300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 510546301}
+  - component: {fileID: 510546302}
+  m_Layer: 0
+  m_Name: MenuButtonManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &510546301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510546300}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &510546302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510546300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497c6b60004f5464fb10d499b029230a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goToBossButton: {fileID: 965400595}
+  _playerItemData: {fileID: 1857925193}
 --- !u!1 &521800335
 GameObject:
   m_ObjectHideFlags: 0
@@ -31354,6 +31400,11 @@ MonoBehaviour:
     RocketLauncher: 0
     Doping: 0
     HackPulse: 0
+  Hack: {fileID: 0}
+  Doping: {fileID: 0}
+  AED: {fileID: 0}
+  Shield: {fileID: 0}
+  Rocket: {fileID: 0}
 --- !u!4 &1857925194
 Transform:
   m_ObjectHideFlags: 0
@@ -31510,7 +31561,6 @@ MonoBehaviour:
   _gadgetEquipUI: {fileID: 25912503258980876}
   _mainUI: {fileID: 1768085431}
   _craft: {fileID: 2000056565}
-  _moveY: 535
   _ori: {x: 0, y: 0, z: 0}
 --- !u!4 &1941913937
 Transform:
@@ -32215,7 +32265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5401805051960083199, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_text
-      value: AED
+      value: "\uAD6C\uAE09\uC0C1\uC790"
       objectReference: {fileID: 0}
     - target: {fileID: 5401805051960083199, guid: 700a5ced8ba0df7458ac0a1c32cfa322, type: 3}
       propertyPath: m_fontSize
@@ -34065,7 +34115,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: AED
+  m_text: "\uAD6C\uAE09\uC0C1\uC790"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c509daf32b951424abdf5ae86839fa79, type: 2}
   m_sharedMaterial: {fileID: -3085444491536232274, guid: c509daf32b951424abdf5ae86839fa79, type: 2}
@@ -38524,6 +38574,7 @@ SceneRoots:
   - {fileID: 1867248385}
   - {fileID: 1941913937}
   - {fileID: 1857925194}
+  - {fileID: 510546301}
   - {fileID: 988373179}
   - {fileID: 521800338}
   - {fileID: 508501096}
