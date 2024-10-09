@@ -37,6 +37,11 @@ public class MenuButtonManager : MonoBehaviour
         CheckHaveAllGadgets();
     }
 
+    private void Update()
+    {
+        CheckHaveAllGadgets();
+    }
+
     private void CheckHaveAllGadgets()
     {
         foreach (var data in _playerItemData.havingGadgetDic)
