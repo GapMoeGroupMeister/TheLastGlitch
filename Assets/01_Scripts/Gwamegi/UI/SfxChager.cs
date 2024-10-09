@@ -16,6 +16,6 @@ public class SfxChager : MonoBehaviour
 
     public void SfxChange()
     {
-        _audioManager.PlaySfx(_sfxCilp);
+        _audioManager.PlaySfx(_sfxCilp);    
     }
 }
