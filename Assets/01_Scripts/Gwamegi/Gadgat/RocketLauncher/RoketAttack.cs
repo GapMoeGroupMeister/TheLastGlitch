@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class RoketAttack : MonoBehaviour
@@ -9,6 +7,8 @@ public class RoketAttack : MonoBehaviour
     [SerializeField] private float _attackDamage;
     [SerializeField] private float _attackknockbackPower;
     [SerializeField] private LayerMask _enemyLayer;
+
+    [SerializeField] private ParticleSystem _boomParticle;
 
     public void Attack()
     {
@@ -21,6 +21,9 @@ public class RoketAttack : MonoBehaviour
         {
             item.GetComponent<Health>().TakeDamage(_attackDamage, item.transform.position.normalized, _attackknockbackPower);
         }
+
+        ParticleSystem effect = Instantiate(_boomParticle,transform);
+        effect.transform.position = transform.position;
     }
 
 }
