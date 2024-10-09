@@ -17,7 +17,7 @@ public class DisplayGoods : MonoBehaviour
 
     public List<GoodsControl> Goods;
 
-    private void Awake()
+    private void Start()
     {
         displayedItems = new List<TestItemSO>();
         Goods = new List<GoodsControl>();
