@@ -12,7 +12,6 @@ public class PlayerWeapon2Attack1State : PlayerState<PlayerStateEnum>
     public override void Enter()
     {
         base.Enter();
-        _player.Attack1Disable();
         Debug.Log("Attack1 anim");
     }
 
