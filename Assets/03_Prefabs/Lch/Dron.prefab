@@ -65,7 +65,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8506684397240556132}
@@ -370,7 +370,7 @@ MonoBehaviour:
   - {x: -0.14700317, y: 0.21808457, z: 0}
   m_ShapePathHash: 1036198019
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40510
+  m_InstanceId: 270668
   m_LocalBounds:
     m_Center: {x: 0.023147583, y: 0.24372794, z: 0}
     m_Extent: {x: 0.48542786, y: 0.23732342, z: 0}
@@ -950,6 +950,10 @@ PrefabInstance:
       value: EnemyHP
       objectReference: {fileID: 0}
     - target: {fileID: 7525374504074809302, guid: 30701ed0f939a8c46b89181508ae5643, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525374504074809302, guid: 30701ed0f939a8c46b89181508ae5643, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.029
       objectReference: {fileID: 0}
@@ -988,6 +992,10 @@ PrefabInstance:
     - target: {fileID: 7525374504074809302, guid: 30701ed0f939a8c46b89181508ae5643, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332697914038752904, guid: 30701ed0f939a8c46b89181508ae5643, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

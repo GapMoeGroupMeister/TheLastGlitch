@@ -57,13 +57,6 @@ public class EnemyHPBar : MonoBehaviour
 
     private void Flip()
     {
-        if (_enemy.MovementComponent._xMove < 0 && _enemy.MovementComponent._xMove != 0)
-        {
-            transform.localScale = Vector3.one;
-        }
-        else if (_enemy.MovementComponent._xMove > 0 && _enemy.MovementComponent._xMove != 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
+        transform.localScale = new Vector3(-_enemy.gameObject.transform.localScale.x, 1,1);
     }
 }
