@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00_Scenes/StageFolder/BossScene.unity
     guid: fb1c1f6885b750e409c639c82c48766e
+  - enabled: 1
+    path: Assets/00_Scenes/San232/EndingScene.unity
+    guid: db6ac716282d71e4caee6bc7a19d71b9
   m_configObjects: {}

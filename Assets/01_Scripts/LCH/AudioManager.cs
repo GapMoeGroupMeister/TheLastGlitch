@@ -5,22 +5,29 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    private AudioSource _audioSource;
+    [SerializeField] private AudioSource _sfxPlayer;
+    [SerializeField] private AudioSource _bgmPlayer;
 
     private void Awake()
     {
-        _audioSource = GetComponent<AudioSource>();
         DontDestroyOnLoad(gameObject);
     }
 
     public void PlaySfx(AudioClip cilp)
     {
-        _audioSource.clip = cilp;
-        _audioSource.Play();
+        _sfxPlayer.clip = cilp;
+        _sfxPlayer.Play();
+    }
+
+    public void PlayBgm(AudioClip cilp)
+    {
+        _bgmPlayer.clip = cilp;
+        _bgmPlayer.Play();
     }
 
     public void ChangeVoulume(float volume)
     {
-        _audioSource.volume = volume / 100;
+        _sfxPlayer.volume = volume / 100;
+        _bgmPlayer.volume = volume / 100;
     }
 }
