@@ -79,5 +79,11 @@ public class PlayerStat : MonoBehaviour
             item.criticalHit += _critDamage;
             item.criticalhHitProbability += _critProbability;
         }
+
+        _maxHealth = 0;
+        _moveSpeed = 0;
+        _atkPower = 0;
+        _critDamage = 0;
+        _critProbability = 0;
     }
 }
