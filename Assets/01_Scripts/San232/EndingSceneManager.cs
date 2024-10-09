@@ -1,21 +1,41 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class EndingSceneManager : MonoBehaviour
 {
     private string _endingTitleText;
     [SerializeField] private TMP_Text _targetText;
     [SerializeField] private float _delay = 0.125f;
+    [SerializeField] private Image _fadeImage; // 하얀색 이미지
+    [SerializeField] private float _fadeDuration = 0.5f; // 페이드 인 시간
 
     private void Awake()
     {
+        _fadeImage.color = new Color(1, 1, 1, 1);
+
         // 원본 텍스트 저장 후 초기 출력은 빈 문자열로 설정
         _endingTitleText = _targetText.text.ToString();
         _targetText.text = "";
 
-        // 코루틴 실행
-        StartCoroutine(TextPrint(_delay));
+        
+    }
+
+    public void EnterEndingScene()
+    {
+        // 게임 시간 멈추기
+        Time.timeScale = 0f;
+
+        // 페이드 아웃 트윈: 알파값을 1로 (불투명 상태)로 바꾸기
+        _fadeImage.DOFade(1f, _fadeDuration).SetUpdate(true).OnComplete(() =>
+        {
+            // 페이드 아웃 완료 후 원하는 추가 행동
+            Debug.Log("Fade out complete");
+            // 코루틴 실행
+            StartCoroutine(TextPrint(_delay));
+        });
     }
 
     private IEnumerator TextPrint(float d)
