@@ -29,7 +29,7 @@ public class Reroll : MonoBehaviour
 
     public void mm()
     {
-        DataManager.Instance.money -= 50;
+        PlayerItemData.Instance.gadgetData.Gold -= 50;
     }
 
 

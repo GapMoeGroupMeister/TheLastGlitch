@@ -14,6 +14,7 @@ public class Stage : MonoBehaviour
         GameManager.Instance.Player.GetComponent<PlayerDash>().DashBool();
         GameManager.Instance.Player.MovementComponent._canMove = true;
         WeaponCoolTime.instance._attack = false;
+        GameManager.Instance.Player.transform.position = Vector3.up;
 
     }
 }

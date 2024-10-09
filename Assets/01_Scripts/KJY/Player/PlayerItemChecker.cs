@@ -31,6 +31,9 @@ public class PlayerItemChecker : MonoBehaviour
                 case RequireItemType.metal:
                     PlayerItemData.Instance.requireItemDic[RequireItemType.metal] += 1;
                     break;
+                case RequireItemType.gear:
+                    PlayerItemData.Instance.requireItemDic[RequireItemType.gear] += 1;
+                    break;
                 default:
                     break;
             }

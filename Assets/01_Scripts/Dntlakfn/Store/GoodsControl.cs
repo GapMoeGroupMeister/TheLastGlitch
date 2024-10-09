@@ -46,7 +46,7 @@ public class GoodsControl : MonoBehaviour
 
     public void BuyItem()
     {
-        DataManager.Instance.money -= item._price;
+        PlayerItemData.Instance.gadgetData.Gold -= item._price;
         gameObject.SetActive(false);
         Debug.Log(item);
         //인벤토리 리스트에 구매한 아이탬 넣어줌
