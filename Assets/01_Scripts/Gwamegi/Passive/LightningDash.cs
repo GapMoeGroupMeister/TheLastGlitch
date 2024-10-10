@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "SO/Player/Passive/LightningDash")]
@@ -27,29 +28,31 @@ public class LightningDash : PassiveSO
                     targetTrm = enemy.transform;
                     targetEnemy = enemy;
 
-                }
+                }else if(!item.gameObject.activeSelf)
+                { }
                 else if (Vector3.Distance(targetEnemy.transform.position, owner.transform.position) > Vector3.Distance(owner.transform.position, enemy.transform.position))
                 {
                     targetEnemy = enemy;
                     targetTrm = enemy.transform;
+                    if (targetEnemy.transform.position.x > owner.transform.position.x)
+                    {
+                        targetTrm.position += Vector3.right * 3;
+                    }
+                    else
+                    {
+                        targetTrm.position += Vector3.left * 3;
+
+                    }
+
+                    Vector3 dir = targetEnemy.transform.position - owner.transform.position;
+                    owner.transform.DOMove(targetEnemy.transform.position, time);
+                    targetEnemy.GetComponent<Health>().TakeDamage(damage, dir, 0);
                 }
             }
             
         }
 
-        if (targetEnemy.transform.position.x > owner.transform.position.x)
-        {
-            targetTrm.position += Vector3.right * 3;
-        }
-        else
-        {
-            targetTrm.position += Vector3.left * 3;
-
-        }
-
-        Vector3 dir = targetEnemy.transform.position - owner.transform.position;
-        owner.transform.DOMove(targetEnemy.transform.position, time);
-        targetEnemy.GetComponent<Health>().TakeDamage(damage, dir, 0);
+        
 
 
     }
