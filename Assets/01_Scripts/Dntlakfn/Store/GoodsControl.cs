@@ -58,6 +58,10 @@ public class GoodsControl : MonoBehaviour
 
     public void Click()
     {
+        if(FindAnyObjectByType<EventBox>() != null || FindAnyObjectByType<MessageBox>() != null)
+        {
+            return;
+        }
         if (Money.money >= item._price)
         {
             if (_name.text == "¸ÅÁø")

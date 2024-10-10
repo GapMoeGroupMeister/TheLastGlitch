@@ -11,6 +11,10 @@ public class Reroll : MonoBehaviour
     public RectTransform canvas;
     public void Click()
     {
+        if (FindAnyObjectByType<EventBox>() != null || FindAnyObjectByType<MessageBox>() != null)
+        {
+            return;
+        }
         if (Money.money >= 50)
         {
             OnReroll = mm;
