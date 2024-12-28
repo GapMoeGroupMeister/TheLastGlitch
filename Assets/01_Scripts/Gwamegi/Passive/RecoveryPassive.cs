@@ -11,6 +11,6 @@ public class RecoveryPassive : PassiveSO
     {
         base.Skill(owner);
         Health playerHealth = owner.GetComponent<Health>();
-        playerHealth.AddCurrentHP((int)(playerHealth.maxHealth / healCount));
+        playerHealth.AddCurrentHP((int)healCount);
     }
 }

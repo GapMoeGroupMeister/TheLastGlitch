@@ -6,7 +6,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 /// <summary>
 /// PassiveActivatedType
-/// 패시브 발동타입
+/// ?н?? ??????
 /// </summary>
 public enum PATEnum
 {
