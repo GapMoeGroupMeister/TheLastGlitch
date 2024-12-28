@@ -11,6 +11,7 @@ public class Stat
     public float atkPower;
     public float critDamage;
     public float critProbability;
+    
 }
 
 public class PlayerStat : MonoBehaviour
