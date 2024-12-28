@@ -43,7 +43,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Mouse"",
@@ -76,6 +76,24 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""name"": ""Fire"",
                     ""type"": ""Button"",
                     ""id"": ""b208a2c1-7805-4097-be46-3cfb186a7c94"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MousePos"",
+                    ""type"": ""Value"",
+                    ""id"": ""68925f38-e006-42e6-b7db-3087e5574b13"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""989c31b3-7f1c-4c8a-b21f-749c8c5860e3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -192,6 +210,28 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a84a8998-92dd-4908-b402-750e68f6c5e4"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePos"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""42b0d9e0-68ee-408f-baaf-30d6cc0b6307"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -219,10 +259,20 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+<<<<<<< HEAD:Assets/Settings/Input/Controls.cs
         m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
         m_Player_ChangeOne = m_Player.FindAction("ChangeOne", throwIfNotFound: true);
         m_Player_ChangeOne2 = m_Player.FindAction("ChangeOne2", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+=======
+        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_Swap = m_Player.FindAction("Swap", throwIfNotFound: true);
+        m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
+        m_Player_UseGadget = m_Player.FindAction("UseGadget", throwIfNotFound: true);
+        m_Player_ActiveSkill = m_Player.FindAction("ActiveSkill", throwIfNotFound: true);
+        m_Player_MousePos = m_Player.FindAction("MousePos", throwIfNotFound: true);
+        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
+>>>>>>> Develop:Assets/99_Settings/InputManager/PlayerController.cs
     }
 
     public void Dispose()
@@ -286,20 +336,40 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
+<<<<<<< HEAD:Assets/Settings/Input/Controls.cs
     private readonly InputAction m_Player_Mouse;
     private readonly InputAction m_Player_ChangeOne;
     private readonly InputAction m_Player_ChangeOne2;
     private readonly InputAction m_Player_Fire;
+=======
+    private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_Swap;
+    private readonly InputAction m_Player_Interaction;
+    private readonly InputAction m_Player_UseGadget;
+    private readonly InputAction m_Player_ActiveSkill;
+    private readonly InputAction m_Player_MousePos;
+    private readonly InputAction m_Player_Dash;
+>>>>>>> Develop:Assets/99_Settings/InputManager/PlayerController.cs
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
         public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+<<<<<<< HEAD:Assets/Settings/Input/Controls.cs
         public InputAction @Mouse => m_Wrapper.m_Player_Mouse;
         public InputAction @ChangeOne => m_Wrapper.m_Player_ChangeOne;
         public InputAction @ChangeOne2 => m_Wrapper.m_Player_ChangeOne2;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
+=======
+        public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @Swap => m_Wrapper.m_Player_Swap;
+        public InputAction @Interaction => m_Wrapper.m_Player_Interaction;
+        public InputAction @UseGadget => m_Wrapper.m_Player_UseGadget;
+        public InputAction @ActiveSkill => m_Wrapper.m_Player_ActiveSkill;
+        public InputAction @MousePos => m_Wrapper.m_Player_MousePos;
+        public InputAction @Dash => m_Wrapper.m_Player_Dash;
+>>>>>>> Develop:Assets/99_Settings/InputManager/PlayerController.cs
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -315,6 +385,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+<<<<<<< HEAD:Assets/Settings/Input/Controls.cs
             @Mouse.started += instance.OnMouse;
             @Mouse.performed += instance.OnMouse;
             @Mouse.canceled += instance.OnMouse;
@@ -327,6 +398,29 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Fire.started += instance.OnFire;
             @Fire.performed += instance.OnFire;
             @Fire.canceled += instance.OnFire;
+=======
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
+            @Swap.started += instance.OnSwap;
+            @Swap.performed += instance.OnSwap;
+            @Swap.canceled += instance.OnSwap;
+            @Interaction.started += instance.OnInteraction;
+            @Interaction.performed += instance.OnInteraction;
+            @Interaction.canceled += instance.OnInteraction;
+            @UseGadget.started += instance.OnUseGadget;
+            @UseGadget.performed += instance.OnUseGadget;
+            @UseGadget.canceled += instance.OnUseGadget;
+            @ActiveSkill.started += instance.OnActiveSkill;
+            @ActiveSkill.performed += instance.OnActiveSkill;
+            @ActiveSkill.canceled += instance.OnActiveSkill;
+            @MousePos.started += instance.OnMousePos;
+            @MousePos.performed += instance.OnMousePos;
+            @MousePos.canceled += instance.OnMousePos;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
+>>>>>>> Develop:Assets/99_Settings/InputManager/PlayerController.cs
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -337,6 +431,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+<<<<<<< HEAD:Assets/Settings/Input/Controls.cs
             @Mouse.started -= instance.OnMouse;
             @Mouse.performed -= instance.OnMouse;
             @Mouse.canceled -= instance.OnMouse;
@@ -349,6 +444,29 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Fire.started -= instance.OnFire;
             @Fire.performed -= instance.OnFire;
             @Fire.canceled -= instance.OnFire;
+=======
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
+            @Swap.started -= instance.OnSwap;
+            @Swap.performed -= instance.OnSwap;
+            @Swap.canceled -= instance.OnSwap;
+            @Interaction.started -= instance.OnInteraction;
+            @Interaction.performed -= instance.OnInteraction;
+            @Interaction.canceled -= instance.OnInteraction;
+            @UseGadget.started -= instance.OnUseGadget;
+            @UseGadget.performed -= instance.OnUseGadget;
+            @UseGadget.canceled -= instance.OnUseGadget;
+            @ActiveSkill.started -= instance.OnActiveSkill;
+            @ActiveSkill.performed -= instance.OnActiveSkill;
+            @ActiveSkill.canceled -= instance.OnActiveSkill;
+            @MousePos.started -= instance.OnMousePos;
+            @MousePos.performed -= instance.OnMousePos;
+            @MousePos.canceled -= instance.OnMousePos;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
+>>>>>>> Develop:Assets/99_Settings/InputManager/PlayerController.cs
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -379,9 +497,19 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+<<<<<<< HEAD:Assets/Settings/Input/Controls.cs
         void OnMouse(InputAction.CallbackContext context);
         void OnChangeOne(InputAction.CallbackContext context);
         void OnChangeOne2(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+=======
+        void OnAttack(InputAction.CallbackContext context);
+        void OnSwap(InputAction.CallbackContext context);
+        void OnInteraction(InputAction.CallbackContext context);
+        void OnUseGadget(InputAction.CallbackContext context);
+        void OnActiveSkill(InputAction.CallbackContext context);
+        void OnMousePos(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
+>>>>>>> Develop:Assets/99_Settings/InputManager/PlayerController.cs
     }
 }

@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Pool 
 {
     private Stack<Ipoolable> _pool;
     private Transform _parentTrm;
-    private Ipoolable _poolable;//풀링 하고 있는 클래스
-    private GameObject _prefab;//이게 만들 프리팹
+    private Ipoolable _poolable;
+    private GameObject _prefab;
+
 
     public Pool(Ipoolable poolable, Transform parent, int count)
     {
@@ -16,12 +18,12 @@ public class Pool
         _poolable = poolable;
         _prefab = poolable.ObjectPrefab;
 
-        for(int i = 0; i<count; i++)
+        for (int i = 0; i < count; i++)
         {
-            GameObject gamObj = GameObject.Instantiate(_prefab, _parentTrm);
-            gamObj.SetActive(false);
-            gamObj.name = _poolable.ItemName;
-            Ipoolable item = gamObj.GetComponent<Ipoolable>();
+            GameObject gameObj = GameObject.Instantiate(_prefab, _parentTrm);
+            gameObj.SetActive(false);
+            gameObj.name = _poolable.PoolName;
+            Ipoolable item = gameObj.GetComponent<Ipoolable>();
             _pool.Push(item);
         }
     }
@@ -30,17 +32,18 @@ public class Pool
     {
         Ipoolable item = null;
 
-        if(_pool.Count==0)
+        if (_pool.Count == 0)
         {
-            GameObject gamObj = GameObject.Instantiate(_prefab, _parentTrm);
-            gamObj.name = _poolable.ItemName;
-            item = gamObj.GetComponent<Ipoolable>();
+            GameObject gameObj = GameObject.Instantiate(_prefab, _parentTrm);
+            gameObj.name = _poolable.PoolName;
+            item = gameObj.GetComponent<Ipoolable>();
         }
         else
         {
             item = _pool.Pop();
             item.ObjectPrefab.SetActive(true);
         }
+        item.ResetItem();
 
         return item;
     }

@@ -1,37 +1,79 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth = 100;
+    public float maxHealth = 100;
 
-    private float _currentHealth;
+    public float CurrentHealth;
     Agent _onwer;
 
-    private void Update()
-    {
-        Debug.Log(_currentHealth);
-    }
+    public bool IsHittable { get; set; } = true;
+
+
+    public UnityEvent OnGetHit;
+    public UnityEvent<int> OnGetDamageEvent;
+    public UnityEvent OnDeadEvent;
+    public Pooling pool;
 
     public void Initialize(Agent agent)
     {
         _onwer = agent;
         ResetHealth();
     }
-    private void ResetHealth()
+    public void ResetHealth()
     {
-        _currentHealth = _maxHealth;
+        StartCoroutine(ResetHealthCoroutine());
     }
 
-    public void TakeDamage(float amuont)
+    private IEnumerator ResetHealthCoroutine()
     {
-        _currentHealth -= amuont;
-        if(_currentHealth <=0)
+        while (CurrentHealth <= 0)
         {
-            gameObject.SetActive(false);
+            CurrentHealth = maxHealth;
+            yield return null;
+        }
+    }
+
+    public void AddCurrentHP(int addHealth)
+    {
+        if (addHealth + CurrentHealth > maxHealth)
+        {
+            CurrentHealth = maxHealth;
+        }
+        else
+        {
+            CurrentHealth += addHealth;
+        }
+
+
+
+    }
+
+    public float GetCurrentHP()
+    {
+        return CurrentHealth;
+    }
+
+
+    public void TakeDamage(float amount, Vector2 dir, float knockbackPower)
+    {
+        if (IsHittable)
+        {
+            CurrentHealth -= amount;
+            OnGetHit?.Invoke();
+            if (knockbackPower > 0)
+                _onwer.MovementComponent.GetKnockback(dir, knockbackPower);
+            OnGetDamageEvent?.Invoke((int)amount);
+            Debug.Log(CurrentHealth + " " + gameObject.name);
+            if (CurrentHealth <= 0)
+            {
+                OnDeadEvent?.Invoke();
+                //ResetHealth();
+            }
+
         }
     }
 }
